@@ -35,12 +35,12 @@
     <!-- ===============================================--><!--    Main Content--><!-- ===============================================-->
     <main class="main" id="top">
         <div class="container" data-layout="container">
-           
+
            @include('admin.layouts.menu')
             <div class="content">
                 @include('admin.layouts.top-menu')
                 @include('admin.layouts.menu-load')
-                {{-- @yield('content') --}}
+                    @yield('content')
                 {{-- @include('admin.backup.other-dashboard-content') --}}
                 @include('admin.layouts.footer')
             </div>

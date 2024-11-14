@@ -66,7 +66,7 @@ aria-labelledby="settings-offcanvas">
                 type="checkbox" data-theme-control="isFluid" /></div>
     </div>
     <hr />
-    <div class="d-flex align-items-start"><img class="me-2" src="assets/img/icons/paragraph.svg"
+    {{-- <div class="d-flex align-items-start"><img class="me-2" src="assets/img/icons/paragraph.svg"
             width="20" alt="" />
         <div class="flex-1">
             <h5 class="fs-9 d-flex align-items-center">Navigation Position</h5>
@@ -79,7 +79,7 @@ aria-labelledby="settings-offcanvas">
                     <option value="double-top">Double Top</option>
                 </select></div>
         </div>
-    </div>
+    </div> --}}
     <hr />
     <h5 class="fs-9 d-flex align-items-center">Vertical Navbar Style</h5>
     <p class="fs-10 mb-0">Switch between styles for your vertical navbar </p>
@@ -120,7 +120,7 @@ aria-labelledby="settings-offcanvas">
 </div>
 </div>
 <a class="card setting-toggle" href="#settings-offcanvas" data-bs-toggle="offcanvas">
-<div class="card-body d-flex align-items-center py-md-2 px-2 py-1">
+{{-- <div class="card-body d-flex align-items-center py-md-2 px-2 py-1">
     <div class="bg-primary-subtle position-relative rounded-start" style="height:34px;width:28px">
         <div class="settings-popover"><span class="ripple"><span
                     class="fa-spin position-absolute all-0 d-flex flex-center"><span
@@ -133,5 +133,5 @@ aria-labelledby="settings-offcanvas">
                         </svg></span></span></span></div>
     </div><small
         class="text-uppercase text-primary fw-bold bg-primary-subtle py-2 pe-2 ps-1 rounded-end">customize</small>
-</div>
+</div> --}}
 </a>

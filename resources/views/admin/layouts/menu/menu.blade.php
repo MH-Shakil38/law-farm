@@ -30,15 +30,15 @@
                             <hr class="mb-0 navbar-vertical-divider" />
                         </div>
                     </div>
-                    <a class="nav-link dropdown-indicator" href="#email"
+                    <a class="nav-link dropdown-indicator" href="#users"
                         role="button" data-bs-toggle="collapse" aria-expanded="false"
-                        aria-controls="email">
+                        aria-controls="users">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-users"></span></span><span
                                 class="nav-link-text ps-1">User</span></div>
                     </a>
-                    <ul class="nav collapse" id="email">
-                        <li class="nav-item"><a class="nav-link" href="app/email/inbox.html">
+                    <ul class="nav collapse" id="users">
+                        <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">
                                 <div class="d-flex align-items-center"><span
                                         class="nav-link-text ps-1">Create</span></div>
                             </a><!-- more inner pages--></li>
