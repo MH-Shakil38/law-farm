@@ -24,113 +24,34 @@
                     <table class="table table-sm table-striped fs-10 mb-0 overflow-hidden">
                         <thead class="bg-200">
                             <tr>
-                                <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="name">Customer</th>
-                                <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="country">Country</th>
-                                <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="email">Email</th>
-                                <th class="text-900 sort align-middle white-space-nowrap text-end pe-4" data-sort="payment">Payment
-                                </th>
+                                <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="name">Name</th>
+                                <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="country">Email</th>
+                                <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="email">Phone</th>
+                                <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="email">Role</th>
+
                             </tr>
                         </thead>
                         <tbody class="list" id="table-purchase-body">
+                            @forelse ($users as $info)
                             <tr class="btn-reveal-trigger">
                                 <th class="align-middle white-space-nowrap name"><a
-                                        href="../../app/e-commerce/customer-details.html">Sylvia Plath</a></th>
-                                <td class="align-middle white-space-nowrap country">USA</td>
-                                <td class="align-middle white-space-nowrap email">john@gmail.com</td>
+                                        href="../../app/e-commerce/customer-details.html">{{ $info->name }}</a></th>
+                                <td class="align-middle white-space-nowrap country">{{ $info->email }}</td>
+                                <td class="align-middle white-space-nowrap email">{{ $info->phone }}</td>
                                 <td class="align-middle text-end fs-9 white-space-nowrap payment"><span
-                                        class="badge badge rounded-pill badge-subtle-success">Success<span class="ms-1 fas fa-check"
+                                        class="badge badge rounded-pill badge-subtle-success">{{ $info->role_id == 1 ? 'Admin' : 'Employee' }}<span class="ms-1 fas fa-check"
                                             data-fa-transform="shrink-2"></span></span></td>
                             </tr>
-                            <tr class="btn-reveal-trigger">
-                                <th class="align-middle white-space-nowrap name"><a
-                                        href="../../app/e-commerce/customer-details.html">Homer</a></th>
-                                <td class="align-middle white-space-nowrap country">canada</td>
-                                <td class="align-middle white-space-nowrap email">sylvia@mail.ru</td>
-                                <td class="align-middle text-end fs-9 white-space-nowrap payment"><span
-                                        class="badge badge rounded-pill badge-subtle-warning">Pending<span
-                                            class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span></span></td>
-                            </tr>
-                            <tr class="btn-reveal-trigger">
-                                <th class="align-middle white-space-nowrap name"><a
-                                        href="../../app/e-commerce/customer-details.html">Edgar Allan Poe</a></th>
-                                <td class="align-middle white-space-nowrap country">UK</td>
-                                <td class="align-middle white-space-nowrap email">edgar@yahoo.com</td>
-                                <td class="align-middle text-end fs-9 white-space-nowrap payment"><span
-                                        class="badge badge rounded-pill badge-subtle-secondary">Blocked<span class="ms-1 fas fa-ban"
-                                            data-fa-transform="shrink-2"></span></span></td>
-                            </tr>
-                            <tr class="btn-reveal-trigger">
-                                <th class="align-middle white-space-nowrap name"><a
-                                        href="../../app/e-commerce/customer-details.html">William Butler Yeats</a></th>
-                                <td class="align-middle white-space-nowrap country">USA</td>
-                                <td class="align-middle white-space-nowrap email">william@gmail.com</td>
-                                <td class="align-middle text-end fs-9 white-space-nowrap payment"><span
-                                        class="badge badge rounded-pill badge-subtle-success">Success<span class="ms-1 fas fa-check"
-                                            data-fa-transform="shrink-2"></span></span></td>
-                            </tr>
-                            <tr class="btn-reveal-trigger">
-                                <th class="align-middle white-space-nowrap name"><a
-                                        href="../../app/e-commerce/customer-details.html">Rabindranath Tagore</a></th>
-                                <td class="align-middle white-space-nowrap country">canada</td>
-                                <td class="align-middle white-space-nowrap email">tagore@twitter.com</td>
-                                <td class="align-middle text-end fs-9 white-space-nowrap payment"><span
-                                        class="badge badge rounded-pill badge-subtle-warning">Pending<span
-                                            class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span></span></td>
-                            </tr>
-                            <tr class="btn-reveal-trigger">
-                                <th class="align-middle white-space-nowrap name"><a
-                                        href="../../app/e-commerce/customer-details.html">Emily Dickinson</a></th>
-                                <td class="align-middle white-space-nowrap country">UK</td>
-                                <td class="align-middle white-space-nowrap email">emily@gmail.com</td>
-                                <td class="align-middle text-end fs-9 white-space-nowrap payment"><span
-                                        class="badge badge rounded-pill badge-subtle-secondary">Blocked<span class="ms-1 fas fa-ban"
-                                            data-fa-transform="shrink-2"></span></span></td>
-                            </tr>
-                            <tr class="btn-reveal-trigger">
-                                <th class="align-middle white-space-nowrap name"><a
-                                        href="../../app/e-commerce/customer-details.html">Giovanni Boccaccio</a></th>
-                                <td class="align-middle white-space-nowrap country">USA</td>
-                                <td class="align-middle white-space-nowrap email">giovanni@outlook.com</td>
-                                <td class="align-middle text-end fs-9 white-space-nowrap payment"><span
-                                        class="badge badge rounded-pill badge-subtle-warning">Pending<span
-                                            class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span></span></td>
-                            </tr>
-                            <tr class="btn-reveal-trigger">
-                                <th class="align-middle white-space-nowrap name"><a
-                                        href="../../app/e-commerce/customer-details.html">Oscar Wilde</a></th>
-                                <td class="align-middle white-space-nowrap country">USA</td>
-                                <td class="align-middle white-space-nowrap email">oscar@hotmail.com</td>
-                                <td class="align-middle text-end fs-9 white-space-nowrap payment"><span
-                                        class="badge badge rounded-pill badge-subtle-success">Success<span
-                                            class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span></span></td>
-                            </tr>
-                            <tr class="btn-reveal-trigger">
-                                <th class="align-middle white-space-nowrap name"><a
-                                        href="../../app/e-commerce/customer-details.html">John Doe</a></th>
-                                <td class="align-middle white-space-nowrap country">canada</td>
-                                <td class="align-middle white-space-nowrap email">doe@gmail.com</td>
-                                <td class="align-middle text-end fs-9 white-space-nowrap payment"><span
-                                        class="badge badge rounded-pill badge-subtle-success">Success<span
-                                            class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span></span></td>
-                            </tr>
-                            <tr class="btn-reveal-trigger">
-                                <th class="align-middle white-space-nowrap name"><a
-                                        href="../../app/e-commerce/customer-details.html">Emma Watson</a></th>
-                                <td class="align-middle white-space-nowrap country">UK</td>
-                                <td class="align-middle white-space-nowrap email">emma@gmail.com</td>
-                                <td class="align-middle text-end fs-9 white-space-nowrap payment"><span
-                                        class="badge badge rounded-pill badge-subtle-warning">Pending<span
-                                            class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span></span></td>
-                            </tr>
+                            @empty
+
+                            @endforelse
+
+
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="p-3">
-                <p>Use <code>data-list-filter </code>attribute with the select fields and assign the value according to the column
-                    name. For example</p>
-                <pre class="scrollbar mt-2"><code class="language-html">&lt;select class=&quot;form-select form-select-sm mb-3&quot; data-list-filter=&quot;country&quot;&gt;&lt;/select&gt;</code></pre>
-            </div>
+            
         </div>
       </div>
     </div>
