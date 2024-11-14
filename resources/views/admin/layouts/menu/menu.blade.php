@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light navbar-vertical navbar-expand-xl" style="display: none;">
+<nav class="navbar navbar-light navbar-vertical navbar-expand-xl navbar-vibrant" style="display: none;">
 
     <div class="d-flex align-items-center">
         <div class="toggle-icon-wrapper">
@@ -35,10 +35,14 @@
                         aria-controls="users">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-users"></span></span><span
-                                class="nav-link-text ps-1">User</span></div>
+                                class="nav-link-text ps-1">Employee</span></div>
                     </a>
                     <ul class="nav collapse" id="users">
                         <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">
+                            <div class="d-flex align-items-center"><span
+                                    class="nav-link-text ps-1">List</span></div>
+                        </a><!-- more inner pages--></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('users.create') }}">
                                 <div class="d-flex align-items-center"><span
                                         class="nav-link-text ps-1">Create</span></div>
                             </a><!-- more inner pages--></li>
