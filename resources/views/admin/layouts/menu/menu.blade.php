@@ -47,10 +47,7 @@
                                         class="nav-link-text ps-1">Create</span></div>
                             </a><!-- more inner pages--></li>
 
-                            <li class="nav-item"><a class="nav-link" href="{{ route('users.create') }}">
-                                <div class="d-flex align-items-center"><span
-                                        class="nav-link-text ps-1">Create</span></div>
-                            </a><!-- more inner pages--></li>
+                            
                     </ul>
                 </li>
             </ul>
