@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\UserStoreRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -27,9 +29,25 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        //
+
+        try{
+            DB::beginTransaction();
+            $data = $request->validated();
+            $data['name'] = $request->input('name');
+            $data['email'] = $request->input('email');
+            $data['password'] = bcrypt($request->input('password'));
+            $data['file'] = $this->uploadImage($request->file('file'), 'user/file/');
+            $data['image'] = $this->uploadImage($request->file('image'), 'user/image/');
+            User::query()->create($data);
+            DB::commit();
+            return redirect()->route('users.index')->with('success', 'User created successfully');
+
+        }catch(\Throwable $e){
+            dd($e->getMessage(),$e->getCode(),$e->getLine());
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
     /**
