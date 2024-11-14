@@ -66,6 +66,7 @@ aria-labelledby="settings-offcanvas">
                 type="checkbox" data-theme-control="isFluid" /></div>
     </div>
     <hr />
+    
     {{-- <div class="d-flex align-items-start"><img class="me-2" src="assets/img/icons/paragraph.svg"
             width="20" alt="" />
         <div class="flex-1">
