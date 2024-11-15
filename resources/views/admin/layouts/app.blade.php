@@ -26,13 +26,10 @@
     <meta name="theme-color" content="#ffffff">
     <script src="{{ asset('/') }}assets/js/config.js"></script>
     <script src="{{ asset('/') }}vendors/simplebar/simplebar.min.js"></script>
-
-    <!-- ===============================================--><!--    Stylesheets--><!-- ===============================================-->
     @include('admin.layouts.header-script')
 </head>
 
 <body>
-    <!-- ===============================================--><!--    Main Content--><!-- ===============================================-->
     <main class="main" id="top">
         <div class="container" data-layout="container">
 
@@ -47,22 +44,27 @@
             @include('admin.componant.modal.authentication-modal')
         </div>
     </main>
-    <!-- ===============================================--><!--    End of Main Content--><!-- ===============================================-->
     @include('admin.theem.setting')
-
-    <!-- ===============================================--><!--    JavaScripts--><!-- ===============================================-->
     <script src="{{ asset('/') }}vendors/popper/popper.min.js"></script>
     <script src="{{ asset('/') }}vendors/bootstrap/bootstrap.min.js"></script>
     <script src="{{ asset('/') }}vendors/anchorjs/anchor.min.js"></script>
     <script src="{{ asset('/') }}vendors/is/is.min.js"></script>
+    <script src="{{ asset('/') }}vendors/prism/prism.js"></script>
     <script src="{{ asset('/') }}vendors/echarts/echarts.min.js"></script>
     <script src="{{ asset('/') }}vendors/fontawesome/all.min.js"></script>
     <script src="{{ asset('/') }}vendors/lodash/lodash.min.js"></script>
     <script src="{{ asset('/') }}vendors/list.js/list.min.js"></script>
     <script src="{{ asset('/') }}assets/js/theme.js"></script>
+   @include('alert.toster')
+
+   {{-- confimation button --}}
+   <script>
+    function confirmAction(event, url) {
+        event.preventDefault(); // Prevent the default action of the link
+        if (confirm('Are you sure you want to delete this record?')) {
+            window.location.href = url; // Redirect to the delete route if confirmed
+        }
+    }
+</script>
 </body>
-
-
-<!-- Mirrored from prium.github.io/falcon/v3.22.0/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Nov 2024 06:34:13 GMT -->
-
 </html>

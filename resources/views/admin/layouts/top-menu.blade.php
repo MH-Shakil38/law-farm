@@ -6,7 +6,7 @@
                 class="toggle-line"></span></span></button>
     <a class="navbar-brand me-1 me-sm-3" href="index.html">
         <div class="d-flex align-items-center"><img class="me-2"
-                src="assets/img/icons/spot-illustrations/falcon.png" alt=""
+                src="{{ asset('website/logo.jpg') }}" alt=""
                 width="40" /><span class="font-sans-serif text-primary">falcon</span></div>
     </a>
     <ul class="navbar-nav align-items-center d-none d-lg-block">
@@ -492,7 +492,7 @@
                 role="button" data-bs-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <div class="avatar avatar-xl">
-                    <img class="rounded-circle" src="assets/img/team/3-thumb.png"
+                    <img class="rounded-circle" src="{{ asset(auth()->user()->image) }}"
                         alt="" />
                 </div>
             </a>
@@ -502,13 +502,21 @@
                     <a class="dropdown-item fw-bold text-warning" href="#!"><span
                             class="fas fa-crown me-1"></span><span>Go Pro</span></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#!">Set status</a>
-                    <a class="dropdown-item" href="pages/user/profile.html">Profile &amp;
+                    {{-- <a class="dropdown-item" href="#!">Set status</a> --}}
+                    <a class="dropdown-item" href="{{ route('profile.edit') }}">Profile &amp;
                         account</a>
-                    <a class="dropdown-item" href="#!">Feedback</a>
+                    <a class="dropdown-item" href="#!">Activity log</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="pages/user/settings.html">Settings</a>
-                    <a class="dropdown-item" href="pages/authentication/card/logout.html">Logout</a>
+                    <a class="dropdown-item  notification-indicator-fill fa-icon-wait " href="#settings-offcanvas" data-bs-toggle="offcanvas"
+                    href="#settings-offcanvas">Settings</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <button type="submit" class=" dropdown-item underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            {{ __('Log Out') }}
+                        </button>
+                    </form>
+                    {{-- <a class="dropdown-item" href="pages/authentication/card/logout.html">Logout</a> --}}
                 </div>
             </div>
         </li>
@@ -523,7 +531,7 @@
                 class="toggle-line"></span></span></button>
     <a class="navbar-brand me-1 me-sm-3" href="index.html">
         <div class="d-flex align-items-center"><img class="me-2"
-                src="assets/img/icons/spot-illustrations/falcon.png" alt=""
+                src="{{ asset('website/logo.jpg') }}" alt=""
                 width="40" /><span class="font-sans-serif text-primary">falcon</span></div>
     </a>
     <div class="collapse navbar-collapse scrollbar" id="navbarStandard">
@@ -757,9 +765,9 @@
                                     <div class="nav flex-column">
                                         <p class="nav-link text-700 mb-0 fw-bold">User</p><a
                                             class="nav-link py-1 link-600 fw-medium"
-                                            href="pages/user/profile.html">Profile</a><a
-                                            class="nav-link py-1 link-600 fw-medium"
-                                            href="pages/user/settings.html">Settings</a>
+                                            href="pages/user/profile.html">Profile</a>
+                                            <a class="nav-link px-0 notification-indicator notification-indicator-warning notification-indicator-fill fa-icon-wait " href="#settings-offcanvas" data-bs-toggle="offcanvas"
+                                            href="#settings-offcanvas">Settings</a>
                                     </div>
                                 </div>
                                 <div class="col-6 col-xxl-3">
@@ -1477,7 +1485,7 @@
                 role="button" data-bs-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <div class="avatar avatar-xl">
-                    <img class="rounded-circle" src="assets/img/team/3-thumb.png"
+                    <img class="rounded-circle" src="{{ asset(auth()->user()->image) }}"
                         alt="" />
                 </div>
             </a>
@@ -1487,12 +1495,13 @@
                     <a class="dropdown-item fw-bold text-warning" href="#!"><span
                             class="fas fa-crown me-1"></span><span>Go Pro</span></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#!">Set status</a>
+                    {{-- <a class="dropdown-item" href="#!">Set status</a> --}}
                     <a class="dropdown-item" href="pages/user/profile.html">Profile &amp;
                         account</a>
                     <a class="dropdown-item" href="#!">Feedback</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="pages/user/settings.html">Settings</a>
+                    <a class="nav-link px-0 notification-indicator notification-indicator-warning notification-indicator-fill fa-icon-wait " href="#settings-offcanvas" data-bs-toggle="offcanvas"
+                    href="#settings-offcanvas">Settings</a>
                     <a class="dropdown-item" href="pages/authentication/card/logout.html">Logout</a>
                 </div>
             </div>

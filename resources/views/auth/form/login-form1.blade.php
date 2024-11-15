@@ -11,7 +11,7 @@
         <div class="row min-vh-100 bg-100">
             <div class="col-7 d-none d-lg-block position-relative">
                 <div class="bg-holder"
-                    style="background-image: url('{{ asset('website/login-bg.jpg') }}'); background-position: 50% 20%; background-size: cover;">
+                    style="background-image: url('{{ asset('website/login-bg2.jpeg') }}'); background-position: 50% 20%; background-size: cover;">
 
                 </div>
                 <!--/.bg-holder-->
