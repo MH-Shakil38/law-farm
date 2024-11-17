@@ -177,7 +177,7 @@
                         </div> --}}
                         <div class="card mb-3">
                             <div class="card-header bg-body-tertiary d-flex justify-content-between">
-                                <h5 class="mb-0">CLIENT FILE</h5>
+                                <h5 class="mb-0">ALL FILE (Document's)</h5>
                                 <div id="table-customers-replace-element">
                                     <button data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true"
                                         aria-controls="collapse2"
