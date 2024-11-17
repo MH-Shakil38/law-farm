@@ -39,6 +39,8 @@
                                 <h5 class="fs-9 fw-normal">{{ $client->short_details }}</h5>
                                 <p class="text-500">{{ $client->address }}</p><button
                                     class="btn btn-falcon-primary btn-sm px-3" type="button">Email</button>
+                                    <a class="btn btn-falcon-default btn-sm px-3 ms-2" type="button"
+                                    href="#">Call</a>
                                 <a class="btn btn-falcon-default btn-sm px-3 ms-2" type="button"
                                     href="{{ route('clients.edit', $client->id) }}">Edit</a>
                                 <div class="border-bottom border-dashed my-4 d-lg-none"></div>
