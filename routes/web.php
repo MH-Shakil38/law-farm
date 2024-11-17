@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('users', UserController::class);
     Route::resource('clients', ClientController::class);
+    Route::post('clients/file', [ClientController::class,'fileStore'])->name('clients.file.store');
 
     // configuration route
     Route::prefix('config')->group(function(){

@@ -6,8 +6,8 @@
                 class="toggle-line"></span></span></button>
     <a class="navbar-brand me-1 me-sm-3" href="index.html">
         <div class="d-flex align-items-center"><img class="me-2"
-                src="{{ asset('website/logo.jpg') }}" alt=""
-                width="40" /><span class="font-sans-serif text-primary">falcon</span></div>
+                src="{{ asset('website/logo.webp') }}" alt=""
+                width="40" /><span class="font-sans-serif text-primary">PLB</span></div>
     </a>
     <ul class="navbar-nav align-items-center d-none d-lg-block">
         <li class="nav-item">
@@ -531,8 +531,8 @@
                 class="toggle-line"></span></span></button>
     <a class="navbar-brand me-1 me-sm-3" href="index.html">
         <div class="d-flex align-items-center"><img class="me-2"
-                src="{{ asset('website/logo.jpg') }}" alt=""
-                width="40" /><span class="font-sans-serif text-primary">falcon</span></div>
+                src="{{ asset('website/logo.webp') }}" alt=""
+                width="40" /><span class="font-sans-serif text-primary">PLB</span></div>
     </a>
     <div class="collapse navbar-collapse scrollbar" id="navbarStandard">
         <ul class="navbar-nav" data-top-nav-dropdowns="data-top-nav-dropdowns">

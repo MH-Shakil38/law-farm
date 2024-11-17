@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\client\StoreRequest;
+use App\Http\Requests\client\UpdateRequest;
 use App\Models\CaseType;
 use App\Models\Client;
+use App\Models\ClientFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -14,10 +16,18 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $data['caseTypes'] = CaseType::getAll();
-        $data['clients'] = Client::getAll();
+        $data['clients'] = Client::getAll(true);
+        if ($request->ajax()) {
+            $view = view('admin.client.ajax-client')->with($data)->render();
+            $pagination = view('admin.component.paginate',['paginator'=>$data['clients']])->render();
+            return response()->json([
+                'clients' => $view,
+                'pagination' => $pagination
+            ]);
+        }
         return view('admin.client.list')->with($data);
     }
 
@@ -56,7 +66,8 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        $data['client'] = $client;
+        return view('admin.client.details')->with($data);
     }
 
     /**
@@ -64,22 +75,55 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        $data['caseTypes'] = CaseType::getAll();
+        $data['client'] = $client;
+        return view('admin.client.edit')->with($data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Client $client)
+    public function update(UpdateRequest $request, Client $client)
     {
-        //
+        try{
+            DB::beginTransaction();
+            $data = $request->validated();
+            if($request->hasFile('image')){
+                $data['image'] = $this->uploadImage($request->file('image'), 'client/image/');
+            }
+            $data['created_by'] = auth()->user()->id;
+            $client->update($data);
+
+            DB::commit();
+            return redirect()->route('clients.index')->with('success','Successfully Client Updated');
+        }catch(\Throwable $e){
+            DB::rollBack();
+            $this->errorDD($e);
+            return redirect()->back()->with('error','Error Client Created',$e);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Client $client)
-    {
-        //
+    public function fileStore(Request $request){
+        $request->validate([
+            'file' => 'required|mimes:pdf,doc,docx,jpg,jpeg',
+        ]);
+        try{
+            DB::beginTransaction();
+            $data = $request->all();
+            if($request->hasFile('file')){
+                $data['file'] = $this->uploadImage($request->file('file'), 'client/file/');
+            }
+            $data['title'] = $request->title;
+            $data['created_by'] = auth()->user()->id;
+            $data['client_id'] = $request->client_id;
+            ClientFile::query()->create($data);
+            DB::commit();
+            return redirect()->back()->with('success','Successfully File Uploaded');
+        }catch(\Throwable $e){
+                DB::rollBack();
+                $this->errorDD($e);
+                return redirect()->back()->with('error','Error Client Created',$e);
+            }
     }
+
 }

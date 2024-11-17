@@ -41,7 +41,7 @@
                 {{-- @include('admin.backup.other-dashboard-content') --}}
                 @include('admin.layouts.footer')
             </div>
-            @include('admin.componant.modal.authentication-modal')
+            @include('admin.component.modal.authentication-modal')
         </div>
     </main>
     @include('admin.theem.setting')
