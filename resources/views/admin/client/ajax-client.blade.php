@@ -8,7 +8,7 @@
     <td>{{ $info->case_number }}</td>
     <td><a href="{{ route('clients.show',$info->id) }}">{!! str_ireplace(request()->search, "<span style='background-color: yellow;'>".request()->search."</span>", $info->name) !!}</a> </td>
     <td>{!! str_ireplace(request()->search, "<span style='background-color: yellow;'>".request()->search."</span>", $info->phone) !!}</td>
-    <td>{{ $info->case->name ?? '' }}</td>
+    <td>{{ $info->caseType->name ?? '' }}</td>
     <td>{{ $info->createdBy->name ?? '--' }}</td>
     <td>{{ $info->created_at->format('d M y') }}</td>
     <td>
