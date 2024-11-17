@@ -19,4 +19,8 @@ class Controller extends BaseController
             return null;
         }
     }
+
+    public function errorDD($e){
+        dd($e->getFile(),$e->getCode(),$e->getLine(),$e->getMessage());
+    }
 }

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BasicController;
+use App\Http\Controllers\CaseTypeController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +34,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('users', UserController::class);
+    Route::resource('clients', ClientController::class);
+
+    // configuration route
+    Route::prefix('config')->group(function(){
+        Route::resource('caseType', CaseTypeController::class);
+    });
 
     // multi record
     Route::get('record/delete', [BasicController::class, 'deleteRecord'])->name('record.delete');
