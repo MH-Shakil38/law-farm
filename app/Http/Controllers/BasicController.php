@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CaseType;
+use App\Models\Client;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class BasicController extends Controller
 {
+    public function dashboard(){
+        $data['caseTypes'] = CaseType::getAll();
+        $data['clients'] = Client::getAll(false);
+        return view('admin.dashboard')->with($data);
+    }
     public function deleteRecord(Request $request)
     {
         try {

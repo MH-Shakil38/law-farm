@@ -51,7 +51,7 @@ class Client extends Model
         if ($request->has('search')) {
             $query = self::search($query, $request->search);
         }
-        $query = ($paginate ? $query->paginate($request->perPage ?? 15) : $query);
+        $query = ($paginate ? $query->paginate($request->perPage ?? 15) : $query->get());
         return $query;
     }
 

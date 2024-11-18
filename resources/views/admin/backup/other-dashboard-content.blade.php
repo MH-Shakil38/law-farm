@@ -2,7 +2,7 @@
     <div class="col-md-6 col-xxl-3">
         <div class="card h-md-100 ecommerce-card-min-width">
             <div class="card-header pb-0">
-                <h6 class="mb-0 mt-2 d-flex align-items-center">Weekly Sales<span
+                <h6 class="mb-0 mt-2 d-flex align-items-center">Total Client<span
                         class="ms-1 text-400" data-bs-toggle="tooltip" data-bs-placement="top"
                         title="Calculated according to last week's sales"><span
                             class="far fa-question-circle"
@@ -11,8 +11,8 @@
             <div class="card-body d-flex flex-column justify-content-end">
                 <div class="row">
                     <div class="col">
-                        <p class="font-sans-serif lh-1 mb-1 fs-5">$47K</p><span
-                            class="badge badge-subtle-success rounded-pill fs-11">+3.5%</span>
+                        <p class="font-sans-serif lh-1 mb-1 fs-5">{{ clients()->count() }}</p><span
+                            class="badge badge-subtle-success rounded-pill fs-11"></span>
                     </div>
                     <div class="col-auto ps-0">
                         <div class="echart-bar-weekly-sales h-100"></div>
@@ -24,12 +24,12 @@
     <div class="col-md-6 col-xxl-3">
         <div class="card h-md-100">
             <div class="card-header pb-0">
-                <h6 class="mb-0 mt-2">Total Order</h6>
+                <h6 class="mb-0 mt-2">Today Client</h6>
             </div>
             <div class="card-body d-flex flex-column justify-content-end">
                 <div class="row justify-content-between">
                     <div class="col-auto align-self-end">
-                        <div class="fs-5 fw-normal font-sans-serif text-700 lh-1 mb-1">58.4K</div>
+                        <div class="fs-5 fw-normal font-sans-serif text-700 lh-1 mb-1">{{ clients()->where('created_at',today())->count() }}</div>
                         <span class="badge rounded-pill fs-11 bg-200 text-primary"><span
                                 class="fas fa-caret-up me-1"></span>13.6%</span>
                     </div>
@@ -47,7 +47,7 @@
             <div class="card-body">
                 <div class="row h-100 justify-content-between g-0">
                     <div class="col-5 col-sm-6 col-xxl pe-2">
-                        <h6 class="mt-1">Market Share</h6>
+                        <h6 class="mt-1">Last Week Client</h6>
                         <div class="fs-11 mt-3">
                             <div class="d-flex flex-between-center mb-1">
                                 <div class="d-flex align-items-center"><span
@@ -82,7 +82,7 @@
     <div class="col-md-6 col-xxl-3">
         <div class="card h-md-100">
             <div class="card-header d-flex flex-between-center pb-0">
-                <h6 class="mb-0">Weather</h6>
+                <h6 class="mb-0">Next Day Case</h6>
                 <div class="dropdown font-sans-serif btn-reveal-trigger"><button
                         class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal"
                         type="button" id="dropdown-weather-update" data-bs-toggle="dropdown"
@@ -127,7 +127,7 @@
             <div class="card-header bg-body-tertiary">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h6 class="mb-0">Running Projects</h6>
+                        <h6 class="mb-0">Next Seven Dayes Case</h6>
                     </div>
                     <div class="col-auto text-center pe-x1"><select
                             class="form-select form-select-sm">
@@ -308,7 +308,7 @@
             <div class="card-header">
                 <div class="row flex-between-center">
                     <div class="col-auto">
-                        <h6 class="mb-0">Total Sales</h6>
+                        <h6 class="mb-0">Total Incom</h6>
                     </div>
                     <div class="col-auto d-flex"><select
                             class="form-select form-select-sm select-month me-2">
@@ -349,7 +349,7 @@
         </div>
     </div>
 </div>
-<div class="row g-0">
+{{-- <div class="row g-0">
     <div class="col-lg-6 col-xl-7 col-xxl-8 mb-3 pe-lg-2 mb-3">
         <div class="card h-lg-100">
             <div class="card-body d-flex align-items-center">
@@ -853,4 +853,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
