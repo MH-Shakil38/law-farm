@@ -4,7 +4,7 @@
         aria-controls="navbarVerticalCollapse" aria-expanded="false"
         aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span
                 class="toggle-line"></span></span></button>
-    <a class="navbar-brand me-1 me-sm-3" href="index.html">
+    <a class="navbar-brand me-1 me-sm-3" href="{{ route('dashboard') }}">
         <div class="d-flex align-items-center"><img class="me-2"
                 src="{{ asset('website/logo.webp') }}" alt=""
                 width="40" /><span class="font-sans-serif text-primary">PLB</span></div>
@@ -439,7 +439,7 @@
         aria-controls="navbarVerticalCollapse" aria-expanded="false"
         aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span
                 class="toggle-line"></span></span></button>
-    <a class="navbar-brand me-1 me-sm-3" href="index.html">
+    <a class="navbar-brand me-1 me-sm-3" href="{{ route('dashboard') }}">
         <div class="d-flex align-items-center"><img class="me-2"
                 src="{{ asset('website/logo.webp') }}" alt=""
                 width="40" /><span class="font-sans-serif text-primary">PLB</span></div>

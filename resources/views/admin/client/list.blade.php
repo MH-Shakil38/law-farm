@@ -10,7 +10,7 @@
                         <div class="col-auto">
                             <form>
                                 <div class="input-group input-search-width"><input
-                                        class="form-control form-control-sm shadow-none search" type="search"
+                                        class="form-control form-control-sm shadow-none search-client" type="search"
                                         placeholder="Search  by name" aria-label="search"></div>
                             </form>
                         </div>
@@ -103,7 +103,7 @@
                 alldata(next); // Call the function to fetch and update the page
             });
 
-            $(document).on('keyup', '.search', function(event) {
+            $(document).on('keyup', '.search-client', function(event) {
                 alldata();
             })
 
@@ -132,7 +132,7 @@
                 } else {
                     var page = page;
                 }
-                var search = $('.search').val();
+                var search = $('.search-client').val();
                 var perPage = $('.perPage').val();
                 console.log(
                     'the page number is : ' + page + ',' +
