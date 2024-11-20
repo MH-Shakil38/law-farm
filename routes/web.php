@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[BasicController::class, 'dashboard'])->name('dashboard');
+Route::get('/',[BasicController::class, 'dashboard'])->name('dashboard')->middleware(['auth']);
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

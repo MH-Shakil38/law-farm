@@ -13,7 +13,7 @@
         <li class="nav-item">
             <div class="search-box" data-list='{"valueNames":["title"]}'>
                 <form class="position-relative search" data-bs-toggle="search" data-bs-display="static">
-                    <input class="form-control search-input search" type="search"
+                    <input class="form-control search-input" type="search"
                         placeholder="Search..." aria-label="Search" />
                     <span class="fas fa-search search-box-icon"></span>
                 </form>
