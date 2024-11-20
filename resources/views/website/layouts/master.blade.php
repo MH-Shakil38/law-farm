@@ -4,7 +4,7 @@
 <!-- Mirrored from preview.colorlib.com/theme/whisper/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Nov 2024 06:24:06 GMT -->
 
 <head>
-    <title>Whisper - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Law Office of Pema Lhamu Bhutia</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -765,7 +765,7 @@
                             document.write(new Date().getFullYear());
                         </script> All rights reserved | This template is made with <i
                             class="icon-heart color-danger" aria-hidden="true"></i> by <a
-                            href="https://colorlib.com/" target="_blank">Colorlib</a>
+                            href="https://colorlib.com/" target="_blank">Law Office of Pema Lhamu Bhutia</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
