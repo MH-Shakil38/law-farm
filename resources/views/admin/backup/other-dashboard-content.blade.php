@@ -42,7 +42,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-xxl-3">
+    {{-- <div class="col-md-6 col-xxl-3">
         <div class="card h-md-100">
             <div class="card-body">
                 <div class="row h-100 justify-content-between g-0">
@@ -119,9 +119,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
-<div class="row g-0">
+{{-- <div class="row g-0">
     <div class="col-lg-6 pe-lg-2 mb-3">
         <div class="card h-lg-100 overflow-hidden">
             <div class="card-header bg-body-tertiary">
@@ -348,7 +348,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 {{-- <div class="row g-0">
     <div class="col-lg-6 col-xl-7 col-xxl-8 mb-3 pe-lg-2 mb-3">
         <div class="card h-lg-100">
