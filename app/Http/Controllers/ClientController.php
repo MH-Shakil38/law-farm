@@ -51,7 +51,6 @@ class ClientController extends Controller
             if($request->hasFile('image')){
                 $data['image'] = $this->uploadImage($request->file('image'), 'client/image/');
             }
-            $data['created_by'] = auth()->user()->id;
             Client::query()->create($data);
             DB::commit();
             return redirect()->back()->with('success','Successfully Client Created');
@@ -91,9 +90,7 @@ class ClientController extends Controller
             if($request->hasFile('image')){
                 $data['image'] = $this->uploadImage($request->file('image'), 'client/image/');
             }
-            $data['created_by'] = auth()->user()->id;
             $client->update($data);
-
             DB::commit();
             return redirect()->route('clients.index')->with('success','Successfully Client Updated');
         }catch(\Throwable $e){
@@ -114,8 +111,7 @@ class ClientController extends Controller
                 $data['file'] = $this->uploadImage($request->file('file'), 'client/file/');
             }
             $data['title'] = $request->title;
-            $data['created_by'] = auth()->user()->id;
-            $data['client_id'] = $request->client_id;
+             $data['client_id'] = $request->client_id;
             ClientFile::query()->create($data);
             DB::commit();
             return redirect()->back()->with('success','Successfully File Uploaded');

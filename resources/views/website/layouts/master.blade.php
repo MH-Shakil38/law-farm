@@ -128,10 +128,10 @@
                 <div class="col-md-6 px-5 py-5">
                     <div class="row justify-content-start pt-3 pb-3">
                         <div class="col-md-12 heading-section ftco-animate">
-                            <span class="subheading">Fun Facts</span>
+                            <span class="subheading">My Bio</span>
                             <h2 class="mb-4">Law Office of Pema Lhamu Bhutia Stablished Since '.....'</h2>
-                            <p>Specializing in Asylum, SIJS, Petition, Divorces, U visa, DWI-DUI, Immigration, Personal
-                                Injury- Car Accident or Work Accidents.</p>
+                            <p>A founding member of the firm, Mrs. Bhutia who was born in India is an attorney in both India and the United States of America. Mrs. Bhutia, who is fluent in five languages, combines compassion and a deep understanding of the law to achieve success for her clients.  Mrs. Bhutia is a graduate of St. John's University School of Law In New York City.
+                                Mrs. Bhutia does extensive work with our SIJS clients in obtaining green cards for unaccompanied minors in United States and has a reputation as a compassionate and tenacious advocate.</p>
                         </div>
                     </div>
                     <div class="row">

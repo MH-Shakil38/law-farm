@@ -3,7 +3,8 @@
 @section('content')
     <div class="card mb-3">
         <div class="bg-holder d-none d-lg-block bg-card"
-            style="background-image:url(../../assets/img/icons/spot-illustrations/corner-4.png);"></div>
+            style=""></div>
+            {{-- style="background-image:url(../../assets/img/icons/spot-illustrations/corner-4.png);"></div> --}}
         <div class="card-body position-relative">
             <div class="card-header">
                 <div class="row flex-between-center">
@@ -44,7 +45,7 @@
                 <form action="{{ route('clients.store') }}" method="POST" class="dropzone dropzone-multiple p-0"
                     id="my-awesome-dropzone" data-dropzone="data-dropzone" enctype="multipart/form-data">
                     @csrf
-                    @include('admin.client.form')
+                    @include('admin.client.intackform')
                 </form>
             </div>
         </div>

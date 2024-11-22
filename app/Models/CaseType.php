@@ -22,14 +22,22 @@ class CaseType extends Model
         return self::all();
     }
 
+    protected static function boot(){
+        parent::boot();
+        static::creating(function ($query){
+            $query->created_by = auth()->user()->id;
+        });
+        static::updating(function ($query){
+            $query->updated_by = auth()->user()->id;
+        });
+    }
+
     static function store()
     {
         $request = request();
         $data['name'] = $request->name;
         $data['description'] = $request->description ?? '';
         $data['status'] = $request->status == 1 ? 1 : 0;
-        $data['created_by'] = auth()->user()->id;
-        $data['updated_by'] = auth()->user()->id;
         return self::create($data);
     }
 

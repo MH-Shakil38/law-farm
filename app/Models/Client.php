@@ -45,6 +45,20 @@ class Client extends Model
         return $this->hasMany(ClientFile::class,'client_id')->orderBy('created_at','DESC');
     }
 
+    public function hearing(){
+        return $this->hasMany(Hearing::class,'client_id');
+    }
+
+    protected static function boot(){
+        parent::boot();
+        static::creating(function ($query){
+            $query->created_by = auth()->user()->id;
+        });
+        static::updating(function ($query){
+            $query->updated_by = auth()->user()->id;
+        });
+    }
+
     static function getAll($paginate = null){
         $request = request();
         $query = self::query();

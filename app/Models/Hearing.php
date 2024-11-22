@@ -5,19 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ClientFile extends Model
+class Hearing extends Model
 {
     use HasFactory;
-    protected $table = 'client_files';
+    protected $table = 'hearings';
     protected $fillable = [
-        'file',
         'title',
         'description',
+        'date',
+        'time',
+        'status',
         'client_id',
         'created_by',
         'updated_by',
-        'status',
     ];
+
+    public function client(){
+        return $this->belongsTo(Client::class, 'client_id');
+    }
+
+    public function createdBy(){
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function updatedBy(){
+        return $this->belongsTo(User::class, 'updated_by');
+    }
 
     protected static function boot(){
         parent::boot();
@@ -27,9 +40,5 @@ class ClientFile extends Model
         static::updating(function ($query){
             $query->updated_by = auth()->user()->id;
         });
-    }
-
-    public function client(){
-        return $this->belongsTo(Client::class,'client_id');
     }
 }

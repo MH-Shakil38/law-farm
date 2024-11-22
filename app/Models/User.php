@@ -51,4 +51,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected static function boot(){
+        parent::boot();
+        static::creating(function ($query){
+            $query->created_by = auth()->user()->id;
+        });
+        static::updating(function ($query){
+            $query->updated_by = auth()->user()->id;
+        });
+    }
 }
