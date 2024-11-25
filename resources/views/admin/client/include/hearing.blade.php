@@ -3,12 +3,11 @@
         <h5 class="mb-0">Court hearing history</h5>
         <div id="table-customers-replace-element">
             <button data-bs-toggle="collapse" data-bs-target="#hearing-collapse" aria-expanded="true"
-                aria-controls="hearing-collapse"
-                class="btn btn-falcon-default btn-sm text-success collapsed" type="button"><svg
-                    class="svg-inline--fa fa-plus fa-w-14" data-fa-transform="shrink-3 down-2"
-                    aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
-                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
-                    data-fa-i2svg="" style="transform-origin: 0.4375em 0.625em;">
+                aria-controls="hearing-collapse" class="btn btn-falcon-default btn-sm text-success collapsed"
+                type="button"><svg class="svg-inline--fa fa-plus fa-w-14" data-fa-transform="shrink-3 down-2"
+                    aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""
+                    style="transform-origin: 0.4375em 0.625em;">
                     <g transform="translate(224 256)">
                         <g transform="translate(0, 64)  scale(0.8125, 0.8125)  rotate(0 0 0)">
                             <path fill="currentColor"
@@ -25,49 +24,56 @@
         <div class="accordion" id="accordionExample">
 
             <div class="accordion-item">
-                <div class="accordion-collapse collapse" id="hearing-collapse"
+                <div class="accordion-collapse collapse {{ isset($hearing) ? 'show' : '' }}" id="hearing-collapse"
                     aria-labelledby="heading2" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <form action="{{ route('clients.hearing.date') }}" method="POST"
-                            enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="client_id" value="{{ $client->id }}">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label class="form-lable" for="title">Title</label>
-                                    <input type="text" name="title"
-                                        placeholder="Enter file title" class="form-control">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-lable" for="date"> Date</label>
-                                    <input type="date" name="date"
-                                        placeholder="Enter file title" class="form-control">
-                                </div>
-                                <div class="col-md-6 mt-2">
-                                    <label class="form-label" for="timepicker1">Time</label>
-                                    <input name="time" class="form-control datetimepicker"
-                                        id="timepicker1" type="text" placeholder="H:i"
-                                        data-options='{"enableTime":true,"noCalendar":true,"dateFormat":"H:i","disableMobile":true}' />
-                                </div>
+                        @isset($hearing)
+                            <form action="{{ route('clients.hearing.update',$hearing->id) }}" method="POST"
+                                enctype="multipart/form-data">
+                            @else
+                                <form action="{{ route('clients.hearing.date') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                @endisset
 
-                                <div class="col-md-6 mt-2">
-                                    <label class="form-label" for="file">File's</label>
-                                    <input type="file" name="file"
-                                    placeholder="Enter file title" class="form-control">
-                                </div>
-                                <div class="col-md-12 mt-2">
-                                    <label class="form-lable" for="title">Description</label>
-                                    <textarea name="description" class="form-control" id="" rows="3"
-                                        placeholder="Enter Short Description"></textarea>
-                                </div>
-                                <div class="col-md-12 mt-2">
-                                    <button class="btn btn-primary form control"> <i
-                                            class="fas fa-plus"> </i> Save
-                                    </button>
-                                </div>
+                                @csrf
+                                <input type="hidden" name="client_id" value="{{ $client->id }}">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="form-lable" for="title">Title</label>
+                                        <input type="text" name="title" placeholder="Enter file title" value="{{ isset($hearing) ? $hearing->title : '' }}"
+                                            class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-lable" for="date">Next Hearing Date</label>
+                                        <input type="date" name="date" placeholder="Enter file title" value="{{ isset($hearing) ? $hearing->date : '' }}"
+                                            class="form-control">
+                                    </div>
+                                    <div class="col-md-6 mt-2">
+                                        <label class="form-label" for="timepicker1">Time</label>
+                                        <input name="time" class="form-control datetimepicker" id="timepicker1"
+                                            type="text" placeholder="H:i" value="{{ isset($hearing) ? $hearing->time : '' }}"
+                                            data-options='{"enableTime":true,"noCalendar":true,"dateFormat":"H:i","disableMobile":true}' />
+                                    </div>
 
-                            </div>
-                        </form>
+                                    <div class="col-md-6 mt-2">
+                                        <label class="form-label" for="file">File's</label>
+                                        <input type="file" name="file" placeholder="Enter file title"
+                                            class="form-control">
+                                    </div>
+                                    <div class="col-md-12 mt-2">
+                                        <label class="form-lable" for="title">Description</label>
+                                        <textarea name="description" class="form-control" id="" rows="3" placeholder="Enter Short Description">{{ isset($hearing) ? $hearing->description : '' }}</textarea>
+                                    </div>
+                                    <div class="col-md-12 mt-2">
+                                        <button class="btn btn-primary form control"> <i class="fas fa-plus"> </i> {{ isset($hearing) ? 'Update' : 'Save' }}
+                                        </button>
+                                        @isset($hearing)
+                                            <a href="{{ route('clients.show',$hearing->client_id) }}" class="btn btn-danger">Cancel</a>
+                                        @endisset
+                                    </div>
+
+                                </div>
+                            </form>
                     </div>
 
                 </div>
@@ -80,7 +86,7 @@
             <div class="card-body fs-10">
                 <div class="row">
                     @forelse ($client->hearing->reverse() as $info)
-                        <div class="col-md-12 h-100">
+                        <div class="col-md-10 h-100">
                             <div class="d-flex btn-reveal-trigger">
                                 <div class="calendar"><span
                                         class="calendar-month">{{ Carbon\Carbon::parse($info->date)->format('M') }}</span><span
@@ -104,10 +110,11 @@
                                             {{ $info->title }}
                                             <br>
                                             @if (\Carbon\Carbon::parse($info->date)->isToday())
-                                            <span class="badge badge-subtle-danger rounded-pill">Today</span>
-                                        @elseif (\Carbon\Carbon::parse($info->date)->isFuture() && $loop->first)
-                                            <span class="badge badge-subtle-success rounded-pill">Next Hearing</span>
-                                        @endif
+                                                <span class="badge badge-subtle-danger rounded-pill">Today</span>
+                                            @elseif (\Carbon\Carbon::parse($info->date)->isFuture() && $loop->first)
+                                                <span class="badge badge-subtle-success rounded-pill">Next
+                                                    Hearing</span>
+                                            @endif
                                         </a>
                                     </h6>
                                     <p class="mb-1"><strong class="text-bold">Created By:</strong><a href="#!"
@@ -121,6 +128,23 @@
                                     </p>
                                     {{ $info->description ?? '' }}
                                     <div class="border-bottom border-dashed my-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="dropdown">
+                                <button class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="{{ route('clients.hearing.edit', $info->id) }}"
+                                        class="dropdown-item text-info">Edit</a>
+                                    {{-- <a class="dropdown-item text-success"
+                                        href="{{ route('clients.hearing.details', $info->id) }}">Details</a> --}}
+
+                                    <a href="#"
+                                        onclick="confirmAction(event, '{{ route('record.delete', ['model' => 'Hearing', 'id' => $info->id]) }}')"
+                                        class="dropdown-item text-danger">Delete</a>
                                 </div>
                             </div>
                         </div>

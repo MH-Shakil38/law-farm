@@ -53,7 +53,7 @@
                         <h6 class="mb-0">{{ $client->phone1 ?? '' }}</h6>
                     </div>
                 </a><a class="d-flex align-items-center mb-2" href="#"><img
-                        class="align-self-center me-2" src="../../assets/img/logos/g.png"
+                        class="align-self-center me-2" src="{{ asset('assets/img/logos/g.png') }}"
                         alt="Generic placeholder image" width="30">
                     <div class="flex-1">
                         <h6 class="mb-0">{{ $client->email }}</h6>

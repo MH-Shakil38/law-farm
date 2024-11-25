@@ -31,6 +31,8 @@ class Client extends Model
         'created_by',
         'updated_by',
         'image',
+        'ref_by',
+        'gender',
     ];
 
     public function caseType(){

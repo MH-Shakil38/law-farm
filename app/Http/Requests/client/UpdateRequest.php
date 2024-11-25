@@ -25,7 +25,7 @@ class UpdateRequest extends FormRequest
         $client = $this->route('client');
 
         return [
-            'name' => 'required|string|max:255', // Client's First Name
+            'name' => 'required|string|max:255', // Client's  Name
             'email' => 'required|email|unique:clients,email,'.$client->id, // Email Address
             'phone' => 'required|string|max:25', // Phone Number
             'address' => 'nullable|string|max:255', // Address
@@ -42,6 +42,8 @@ class UpdateRequest extends FormRequest
             'passport_number' => 'nullable|string|max:50', // Passport Number
             'status' => 'required|in:0,1', // Status
             'image' => 'nullable|image',
+            'ref_by' => 'nullable',
+            'gender' => 'nullable',
         ];
     }
 }

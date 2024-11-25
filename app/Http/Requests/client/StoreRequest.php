@@ -39,6 +39,8 @@ class StoreRequest extends FormRequest
             'passport_number' => 'nullable|string|max:50', // Passport Number
             'status' => 'required|in:0,1', // Status
             'image' => 'nullable|image',
+            'ref_by' => 'nullable',
+            'gender' => 'nullable',
         ];
     }
 }

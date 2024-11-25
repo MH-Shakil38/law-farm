@@ -4,7 +4,7 @@
             border-bottom: 2px dashed #dddddd;
         }
 
-      
+
     </style>
     <div class="row mb-4">
         <div class="col-md-6">
@@ -124,19 +124,19 @@
                 <label for="maritalstatus">Marital Status</label> <br>
 
                 <div class="form-check form-check-inline"><input class="form-check-input" id="inlineRadio2"
-                        type="radio" name="inlineRadioOptions" value="option2" /><label class="form-check-label"
+                        type="radio" name="inlineRadioOptions" value="1" /><label class="form-check-label"
                         for="inlineRadio2">Single</label></div>
 
 
                 <div class="form-check form-check-inline"><input class="form-check-input" id="inlineRadio1"
-                        type="radio" name="inlineRadioOptions" value="option1" /><label class="form-check-label"
+                        type="radio" name="inlineRadioOptions" value="2" /><label class="form-check-label"
                         for="inlineRadio1">Married</label></div>
                 <div class="form-check form-check-inline"><input class="form-check-input" id="inlineRadio2"
-                        type="radio" name="inlineRadioOptions" value="option2" /><label class="form-check-label"
+                        type="radio" name="inlineRadioOptions" value="3" /><label class="form-check-label"
                         for="inlineRadio2">Divorced</label></div>
 
                 <div class="form-check form-check-inline"><input class="form-check-input" id="inlineRadio2"
-                        type="radio" name="inlineRadioOptions" value="option2" /><label class="form-check-label"
+                        type="radio" name="inlineRadioOptions" value="4" /><label class="form-check-label"
                         for="inlineRadio2">Separated</label></div>
 
             </div>

@@ -18,11 +18,15 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique()->nullable();
             $table->string('phone1')->nullable();
+            $table->string('specialization')->nullable();
+            $table->unsignedBigInteger('lawyer_type')->nullable();
             $table->string('address')->nullable();
             $table->string('image')->nullable();
             $table->string('file')->nullable();
+            $table->integer('user_type')->nullable();
             $table->tinyInteger('isActive')->default(1);
             $table->integer('role_id')->nullable();
+            $table->string('ip')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('created_by')->nullable();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\User\UserStoreRequest;
 use App\Http\Requests\User\UserUpdateRequest;
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,9 +14,26 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
+    protected $service;
+    public function __construct(UserService $service)
+    {
+        return $this->service = $service;
+    }
+
     public function index()
     {
-        $data['users'] = User::query()->latest()->get();
+
+        $output = null;
+        $resultCode = null;
+        exec('ipconfig /all', $output, $resultCode);
+        if ($resultCode === 0) {
+            $outputString = implode("\n", $output);
+            dd($outputString);
+            return response()->json([
+                'ipconfig_output' => $outputString
+            ]);
+        }
+        $data = $this->service->allUsers();
         return view('admin.users.list')->with($data);
     }
 
@@ -24,7 +42,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+
+        $data = $this->service->allUsers();
+        return view('admin.users.create')->with($data);
     }
 
     /**
@@ -32,8 +52,7 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-
-        try{
+        try {
             DB::beginTransaction();
             $data = $request->validated();
             $data['name'] = $request->input('name');
@@ -42,15 +61,18 @@ class UserController extends Controller
             $data['address'] = $request->input('address');
             $data['phone'] = $request->input('phone');
             $data['role_id'] = $request->input('role_id');
+            $data['ip'] = $request->input('ip');
             $data['isActive'] = $request->input('isActive');
+            $data['type'] = $request->input('type');
+            $data['specialization'] = $request->input('specialization');
             $data['file'] = $this->uploadImage($request->file('file'), 'user/file/');
             $data['image'] = $this->uploadImage($request->file('image'), 'user/image/');
-            User::query()->create($data);
+            $store = User::query()->create($data);
+            dd($store);
             DB::commit();
-            return redirect()->back()->with('success', 'Employee created successfully');
-
-        }catch(\Throwable $e){
-            dd($e->getMessage(),$e->getCode(),$e->getLine());
+            return redirect()->back()->with('success', 'Data Added Successfully');
+        } catch (\Throwable $e) {
+            dd($e->getMessage(), $e->getCode(), $e->getLine());
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
@@ -66,9 +88,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        $data['user'] = $user;
+        $data = $this->service->allUsers();
+        $data['user'] = $this->service->getUser($id);
         return view('admin.users.create')->with($data);
     }
 
@@ -77,33 +100,24 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user)
     {
-        try{
+        try {
             DB::beginTransaction();
-            $data = $request->all();
-
-            if($request->password){
-                $data['password'] = bcrypt($request->input('password'));
-            }
-            if($request->hasFile('file')){
-                $data['file'] = $this->uploadImage($request->file('file'), 'user/file/');
-            }
-
-            if($request->hasFile('image')){
-                $data['image'] = $this->uploadImage($request->file('image'), 'user/image/');
-            }
-            $user->update($data);
-
+            $this->service->storeuser($user);
             DB::commit();
-            return redirect()->back()->with('success', 'Employee Udpate successfully');
-
-        }catch(\Throwable $e){
-            dd($e->getMessage(),$e->getCode(),$e->getLine());
+            if ($request->user_type == 3) {
+                return redirect()->route('lawyer.index')->with('success', 'Lawyer Udpate successfully');
+            } else {
+                return redirect()->route('users.index')->with('success', 'User Udpate successfully');
+            }
+        } catch (\Throwable $e) {
+            dd($e->getMessage(), $e->getCode(), $e->getLine());
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
 
 
-    public function changePassword($id){
+    public function changePassword($id)
+    {
         $data['user'] = User::query()->findOrFail($id);
         return view('admin.users.change-password')->with($data);
     }

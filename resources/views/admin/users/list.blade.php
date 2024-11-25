@@ -10,7 +10,7 @@
                 <div class="card-header">
                     <div class="row flex-between-center">
                         <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
-                            <h5 class="fs-9 mb-0 text-nowrap py-2 py-xl-0">Employee</h5>
+                            <h5 class="fs-9 mb-0 text-nowrap py-2 py-xl-0">{{ $type ?? 'Employee' }}</h5>
                         </div>
                         <div class="col-8 col-sm-auto text-end ps-2">
                             {{-- <div class="d-none" id="table-customers-actions">
@@ -94,7 +94,7 @@
                                         <td class="phone align-middle white-space-nowrap py-2"><a
                                                 href="tel:2012001851">{{ $info->phone }}</a></td>
                                         <td class="joined align-middle py-2"> <span
-                                                class="badge bg-{{ $info->role_id == 1 ? 'success' : 'primary' }}">{{ $info->role_id == 1 ? 'Admin' : 'Emaployee' }}</span>
+                                                class="badge bg-{{ $info->user_type == 1 ? 'success' : 'primary' }}">{{isset($type) && $type == 'Lawyer' ? 'lawyer' :( $info->user_type == 1 ? 'Admin' : 'Emaployee') }}</span>
                                         </td>
 
                                         <td class="joined align-middle py-2"> <span
@@ -117,7 +117,12 @@
                                                 <div class="dropdown-menu dropdown-menu-end border py-0"
                                                     aria-labelledby="customer-dropdown-0">
                                                     <div class="py-2">
+                                                        @if (isset($type) && $type == 'Lawyer')
+                                                        <a class="dropdown-item text-success"  href="{{ route('lawyer.edit', $info->id) }}">Edit</a>
+                                                        @else
                                                         <a class="dropdown-item text-success"  href="{{ route('users.edit', $info->id) }}">Edit</a>
+                                                        @endif
+
                                                         <a class="dropdown-item text-warning"  href="{{ route('users.change.password', $info->id) }}">Change Password</a>
                                                         <a class="dropdown-item text-danger"
                                                         href="#"
