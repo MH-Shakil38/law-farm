@@ -6,6 +6,7 @@ use App\Http\Controllers\CaseTypeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,6 +45,11 @@ Route::middleware('auth')->group(function () {
     // multi record
     Route::get('record/delete', [BasicController::class, 'deleteRecord'])->name('record.delete');
     Route::get('change/password/{id}', [UserController::class, 'changePassword'])->name('users.change.password');
+});
+
+
+Route::get('migrate-fresh',function(){
+    Artisan::call('migrate:fresh');
 });
 
 
