@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('migrate-fresh',function(){
-    Artisan::call('migrate:fresh');
+    Artisan::call('migrate:fresh --seed');
 });
 
 
