@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('file');
             $table->string('title')->nullable();
             $table->string('description')->nullable();
+            $table->date('date')->nullable();
             $table->foreignId('client_id')->constrained()->onDelete('cascade');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();

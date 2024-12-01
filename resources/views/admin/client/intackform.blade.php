@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-12">
             <span>Referred by:</span>
-            <input type="text" name="ref_by" class="custome-input" value="">
+            <input type="text" name="ref_by" class="custome-input" value="{{isset($client) ? $client->ref_by : old('ref_by') }}">
         </div>
     </div>
 
@@ -76,10 +76,10 @@
 
         <div class="col-md-4">
             <div class="mb-3">
-                <label for="postal_code" class="form-label">Zip Code</label>
-                <input type="text" name="postal_code" id="postal_code" class="form-control"
-                    value="{{ isset($client->postal_code) ? $client->postal_code : old('postal_code') }}"
-                    placeholder="Postal Code (optional)">
+                <label for="zip_code" class="form-label">Zip Code</label>
+                <input type="text" name="zip_code" id="zip_code" class="form-control"
+                    value="{{ isset($client->zip_code) ? $client->zip_code : old('zip_code') }}"
+                    placeholder="Zip Code (optional)">
             </div>
         </div>
 
@@ -119,28 +119,103 @@
             </div>
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="mb-3">
                 <label for="maritalstatus">Marital Status</label> <br>
 
-                <div class="form-check form-check-inline"><input class="form-check-input" id="inlineRadio2"
-                        type="radio" name="inlineRadioOptions" value="1" /><label class="form-check-label"
-                        for="inlineRadio2">Single</label></div>
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        id="inlineRadio2"
+                        type="radio"
+                        name="marrital_status"
+                        value="Single"
+                        {{isset($client) && $client->marrital_status === 'Single' ? 'checked' : '' }}
+                    />
+                    <label class="form-check-label" for="inlineRadio2">Single</label>
+                </div>
 
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        id="inlineRadio1"
+                        type="radio"
+                        name="marrital_status"
+                        value="Married"
+                        {{isset($client) && $client->marrital_status === 'Married' ? 'checked' : '' }}
+                    />
+                    <label class="form-check-label" for="inlineRadio1">Married</label>
+                </div>
 
-                <div class="form-check form-check-inline"><input class="form-check-input" id="inlineRadio1"
-                        type="radio" name="inlineRadioOptions" value="2" /><label class="form-check-label"
-                        for="inlineRadio1">Married</label></div>
-                <div class="form-check form-check-inline"><input class="form-check-input" id="inlineRadio2"
-                        type="radio" name="inlineRadioOptions" value="3" /><label class="form-check-label"
-                        for="inlineRadio2">Divorced</label></div>
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        id="inlineRadio3"
+                        type="radio"
+                        name="marrital_status"
+                        value="Divorced"
+                        {{isset($client) && $client->marrital_status === 'Divorced' ? 'checked' : '' }}
+                    />
+                    <label class="form-check-label" for="inlineRadio3">Divorced</label>
+                </div>
 
-                <div class="form-check form-check-inline"><input class="form-check-input" id="inlineRadio2"
-                        type="radio" name="inlineRadioOptions" value="4" /><label class="form-check-label"
-                        for="inlineRadio2">Separated</label></div>
-
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        id="inlineRadio4"
+                        type="radio"
+                        name="marrital_status"
+                        value="Separated"
+                        {{isset($client) && $client->marrital_status === 'Separated' ? 'checked' : '' }}
+                    />
+                    <label class="form-check-label" for="inlineRadio4">Separated</label>
+                </div>
             </div>
         </div>
+
+
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="maritalstatus">Gender</label> <br>
+
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        id="inlineRadioMale"
+                        type="radio"
+                        name="gender"
+                        value="male"
+                        {{isset($client) && $client->gender === 'male' ? 'checked' : '' }}
+                    />
+                    <label class="form-check-label" for="inlineRadioMale">Male</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        id="inlineRadioFemale"
+                        type="radio"
+                        name="gender"
+                        value="female"
+                        {{isset($client) && $client->gender === 'female' ? 'checked' : '' }}
+                    />
+                    <label class="form-check-label" for="inlineRadioFemale">Female</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        id="inlineRadioOther"
+                        type="radio"
+                        name="gender"
+                        value="other"
+                        {{isset($client) && $client->gender === 'other' ? 'checked' : '' }}
+                    />
+                    <label class="form-check-label" for="inlineRadioOther">Other</label>
+                </div>
+            </div>
+        </div>
+
 
 
         <div class="col-md-6">

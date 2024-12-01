@@ -7,6 +7,9 @@ use App\Http\Requests\client\UpdateRequest;
 use App\Models\CaseType;
 use App\Models\Client;
 use App\Models\ClientFile;
+use App\Models\User;
+use App\Services\CaseService;
+use App\Services\ClientService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -16,17 +19,20 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      */
+    protected $clientService;
+    protected $caseService;
+    public function __construct(ClientService $clientService,CaseService $caseService){
+         $this->clientService = $clientService;
+         $this->caseService = $caseService;
+         return $this;
+    }
     public function index(Request $request)
     {
-        $data['caseTypes'] = CaseType::getAll();
-        $data['clients'] = Client::getAll(true);
+        $data['caseTypes'] = $this->caseService->getCaseType();
+        $data['clients'] = $this->clientService->getAll(true);
         if ($request->ajax()) {
-            $view = view('admin.client.ajax-client')->with($data)->render();
-            $pagination = view('admin.component.paginate',['paginator'=>$data['clients']])->render();
-            return response()->json([
-                'clients' => $view,
-                'pagination' => $pagination
-            ]);
+            $data = $this->clientService->ajaxClientInfo($data);
+            return response()->json($data);
         }
         return view('admin.client.list')->with($data);
     }
@@ -36,7 +42,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        $data['caseTypes'] = CaseType::getAll();
+        $data['caseTypes'] = $this->caseService->getCaseType();
         return view('admin.client.craete')->with($data);
     }
 
@@ -48,10 +54,7 @@ class ClientController extends Controller
         try{
             DB::beginTransaction();
             $data = $request->validated();
-            if($request->hasFile('image')){
-                $data['image'] = $this->uploadImage($request->file('image'), 'client/image/');
-            }
-            Client::query()->create($data);
+            $this->clientService->storeClient($data);
             DB::commit();
             return redirect()->back()->with('success','Successfully Client Created');
         }catch(\Throwable $e){
@@ -66,6 +69,7 @@ class ClientController extends Controller
     public function show(Client $client)
     {
         $data['client'] = $client;
+        $data['lawyers'] = User::query()->where('user_type',3)->get();
         return view('admin.client.details')->with($data);
     }
 
@@ -86,13 +90,9 @@ class ClientController extends Controller
     {
         try{
             DB::beginTransaction();
-            $data = $request->validated();
-            if($request->hasFile('image')){
-                $data['image'] = $this->uploadImage($request->file('image'), 'client/image/');
-            }
-            $client->update($data);
+            $this->clientService->updateClient($client);
             DB::commit();
-            return redirect()->route('clients.index')->with('success','Successfully Client Updated');
+            return redirect()->back()->with('success','Successfully Client Updated');
         }catch(\Throwable $e){
             DB::rollBack();
             $this->errorDD($e);
@@ -106,13 +106,7 @@ class ClientController extends Controller
         ]);
         try{
             DB::beginTransaction();
-            $data = $request->all();
-            if($request->hasFile('file')){
-                $data['file'] = $this->uploadImage($request->file('file'), 'client/file/');
-            }
-            $data['title'] = $request->title;
-             $data['client_id'] = $request->client_id;
-            ClientFile::query()->create($data);
+            $this->clientService->fileStore();
             DB::commit();
             return redirect()->back()->with('success','Successfully File Uploaded');
         }catch(\Throwable $e){

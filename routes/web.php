@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('lawyer', UserController::class);
     Route::resource('clients', ClientController::class);
+
+
     Route::post('clients/file', [ClientController::class,'fileStore'])->name('clients.file.store');
     Route::post('clients/hearing-date', [CaseController::class,'hearingDate'])->name('clients.hearing.date');
     Route::get('clients/hearing/edit/{id}', [CaseController::class,'hearingEdit'])->name('clients.hearing.edit');

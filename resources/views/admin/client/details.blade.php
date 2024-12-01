@@ -12,7 +12,7 @@
                 @include('admin.client.include.personal-details')
 
 
-                <div class="row g-0">
+                {{-- <div class="row g-0">
                     <div class="col-lg-8 pe-lg-2">
                         @include('admin.client.include.case-details')
 
@@ -30,7 +30,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
 
             </div>

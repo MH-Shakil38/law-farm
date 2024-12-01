@@ -8,6 +8,17 @@
                 <th> <b>NAME</b> </th>
                 <td>{{ $client->name }} </td>
             </tr>
+
+            <tr>
+                <th> <b>Marrital status</b> </th>
+                <td>{{ $client->marrital_status }} </td>
+            </tr>
+
+            <tr>
+                <th> <b>Gender</b> </th>
+                <td>{{ $client->marrital_status }} </td>
+            </tr>
+
             <tr>
                 <th> <b>PASSPORT NUMBER</b> </th>
                 <td>{{ $client->passport_number }} </td>
@@ -22,8 +33,8 @@
             </tr>
 
             <tr>
-                <th> <b>POSTAL CODE</b> </th>
-                <td>{{ $client->postal_code }} </td>
+                <th> <b>ZIP CODE</b> </th>
+                <td>{{ $client->zip_code }} </td>
             </tr>
 
             <tr>
@@ -35,6 +46,11 @@
             <tr>
                 <th> <b>DOB</b> </th>
                 <td>{{ Carbon\Carbon::parse($client->date_of_birth)->format('d M y') }} </td>
+            </tr>
+
+            <tr>
+                <th> <b>Address</b> </th>
+                <td>{{ $client->address ?? '' }} </td>
             </tr>
 
 

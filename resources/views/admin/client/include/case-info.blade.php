@@ -9,27 +9,29 @@
                 <td>{{ $client->case_number }} </td>
             </tr>
             <tr>
-                <th> <b>CASE TYPE</b> </th>
-                <td>{{ $client->caseType->name }} </td>
-            </tr>
-            <tr>
                 <th> <b>HIRING DATE</b> </th>
                 <td>
-                    @php
-                        $hearing = $client
-                            ->hearing()
-                            ->where('date', '>=', now()->startOfDay())
-                            ->orderBy('date', 'asc')
-                            ->first();
-                    @endphp
+
                     <span class="text-danger">
-                        {{ $hearing ? \Carbon\Carbon::parse($hearing->date)->format('d M Y') : 'N/A' }}
+                        {{ $client->hearing_date?\Carbon\Carbon::parse($client->hearing_date)->format('d M Y') : 'N/A' }}
                     </span>
                 </td>
             </tr>
+
+            <tr>
+                <th> <b>Lawyer</b> </th>
+                <td>{{ $client->lawyer->name ?? '' }} </td>
+            </tr>
+
+
+            <tr>
+                <th> <b>CASE TYPE</b> </th>
+                <td>{{ $client->caseType->name ?? '' }} </td>
+            </tr>
+
             <tr>
                 <th> <b>TRAKING</b> </th>
-                <td>{{ $client->caseType->name }} </td>
+                <td>{{ $client->caseType?->name }} </td>
             </tr>
         </table>
 

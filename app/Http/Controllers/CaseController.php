@@ -5,16 +5,24 @@ namespace App\Http\Controllers;
 use App\Http\Requests\HearingStoreRequest;
 use App\Models\Client;
 use App\Models\Hearing;
+use App\Services\ClientService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class CaseController extends Controller
 {
+    protected $clientService;
+    protected $hearingService;
+    public function __construct(ClientService $clientService)
+    {
+        return $this->clientService = $clientService;
+    }
     public function hearingDate (HearingStoreRequest $request){
         $data = $request->validated();
         try{
             DB::beginTransaction();
             $hearing = Hearing::query()->create($data);
+            $this->clientService->fileStore();
             DB::commit();
             return redirect()->back()->with('success','Next Hearing Date Added');
         }catch(\Throwable $e){
@@ -37,6 +45,7 @@ class CaseController extends Controller
             DB::beginTransaction();
             $hearing = Hearing::query()->findOrFail($id);
             $hearing->update($data);
+            $this->clientService->fileStore();
             DB::commit();
             return redirect()->route('clients.show',$hearing->client_id)->with('success','Hearing History Update');
         }catch(\Throwable $e){

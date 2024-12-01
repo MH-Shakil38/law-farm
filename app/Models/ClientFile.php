@@ -17,6 +17,7 @@ class ClientFile extends Model
         'created_by',
         'updated_by',
         'status',
+        'date',
     ];
 
     protected static function boot(){

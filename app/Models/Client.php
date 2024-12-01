@@ -15,25 +15,35 @@ class Client extends Model
         'name',
         'email',
         'phone',
+        'phone2',
         'address',
         'city',
         'state',
-        'postal_code',
+        'zip_code',
         'country',
         'case_type',
         'case_number',
         'case_details',
         'short_details',
+        'lawyer_id',
         'date_of_birth',
         'nationality',
         'passport_number',
         'status',
-        'created_by',
-        'updated_by',
         'image',
         'ref_by',
+        'direction',
         'gender',
+        'marrital_status',
+        'hearing_date',
+        'hearing_time',
+        'created_by',
+        'updated_by'
     ];
+
+    public function lawyer(){
+        return $this->belongsTo(User::class,'lawyer_id');
+    }
 
     public function caseType(){
         return $this->belongsTo(CaseType::class,'case_type');
@@ -69,29 +79,6 @@ class Client extends Model
         }
         $query = ($paginate ? $query->paginate($request->perPage ?? 15) : $query->get());
         return $query;
-    }
-
-
-    static function search($query,$search){
-          return  $query->where('name', 'like', '%'.$search.'%')
-                  ->orWhere('email', 'like', '%'.$search.'%')
-                  ->orWhere('phone', 'like', '%'.$search.'%')
-                  ->orWhere('address', 'like', '%'.$search.'%')
-                  ->orWhere('city', 'like', '%'.$search.'%')
-                  ->orWhere('state', 'like', '%'.$search.'%')
-                  ->orWhere('postal_code', 'like', '%'.$search.'%')
-                  ->orWhere('country', 'like', '%'.$search.'%')
-                  ->orWhere('case_type', 'like', '%'.$search.'%')
-                  ->orWhere('case_number', 'like', '%'.$search.'%')
-                  ->orWhere('case_details', 'like', '%'.$search.'%')
-                  ->orWhere('short_details', 'like', '%'.$search.'%')
-                  ->orWhere('date_of_birth', 'like', '%'.$search.'%')
-                  ->orWhere('nationality', 'like', '%'.$search.'%')
-                  ->orWhere('passport_number', 'like', '%'.$search.'%')
-                  ->orWhere('status', 'like', '%'.$search.'%')
-                  ->orWhere('created_by', 'like', '%'.$search.'%')
-                  ->orWhere('updated_by', 'like', '%'.$search.'%')
-                  ->orWhere('image', 'like', '%'.$search.'%');
     }
 
 }

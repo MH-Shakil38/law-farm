@@ -104,6 +104,13 @@
 
                     </ul>
                 </li>
+                <li class="nav-item"><!-- parent pages--><a class="nav-link" href="#">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                class="fas fa-chart-pie"></span></span><span
+                            class="nav-link-text ps-1">Activities</span></div>
+                </a>
+
+            </li>
             </ul>
 
         </div>

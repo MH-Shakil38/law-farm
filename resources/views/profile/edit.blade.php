@@ -37,9 +37,7 @@
                                         </svg><!-- <small class="fa fa-check-circle text-primary" data-fa-transform="shrink-4 down-2"></small> Font Awesome fontawesome.com --></span>
                                 </h4>
                                 <h5 class="fs-9 fw-normal">Designation...</h5>
-                                <p class="text-500">{{ auth()->user()->address }}</p><button
-                                    class="btn btn-falcon-primary btn-sm px-3" type="button">Following</button><button
-                                    class="btn btn-falcon-default btn-sm px-3 ms-2" type="button">Message</button>
+                                <p class="text-500">{{ auth()->user()->address }}</p>
                                 <div class="border-bottom border-dashed my-4 d-lg-none"></div>
                             </div>
                             <div class="col ps-2 ps-lg-3"><a class="d-flex align-items-center mb-2" href="#"><svg

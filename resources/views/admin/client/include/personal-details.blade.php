@@ -3,62 +3,97 @@
         <div class="bg-holder rounded-3 rounded-bottom-0"
             style="background-image:url(../../assets/img/generic/4.jpg);"></div><!--/.bg-holder-->
         <div class="avatar avatar-5xl avatar-profile"><img class="rounded-circle img-thumbnail shadow-sm"
-                src="{{ asset($client->image) }}" width="200" alt=""></div>
+                src="{{ asset($client->image ?? 'website/logo.webp') }}" width="200" alt=""></div>
     </div>
     <div class="card-body">
         <div class="row">
             <div class="col-lg-8">
-                <h4 class="mb-1"> {{ $client->name }}<span data-bs-toggle="tooltip"
-                        data-bs-placement="right" aria-label="Verified"
-                        data-bs-original-title="Verified"><svg
-                            class="svg-inline--fa fa-check-circle fa-w-16 text-primary"
-                            data-fa-transform="shrink-4 down-2" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="check-circle" role="img"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""
-                            style="transform-origin: 0.5em 0.625em;">
-                            <g transform="translate(256 256)">
-                                <g transform="translate(0, 64)  scale(0.75, 0.75)  rotate(0 0 0)">
-                                    <path fill="currentColor"
-                                        d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
-                                        transform="translate(-256 -256)"></path>
-                                </g>
-                            </g>
-                        </svg><!-- <small class="fa fa-check-circle text-primary" data-fa-transform="shrink-4 down-2"></small> Font Awesome fontawesome.com --></span>
+
+                <h4 class="mb-1"> {{ $client->name }}
                 </h4>
-                <h5 class="fs-9 fw-normal">{{ $client->short_details }}</h5>
-                <p class="text-500">{{ $client->address }}</p><button
-                    class="btn btn-falcon-primary btn-sm px-3" type="button">Email</button>
-                <a class="btn btn-falcon-default btn-sm px-3 ms-2" type="button" href="#">Call</a>
-                <a class="btn btn-falcon-default btn-sm px-3 ms-2" type="button"
-                    href="{{ route('clients.edit', $client->id) }}">Edit</a>
-                <div class="border-bottom border-dashed my-4 d-lg-none"></div>
+                <h5 class="text-500">{{ $client->short_details }}</h5>
+                <div class="p-2">
+                    <button class="btn btn-falcon-primary btn-sm px-3" type="button">Email</button>
+                    <a class="btn btn-falcon-default btn-sm px-3 ms-2" type="button" href="#">Call</a>
+                    <a class="btn btn-falcon-default btn-sm px-3 ms-2" type="button"
+                        href="{{ route('clients.edit', $client->id) }}">Edit</a>
+                    <div class="border-bottom border-dashed my-4 d-lg-none"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class=" mb-3">
+
+                            <div class="card-body fs-10">
+                                <table class="table table-responsive bordered">
+                                    <tr>
+                                        <th> <b>Hearing Date</b> </th>
+                                        <td> {{ $client->hearing_date?\Carbon\Carbon::parse($client->hearing_date)->format('d M Y') : 'N/A' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th> <b>Hearing Time</b> </th>
+                                        <td>
+
+                                            <span class="text-danger">
+                                                {{ $client->hearing_time }}
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th> <b>Tracking</b> </th>
+                                        <td>
+
+                                            <span class="text-danger">
+                                               ---
+                                            </span>
+                                        </td>
+                                    </tr>
+
+
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 border-left">
+
+                        <div class=" mb-3">
+
+                            <div class="card-body fs-10">
+                                <table class="table table-responsive bordered text-left">
+                                    <tr>
+                                        <th> <b>Case Handle By</b> </th>
+                                        <th> <b></b>{{ $client->lawyer->name ?? '' }} </th>
+                                    </tr>
+
+                                    <tr>
+                                        <th> <b>Case</b> </th>
+                                        <th> <b></b>{{ $client->caseType->name ?? '---' }} </th>
+                                    </tr>
+                                    <tr>
+                                        <th> <b>Created By</b> </th>
+                                        <td>
+                                            <span class="text-danger">
+                                                {{ $client->createdBy->name ?? '--' }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                {{-- case details --}}
+                @include('admin.client.include.case-details')
+                @include('admin.client.include.hearing')
+                @include('admin.client.include.files')
+
             </div>
-            <div class="col ps-2 ps-lg-3"><a class="d-flex align-items-center mb-2" href="#"><svg
-                        class="svg-inline--fa fa-user-circle fa-w-16 fs-6 me-2 text-700"
-                        data-fa-transform="grow-2" aria-hidden="true" focusable="false" data-prefix="fas"
-                        data-icon="user-circle" role="img" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 496 512" data-fa-i2svg="" style="transform-origin: 0.484375em 0.5em;">
-                        <g transform="translate(248 256)">
-                            <g transform="translate(0, 0)  scale(1.125, 1.125)  rotate(0 0 0)">
-                                <path fill="currentColor"
-                                    d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"
-                                    transform="translate(-248 -256)"></path>
-                            </g>
-                        </g>
-                    </svg><!-- <span class="fas fa-user-circle fs-6 me-2 text-700" data-fa-transform="grow-2"></span> Font Awesome fontawesome.com -->
-                    <div class="flex-1">
-                        <h6 class="mb-0">{{ $client->phone }}</h6>
-                    </div>
-                    <div class="flex-1">
-                        <h6 class="mb-0">{{ $client->phone1 ?? '' }}</h6>
-                    </div>
-                </a><a class="d-flex align-items-center mb-2" href="#"><img
-                        class="align-self-center me-2" src="{{ asset('assets/img/logos/g.png') }}"
-                        alt="Generic placeholder image" width="30">
-                    <div class="flex-1">
-                        <h6 class="mb-0">{{ $client->email }}</h6>
-                    </div>
-                </a>
+            <div class="col ps-2 ps-lg-3">
+                @include('admin.client.include.client-info')
 
             </div>
         </div>

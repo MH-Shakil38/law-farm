@@ -45,7 +45,7 @@
                     id="my-awesome-dropzone" data-dropzone="data-dropzone" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    @include('admin.client.form')
+                    @include('admin.client.intackform')
                 </form>
             </div>
         </div>

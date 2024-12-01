@@ -22,17 +22,6 @@ class UserController extends Controller
 
     public function index()
     {
-
-        $output = null;
-        $resultCode = null;
-        exec('ipconfig /all', $output, $resultCode);
-        if ($resultCode === 0) {
-            $outputString = implode("\n", $output);
-            dd($outputString);
-            return response()->json([
-                'ipconfig_output' => $outputString
-            ]);
-        }
         $data = $this->service->allUsers();
         return view('admin.users.list')->with($data);
     }
@@ -64,12 +53,16 @@ class UserController extends Controller
             $data['ip'] = $request->input('ip');
             $data['isActive'] = $request->input('isActive');
             $data['type'] = $request->input('type');
+            $data['user_type'] = $request->input('user_type');
+            $data['lawyer_type'] = $request->input('lawyer_type');
             $data['specialization'] = $request->input('specialization');
             $data['file'] = $this->uploadImage($request->file('file'), 'user/file/');
             $data['image'] = $this->uploadImage($request->file('image'), 'user/image/');
             $store = User::query()->create($data);
-            dd($store);
             DB::commit();
+            if($request->user_type == '3'){
+                return redirect()->route('lawyer.index')->with('success','Lawyer successfully Added');
+            }
             return redirect()->back()->with('success', 'Data Added Successfully');
         } catch (\Throwable $e) {
             dd($e->getMessage(), $e->getCode(), $e->getLine());
