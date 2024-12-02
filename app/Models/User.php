@@ -36,6 +36,9 @@ class User extends Authenticatable
         'password',
         'created_by',
         'updated_by',
+        'last_activity',
+        'last_logedin',
+        'isOnline',
     ];
 
     /**
@@ -57,12 +60,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected static function boot(){
+
+
+    protected static function boot()
+    {
         parent::boot();
-        static::creating(function ($query){
+        static::creating(function ($query) {
             $query->created_by = auth()->user()->id;
         });
-        static::updating(function ($query){
+        static::updating(function ($query) {
             $query->updated_by = auth()->user()->id;
         });
     }

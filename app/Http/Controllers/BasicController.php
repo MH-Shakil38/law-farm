@@ -17,6 +17,7 @@ class BasicController extends Controller
     public function dashboard(){
         $data['caseTypes'] = CaseType::getAll();
         $data['clients'] = Client::getAll(false);
+        $data['onlineUsers'] = User::query()->get();
         return view('admin.dashboard')->with($data);
     }
     public function deleteRecord(Request $request)

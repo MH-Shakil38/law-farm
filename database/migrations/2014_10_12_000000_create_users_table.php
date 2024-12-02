@@ -31,6 +31,9 @@ return new class extends Migration
             $table->string('password');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
+            $table->timestamp('last_activity')->nullable();
+            $table->timestamp('last_logedin')->nullable();
+            $table->enum('isOnline', ['online', 'offline'])->default('offline');
             $table->rememberToken();
             $table->timestamps();
         });
