@@ -21,59 +21,29 @@
                             <div class="col-lg-8">
                                 <h4 class="mb-1"> {{ auth()->user()->name }}<span data-bs-toggle="tooltip"
                                         data-bs-placement="right" aria-label="Verified"
-                                        data-bs-original-title="Verified"><svg
-                                            class="svg-inline--fa fa-check-circle fa-w-16 text-primary"
-                                            data-fa-transform="shrink-4 down-2" aria-hidden="true" focusable="false"
-                                            data-prefix="fa" data-icon="check-circle" role="img"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""
-                                            style="transform-origin: 0.5em 0.625em;">
-                                            <g transform="translate(256 256)">
-                                                <g transform="translate(0, 64)  scale(0.75, 0.75)  rotate(0 0 0)">
-                                                    <path fill="currentColor"
-                                                        d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
-                                                        transform="translate(-256 -256)"></path>
-                                                </g>
-                                            </g>
-                                        </svg><!-- <small class="fa fa-check-circle text-primary" data-fa-transform="shrink-4 down-2"></small> Font Awesome fontawesome.com --></span>
+                                        data-bs-original-title="Verified">
+                                       <small class="fa fa-check-circle text-primary" data-fa-transform="shrink-4 down-2"></small> </span>
                                 </h4>
-                                <h5 class="fs-9 fw-normal">Designation...</h5>
+                                <h5 class="fs-9 fw-normal">
+                                    {{ auth()->user()->user_type == 3 ? 'lawyer' : (auth()->user()->user_type == 2 ? 'Admin' : 'Emaployee') }}
+                                </h5>
                                 <p class="text-500">{{ auth()->user()->address }}</p>
                                 <div class="border-bottom border-dashed my-4 d-lg-none"></div>
                             </div>
-                            <div class="col ps-2 ps-lg-3"><a class="d-flex align-items-center mb-2" href="#"><svg
-                                        class="svg-inline--fa fa-user-circle fa-w-16 fs-6 me-2 text-700"
-                                        data-fa-transform="grow-2" aria-hidden="true" focusable="false" data-prefix="fas"
-                                        data-icon="user-circle" role="img" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 496 512" data-fa-i2svg="" style="transform-origin: 0.484375em 0.5em;">
-                                        <g transform="translate(248 256)">
-                                            <g transform="translate(0, 0)  scale(1.125, 1.125)  rotate(0 0 0)">
-                                                <path fill="currentColor"
-                                                    d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"
-                                                    transform="translate(-248 -256)"></path>
-                                            </g>
-                                        </g>
-                                    </svg><!-- <span class="fas fa-user-circle fs-6 me-2 text-700" data-fa-transform="grow-2"></span> Font Awesome fontawesome.com -->
+                            <div class="col ps-2 ps-lg-3">
+                                <a class="d-flex align-items-center mb-2" href="#">
+                                    <span class="fas fa-phone-square fs-6 me-2 text-700" data-fa-transform="grow-2"></span>
                                     <div class="flex-1">
                                         <h6 class="mb-0">{{ auth()->user()->phone }}</h6>
                                     </div>
-                                </a><a class="d-flex align-items-center mb-2" href="#"><img
-                                        class="align-self-center me-2" src="../../assets/img/logos/g.png"
-                                        alt="Generic placeholder image" width="30">
+                                </a>
+                                <a class="d-flex align-items-center mb-2" href="#">
+                                    <span class="fab fa-google fs-6 me-2 text-700" data-fa-transform="grow-2"></span>
                                     <div class="flex-1">
                                         <h6 class="mb-0">{{ auth()->user()->email }}</h6>
                                     </div>
                                 </a>
-                                {{-- <a class="d-flex align-items-center mb-2" href="#"><img
-                                    class="align-self-center me-2" src="../../assets/img/logos/apple.png"
-                                    alt="Generic placeholder image" width="30"> --}}
-                                {{-- <div class="flex-1">
-                              <h6 class="mb-0">Apple</h6>
-                            </div> --}}
-                                {{-- </a><a class="d-flex align-items-center mb-2" href="#"><img class="align-self-center me-2" src="../../assets/img/logos/hp.png" alt="Generic placeholder image" width="30">
-                            <div class="flex-1">
-                              <h6 class="mb-0">Hewlett Packard</h6>
-                            </div>
-                          </a> --}}
+
                             </div>
                         </div>
                     </div>
@@ -107,26 +77,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="card-footer bg-body-tertiary p-0 border-top"><button
-                                    class="btn btn-link d-block w-100 btn-intro-collapse" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#profile-intro" aria-expanded="true"
-                                    aria-controls="profile-intro">Show <span class="less">less<svg
-                                            class="svg-inline--fa fa-chevron-up fa-w-14 ms-2 fs-11" aria-hidden="true"
-                                            focusable="false" data-prefix="fas" data-icon="chevron-up" role="img"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
-                                            <path fill="currentColor"
-                                                d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z">
-                                            </path>
-                                        </svg><!-- <span class="fas fa-chevron-up ms-2 fs-11"></span> Font Awesome fontawesome.com --></span><span
-                                        class="full">full<svg class="svg-inline--fa fa-chevron-down fa-w-14 ms-2 fs-11"
-                                            aria-hidden="true" focusable="false" data-prefix="fas"
-                                            data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 448 512" data-fa-i2svg="">
-                                            <path fill="currentColor"
-                                                d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z">
-                                            </path>
-                                        </svg><!-- <span class="fas fa-chevron-down ms-2 fs-11"></span> Font Awesome fontawesome.com --></span></button>
-                            </div>
+
                         </div>
                         {{-- <div class="card mb-3">
                             <div class="card-header bg-body-tertiary d-flex justify-content-between">
@@ -251,38 +202,57 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="card mb-3 mb-lg-0">
-                            <div class="card-header bg-body-tertiary">
-                                <h5 class="mb-0">Photos</h5>
-                            </div>
-                            <div class="card-body overflow-hidden">
-                                <div class="row g-0">
-                                    <div class="col-6 p-1"><a class="glightbox" href="../../assets/img/generic/4.jpg"
-                                            data-gallery="gallery1" data-glightbox="data-glightbox"><img
-                                                class="img-fluid rounded" src="../../assets/img/generic/4.jpg"
-                                                alt="..."></a></div>
-                                    <div class="col-6 p-1"><a class="glightbox" href="../../assets/img/generic/5.jpg"
-                                            data-gallery="gallery1" data-glightbox="data-glightbox"><img
-                                                class="img-fluid rounded" src="../../assets/img/generic/5.jpg"
-                                                alt="..."></a></div>
-                                    <div class="col-4 p-1"><a class="glightbox" href="../../assets/img/gallery/4.jpg"
-                                            data-gallery="gallery1" data-glightbox="data-glightbox"><img
-                                                class="img-fluid rounded" src="../../assets/img/gallery/4.jpg"
-                                                alt="..."></a></div>
-                                    <div class="col-4 p-1"><a class="glightbox" href="../../assets/img/gallery/5.jpg"
-                                            data-gallery="gallery1" data-glightbox="data-glightbox"><img
-                                                class="img-fluid rounded" src="../../assets/img/gallery/5.jpg"
-                                                alt="..."></a></div>
-                                    <div class="col-4 p-1"><a class="glightbox" href="../../assets/img/gallery/3.jpg"
-                                            data-gallery="gallery1" data-glightbox="data-glightbox"><img
-                                                class="img-fluid rounded" src="../../assets/img/gallery/3.jpg"
-                                                alt="..."></a></div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
+
                     <div class="col-lg-4 ps-lg-2">
                         <div class="sticky-sidebar">
+                            <div class="card mb-3">
+                                <div class="card-header bg-body-tertiary">
+                                    <h5 class="mb-0">Next Hearing Date</h5>
+                                </div>
+                                <div class="card-body fs-10">
+                                    <div class="d-flex btn-reveal-trigger">
+                                        <div class="calendar"><span class="calendar-month">Feb</span><span
+                                                class="calendar-day">21</span></div>
+                                        <div class="flex-1 position-relative ps-3">
+                                            <h6 class="fs-9 mb-0"><a href="../../app/events/event-detail.html">Newmarket
+                                                    Nights</a></h6>
+                                            <p class="mb-1">Organized by <a href="#!" class="text-700">University
+                                                    of Oxford</a></p>
+                                            <p class="text-1000 mb-0">Time: 6:00AM</p>
+                                            <p class="text-1000 mb-0">Duration: 6:00AM - 5:00PM</p>Place: Cambridge Boat
+                                            Club, Cambridge<div class="border-bottom border-dashed my-3"></div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex btn-reveal-trigger">
+                                        <div class="calendar"><span class="calendar-month">Dec</span><span
+                                                class="calendar-day">31</span></div>
+                                        <div class="flex-1 position-relative ps-3">
+                                            <h6 class="fs-9 mb-0"><a href="../../app/events/event-detail.html">31st Night
+                                                    Celebration</a></h6>
+                                            <p class="mb-1">Organized by <a href="#!" class="text-700">Chamber
+                                                    Music Society</a></p>
+                                            <p class="text-1000 mb-0">Time: 11:00PM</p>
+                                            <p class="text-1000 mb-0">280 people interested</p>Place: Tavern on the Greend,
+                                            New York<div class="border-bottom border-dashed my-3"></div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex btn-reveal-trigger">
+                                        <div class="calendar"><span class="calendar-month">Dec</span><span
+                                                class="calendar-day">16</span></div>
+                                        <div class="flex-1 position-relative ps-3">
+                                            <h6 class="fs-9 mb-0"><a href="../../app/events/event-detail.html">Folk
+                                                    Festival</a></h6>
+                                            <p class="mb-1">Organized by <a href="#!" class="text-700">Harvard
+                                                    University</a></p>
+                                            <p class="text-1000 mb-0">Time: 9:00AM</p>
+                                            <p class="text-1000 mb-0">Location: Cambridge Masonic Hall Association</p>
+                                            Place: Porter Square, North Cambridge
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card mb-3">
                                 <div class="card-header bg-body-tertiary">
                                     <h5 class="mb-0">Edit About</h5>
@@ -390,63 +360,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="card mb-3 mb-lg-0">
-                                <div class="card-header bg-body-tertiary">
-                                    <h5 class="mb-0">Events</h5>
-                                </div>
-                                <div class="card-body fs-10">
-                                    <div class="d-flex btn-reveal-trigger">
-                                        <div class="calendar"><span class="calendar-month">Feb</span><span
-                                                class="calendar-day">21</span></div>
-                                        <div class="flex-1 position-relative ps-3">
-                                            <h6 class="fs-9 mb-0"><a href="../../app/events/event-detail.html">Newmarket
-                                                    Nights</a></h6>
-                                            <p class="mb-1">Organized by <a href="#!" class="text-700">University
-                                                    of Oxford</a></p>
-                                            <p class="text-1000 mb-0">Time: 6:00AM</p>
-                                            <p class="text-1000 mb-0">Duration: 6:00AM - 5:00PM</p>Place: Cambridge Boat
-                                            Club, Cambridge<div class="border-bottom border-dashed my-3"></div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex btn-reveal-trigger">
-                                        <div class="calendar"><span class="calendar-month">Dec</span><span
-                                                class="calendar-day">31</span></div>
-                                        <div class="flex-1 position-relative ps-3">
-                                            <h6 class="fs-9 mb-0"><a href="../../app/events/event-detail.html">31st Night
-                                                    Celebration</a></h6>
-                                            <p class="mb-1">Organized by <a href="#!" class="text-700">Chamber
-                                                    Music Society</a></p>
-                                            <p class="text-1000 mb-0">Time: 11:00PM</p>
-                                            <p class="text-1000 mb-0">280 people interested</p>Place: Tavern on the Greend,
-                                            New York<div class="border-bottom border-dashed my-3"></div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex btn-reveal-trigger">
-                                        <div class="calendar"><span class="calendar-month">Dec</span><span
-                                                class="calendar-day">16</span></div>
-                                        <div class="flex-1 position-relative ps-3">
-                                            <h6 class="fs-9 mb-0"><a href="../../app/events/event-detail.html">Folk
-                                                    Festival</a></h6>
-                                            <p class="mb-1">Organized by <a href="#!" class="text-700">Harvard
-                                                    University</a></p>
-                                            <p class="text-1000 mb-0">Time: 9:00AM</p>
-                                            <p class="text-1000 mb-0">Location: Cambridge Masonic Hall Association</p>
-                                            Place: Porter Square, North Cambridge
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-body-tertiary p-0 border-top"><a
-                                        class="btn btn-link d-block w-100" href="../../app/events/event-list.html">All
-                                        Events<svg class="svg-inline--fa fa-chevron-right fa-w-10 ms-1 fs-11"
-                                            aria-hidden="true" focusable="false" data-prefix="fas"
-                                            data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 320 512" data-fa-i2svg="">
-                                            <path fill="currentColor"
-                                                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
-                                            </path>
-                                        </svg><!-- <span class="fas fa-chevron-right ms-1 fs-11"></span> Font Awesome fontawesome.com --></a>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>

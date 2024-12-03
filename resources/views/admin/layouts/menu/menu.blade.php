@@ -31,7 +31,7 @@
                     <a class="nav-link dropdown-indicator" href="#users" role="button" data-bs-toggle="collapse"
                         aria-expanded="true" aria-controls="users">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                    class="fas fa-users"></span></span><span class="nav-link-text ps-1">Employee</span>
+                                    class="fas fa-user-tie"></span></span><span class="nav-link-text ps-1">Employee</span>
                         </div>
                     </a>
                     <ul class="nav collapse {{ Request::routeIs('users.*') ? 'show' : '' }}" id="users">
@@ -50,7 +50,7 @@
                     <a class="nav-link dropdown-indicator" href="#lawyer" role="button" data-bs-toggle="collapse"
                         aria-expanded="true" aria-controls="lawyer">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                    class="fas fa-users"></span></span><span class="nav-link-text ps-1">Lawyer</span>
+                                    class="fas fa-user-graduate"></span></span><span class="nav-link-text ps-1">Lawyer</span>
                         </div>
                     </a>
                     <ul class="nav collapse {{ Request::routeIs('lawyer.*') ? 'show' : '' }}" id="lawyer">
@@ -90,7 +90,7 @@
                     <a class="nav-link dropdown-indicator" href="#config" role="button" data-bs-toggle="collapse"
                         aria-expanded="true" aria-controls="config">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                    class="fas fa-users"></span></span><span class="nav-link-text ps-1">Config</span>
+                                    class="fas fa-tools"></span></span><span class="nav-link-text ps-1">Config</span>
                         </div>
                     </a>
                     <ul class="nav collapse {{ Request::segment(1) === 'config' ? 'show' : '' }}" id="config">
@@ -106,7 +106,7 @@
                 </li>
                 <li class="nav-item"><!-- parent pages--><a class="nav-link" href="#">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                class="fas fa-chart-pie"></span></span><span
+                                class="fas fa-code-branch"></span></span><span
                             class="nav-link-text ps-1">Activities</span></div>
                 </a>
 
