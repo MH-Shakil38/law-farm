@@ -11,10 +11,12 @@ use Illuminate\Support\Facades\DB;
 class BasicController extends Controller
 {
 
-    public function website(){
+    public function website()
+    {
         return view('website.website');
     }
-    public function dashboard(){
+    public function dashboard()
+    {
         $data['caseTypes'] = CaseType::getAll();
         $data['clients'] = Client::getAll(false);
         $data['onlineUsers'] = User::query()->get();

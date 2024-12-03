@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use App\Services\SecurityService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +14,7 @@ use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
+
     /**
      * Display the login view.
      */
@@ -25,12 +28,17 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-
         $request->authenticate();
-
-        $request->session()->regenerate();
-        Auth::user()->update(['isOnline'=>'online','last_activity' => null,'last_logedin' => now()]);
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if (SecurityService::checkValidIp()) {
+            $request->session()->regenerate();
+            SecurityService::LoginUpdate();
+            return redirect()->intended(RouteServiceProvider::HOME);
+        } else {
+            Auth::guard('web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect()->back()->withErrors(['ip' => 'Invalid IP']);
+        }
     }
 
     /**
@@ -38,8 +46,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        $user = Auth::user();
-        Auth::user()->update(['isOnline'=>'offline','last_activity' => now(),'last_logedin' => null]);
+        SecurityService::LogoutUpdate();
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

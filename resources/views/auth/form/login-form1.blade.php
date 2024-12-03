@@ -27,11 +27,14 @@
                             <div class="card-body p-4 p-sm-5">
 
                                 <div class="row flex-between-center mb-2">
+
                                     <div class="m-auto" style="text-align: center">
                                         <span
                                             class="font-sans-serif text-primary fw-bolder fs-4 d-inline-block">LOGIN</span>
                                     </div>
-
+                                    @error('ip')
+                                    <span class="text-warning text-center">{{ $message }}</span>
+                                @enderror
                                 </div>
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf

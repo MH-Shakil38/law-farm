@@ -27,9 +27,25 @@ if (!function_exists("caseTypes")) {
     }
 }
 
+
+if (!function_exists("publicIp")) {
+    function publicIp()
+    {
+        return file_get_contents('https://api.ipify.org');
+    }
+}
+
 function cache_duration()
 {
 
     return 60 * 60 * 24 * 30 * 12;
 }
+
+
+
+
+
+
+
+
 
