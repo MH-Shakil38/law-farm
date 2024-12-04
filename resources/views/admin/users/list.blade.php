@@ -82,6 +82,7 @@
                                                 <div class="d-flex d-flex align-items-center">
                                                     <div class="avatar avatar-xl" style="margin-right: 10px">
                                                         <img class="rounded-circle mr-2" src="{{ asset($info->image) }}"
+                                                        onerror="this.src='{{ asset('thumbnail.png') }}';"
                                                             alt="">
                                                     </div>
                                                     <div class="flex-1 ml-2">

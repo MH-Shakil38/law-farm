@@ -53,6 +53,7 @@ class UserService
         return $this->type();
     }
 
+
     public function type()
     {
         $type = request()->segment(1);

@@ -3,7 +3,7 @@
         <div class="bg-holder rounded-3 rounded-bottom-0"
             style="background-image:url(../../assets/img/generic/4.jpg);"></div><!--/.bg-holder-->
         <div class="avatar avatar-5xl avatar-profile"><img class="rounded-circle img-thumbnail shadow-sm"
-                src="{{ asset($client->image ?? 'website/logo.webp') }}" width="200" alt=""></div>
+                src="{{ asset($client->image) }}" onerror="this.src='{{ asset('thumbnail.png') }}';" width="200" alt=""></div>
     </div>
     <div class="card-body">
         <div class="row">

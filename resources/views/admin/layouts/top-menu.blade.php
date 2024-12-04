@@ -1395,7 +1395,7 @@
                 role="button" data-bs-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <div class="avatar avatar-xl">
-                    <img class="rounded-circle" src="{{ asset(auth()->user()->image ?? '') }}"
+                    <img class="rounded-circle" src="{{ asset(auth()->user()->image ) }}" onerror="this.src='{{ asset('thumbnail.png') }}';"
                         alt="" />
                 </div>
             </a>
