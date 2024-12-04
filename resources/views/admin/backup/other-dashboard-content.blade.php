@@ -115,9 +115,9 @@
                                     </div>
                                 </div>
 
-                                <div class="col-5 pe-x1 ps-2">
+                                <div class="col-6 pe-x1 ps-2">
                                     <div class="fs-10 fw-semi-bold">
-                                        <span class="" style="font-size: 13px">Activities
+                                        <span class="" style="font-size: 13px">Last Activities
                                     </div>
                                 </div>
                         </div>
@@ -152,7 +152,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-5 pe-x1 ps-2">
+                                    <div class="col-6 pe-x1 ps-2">
                                         <div class="fs-10 fw-semi-bold">
                                             <span class="" style="font-size: 9px">{{ \Carbon\Carbon::parse($info->last_activity)->format('d M, h:m A') }}</span>
                                         </div>
