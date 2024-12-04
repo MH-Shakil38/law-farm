@@ -9,6 +9,7 @@ class UpdateLastActivity
 {
     public function handle($request, Closure $next)
     {
+     
         if (Auth::check()) {
             Auth::user()->update(['last_activity' => now()]);
         }

@@ -57,13 +57,40 @@
             </div>
             <hr>
             <div class="card-body p-0">
+                <div class="row g-0 align-items-center py-2 position-relative border-bottom border-200">
+                    <div class="col ps-x1 py-1 position-static">
+                        <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-center position-relative ">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col py-1">
+                        <div class="row flex-end-center g-0">
+
+
+
+                                <div class="col-5 pe-x1 ps-2">
+                                    <div class="fs-10 fw-semi-bold">
+                                        <span class="" style="font-size: 13px">Login</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-5 pe-x1 ps-2">
+                                    <div class="fs-10 fw-semi-bold">
+                                        <span class="" style="font-size: 13px">Activities
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
                 @forelse ($onlineUsers as $info)
                     <div class="row g-0 align-items-center py-2 position-relative border-bottom border-200">
                         <div class="col ps-x1 py-1 position-static">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex align-items-center position-relative ">
                                     <div
-                                        class="avatar avatar-2xl {{ $info->isOnline == 'online' ? 'status-online' : 'status-away' }}">
+                                        class="avatar avatar-2xl {{ check_activities($info) }}">
                                         <img class="rounded-circle"
                                             src="{{ asset($info->image != null ? $info->image : 'assets/img/team/1-thumb.png') }}"
                                             alt="">
@@ -78,28 +105,18 @@
                         </div>
                         <div class="col py-1">
                             <div class="row flex-end-center g-0">
-                                @if ($info->isOnline == 'offline' && $info->last_activity != NULL)
-                                    <div class="col-auto pe-2">
-                                        <div class="fs-10 fw-semi-bold">Last Active</div>
-                                    </div>
+
                                     <div class="col-5 pe-x1 ps-2">
                                         <div class="fs-10 fw-semi-bold">
-                                            {{ $info->last_activity ? \Carbon\Carbon::parse($info->last_activity)->format('h:m A') : ''}}
+                                            <span class="" style="font-size: 9px">{{ \Carbon\Carbon::parse($info->last_logedin)->format('d M, h:m A') }}
                                         </div>
                                     </div>
-                                    @elseif ($info->isOnline == 'online' && $info->last_logedin != NULL)
-                                    <div class="col-auto pe-2">
-                                        <div class="fs-10 fw-semi-bold">Loged In</div>
-                                    </div>
+
                                     <div class="col-5 pe-x1 ps-2">
                                         <div class="fs-10 fw-semi-bold">
-                                            {{ \Carbon\Carbon::parse($info->last_logedin)->format('h:m A') }}
+                                            <span class="" style="font-size: 9px">{{ \Carbon\Carbon::parse($info->last_activity)->format('d M, h:m A') }}</span>
                                         </div>
                                     </div>
-                                    @else
-
-                                @endif
-
                             </div>
                         </div>
                     </div>

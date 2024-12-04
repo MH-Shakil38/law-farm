@@ -24,11 +24,17 @@ class SecurityService
 
     static function LoginUpdate()
     {
-        Auth::user()->update(['isOnline' => 'online', 'last_activity' => null, 'last_logedin' => now()]);
+        Auth::user()->update(['isOnline' => 'online', 'last_logedin' => now()]);
     }
 
     static function LogoutUpdate()
     {
-        Auth::user()->update(['isOnline' => 'offline', 'last_activity' => now(), 'last_logedin' => null]);
+        Auth::user()->update(['isOnline' => 'offline', 'last_activity' => now()]);
     }
+
+    static function lastActivities(){
+        Auth::user()->update(['last_activity' => now()]);
+    }
+
+
 }
