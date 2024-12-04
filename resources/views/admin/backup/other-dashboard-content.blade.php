@@ -154,7 +154,7 @@
 
                                     <div class="col-6 pe-x1 ps-2">
                                         <div class="fs-10 fw-semi-bold">
-                                            <span class="" style="font-size: 9px">{{$info->last_activity ? \Carbon\Carbon::parse($info->last_activity)->format('d M, h:m A') : 'NULL' }}</span>
+                                            <span class="" style="font-size: 9px">{{$info->last_activity ? \Carbon\Carbon::parse($info->last_activity)->format('d M, h:m:s A') : 'NULL' }}</span>
                                         </div>
                                     </div>
                             </div>

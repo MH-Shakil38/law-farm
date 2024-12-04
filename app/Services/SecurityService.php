@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class SecurityService
@@ -33,7 +34,7 @@ class SecurityService
     }
 
     static function lastActivities(){
-        Auth::user()->update(['last_activity' => now()]);
+        Auth::user()->update(['last_activity' => Carbon::now()]);
     }
 
 
