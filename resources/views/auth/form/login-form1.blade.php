@@ -45,9 +45,22 @@
                                             <span class="text-warning">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                    <div class="mb-3">
-                                        <input class="form-control" type="password" name="password"
-                                            placeholder="Password" />
+                                    <div class="mb-3 position-relative">
+                                        <input
+                                            class="form-control"
+                                            type="password"
+                                            id="password"
+                                            name="password"
+                                            placeholder="Password"
+                                        />
+                                        <button
+                                            type="button"
+                                            id="togglePassword"
+                                            class="btn position-absolute top-50 end-0 translate-middle-y"
+                                            style="background: none; border: none; z-index: 2;"
+                                        >
+                                            <i id="passwordIcon" class="fas fa-eye-slash"></i>
+                                        </button>
                                         @error('password')
                                             <span class="text-warning">{{ $message }}</span>
                                         @enderror
@@ -86,3 +99,20 @@
         </div>
     </div>
 </main>
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        const passwordField = document.getElementById('password');
+        const icon = document.getElementById('passwordIcon');
+
+        // Toggle password visibility
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text'; // Show password
+            icon.classList.remove('fa-eye-slash'); // Change to "eye" icon
+            icon.classList.add('fa-eye');
+        } else {
+            passwordField.type = 'password'; // Hide password
+            icon.classList.remove('fa-eye'); // Change to "eye-slash" icon
+            icon.classList.add('fa-eye-slash');
+        }
+    });
+</script>

@@ -14,15 +14,15 @@
                         <div class="bg-holder rounded-3 rounded-bottom-0"
                             style="background-image:url(../../assets/img/generic/4.jpg);"></div><!--/.bg-holder-->
                         <div class="avatar avatar-5xl avatar-profile"><img class="rounded-circle img-thumbnail shadow-sm"
-                                src="{{ asset(auth()->user()->image) }}" width="200" alt=""></div>
+                                src="{{ asset(auth()->user()->image) }}" onerror="this.src='{{ asset('thumbnail.png') }}'" width="200" alt=""></div>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-8">
                                 <h4 class="mb-1"> {{ auth()->user()->name }}<span data-bs-toggle="tooltip"
-                                        data-bs-placement="right" aria-label="Verified"
-                                        data-bs-original-title="Verified">
-                                       <small class="fa fa-check-circle text-primary" data-fa-transform="shrink-4 down-2"></small> </span>
+                                        data-bs-placement="right" aria-label="Verified" data-bs-original-title="Verified">
+                                        <small class="fa fa-check-circle text-primary"
+                                            data-fa-transform="shrink-4 down-2"></small> </span>
                                 </h4>
                                 <h5 class="fs-9 fw-normal">
                                     {{ auth()->user()->user_type == 3 ? 'lawyer' : (auth()->user()->user_type == 2 ? 'Admin' : 'Emaployee') }}
@@ -79,127 +79,28 @@
                             </div>
 
                         </div>
-                        {{-- <div class="card mb-3">
-                            <div class="card-header bg-body-tertiary d-flex justify-content-between">
-                                <h5 class="mb-0">Associations</h5><a class="font-sans-serif"
-                                    href="../miscellaneous/associations.html">All Associations</a>
-                            </div>
-                            <div class="card-body fs-10 pb-0">
-                                <div class="row">
-                                    <div class="col-sm-6 mb-3">
-                                        <div class="d-flex position-relative align-items-center mb-2"><img
-                                                class="d-flex align-self-center me-2 rounded-3"
-                                                src="../../assets/img/logos/apple.png" alt="" width="50">
-                                            <div class="flex-1">
-                                                <h6 class="fs-9 mb-0"><a class="stretched-link" href="#!">Apple</a>
-                                                </h6>
-                                                <p class="mb-1">3243 associates</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <div class="d-flex position-relative align-items-center mb-2"><img
-                                                class="d-flex align-self-center me-2 rounded-3"
-                                                src="../../assets/img/logos/g.png" alt="" width="50">
-                                            <div class="flex-1">
-                                                <h6 class="fs-9 mb-0"><a class="stretched-link" href="#!">Google</a>
-                                                </h6>
-                                                <p class="mb-1">34598 associates</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <div class="d-flex position-relative align-items-center mb-2"><img
-                                                class="d-flex align-self-center me-2 rounded-3"
-                                                src="../../assets/img/logos/intel-2.png" alt="" width="50">
-                                            <div class="flex-1">
-                                                <h6 class="fs-9 mb-0"><a class="stretched-link" href="#!">Intel</a>
-                                                </h6>
-                                                <p class="mb-1">7652 associates</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <div class="d-flex position-relative align-items-center mb-2"><img
-                                                class="d-flex align-self-center me-2 rounded-3"
-                                                src="../../assets/img/logos/facebook.png" alt="" width="50">
-                                            <div class="flex-1">
-                                                <h6 class="fs-9 mb-0"><a class="stretched-link"
-                                                        href="#!">Facebook</a></h6>
-                                                <p class="mb-1">765 associates</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="card mb-3">
                             <div class="card-header bg-body-tertiary d-flex justify-content-between">
                                 <h5 class="mb-0">Activity log</h5><a class="font-sans-serif"
-                                    href="../../app/social/activity-log.html">All logs</a>
+                                    href="{{ route('logs',['user_id'=>auth()->user()->id]) }}">All logs</a>
                             </div>
                             <div class="card-body fs-10 p-0">
-                                <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300"
-                                    href="#!">
-                                    <div class="notification-avatar">
-                                        <div class="avatar avatar-xl me-3">
-                                            <div class="avatar-emoji rounded-circle "><span role="img"
-                                                    aria-label="Emoji">🎁</span></div>
+                                @forelse (auth()->user()->logs as $info)
+                                    <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300"
+                                        href="{{ $info->url }}">
+                                        <div class="notification-avatar">
+                                            <div class="avatar avatar-xl me-3">
+                                                <div class="avatar-emoji rounded-circle "><span role="img"
+                                                        aria-label="Emoji">🏷️</span></div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="notification-body">
-                                        <p class="mb-1"><strong>Jennifer Kent</strong> Congratulated <strong>Anthony
-                                                Hopkins</strong></p>
-                                        <span class="notification-time">November 13, 5:00 Am</span>
-                                    </div>
-                                </a>
-
-                                <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300"
-                                    href="#!">
-                                    <div class="notification-avatar">
-                                        <div class="avatar avatar-xl me-3">
-                                            <div class="avatar-emoji rounded-circle "><span role="img"
-                                                    aria-label="Emoji">🏷️</span></div>
+                                        <div class="notification-body">
+                                            <p class="mb-1"><strong>{{ $info->description }}</strong></p>
+                                            <span class="notification-time">{{ Carbon\Carbon::parse($info->created_at)->format('M d, h:m A') }}</span>
                                         </div>
-                                    </div>
-                                    <div class="notification-body">
-                                        <p class="mb-1"><strong>California Institute of Technology</strong> tagged
-                                            <strong>Anthony Hopkins</strong> in a post.
-                                        </p>
-                                        <span class="notification-time">November 8, 5:00 PM</span>
-                                    </div>
-                                </a>
-
-                                <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300"
-                                    href="#!">
-                                    <div class="notification-avatar">
-                                        <div class="avatar avatar-xl me-3">
-                                            <div class="avatar-emoji rounded-circle "><span role="img"
-                                                    aria-label="Emoji">📋️</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="notification-body">
-                                        <p class="mb-1"><strong>Anthony Hopkins</strong> joined <strong>Victory day
-                                                cultural Program</strong> with <strong>Tony Stark</strong></p>
-                                        <span class="notification-time">November 01, 11:30 AM</span>
-                                    </div>
-                                </a>
-
-                                <a class="notification border-x-0 border-bottom-0 border-300 rounded-top-0"
-                                    href="#!">
-                                    <div class="notification-avatar">
-                                        <div class="avatar avatar-xl me-3">
-                                            <div class="avatar-emoji rounded-circle "><span role="img"
-                                                    aria-label="Emoji">📅️</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="notification-body">
-                                        <p class="mb-1"><strong>Massachusetts Institute of Technology</strong> invited
-                                            <strong>Anthony Hopkin</strong> to an event
-                                        </p>
-                                        <span class="notification-time">October 28, 12:00 PM</span>
-                                    </div>
-                                </a>
+                                    </a>
+                                @empty
+                                @endforelse
                             </div>
                         </div>
 

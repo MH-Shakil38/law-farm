@@ -22,25 +22,31 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[BasicController::class, 'website'])->name('website');
-Route::middleware(['auth','web'])->group(function () {
-    Route::get('dashboard',[BasicController::class, 'dashboard'])->name('dashboard');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::get('/', [BasicController::class, 'website'])->name('website');
+Route::middleware(['auth', 'web'])->group(function () {
+
+    Route::get('dashboard', [BasicController::class, 'dashboard'])->name('dashboard');
+    Route::get('logs', [BasicController::class, 'Logs'])->name('logs');
 
     Route::resource('users', UserController::class);
     Route::resource('lawyer', UserController::class);
     Route::resource('clients', ClientController::class);
 
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    });
 
-    Route::post('clients/file', [ClientController::class,'fileStore'])->name('clients.file.store');
-    Route::post('clients/hearing-date', [CaseController::class,'hearingDate'])->name('clients.hearing.date');
-    Route::get('clients/hearing/edit/{id}', [CaseController::class,'hearingEdit'])->name('clients.hearing.edit');
-    Route::post('clients/hearing/update/{id}', [CaseController::class,'hearingUpdate'])->name('clients.hearing.update');
+    Route::prefix('clients')->group(function () {
+        Route::post('file', [ClientController::class, 'fileStore'])->name('clients.file.store');
+        Route::post('hearing-date', [CaseController::class, 'hearingDate'])->name('clients.hearing.date');
+        Route::get('hearing/edit/{id}', [CaseController::class, 'hearingEdit'])->name('clients.hearing.edit');
+        Route::post('hearing/update/{id}', [CaseController::class, 'hearingUpdate'])->name('clients.hearing.update');
+    });
 
     // configuration route
-    Route::prefix('config')->group(function(){
+    Route::prefix('config')->group(function () {
         Route::resource('caseType', CaseTypeController::class);
     });
 
@@ -50,7 +56,7 @@ Route::middleware(['auth','web'])->group(function () {
 });
 
 
-Route::get('migrate-fresh',function(){
+Route::get('migrate-fresh', function () {
     Artisan::call('migrate:fresh --seed');
 });
 

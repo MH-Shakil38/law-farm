@@ -30,12 +30,27 @@
                                     <span class="text-warning">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <div class="mb-3">
-                                <input class="form-control" type="password" name="password" placeholder="Password" />
+                            <div class="mb-3 position-relative">
+                                <input
+                                    class="form-control"
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Password"
+                                />
+                                <button
+                                    type="button"
+                                    id="togglePassword"
+                                    class="btn btn-outline-secondary position-absolute top-50 end-0 translate-middle-y"
+                                    style="z-index: 2;"
+                                >
+                                    Show
+                                </button>
                                 @error('password')
                                     <span class="text-warning">{{ $message }}</span>
                                 @enderror
                             </div>
+
                             <div class="row flex-between-center">
                                 <div class="col-auto">
                                     <div class="form-check mb-0"><input class="form-check-input" type="checkbox"
@@ -67,3 +82,17 @@
         </div>
     </div>
 </main>
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        const passwordField = document.getElementById('password');
+        const toggleButton = this;
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleButton.textContent = 'Hide';
+        } else {
+            passwordField.type = 'password';
+            toggleButton.textContent = 'Show';
+        }
+    });
+</script>

@@ -2,7 +2,14 @@
 @section('content')
     <div class="search-table">
     </div>
-    @include('admin.backup.other-dashboard-content')
+    @if (auth()->user()->user_type == 1)
+    @include('admin.dashboard.super-admin')
+    @elseif (auth()->user()->user_type == 2)
+    @include('admin.dashboard.admin')
+    @elseif (auth()->user()->user_type == 3)
+    @include('admin.dashboard.lawyer')
+    @endif
+
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

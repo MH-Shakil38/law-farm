@@ -10,33 +10,30 @@
                                 data-bulk-select='{"body":"bulk-select-body","actions":"bulk-select-actions","replacedElement":"bulk-select-replace-element"}' />
                         </div>
                     </th>
-                    <th class="text-900 sort pe-1 align-middle" data-sort="case_number">Case Number</th>
-                    <th class="text-900 sort pe-1 align-middle" data-sort="name">Name</th>
-                    {{-- <th class="text-900 sort pe-1 align-middle" data-sort="email">Email</th> --}}
-                    <th class="text-900 sort pe-1 align-middle" data-sort="phone">Phone</th>
-                    <th class="text-900 sort pe-1 align-middle" data-sort="case_type">Case Type</th>
-                    <th class="text-900 sort pe-1 align-middle" data-sort="case_type">Handle BY</th>
-                    <th class="text-900 sort pe-1 align-middle" data-sort="created_by">Created By</th>
-                    <th class="text-900 sort pe-1 align-middle" data-sort="updated_by">Created At</th>
+                    <th class="text-900 sort pe-1 align-middle" data-sort="name">Serial</th>
+                    {{-- <th class="text-900 sort pe-1 align-middle" data-sort="name">User Name</th> --}}
+                    <th class="text-900 sort pe-1 align-middle" data-sort="phone">Description</th>
+                    <th class="text-900 sort pe-1 align-middle" data-sort="case_type">Url</th>
+                    <th class="text-900 sort pe-1 align-middle" data-sort="created_by">Access Time</th>
+                    {{-- <th class="text-900 sort pe-1 align-middle" data-sort="updated_by">Created At</th> --}}
                     <th class="align-middle"></th>
                 </tr>
             </thead>
             <tbody id="bulk-select-body" class="ajax-load">
-@forelse ($clients as $info)
-<tr>
-    <td>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" data-bulk-select-row="{{ json_encode(['id' => $info->id, 'name' => $info->name]) }}" />
-        </div>
-    </td>
-    <td>{{ $info->case_number }}</td>
-    <td><a href="{{ route('clients.show',$info->id) }}">{!! str_ireplace(request()->search, "<span style='background-color: yellow;'>".request()->search."</span>", $info->name) !!}</a> </td>
-    <td>{!! str_ireplace(request()->search, "<span style='background-color: yellow;'>".request()->search."</span>", $info->phone) !!}</td>
-    <td>{{ $info->caseType->name ?? '' }}</td>
-    <td>{{ $info->lawyer->name ?? '' }}</td>
-    <td>{{ $info->createdBy->name ?? '--' }}</td>
-    <td>{{ $info->created_at->format('d M y') }}</td>
-    <td>
+                @forelse ($logs as $info)
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"
+                                    data-bulk-select-row="{{ json_encode(['id' => $info->id, 'name' => $info->user_name]) }}" />
+                            </div>
+                        </td>
+                        <td>{{ $info->id }}</td>
+                        {{-- <td> <a href="{{ route('users.show',$info->user_id) }}">{{ auth()->user()->id == $info->user_id ? 'You ' : $info->user_name }}</a> </td> --}}
+                        <td>{{ auth()->user()->id == $info->user_id ? 'You ' : $info->user_name }} {{ $info->description }}</td>
+                        <td><a href="{{ $info->url ?? '' }}" target="_blank">{{ $info->url ?? '' }}</a></td>
+                        <td>{{ $info->created_at->format('d M y, h:m:s') }}</td>
+                        {{-- <td>
         <div class="dropdown">
             <button class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">
                 <i class="fas fa-ellipsis-h"></i>
@@ -48,24 +45,24 @@
                 <a href="#" onclick="confirmAction(event, '{{ route('record.delete', ['model' => 'Client', 'id' => $info->id]) }}')" class="dropdown-item text-danger">Delete</a>
             </div>
         </div>
-    </td>
-</tr>
-@empty
-<tr>
-    <td colspan="8" class="text-center">No records found</td>
-</tr>
-@endforelse
-</tbody>
-</table>
+    </td> --}}
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="8" class="text-center">No records found</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
 
-</div>
-<div class="pagination m-auto" style="margin:0 auto">
-@include('admin.component.paginate', ['paginator' => $clients])
-{{-- {{ $clients->count() > 0 ? $clients->withQueryString($_GET)->links('admin.component.paginate') : false }} --}}
-</div>
-{{-- @include('admin.component.paginate', ['paginator' => $clients]) --}}
+    </div>
+    <div class="pagination m-auto" style="margin:0 auto">
+        @include('admin.component.paginate', ['paginator' => $logs])
+        {{-- {{ $logs->count() > 0 ? $logs->withQueryString($_GET)->links('admin.component.paginate') : false }} --}}
+    </div>
+    {{-- @include('admin.component.paginate', ['paginator' => $logs]) --}}
 
-{{-- <div class="card-footer d-flex align-items-center justify-content-center"><button
+    {{-- <div class="card-footer d-flex align-items-center justify-content-center"><button
     class="btn btn-sm btn-falcon-default me-1 disabled" type="button" title="Previous"
     data-list-pagination="prev" disabled=""><svg class="svg-inline--fa fa-chevron-left fa-w-10"
         aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img"

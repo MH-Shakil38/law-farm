@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -44,21 +45,7 @@ class UserController extends Controller
         try {
             DB::beginTransaction();
             $data = $request->validated();
-            $data['name'] = $request->input('name');
-            $data['email'] = $request->input('email');
-            $data['password'] = bcrypt($request->input('password'));
-            $data['address'] = $request->input('address');
-            $data['phone'] = $request->input('phone');
-            $data['role_id'] = $request->input('role_id');
-            $data['ip'] = $request->input('ip');
-            $data['isActive'] = $request->input('isActive');
-            $data['type'] = $request->input('type');
-            $data['user_type'] = $request->input('user_type');
-            $data['lawyer_type'] = $request->input('lawyer_type');
-            $data['specialization'] = $request->input('specialization');
-            $data['file'] = $this->uploadImage($request->file('file'), 'user/file/');
-            $data['image'] = $this->uploadImage($request->file('image'), 'user/image/');
-            $store = User::query()->create($data);
+            $this->service->store($data);
             DB::commit();
             if($request->user_type == '3'){
                 return redirect()->route('lawyer.index')->with('success','Lawyer successfully Added');
@@ -83,8 +70,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $data = $this->service->allUsers();
-        $data['user'] = $this->service->getUser($id);
+        // $data = $this->service->allUsers();
+        $data = $this->service->getUser($id);
         return view('admin.users.create')->with($data);
     }
 
@@ -95,7 +82,7 @@ class UserController extends Controller
     {
         try {
             DB::beginTransaction();
-            $this->service->storeuser($user);
+            $this->service->updateUser($user);
             DB::commit();
             if ($request->user_type == 3) {
                 return redirect()->route('lawyer.index')->with('success', 'Lawyer Udpate successfully');
@@ -111,7 +98,7 @@ class UserController extends Controller
 
     public function changePassword($id)
     {
-        $data['user'] = User::query()->findOrFail($id);
+        $data['user'] = $this->service->getUser($id);
         return view('admin.users.change-password')->with($data);
     }
 

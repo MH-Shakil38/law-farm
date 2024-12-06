@@ -16,7 +16,9 @@
                 <li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('dashboard') }}">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     class="fas fa-chart-pie"></span></span><span
-                                class="nav-link-text ps-1">Dashboard</span></div>
+                                class="nav-link-text ps-1">Dashboard</span>(<span style="font-size: 10px;">{{auth()->user()->user_type == 1 ? 'Admin' :( auth()->user()->user_type == 2 ? 'Employee' : 'Lawyer') }}</span>)</div>
+
+
                     </a>
 
                 </li>
@@ -104,7 +106,7 @@
 
                     </ul>
                 </li>
-                <li class="nav-item"><!-- parent pages--><a class="nav-link" href="#">
+                <li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('logs') }}">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                 class="fas fa-code-branch"></span></span><span
                             class="nav-link-text ps-1">Activities</span></div>

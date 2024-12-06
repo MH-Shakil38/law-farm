@@ -8,6 +8,7 @@ use App\Models\CaseType;
 use App\Models\Client;
 use App\Models\ClientFile;
 use App\Models\User;
+use App\Services\ActivityLogService;
 use App\Services\CaseService;
 use App\Services\ClientService;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class ClientController extends Controller
     {
         $data['caseTypes'] = $this->caseService->getCaseType();
         $data['clients'] = $this->clientService->getAll(true);
+        ActivityLogService::LogInfo('Client');
         if ($request->ajax()) {
             $data = $this->clientService->ajaxClientInfo($data);
             return response()->json($data);
@@ -68,8 +70,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        $data['client'] = $client;
-        $data['lawyers'] = User::query()->where('user_type',3)->get();
+       $data = $this->clientService->getClient($client);
         return view('admin.client.details')->with($data);
     }
 
@@ -78,8 +79,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        $data['caseTypes'] = CaseType::getAll();
-        $data['client'] = $client;
+        $data = $this->clientService->getClient($client);
         return view('admin.client.edit')->with($data);
     }
 

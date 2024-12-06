@@ -60,6 +60,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function logs(){
+        return $this->hasMany(ActivityLog::class,'user_id')->orderBy('created_at','DESC');
+    }
 
 
     protected static function boot()
