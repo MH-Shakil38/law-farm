@@ -27,6 +27,8 @@
     <script src="{{ asset('/') }}assets/js/config.js"></script>
     <script src="{{ asset('/') }}vendors/simplebar/simplebar.min.js"></script>
     @include('admin.layouts.header-script')
+    <link href="{{ asset('/') }}vendors/flatpickr/flatpickr.min.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -45,6 +47,7 @@
         </div>
     </main>
     @include('admin.theem.setting')
+<script src="{{ asset('/') }}vendors/flatpickr/flatpickr.min.js"></script>
     <script src="{{ asset('/') }}vendors/popper/popper.min.js"></script>
     <script src="{{ asset('/') }}vendors/bootstrap/bootstrap.min.js"></script>
     <script src="{{ asset('/') }}vendors/anchorjs/anchor.min.js"></script>
@@ -55,6 +58,7 @@
     <script src="{{ asset('/') }}vendors/lodash/lodash.min.js"></script>
     <script src="{{ asset('/') }}vendors/list.js/list.min.js"></script>
     <script src="{{ asset('/') }}assets/js/theme.js"></script>
+
    @include('alert.toster')
 
    {{-- confimation button --}}

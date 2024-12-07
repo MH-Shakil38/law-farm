@@ -25,7 +25,7 @@ class BasicController extends Controller
         $data['todayCase'] = Client::query()->whereDate('hearing_date',today())->get();
         $data['tomorrowCase'] = Client::query()->whereDate('hearing_date',Carbon::tomorrow()->toDateString())->get();
         $data['caseTypes'] = CaseType::getAll();
-        $data['clients'] = Client::getAll(false);
+        $data['clients'] = Client::getAll(true);
         $data['onlineUsers'] = User::query()->get();
         ActivityLogService::LogInfo('Dashboard');
         return view('admin.dashboard')->with($data);

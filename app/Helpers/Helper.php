@@ -58,6 +58,25 @@ if (!function_exists("publicIp")) {
     }
 }
 
+
+
+
+if (!function_exists("activeuser")) {
+    function activeuser()
+    {
+        return User::query()->orderBy('last_activity', 'DESC')->get();
+    }
+}
+
+if (!function_exists("dateSeperate")) {
+    function dateSeperate($date)
+    {
+        $data = explode(' to ', $date);
+        return ['from' => $data[0] , 'to' => $data[1] ?? null];
+    }
+}
+
+
 function cache_duration()
 {
 
@@ -91,4 +110,3 @@ if (!function_exists("getDateTimeLeft")) {
         return $timeDifference;
     }
 }
-

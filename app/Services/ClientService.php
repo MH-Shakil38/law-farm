@@ -21,13 +21,44 @@ class ClientService
         $request = request();
         $user_id = auth()->user()->id;
         $query = Client::query();
+
         if (auth()->user()->user_type == 1 || auth()->user()->user_type == 2) {
             $query = $query;
-        }else{
+        } else {
             $query = $query->where('lawyer_id', $user_id);
         }
         if ($request->has('search')) {
             $query = $this->search($query, $request->search);
+        }
+
+        if ($request->hearing_date) {
+            $data = dateSeperate($request->hearing_date);
+            $fromDate = date('Y-d-m', strtotime($data['from']));
+            if($data['to'] != null){
+                $toDate = date('Y-d-m', strtotime($data['to'] ?? null));
+            }else{
+                $toDate = null;
+            }
+            if ($toDate == null) {
+                $query = $query->where('hearing_date','like','%'. $fromDate.'%');
+            } else {
+                $query = $query->whereBetween('hearing_date', [$fromDate, $toDate]);
+            }
+        }
+
+        if ($request->created_at) {
+            $data = dateSeperate($request->created_at);
+            $fromDate = date('Y-d-m', strtotime($data['from']));
+            if($data['to'] != null){
+                $toDate = date('Y-d-m', strtotime($data['to'] ?? null));
+            }else{
+                $toDate = null;
+            }
+            if ($toDate == null) {
+                $query = $query->where('created_at','like','%'. $fromDate.'%');
+            } else {
+                $query = $query->whereBetween('created_at', [$fromDate, $toDate]);
+            }
         }
 
         $query = ($paginate ? $query->paginate($request->perPage ?? 15) : $query->get());
@@ -35,25 +66,27 @@ class ClientService
     }
 
 
-    public function storeClient($data){
+    public function storeClient($data)
+    {
         $request = request();
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $data['image'] = $this->controller->uploadImage($request->file('image'), 'client/image/');
         }
-       $store = Client::query()->create($data);
-       ActivityLogService::LogInfo('Client',['action' => 'create','new' => $store,'description'=>'Create '.'Client , '.$store->name.' Information']);
-       return $store;
+        $store = Client::query()->create($data);
+        ActivityLogService::LogInfo('Client', ['action' => 'create', 'new' => $store, 'description' => 'Create ' . 'Client , ' . $store->name . ' Information']);
+        return $store;
     }
 
-    public function updateClient($client){
+    public function updateClient($client)
+    {
         $request = request();
         $old_data = $client;
         $data = $request->all();
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $data['image'] = $this->controller->uploadImage($request->file('image'), 'client/image/');
         }
         $client->update($data);
-        ActivityLogService::LogInfo('Client',['action' => 'Update','new' => $client,'old'=>$old_data,'description'=>'Update '.'Client , '.$client->name.' Information']);
+        ActivityLogService::LogInfo('Client', ['action' => 'Update', 'new' => $client, 'old' => $old_data, 'description' => 'Update ' . 'Client , ' . $client->name . ' Information']);
         return $client;
     }
 
@@ -81,9 +114,10 @@ class ClientService
     }
 
 
-    public function ajaxClientInfo($data){
+    public function ajaxClientInfo($data)
+    {
         $view = view('admin.client.ajax-client')->with($data)->render();
-        $pagination = view('admin.component.paginate',['paginator'=>$data['clients']])->render();
+        $pagination = view('admin.component.paginate', ['paginator' => $data['clients']])->render();
         return [
             'clients' => $view,
             'pagination' => $pagination
@@ -91,10 +125,11 @@ class ClientService
     }
 
 
-    public function fileStore(){
+    public function fileStore()
+    {
         $request = request();
-        $data = $request->only('date','file','title','client_id');
-        if($request->hasFile('file')){
+        $data = $request->only('date', 'file', 'title', 'client_id');
+        if ($request->hasFile('file')) {
             $data['file'] = $this->controller->uploadImage($request->file('file'), 'client/file/');
         }
         $data['title'] = $request->title;
@@ -103,11 +138,12 @@ class ClientService
     }
 
 
-    public function getClient($client){
+    public function getClient($client)
+    {
         $data['caseTypes'] = CaseType::getAll();
         $data['client'] = $client;
-        $data['lawyers'] = User::query()->where('user_type',3)->get();
-        ActivityLogService::LogInfo('Client',['action' => 'Show','description'=>'Show '.'Client , '.$client->name.' Information']);
+        $data['lawyers'] = User::query()->where('user_type', 3)->get();
+        ActivityLogService::LogInfo('Client', ['action' => 'Show', 'description' => 'Show ' . 'Client , ' . $client->name . ' Information']);
         return $data;
     }
 }

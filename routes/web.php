@@ -28,9 +28,11 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::get('dashboard', [BasicController::class, 'dashboard'])->name('dashboard');
     Route::get('logs', [BasicController::class, 'Logs'])->name('logs');
 
-    Route::resource('users', UserController::class);
-    Route::resource('lawyer', UserController::class);
-    Route::resource('clients', ClientController::class);
+    Route::prefix('admin')->group(function () {
+        Route::resource('users', UserController::class);
+        Route::resource('lawyer', UserController::class);
+        Route::get('user-list',[UserController::class,'activeUser'])->name('active.user');
+    });
 
     Route::prefix('profile')->group(function () {
         Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -39,6 +41,7 @@ Route::middleware(['auth', 'web'])->group(function () {
     });
 
     Route::prefix('clients')->group(function () {
+        Route::resource('clients', ClientController::class);
         Route::post('file', [ClientController::class, 'fileStore'])->name('clients.file.store');
         Route::post('hearing-date', [CaseController::class, 'hearingDate'])->name('clients.hearing.date');
         Route::get('hearing/edit/{id}', [CaseController::class, 'hearingEdit'])->name('clients.hearing.edit');

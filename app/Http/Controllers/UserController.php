@@ -60,9 +60,9 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function activeUser()
     {
-        //
+        return view('admin.users.active-list');
     }
 
     /**
