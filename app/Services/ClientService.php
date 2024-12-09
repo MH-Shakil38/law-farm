@@ -33,31 +33,19 @@ class ClientService
 
         if ($request->hearing_date) {
             $data = dateSeperate($request->hearing_date);
-            $fromDate = date('Y-d-m', strtotime($data['from']));
-            if($data['to'] != null){
-                $toDate = date('Y-d-m', strtotime($data['to'] ?? null));
+            if($data['from'] == $data['to']){
+                $query = $query->where('hearing_date','like','%'. $data['from'].'%');
             }else{
-                $toDate = null;
+                $query = $query->whereBetween('hearing_date', [$data['from'], $data['to']]);
             }
-            if ($toDate == null) {
-                $query = $query->where('hearing_date','like','%'. $fromDate.'%');
-            } else {
-                $query = $query->whereBetween('hearing_date', [$fromDate, $toDate]);
-            }
-        }
 
+        }
         if ($request->created_at) {
             $data = dateSeperate($request->created_at);
-            $fromDate = date('Y-d-m', strtotime($data['from']));
-            if($data['to'] != null){
-                $toDate = date('Y-d-m', strtotime($data['to'] ?? null));
+            if($data['from'] == $data['to']){
+                $query = $query->where('created_at','like','%'. $data['from'].'%');
             }else{
-                $toDate = null;
-            }
-            if ($toDate == null) {
-                $query = $query->where('created_at','like','%'. $fromDate.'%');
-            } else {
-                $query = $query->whereBetween('created_at', [$fromDate, $toDate]);
+                $query = $query->whereBetween('created_at', [$data['from'], $data['to']]);
             }
         }
 

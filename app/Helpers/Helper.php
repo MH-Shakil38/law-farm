@@ -69,10 +69,17 @@ if (!function_exists("activeuser")) {
 }
 
 if (!function_exists("dateSeperate")) {
-    function dateSeperate($date)
+    function dateSeperate($dateRange)
     {
-        $data = explode(' to ', $date);
-        return ['from' => $data[0] , 'to' => $data[1] ?? null];
+        $data = [];
+        $data = explode(' to ', $dateRange);
+        $fromDateTime = DateTime::createFromFormat('d/m/Y', $data[0])->format('Y-m-d');
+        $toDateTime = isset($data[1]) && $data[1] != null ? DateTime::createFromFormat('d/m/Y', $data[1])->format('Y-m-d') : DateTime::createFromFormat('d/m/Y', $data[0])->format('Y-m-d');
+
+        return [
+            'from' => $fromDateTime,
+            'to' => $toDateTime
+        ];
     }
 }
 

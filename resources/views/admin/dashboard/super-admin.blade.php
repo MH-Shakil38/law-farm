@@ -117,10 +117,10 @@
                             </select>
                         </div><a href="{{ route('clients.create') }}"
                             class="btn btn-falcon-default btn-sm mx-2  text-success" type="button"><svg
-                                class="svg-inline--fa fa-plus fa-w-14" data-fa-transform="shrink-3"
-                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
-                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
-                                data-fa-i2svg="" style="transform-origin: 0.4375em 0.5em;">
+                                class="svg-inline--fa fa-plus fa-w-14" data-fa-transform="shrink-3" aria-hidden="true"
+                                focusable="false" data-prefix="fas" data-icon="plus" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""
+                                style="transform-origin: 0.4375em 0.5em;">
                                 <g transform="translate(224 256)">
                                     <g transform="translate(0, 0)  scale(0.8125, 0.8125)  rotate(0 0 0)">
                                         <path fill="currentColor"
@@ -198,6 +198,18 @@
 
     </div>
 </div>
+<div class="spinner-border hide" role="status"><span class="visually-hidden d-none hide">Loading...</span></div>
+<style>
+    .spinner-border {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        display: none;
+    }
+    .spinner-border .hide{
+        display: none;
+    }
+</style>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
@@ -207,12 +219,23 @@
             mode: "range",
             dateFormat: "d/m/Y",
             onChange: function(selectedDates, dateStr, instance) {
+                $('.content').css({
+                'opacity': '0.8',  // Make the table semi-transparent
+            });
+            $('.spinner-border').css({
+                'display': 'inline-block',  // Make the table semi-transparent
+            });
+
                 $.ajax({
                     url: "{{ route('clients.index') }}?hearing_date=" + dateStr,
                     method: 'GET',
                     success: function(response) {
-                        $('.search-table').html(response.clients); // Update the table body
-                        $('.pagination').html(response.pagination); // Update the pagination
+                        $('.search-table').html(response
+                        .clients); // Update the table body
+                        $('.pagination').html(response
+                        .pagination); // Update the pagination
+                        $('.spinner-border').css('display', 'none');
+                        $('.content').css('opacity', 'unset');
                     }
                 });
             }
@@ -227,8 +250,10 @@
                     url: "{{ route('clients.index') }}?created_at=" + dateStr,
                     method: 'GET',
                     success: function(response) {
-                        $('.search-table').html(response.clients); // Update the table body
-                        $('.pagination').html(response.pagination); // Update the pagination
+                        $('.search-table').html(response
+                        .clients); // Update the table body
+                        $('.pagination').html(response
+                        .pagination); // Update the pagination
                     }
                 });
             }
@@ -281,6 +306,7 @@
 
 
         function fetchPage(page = null, perPage = null, search = null, endDate = null) {
+            $('.spinner-border').css('display', 'inline-block');
 
             $.ajax({
                 url: "{{ route('clients.index') }}?page=" + page + "&perPage=" + perPage +
@@ -289,6 +315,7 @@
                 success: function(response) {
                     $('.search-table').html(response.clients); // Update the table body
                     $('.pagination').html(response.pagination); // Update the pagination
+                    $('.spinner-border').css('display', 'none');
                 }
             });
         }

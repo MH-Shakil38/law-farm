@@ -7,4 +7,5 @@
     @elseif (auth()->user()->user_type == 3)
     @include('admin.dashboard.lawyer')
     @endif
+    <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
 @endsection

@@ -39,7 +39,9 @@
             <div class="content">
                 @include('admin.layouts.top-menu')
                 @include('admin.layouts.menu-load')
+                <div class="content">
                     @yield('content')
+                </div>
                 {{-- @include('admin.backup.other-dashboard-content') --}}
                 @include('admin.layouts.footer')
             </div>

@@ -6,8 +6,8 @@
         </div>
     </div>
     {{-- user  --}}
-    <a class="nav-link dropdown-indicator" href="#users" role="button" data-bs-toggle="collapse"
-        aria-expanded="true" aria-controls="users">
+    <a class="nav-link dropdown-indicator" href="#users" role="button" data-bs-toggle="collapse" aria-expanded="true"
+        aria-controls="users">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                     class="fas fa-user-tie"></span></span><span class="nav-link-text ps-1">Employee</span>
         </div>
@@ -25,8 +25,8 @@
 
     </ul>
 
-    <a class="nav-link dropdown-indicator" href="#lawyer" role="button" data-bs-toggle="collapse"
-        aria-expanded="true" aria-controls="lawyer">
+    <a class="nav-link dropdown-indicator" href="#lawyer" role="button" data-bs-toggle="collapse" aria-expanded="true"
+        aria-controls="lawyer">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                     class="fas fa-user-graduate"></span></span><span class="nav-link-text ps-1">Lawyer</span>
         </div>
@@ -45,8 +45,8 @@
     </ul>
 
 
-    <a class="nav-link dropdown-indicator" href="#client" role="button" data-bs-toggle="collapse"
-        aria-expanded="true" aria-controls="client">
+    <a class="nav-link dropdown-indicator" href="#client" role="button" data-bs-toggle="collapse" aria-expanded="true"
+        aria-controls="client">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                     class="fas fa-users"></span></span><span class="nav-link-text ps-1">Client</span>
         </div>
@@ -65,8 +65,8 @@
 
     </ul>
 
-    <a class="nav-link dropdown-indicator" href="#config" role="button" data-bs-toggle="collapse"
-        aria-expanded="true" aria-controls="config">
+    <a class="nav-link dropdown-indicator" href="#config" role="button" data-bs-toggle="collapse" aria-expanded="true"
+        aria-controls="config">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                     class="fas fa-tools"></span></span><span class="nav-link-text ps-1">Config</span>
         </div>
@@ -81,11 +81,97 @@
 
 
     </ul>
+
+    <a class="nav-link dropdown-indicator" href="#role" role="button" data-bs-toggle="collapse" aria-expanded="true"
+        aria-controls="role">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                    class="far fa-check-square"></span></span><span class="nav-link-text ps-1">User Role</span>
+        </div>
+    </a>
+    <ul class="nav collapse {{ Request::segment(1) === 'role' ? 'show' : '' }}" id="role">
+        <li class="nav-item"><a class="nav-link" href="{{ route('caseType.index') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Manage Role</span>
+                </div>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('caseType.index') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Role Permission</span> </div>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('caseType.index') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">User Permission</span> </div>
+            </a>
+        </li>
+    </ul>
+
+
+    <a class="nav-link dropdown-indicator" href="#report" role="button" data-bs-toggle="collapse"
+        aria-expanded="true" aria-controls="role">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                    class="far fa-clipboard"></span></span><span class="nav-link-text ps-1">Report</span>
+        </div>
+    </a>
+    <ul class="nav collapse {{ Request::segment(1) === 'report' ? 'show' : '' }}" id="report">
+        {{-- <li class="nav-item"><a class="nav-link" href="{{ route('caseType.index') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Manage Role</span>
+                </div>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('caseType.index') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Role Permission</span> </div>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('caseType.index') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">User Permission</span> </div>
+            </a>
+        </li> --}}
+
+
+
+    </ul>
 </li>
-<li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('logs') }}">
+
+<li class="nav-item"><!-- parent pages--><a class="nav-link" href="#">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                    class="far fa-bell"></span></span><span class="nav-link-text ps-1">Notification</span></div>
+    </a>
+</li>
+<li class="nav-item"><!-- parent pages--><a class="nav-link" href="#">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                    class="fas fa-mail-bulk"></span></span><span class="nav-link-text ps-1">Email Setup</span></div>
+    </a>
+</li>
+<li class="nav-item"><!-- parent pages--><a class="nav-link" href="#">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                    class="fas fa-sms"></span></span><span class="nav-link-text ps-1">SMS Setup</span></div>
+    </a>
+</li>
+
+<li class="nav-item"><!-- parent pages--><a class="nav-link" href="#">
     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                class="fas fa-code-branch"></span></span><span
-            class="nav-link-text ps-1">Activities</span></div>
+                class="fas fa-phone-volume"></span></span><span class="nav-link-text ps-1">IP Phone Setup</span></div>
 </a>
+</li>
+
+
+<li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('logs') }}">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                    class="fas fa-code-branch"></span></span><span class="nav-link-text ps-1">Activities</span></div>
+    </a>
 
 </li>
+
+
+<style>
+    li.nav-item {
+    font-size: 16px;
+}
+</style>

@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
+
 <div class="card shadow-none">
     <div class="card-body p-0 pb-3">
         <div class="card-header border-bottom border-200 px-0">
@@ -22,7 +23,7 @@
                 <div class="border-bottom border-200 my-3"></div>
                 <div class="d-flex align-items-center justify-content-between justify-content-lg-end px-x1">
                     <div class="bg-300 mx-3 d-none d-lg-block d-xl-none" style="width:1px; height:auto"></div>
-                    
+
                     <div class="d-flex align-items-center" id="table-ticket-replace-element">
                         <div class="dropdown">
                             <select name="perPage" id="PerPage" class="form-select form-select-sm perPage">
@@ -94,15 +95,15 @@
                                 <th class="text-900 sort pe-1 align-middle" data-sort="case_type">Handle BY</th>
                                 <th class="text-900 sort pe-1 align-middle" data-sort="created_by">Created By</th>
                                 <th class="text-900   pe-1 align-middle" data-sort="updated_by">
-                                    <input class="form-control datetimepicker border-none" id="timepicker2"
-                                        type="text" style="width: 150px;background: #065bb3;color:#fff"
+                                    <input class="form-control datetimepicker border-none" id="createDatePicker"
+                                        type="text" style="width: 200px;background: #065bb3;color:#fff"
                                         placeholder="Created At"
                                         data-options='{"mode":"range","dateFormat":"d/m/y","disableMobile":true}' />
                                 </th>
                                 <th class="align-middle"></th>
                             </tr>
                         </thead>
-                        <tbody id="bulk-select-body" class="ajax-load search-table">
+                        <tbody id="bulk-select-body" class="search-table">
                             @include('admin.client.ajax-client')
                         </tbody>
                     </table>
@@ -135,6 +136,24 @@
                 });
             }
         });
+
+
+        flatpickr("#createDatePicker", {
+            mode: "range",
+            dateFormat: "d/m/Y",
+            onChange: function(selectedDates, dateStr, instance) {
+                $.ajax({
+                    url: "{{ route('clients.index') }}?created_at=" + dateStr,
+                    method: 'GET',
+                    success: function(response) {
+                        $('.search-table').html(response.clients); // Update the table body
+                        $('.pagination').html(response.pagination); // Update the pagination
+                    }
+                });
+            }
+        });
+
+
         $(document).on('click', '.next-page', function(event) {
             event.preventDefault(); // Prevent the default anchor click behavior
             var next = $(this).data('next'); // Get the URL of the clicked page
@@ -194,4 +213,5 @@
         }
     });
 </script>
+
 @endsection
