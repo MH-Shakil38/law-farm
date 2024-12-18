@@ -7,6 +7,7 @@ use App\Models\CaseType;
 use App\Models\Client;
 use App\Models\User;
 use App\Services\ActivityLogService;
+use App\Services\MailService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +22,7 @@ class BasicController extends Controller
     }
     public function dashboard()
     {
+        
         $data['todayClient'] = Client::query()->whereDate('created_at',today())->get();
         $data['todayCase'] = Client::query()->whereDate('hearing_date',today())->get();
         $data['tomorrowCase'] = Client::query()->whereDate('hearing_date',Carbon::tomorrow()->toDateString())->get();
