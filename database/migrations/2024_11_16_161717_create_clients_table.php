@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id(); // Primary Key
             $table->string('name'); // Client's First Name
-            $table->string('email')->unique(); // Email Address
+            $table->string('first_name'); // Client's First Name
+            $table->string('last_name')->nullable(); // Client's First Name
+            $table->string('email')->nullable(); // Email Address
             $table->string('phone')->nullable(); // Phone Number
             $table->string('phone2')->nullable(); // Phone Number
             $table->string('address')->nullable(); // Address
@@ -38,6 +40,7 @@ return new class extends Migration
             $table->string('direction')->nullable();
             $table->string('gender')->nullable();
             $table->string('marrital_status')->nullable();
+            $table->string('last_update')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->timestamps(); // Created at and Updated at timestamps

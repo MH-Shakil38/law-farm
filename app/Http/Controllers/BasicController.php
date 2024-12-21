@@ -22,7 +22,7 @@ class BasicController extends Controller
     }
     public function dashboard()
     {
-        
+
         $data['todayClient'] = Client::query()->whereDate('created_at',today())->get();
         $data['todayCase'] = Client::query()->whereDate('hearing_date',today())->get();
         $data['tomorrowCase'] = Client::query()->whereDate('hearing_date',Carbon::tomorrow()->toDateString())->get();

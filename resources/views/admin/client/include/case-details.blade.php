@@ -1,6 +1,6 @@
 <div class="card mb-3">
     <div class="card-header bg-body-tertiary d-flex justify-content-between bg-light-success" style="background: #adadad !important;">
-        <h5 class="mb-0">Case Details</h5>
+        <h5 class="mb-0">Last Update</h5>
         <div id="table-customers-replace-element">
             <button data-bs-toggle="collapse" data-bs-target="#caseInfo" aria-expanded="true"
                 aria-controls="caseInfo" class="btn btn-falcon-default btn-sm text-success collapsed"
@@ -79,6 +79,10 @@
                                         data-options='{"enableTime":true,"noCalendar":true,"dateFormat":"H:i","disableMobile":true}' />
                                 </div>
 
+                                <div class="col-md-12 mt-2">
+                                    <label class="form-lable" for="title">Last Update</label>
+                                    <textarea name="last_update" class="form-control" id="" rows="2" placeholder="Enter Short Description">{{ isset($client) ? $client->last_update : '' }}</textarea>
+                                </div>
 
                                 <div class="col-md-12 mt-2">
                                     <label class="form-lable" for="title">Description</label>

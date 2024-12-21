@@ -18,15 +18,15 @@ class UserService
     }
     public static function allUsers()
     {
-        $type = request()->segment(1);
+        $type = request()->segment(2);
         if ($type == 'lawyer') {
             $data['type'] = 'Lawyer';
             $data['lawyerTypes'] = CaseType::query()->get();
-            $data['users'] = User::query()->where('user_type', 3)->get();
+            $data['users'] = User::query()->where('user_type',3)->get();
             ActivityLogService::LogInfo('Lawyer');
         } else {
             $data['type'] = 'Employee';
-            $data['users'] = User::query()->where('user_type', 1)->OrWhere('user_type', 2)->get();
+            $data['users'] = User::query()->where('user_type',1)->OrWhere('user_type', 2)->get();
             ActivityLogService::LogInfo('User');
         }
         return $data;
@@ -67,6 +67,9 @@ class UserService
     {
         $request = request();
         $old_data = $user;
+        $old = User::query()->findOrFail($user->id);
+        $old = json_encode($old);
+        // $new = json_encode($request->except('_token'));
         $data = $request->all();
         if ($request->password && $request->password != null) {
             $data['password'] = bcrypt($request->input('password'));
@@ -81,14 +84,14 @@ class UserService
             $data['image'] = $this->controller->uploadImage($request->file('image'), 'user/image/');
         }
         $user->update($data);
-        ActivityLogService::LogInfo('User',['action' => 'create','new' => $user, 'old'=> $old_data,'description'=>'Update '.$this->type().', '.$user->name.' Information']);
+        ActivityLogService::LogInfo('User',['action' => 'create','new' => $user, 'old'=> $old,'description'=>'Update '.$this->type().', '.$user->name.' Information']);
         return $this->type();
     }
 
 
     public function type()
     {
-        $type = request()->segment(1);
+        $type = request()->segment(2);
         if ($type == 'lawyer') {
             return 'Lawyer';
         } else

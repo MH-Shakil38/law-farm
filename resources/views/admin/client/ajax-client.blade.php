@@ -19,10 +19,11 @@
                             "<span style='background-color: yellow;'>" . request()->search . '</span>',
                             $info->phone,
                         ) !!}</td>
-                        <td>{{ Carbon\Carbon::parse($info->hearing_date)->format('D, d M Y') ?? '' }}</td>
                         <td>{{ $info->lawyer->name ?? '' }}</td>
                         <td>{{ $info->createdBy->name ?? '--' }}</td>
-                        <td>{{ $info->created_at->format('d M y') }}</td>
+                        {{-- <td>{{ $info->created_at->format('d M y') }}</td> --}}
+                        <td>{{ $info->last_update ?? '...' }}</td>
+                        <td class="text-center">{{$info->hearing_date ? Carbon\Carbon::parse($info->hearing_date)->format('D, d M Y') : 'NULL' }}</td>
                         <td>
                             <div class="dropdown">
                                 <button class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">

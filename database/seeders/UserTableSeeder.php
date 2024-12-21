@@ -16,9 +16,9 @@ class UserTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'Admin User',
-                'username' => 'admin',
-                'email' => 'admin@gmail.com',
+                'name' => 'superadmin',
+                'username' => 'superadmin',
+                'email' => 'superadmin@gmail.com',
                 'phone' => '1111111111',
                 'phone1' => '2222222222',
                 'specialization' => 'Administration',
@@ -35,9 +35,9 @@ class UserTableSeeder extends Seeder
                 'updated_by' => null,
             ],
             [
-                'name' => 'John Doe',
-                'username' => 'johndoe',
-                'email' => 'johndoe@gmail.com',
+                'name' => 'admin',
+                'username' => 'admin',
+                'email' => 'admin@gmail.com',
                 'phone' => '3333333333',
                 'phone1' => null,
                 'specialization' => 'Corporate Law',
@@ -49,14 +49,14 @@ class UserTableSeeder extends Seeder
                 'role_id' => 2,
                 'user_type' =>2,
                 'ip' => '192.168.1.100',
-                'password' => Hash::make('password123'),
+                'password' => Hash::make('admin123'),
                 'created_by' => 1,
                 'updated_by' => 1,
             ],
             [
-                'name' => 'Jane Smith',
-                'username' => 'janesmith',
-                'email' => 'janesmith@gmail.com',
+                'name' => 'Lawyer',
+                'username' => 'lawyer',
+                'email' => 'lawyer@gmail.com',
                 'phone' => '4444444444',
                 'phone1' => '5555555555',
                 'specialization' => 'Family Law',
@@ -68,7 +68,7 @@ class UserTableSeeder extends Seeder
                 'role_id' => 3,
                 'user_type' =>3,
                 'ip' => '192.168.1.101',
-                'password' => Hash::make('securepass'),
+                'password' => Hash::make('admin123'),
                 'created_by' => 1,
                 'updated_by' => 1,
             ]

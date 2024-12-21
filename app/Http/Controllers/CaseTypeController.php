@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CaseType;
+use App\Services\CaseService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -28,14 +29,14 @@ class CaseTypeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request,CaseService $caseService)
     {
         $request->validate([
             'name' => 'required | unique:case_types',
         ]);
         try{
             DB::beginTransaction();
-            CaseType::store();
+            $caseService->caseTypeStore();
             DB::commit();
             return redirect()->back()->with('success','Successfully Case Type Added');
         }catch(\Throwable $e){
@@ -65,14 +66,14 @@ class CaseTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CaseType $caseType)
+    public function update(Request $request, CaseType $caseType,CaseService $caseService)
     {
         $request->validate([
             'name' => 'required | unique:case_types,name,'.$caseType->id,
         ]);
         try{
             DB::beginTransaction();
-            CaseType::updated($caseType);
+            $caseService->caseTypeUpdate($caseType);
             DB::commit();
             return redirect()->route('caseType.index')->with('success','Successfully Case Type Updated');
         }catch(\Throwable $e){

@@ -13,6 +13,9 @@ class Client extends Model
     protected $table = 'clients';
     protected $fillable = [
         'name',
+        'first_name',
+        'last_name',
+        'name',
         'email',
         'phone',
         'phone2',
@@ -37,6 +40,7 @@ class Client extends Model
         'marrital_status',
         'hearing_date',
         'hearing_time',
+        'last_update',
         'created_by',
         'updated_by'
     ];

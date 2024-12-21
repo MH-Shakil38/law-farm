@@ -20,7 +20,7 @@ class ClientService
     {
         $request = request();
         $user_id = auth()->user()->id;
-        $query = Client::query();
+        $query = Client::query()->orderBy('id','DESC');
 
         if (auth()->user()->user_type == 1 || auth()->user()->user_type == 2) {
             $query = $query;
@@ -60,6 +60,7 @@ class ClientService
         if ($request->hasFile('image')) {
             $data['image'] = $this->controller->uploadImage($request->file('image'), 'client/image/');
         }
+        $data['first_name'] = $data['name'];
         $store = Client::query()->create($data);
         ActivityLogService::LogInfo('Client', ['action' => 'create', 'new' => $store, 'description' => 'Create ' . 'Client , ' . $store->name . ' Information']);
         return $store;
@@ -68,12 +69,15 @@ class ClientService
     public function updateClient($client)
     {
         $request = request();
-        $old_data = $client;
+        $old_data = Client::query()->findOrFail($client->id);
+        $old_data->lawyer = $old_data->lawyer->name;
+        $old_data = json_encode($old_data);
         $data = $request->all();
         if ($request->hasFile('image')) {
             $data['image'] = $this->controller->uploadImage($request->file('image'), 'client/image/');
         }
         $client->update($data);
+        $client->lawyer = $client->lawyer->name;
         ActivityLogService::LogInfo('Client', ['action' => 'Update', 'new' => $client, 'old' => $old_data, 'description' => 'Update ' . 'Client , ' . $client->name . ' Information']);
         return $client;
     }
@@ -98,7 +102,8 @@ class ClientService
             ->orWhere('status', 'like', '%' . $search . '%')
             ->orWhere('created_by', 'like', '%' . $search . '%')
             ->orWhere('updated_by', 'like', '%' . $search . '%')
-            ->orWhere('image', 'like', '%' . $search . '%');
+            ->orWhere('image', 'like', '%' . $search . '%')
+            ->orWhere('last_update', 'like', '%' . $search . '%');
     }
 
 

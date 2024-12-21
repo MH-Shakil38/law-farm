@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
     <div class="card mb-3">
+        
         <div class="row g-0">
 
             <div class="col-lg-12 pe-lg-2 mb-3">

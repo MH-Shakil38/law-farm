@@ -32,21 +32,4 @@ class CaseType extends Model
         });
     }
 
-    static function store()
-    {
-        $request = request();
-        $data['name'] = $request->name;
-        $data['description'] = $request->description ?? '';
-        $data['status'] = $request->status == 1 ? 1 : 0;
-        return self::create($data);
-    }
-
-    static function updated($caseType)
-    {
-        $request = request();
-        $data['name'] = $request->name;
-        $data['description'] = $request->description ?? '';
-        $data['status'] = $request->status == 1 ? 1 : 0;
-        return $caseType->update($data);
-    }
 }

@@ -46,6 +46,7 @@
                 @include('admin.layouts.footer')
             </div>
             @include('admin.component.modal.authentication-modal')
+            @include('components.client-import')
         </div>
     </main>
     @include('admin.theem.setting')

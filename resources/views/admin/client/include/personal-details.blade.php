@@ -40,11 +40,11 @@
                                     </tr>
 
                                     <tr>
-                                        <th> <b>Tracking</b> </th>
+                                        <th> <b>Last Update</b> </th>
                                         <td>
 
                                             <span class="text-danger">
-                                               ---
+                                               {{$client->last_update ?? '---'}}
                                             </span>
                                         </td>
                                     </tr>

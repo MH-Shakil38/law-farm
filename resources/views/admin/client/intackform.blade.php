@@ -7,13 +7,15 @@
 
     </style>
     <div class="row mb-4">
+
         <div class="col-md-6">
-            {{-- <span>Date:</span> --}}
-            {{-- <input type="date" name="date" class="custome-input" value=""> --}}
-        </div>
-        <div class="col-md-12">
             <span>Referred by:</span>
             <input type="text" name="ref_by" class="custome-input" value="{{isset($client) ? $client->ref_by : old('ref_by') }}">
+        </div>
+
+        <div class="col-md-6">
+            <span>Last Update:</span>
+            <input type="text" name="last_update" class="form-control" value="{{isset($client) ? $client->last_update : old('last_update') }}">
         </div>
     </div>
 

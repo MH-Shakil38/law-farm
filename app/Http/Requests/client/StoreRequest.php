@@ -47,7 +47,7 @@ class StoreRequest extends FormRequest
             'lawyer_id' => 'nullable',
             'hearing_date' => 'nullable',
             'hearing_time' => 'nullable',
-            // 'lawyer_id' => 'nullable',
+            'last_update' => 'nullable',
         ];
     }
 }

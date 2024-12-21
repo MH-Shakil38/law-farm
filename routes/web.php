@@ -46,6 +46,7 @@ Route::middleware(['auth', 'web'])->group(function () {
         Route::post('hearing-date', [CaseController::class, 'hearingDate'])->name('clients.hearing.date');
         Route::get('hearing/edit/{id}', [CaseController::class, 'hearingEdit'])->name('clients.hearing.edit');
         Route::post('hearing/update/{id}', [CaseController::class, 'hearingUpdate'])->name('clients.hearing.update');
+        Route::post('clients/import',[ClientController::class,'import'])->name('clients.import');
     });
 
     // configuration route
