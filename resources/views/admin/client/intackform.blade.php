@@ -8,15 +8,12 @@
     </style>
     <div class="row mb-4">
 
-        <div class="col-md-6">
+        <div class="col-md-12 mb-4">
             <span>Referred by:</span>
             <input type="text" name="ref_by" class="custome-input" value="{{isset($client) ? $client->ref_by : old('ref_by') }}">
         </div>
 
-        <div class="col-md-6">
-            <span>Last Update:</span>
-            <input type="text" name="last_update" class="form-control" value="{{isset($client) ? $client->last_update : old('last_update') }}">
-        </div>
+
     </div>
 
 {{--
@@ -110,6 +107,19 @@
                     value="{{ isset($client->email) ? $client->email : old('email') }}" placeholder="Email Address"
                     required>
             </div>
+        </div>
+
+        <div class="col-md-4">
+            <span>Last Update:</span>
+            <input type="text" name="last_update" class="form-control" value="{{isset($client) ? $client->last_update : old('last_update') }}">
+        </div>
+        <div class="col-md-4">
+            <span>Hearing Date:</span>
+            <input type="date" name="hearing_date" class="form-control" value="{{isset($client) ? $client->hearing_date : old('hearing_date') }}">
+        </div>
+        <div class="col-md-4">
+            <span>Hearing Time:</span>
+            <input type="time" name="hearing_time" class="form-control" value="{{isset($client) ? $client->hearing_time : old('hearing_time') }}">
         </div>
 
         <div class="col-md-4">
@@ -220,7 +230,7 @@
 
 
 
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="mb-3">
                 <label for="case_type" class="form-label">Case Type</label>
                 <select name="case_type" id="case_type" class="form-control">
@@ -237,7 +247,24 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="case_type" class="form-label">Assing Lawyer</label>
+                <select name="lawyer_id" id="lawyer_id" class="form-control">
+                    <option disabled {{ isset($client->lawyer_id) ? '' : 'selected' }}>Assing Lawyer</option>
+                    @forelse (lawyers() as $info)
+                        <option value="{{ $info->id }}"
+                            {{ isset($client->lawyer_id) && $client->lawyer_id == $info->id ? 'selected' : '' }}>
+                            {{ $info->name }}
+                        </option>
+                    @empty
+                        <option disabled>No Lawyer</option>
+                    @endforelse
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-4">
             <div class="mb-3">
                 <label for="case_number" class="form-label">Case Number</label>
                 <input type="text" name="case_number" id="case_number" class="form-control"
@@ -245,6 +272,8 @@
                     placeholder="Case Number (optional)">
             </div>
         </div>
+
+
 
         <div class="col-md-12">
             <div class="mb-3">

@@ -63,6 +63,7 @@ class ClientService
         $data['first_name'] = $data['name'];
         $store = Client::query()->create($data);
         ActivityLogService::LogInfo('Client', ['action' => 'create', 'new' => $store, 'description' => 'Create ' . 'Client , ' . $store->name . ' Information']);
+        MailService::newClientMail($store);
         return $store;
     }
 

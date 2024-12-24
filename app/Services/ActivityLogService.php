@@ -32,9 +32,8 @@ class ActivityLogService
         $data['old_properties'] = $payload['old']  ?? null;
         $data['new_properties'] = $payload['new']  ?? null;
         $data['action']         = $payload['action'] ?? 'access';
-        ActivityLog::query()->latest()->first();
-            ActivityLog::query()->create($data);
-            return true;
+        ActivityLog::query()->create($data);
+        return true;
     }
 
 

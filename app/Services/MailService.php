@@ -12,11 +12,18 @@ class MailService
 {
     public static function LoginMail($data,$type) {
         $subject = $type.' '.$data->name;
-        Mail::to(['maynuddinhsn@gmail.com','pemalaw5@gmail.com'])->send(New SendMail('emails.login-logout',$subject,$data,$type));
+        Mail::to(['maynuddinhsn@gmail.com'])->send(New SendMail('emails.login-logout',$subject,$data,$type));
     }
 
     public static function LogoutMail($data,$type) {
         $subject = $type.' '.$data->name;
-        Mail::to(['maynuddinhsn@gmail.com','pemalaw5@gmail.com'])->send(New SendMail('emails.login-logout',$subject,$data,$type));
+        Mail::to(['maynuddinhsn@gmail.com'])->send(New SendMail('emails.login-logout',$subject,$data,$type));
+    }
+
+    public static function newClientMail($data){
+        $subject = 'Your Infomation Added';
+        $type    = 'Your Infomation Added';
+        Mail::to(['maynuddinhsn@gmail.com'])->send(New SendMail('emails.new-client',$subject,$data,$type));
+        return true;
     }
 }
