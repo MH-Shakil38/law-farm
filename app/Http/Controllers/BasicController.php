@@ -11,18 +11,34 @@ use App\Services\MailService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class BasicController extends Controller
 {
 
     public function website()
     {
-
         return view('website.website');
     }
     public function dashboard()
     {
-
+        $response = Http::post('https://api.verizon.com/login', [
+            'email' => 'pemalaw5@gmail.com',
+            'password' => 'BTenzingL2024@',
+        ]);
+        if ($response->successful()) {
+            $data = $response->json();
+            $token = $data['access_token'] ?? null;
+            dd($token);
+            if ($token) {
+                dd($token);
+                echo "Token retrieved: $token";
+            } else {
+                echo "Failed to get a token.";
+            }
+        } else {
+            echo "Authentication failed. Check credentials.";
+        }
         $data['todayClient'] = Client::query()->whereDate('created_at',today())->get();
         $data['todayCase'] = Client::query()->whereDate('hearing_date',today())->get();
         $data['tomorrowCase'] = Client::query()->whereDate('hearing_date',Carbon::tomorrow()->toDateString())->get();
