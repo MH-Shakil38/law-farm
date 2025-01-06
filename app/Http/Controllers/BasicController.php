@@ -10,12 +10,12 @@ use App\Services\ActivityLogService;
 use App\Services\MailService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class BasicController extends Controller
 {
-
     public function website()
     {
         return view('website.website');
@@ -71,5 +71,18 @@ class BasicController extends Controller
             return response()->json($data);
         }
         return view('admin.log.list')->with($data);
+    }
+
+    public function notify(){
+        $data['notifications'] = auth()->user()->notifications;
+        return view('admin.notification.notify')->with($data);
+    }
+
+    public function markAsRead($id){
+        if($id){
+            // auth()->user()->notifications()->where('id',$id)->markAsRead();
+            auth()->user()->notifications()->where('id',$id)->update(['read_at' => now ()]);
+            return redirect()->back();
+        }
     }
 }

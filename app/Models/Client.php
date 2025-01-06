@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 use function Laravel\Prompts\search;
 
 class Client extends Model
 {
-    use HasFactory;
+    use HasFactory,Notifiable;
     protected $table = 'clients';
     protected $fillable = [
         'name',

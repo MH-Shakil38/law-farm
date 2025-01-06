@@ -57,6 +57,11 @@ Route::middleware(['auth', 'web'])->group(function () {
     // multi record
     Route::get('record/delete', [BasicController::class, 'deleteRecord'])->name('record.delete');
     Route::get('change/password/{id}', [UserController::class, 'changePassword'])->name('users.change.password');
+    Route::prefix('notification')->group(function(){
+        Route::get('all',[BasicController::class,'notify'])->name('notify');
+        Route::get('mark-as-read/{id}',[BasicController::class,'markAsRead'])->name('markasread');
+
+    });
 });
 
 

@@ -64,6 +64,7 @@ class ClientService
         $store = Client::query()->create($data);
         ActivityLogService::LogInfo('Client', ['action' => 'create', 'new' => $store, 'description' => 'Create ' . 'Client , ' . $store->name . ' Information']);
         MailService::newClientMail($store);
+        NotificationService::client_notification(null,$store,'Added A New Client');
         return $store;
     }
 
@@ -80,6 +81,7 @@ class ClientService
         $client->update($data);
         $client->lawyer = $client->lawyer->name;
         ActivityLogService::LogInfo('Client', ['action' => 'Update', 'new' => $client, 'old' => $old_data, 'description' => 'Update ' . 'Client , ' . $client->name . ' Information']);
+        NotificationService::client_notification($old_data,$client,'Update');
         return $client;
     }
 

@@ -95,6 +95,7 @@ class ClientController extends Controller
     {
         try{
             DB::beginTransaction();
+
             $this->clientService->updateClient($client);
             DB::commit();
             return redirect()->back()->with('success','Successfully Client Updated');

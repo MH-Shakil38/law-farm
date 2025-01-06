@@ -90,11 +90,10 @@
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link notification-indicator notification-indicator-primary px-0 fa-icon-wait"
-                id="navbarDropdownNotification" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" data-hide-on-body-scroll="data-hide-on-body-scroll"><span class="fas fa-bell"
+            <a href="{{ route('notify') }}" class="nav-link notification-indicator notification-indicator-primary px-0 fa-icon-wait"
+                id="navbarDropdownNotification" role="button"><span class="fas fa-bell"
                     data-fa-transform="shrink-6" style="font-size: 33px;"></span></a>
-            <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end dropdown-menu-card dropdown-menu-notification dropdown-caret-bg"
+            {{-- <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end dropdown-menu-card dropdown-menu-notification dropdown-caret-bg"
                 aria-labelledby="navbarDropdownNotification">
                 <div class="card card-notification shadow-none">
                     <div class="card-header">
@@ -199,7 +198,7 @@
                     <div class="card-footer text-center border-top"><a class="card-link d-block"
                             href="app/social/notifications.html">View all</a></div>
                 </div>
-            </div>
+            </div> --}}
         </li>
         <li class="nav-item dropdown px-1">
             <a class="nav-link fa-icon-wait nine-dots p-1" id="navbarDropdownMenu" role="button"

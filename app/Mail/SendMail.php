@@ -4,28 +4,29 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendMail extends Mailable
+class SendMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    public $to; // Pass data to the view
-    public $subject; // Pass data to the view
-    public $data; // Pass data to the view
-    public $view; // Pass data to the view
-    public $type; // Pass data to the view
+    public $view, $subject, $data, $type;
 
-    public function __construct($view = null,$subject = 'send mail',$data = null, $type = null)
+    public function __construct($view, $subject, $data, $type)
     {
-        $this->data = $data;
-        $this->subject = $subject;
         $this->view = $view;
+        $this->subject = $subject;
+        $this->data = $data;
         $this->type = $type;
     }
 
     public function build()
     {
-        return $this->subject($this->subject)
-                    ->view($this->view);
+        return $this->view($this->view)
+                    ->subject($this->subject)
+                    ->with([
+                        'data' => $this->data,
+                        'type' => $this->type,
+                    ]);
     }
 }
