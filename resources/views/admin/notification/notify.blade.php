@@ -225,7 +225,6 @@
 
         // Redirect to the generated URL
         if (id) {
-            alert(id)
             window.location.href = url;
         }
 

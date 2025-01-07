@@ -122,7 +122,7 @@ if (!function_exists("getDateTimeLeft")) {
 if (!function_exists("notifications")) {
     function notifications()
     {
-        return auth()->user()->notifications;
+        return auth()->user()->notifications()->whereNull('read_at')->get();
     }
 }
 

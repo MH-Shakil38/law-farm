@@ -141,7 +141,7 @@
 
 <li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('notify') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                    class="far fa-bell"></span></span><span class="nav-link-text ps-1">Notification</span></div>
+                    class="far fa-bell"></span></span><span class="nav-link-text ps-1">Notification(<span class="   ">{{ notifications()->count() }}</span>)</span></div>
     </a>
 </li>
 <li class="nav-item"><!-- parent pages--><a class="nav-link" href="#">
