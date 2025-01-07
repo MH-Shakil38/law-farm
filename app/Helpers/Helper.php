@@ -5,6 +5,7 @@ use App\Models\Client;
 use Illuminate\Support\Facades\Cache;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Notification;
 
 if (!function_exists("clients")) {
     function clients()
@@ -116,4 +117,13 @@ if (!function_exists("getDateTimeLeft")) {
 
         return $timeDifference;
     }
+
+
+if (!function_exists("notifications")) {
+    function notifications()
+    {
+        return auth()->user()->notifications;
+    }
+}
+
 }

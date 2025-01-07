@@ -29,11 +29,20 @@ class UpdateClientNotification extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['database','slack'];
+        return ['database'];
+        // return ['database','slack'];
     }
 
     public function toSlack($notifiable){
-        return (new SlackMessage)->content($this->title);
+        $webhookUrl = config('services.slack.webhook_url');
+
+        return (new SlackMessage)
+            ->from('AppName', ':robot_face:')
+            ->to('#general') // Optional: specify the channel
+            ->content($this->title)
+            ->attachment(function ($attachment) {
+                $attachment->fields($this->data);
+            });
     }
 
 

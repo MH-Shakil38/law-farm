@@ -91,8 +91,8 @@
         </li>
         <li class="nav-item dropdown">
             <a href="{{ route('notify') }}" class="nav-link notification-indicator notification-indicator-primary px-0 fa-icon-wait"
-                id="navbarDropdownNotification" role="button"><span class="fas fa-bell"
-                    data-fa-transform="shrink-6" style="font-size: 33px;"></span></a>
+                id="navbarDropdownNotification" role="button"><span class="fas fa-bell "
+                    data-fa-transform="shrink-6" style="font-size: 33px;"></span> <span class="notification-indicator-number  bg-danger rounded-circle">{{ notifications()->count() }}</span> </a>
             {{-- <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end dropdown-menu-card dropdown-menu-notification dropdown-caret-bg"
                 aria-labelledby="navbarDropdownNotification">
                 <div class="card card-notification shadow-none">
