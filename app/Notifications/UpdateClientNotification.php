@@ -5,7 +5,7 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-// use Illuminate\Notifications\Messages\SlackMessage;
+use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
 
 class UpdateClientNotification extends Notification
@@ -29,12 +29,12 @@ class UpdateClientNotification extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['database'];
+        return ['database','slack'];
     }
 
-    // public function toSlack($notifiable){
-    //     return (new SlackMessage)->content($this->title);
-    // }
+    public function toSlack($notifiable){
+        return (new SlackMessage)->content($this->title);
+    }
 
 
     public function toArray(object $notifiable): array

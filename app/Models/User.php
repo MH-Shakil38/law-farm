@@ -75,4 +75,9 @@ class User extends Authenticatable
             $query->updated_by = auth()->user()->id;
         });
     }
+
+    public function routeNotificationForSlack()
+    {
+        return 'https://hooks.slack.com/services/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';
+    }
 }
