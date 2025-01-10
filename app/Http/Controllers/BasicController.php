@@ -46,7 +46,8 @@ class BasicController extends Controller
         $data['caseTypes'] = CaseType::getAll();
         $data['clients'] = $clientService->getAll(true);
         $data['onlineUsers'] = User::query()->get();
-        ActivityLogService::LogInfo('Dashboard');
+        // $log_data = activity_data(auth()->user()->name.' Dashboard Inforamtion');
+        // ActivityLogService::LogInfo($log_data);
         return view('admin.dashboard')->with($data);
     }
     public function deleteRecord(Request $request)
@@ -85,5 +86,10 @@ class BasicController extends Controller
             auth()->user()->notifications()->where('id',$id)->update(['read_at' => now ()]);
             return redirect()->back();
         }
+    }
+
+    public function clientRegistration(){
+
+        return view('website.client.registration');
     }
 }
