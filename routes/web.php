@@ -1,11 +1,16 @@
 <?php
 
 use App\Http\Controllers\BasicController;
+use App\Http\Controllers\CallSetupController;
 use App\Http\Controllers\CaseController;
 use App\Http\Controllers\CaseTypeController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\EmailSetupController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SmsSetupController;
 use App\Http\Controllers\UserController;
+use App\Models\EmailSetup;
+use App\Models\NotificationSetup;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [BasicController::class, 'website'])->name('website');
+Route::get('/client/registration', [BasicController::class, 'clientRegistration'])->name('client.registration');
 Route::middleware(['auth', 'web'])->group(function () {
 
     Route::get('dashboard', [BasicController::class, 'dashboard'])->name('dashboard');
@@ -43,6 +49,7 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::prefix('clients')->group(function () {
         Route::resource('clients', ClientController::class);
         Route::post('file', [ClientController::class, 'fileStore'])->name('clients.file.store');
+        Route::post('file-update', [ClientController::class, 'fileUpdate'])->name('clients.file.update');
         Route::post('hearing-date', [CaseController::class, 'hearingDate'])->name('clients.hearing.date');
         Route::get('hearing/edit/{id}', [CaseController::class, 'hearingEdit'])->name('clients.hearing.edit');
         Route::post('hearing/update/{id}', [CaseController::class, 'hearingUpdate'])->name('clients.hearing.update');
@@ -52,6 +59,10 @@ Route::middleware(['auth', 'web'])->group(function () {
     // configuration route
     Route::prefix('config')->group(function () {
         Route::resource('caseType', CaseTypeController::class);
+        Route::resource('email-setup', EmailSetupController::class);
+        Route::resource('notification-setup', NotificationSetup::class);
+        Route::resource('sms-setup', SmsSetupController::class);
+        Route::resource('call-setup', CallSetupController::class);
     });
 
     // multi record

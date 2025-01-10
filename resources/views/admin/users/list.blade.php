@@ -77,7 +77,7 @@
                                                     data-bulk-select-row="data-bulk-select-row"></div>
                                         </td>
                                         <td class="name align-middle white-space-nowrap py-2"><a
-                                                href="customer-details.html">
+                                                href="#">
 
                                                 <div class="d-flex d-flex align-items-center">
                                                     <div class="avatar avatar-xl" style="margin-right: 10px">
