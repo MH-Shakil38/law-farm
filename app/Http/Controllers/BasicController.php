@@ -89,7 +89,29 @@ class BasicController extends Controller
     }
 
     public function clientRegistration(){
+        $data['case_types'] = CaseType::query()->get();
+        return view('website.client.registration')->with($data);
+    }
 
-        return view('website.client.registration');
+    public function clientStore(Request $request){
+        $request->validate([
+            'first_name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'alien_number' => 'required',
+            'case_type' => 'required',
+            'address' => 'required',
+        ]);
+        try{
+            DB::beginTransaction();
+            $store = ClientService::tmp_client_store();
+            DB::commit();
+            return redirect()->back()->with('success','Thank you for submitting the client information! We appreciate your cooperation.');
+        }catch(\Throwable $e){
+            DB::rollBack();
+            dd($e);
+            return redirect()->back()->with('error', 'Somting Wrong' . $e);
+        }
+        dd($data);
     }
 }

@@ -37,7 +37,8 @@ class SecurityService
         $old = User::query()->findOrFail(Auth::user()->id);
         $new = Auth::user()->update(['isOnline' => 'online', 'last_logedin' => now()]);
         $new = User::query()->findOrFail(Auth::user()->id);
-        ActivityLogService::LogInfo('User', ['action' => 'login', 'new' => $new, 'old' => $old, 'description' => 'Login ' . $new->name ]);
+        $data = activity_data(' Login at ' . Carbon::parse(now())->format('d M y h:m A'),null,'#','Login');
+        $store = ActivityLogService::LogInfo($data);
         return true;
     }
 
@@ -51,7 +52,8 @@ class SecurityService
         $old = User::query()->findOrFail(Auth::user()->id);
         $new = Auth::user()->update(['isOnline' => 'offline', 'last_activity' => now()]);
         $new = User::query()->findOrFail(Auth::user()->id);
-        ActivityLogService::LogInfo('User', ['action' => 'login', 'new' => $new, 'old' => $old, 'description' => 'Login ' . Auth::user()->name ]);
+        $data = activity_data(' Login at ' . Carbon::parse(now())->format('d M y h:m A'),null,'#','Login');
+        $store = ActivityLogService::LogInfo($data);
         return true;
     }
 

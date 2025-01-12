@@ -2,9 +2,11 @@
 
 use App\Models\CaseType;
 use App\Models\Client;
+use App\Models\Lawyer;
 use Illuminate\Support\Facades\Cache;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
 
 if (!function_exists("clients")) {
@@ -17,7 +19,7 @@ if (!function_exists("clients")) {
 if (!function_exists("lawyers")) {
     function lawyers()
     {
-        return User::query()->where('user_type', 3)->get();
+        return Lawyer::query()->get();
     }
 }
 
@@ -117,6 +119,40 @@ if (!function_exists("getDateTimeLeft")) {
 
         return $timeDifference;
     }
+}
+
+if(!function_exists('change_value')){
+        function change_value($old, $new){
+        // Decode the new and old properties JSON
+        $newProperties = json_decode($new, true);
+        $oldProperties = json_decode($old, true); // Assuming old_properties exist
+
+        $changedProperties = [];
+
+        if ($newProperties) {
+            foreach ($newProperties as $key => $newValue) {
+                $oldValue = $oldProperties[$key] ?? null; // Get the old value for comparison
+                $hasChanged = $oldValue != $newValue; // Check if the value has changed
+
+                // Add only the changed properties
+                if ($hasChanged) {
+                    if (is_array($newValue) || is_object($newValue)) {
+                        $changedProperties[$key] = json_encode($newValue, JSON_PRETTY_PRINT);
+                    } elseif ($key == 'updated_at' || $key == 'created_at') {
+                        $changedProperties[$key] = \Carbon\Carbon::parse($newValue)->format('Y-m-d H:i:s');
+                    } else {
+                        $changedProperties[$key] = $newValue ?? 'N/A';
+                    }
+                }
+            }
+        }
+        $lawyer = User::query()->where('role_id',1)->get();
+
+        $changedProperties['id'] = $new->id;
+        $user =  Auth::user();
+        return $changedProperties;
+    }
+}
 
 
 if (!function_exists("notifications")) {
@@ -126,4 +162,14 @@ if (!function_exists("notifications")) {
     }
 }
 
+if(!function_exists('activity_data')){
+    function activity_data($title = null, $data = null,$url = null,$action = null){
+            $data =  [
+                'url' =>$url ?? request()->fullUrl(),
+                'properties' =>$data,
+                'title' =>$title,
+                'action' =>$action,
+            ];
+            return json_encode($data);
+    }
 }

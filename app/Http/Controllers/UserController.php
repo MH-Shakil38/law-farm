@@ -32,7 +32,6 @@ class UserController extends Controller
      */
     public function create()
     {
-
         $data = $this->service->allUsers();
         return view('admin.users.create')->with($data);
     }
@@ -47,10 +46,7 @@ class UserController extends Controller
             $data = $request->validated();
             $this->service->store($data);
             DB::commit();
-            if($request->user_type == '3'){
-                return redirect()->route('lawyer.index')->with('success','Lawyer successfully Added');
-            }
-            return redirect()->back()->with('success', 'Data Added Successfully');
+            return redirect()->route('users.index')->with('success', 'Data Added Successfully');
         } catch (\Throwable $e) {
             dd($e->getMessage(), $e->getCode(), $e->getLine());
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

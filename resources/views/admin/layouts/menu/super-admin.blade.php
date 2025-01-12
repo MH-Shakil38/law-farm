@@ -25,7 +25,7 @@
 
     </ul>
 
-    <a class="nav-link dropdown-indicator" href="#lawyer" role="button" data-bs-toggle="collapse" aria-expanded="true"
+    {{-- <a class="nav-link dropdown-indicator" href="#lawyer" role="button" data-bs-toggle="collapse" aria-expanded="true"
         aria-controls="lawyer">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                     class="fas fa-user-graduate"></span></span><span class="nav-link-text ps-1">Lawyer</span>
@@ -42,7 +42,7 @@
             </a><!-- more inner pages--></li>
 
 
-    </ul>
+    </ul> --}}
 
 
     <a class="nav-link dropdown-indicator" href="#client" role="button" data-bs-toggle="collapse" aria-expanded="true"
@@ -52,14 +52,20 @@
         </div>
     </a>
     <ul class="nav collapse {{ Request::routeIs('clients.*') ? 'show' : '' }}" id="client">
+        <li class="nav-item"><a class="nav-link" href="{{ route('clients.entry') }}">
+            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Client Entry</span>
+            </div>
+        </a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('clients.index') }}">
                 <div class="d-flex align-items-center"><span class="nav-link-text ps-1">List</span>
                 </div>
             </a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('clients.create') }}">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('clients.create') }}">
                 <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Create</span>
                 </div>
-            </a></li>
+            </a>
+        </li>
 
 
 
@@ -141,24 +147,26 @@
 
 <li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('notify') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                    class="far fa-bell"></span></span><span class="nav-link-text ps-1">Notification(<span class="   ">{{ notifications()->count() }}</span>)</span></div>
+                    class="far fa-bell"></span></span><span class="nav-link-text ps-1">Notification(<span
+                    class="   ">{{ notifications()->count() }}</span>)</span></div>
     </a>
 </li>
-<li class="nav-item"><!-- parent pages--><a class="nav-link" href="#">
+<li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('email-setup.index') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                     class="fas fa-mail-bulk"></span></span><span class="nav-link-text ps-1">Email Setup</span></div>
     </a>
 </li>
-<li class="nav-item"><!-- parent pages--><a class="nav-link" href="#">
+<li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('sms-setup.index') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                     class="fas fa-sms"></span></span><span class="nav-link-text ps-1">SMS Setup</span></div>
     </a>
 </li>
 
 <li class="nav-item"><!-- parent pages--><a class="nav-link" href="#">
-    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                class="fas fa-phone-volume"></span></span><span class="nav-link-text ps-1">IP Phone Setup</span></div>
-</a>
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                    class="fas fa-phone-volume"></span></span><span class="nav-link-text ps-1">IP Phone Setup</span>
+        </div>
+    </a>
 </li>
 
 
@@ -172,6 +180,6 @@
 
 <style>
     li.nav-item {
-    font-size: 16px;
-}
+        font-size: 16px;
+    }
 </style>

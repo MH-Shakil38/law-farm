@@ -2,11 +2,15 @@
 @section('content')
     <div class="accordion" id="accordionExample">
         @forelse ($logs as $info)
+        @php
+            $data = json_decode($info['data']);
+        @endphp
+
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading{{ $info->id }}"><button class="accordion-button" type="button"
                         data-bs-toggle="collapse" data-bs-target="#collapse{{ $info->id }}" aria-expanded="true"
                         aria-controls="collapse{{ $info->id }}">
-                        <span role="img" aria-label="Emoji">🏷️ {{ $info->user->name }} {{ $info->description }} <br>
+                        <span role="img" aria-label="Emoji">🏷️ {{ $info->user->name ?? '' }} {{ $data->action ?? '' }} {{ $data !=null ?  $data->title : '' }}<br>
                             <span style="font-size:12px;margin-left:26px;color:#7b7b7b" class="text-waring"> <i class="far fa-clock"></i> {{ Carbon\Carbon::parse($info->created_at)->format('d M y, h:m:s')  }} </span>
                         </span>
                        </button>
@@ -23,13 +27,12 @@
                                       <th scope="col">Action/Model</th>
                                       <th scope="col">Url</th>
                                       <th scope="col">Old Properties</th>
-                                      <th scope="col">New Properties</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <tr>
-                                        <td>{{ $info->action ?? '' }} {{ $info->modal ?? '' }}</td>
-                                        <td>{{ $info->url ?? '' }}</td>
+                                        <td>{{ $data->action ?? '' }}</td>
+                                        <td> <a href="{{ $data->url ?? '#' }}">{{ $data->url ?? '' }}</a></td>
                                         <td>
                                             @php
                                                 $oldProperties = json_decode($info->old_properties, true); // Decode JSON
@@ -106,5 +109,5 @@
         @endforelse
 
     </div>
-    
+
 @endsection

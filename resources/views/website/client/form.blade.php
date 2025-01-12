@@ -26,7 +26,7 @@
     <div class="formbold-form-wrapper">
         <div class="card">
             <div class="card-body p-4 reg-div" style="border: 1px solid #eac15a;background:#0e2c2d">
-                <form action="" method="POST">
+                <form action="{{ route('tmp.client.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
@@ -54,7 +54,7 @@
                         <div class="col-md-6  col-sm-12 col-lg-6">
                             <div class="formbold-mb-5">
                                 <label for="name" class="formbold-form-label"> Email </label>
-                                <input type="text" name="email" id="name" placeholder="example@gmail.com"
+                                <input type="email" name="email" id="name" placeholder="example@gmail.com"
                                     class="formbold-form-input" />
                             </div>
                         </div>
@@ -78,10 +78,10 @@
                                 <label for="name" class="formbold-form-label"> Maritial Status </label>
                                 <select name="marritial_status" id="" required>
                                     <option disabled selected>Select Maritial Status</option>
-                                    <option value="Single">Single</option>
-                                    <option value="Married">Married</option>
-                                    <option value="Divorced">Divorced</option>
-                                    <option value="Separated">Separated</option>
+                                    <option {{ old('marritial_status') == 'Single' ? 'selected' : ''}}  value="Single">Single</option>
+                                    <option {{ old('marritial_status') == 'Married' ? 'selected' : ''}}  value="Married">Married</option>
+                                    <option {{ old('marritial_status') == 'Divorced' ? 'selected' : ''}}  value="Divorced">Divorced</option>
+                                    <option {{ old('marritial_status') == 'Separated' ? 'selected' : ''}}  value="Separated">Separated</option>
                                 </select>
                             </div>
                         </div>
@@ -89,11 +89,11 @@
                         <div class="col-md-6  col-sm-12 col-lg-6">
                             <div class="formbold-mb-5">
                                 <label for="name" class="formbold-form-label"> Gender </label>
-                                <select name="marritial_status" id="" required>
+                                <select name="gender" id="" required>
                                     <option disabled selected>Select Gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
+                                    <option  {{ old('gender') == 'male' ? 'selected' : ''}} value="male">Male</option>
+                                    <option {{ old('gender') == 'female' ? 'selected' : ''}} value="female">Female</option>
+                                    <option {{ old('gender') == 'other' ? 'selected' : ''}} value="other">Other</option>
                                 </select>
                             </div>
                         </div>
@@ -101,25 +101,21 @@
                         <div class="col-md-6  col-sm-12 col-lg-6">
                             <div class="formbold-mb-5">
                                 <label for="name" class="formbold-form-label"> <b> Date Of Birth</b> </label>
-                                <input type="date" name="date_of_birth" id="name" placeholder="Direction"
+                                <input type="date" name="date_of_birth" id="name" placeholder="DOB" value="{{ old('date_of_birth') }}"
                                     class="formbold-form-input" />
                             </div>
                         </div>
 
+
+
                         <div class="col-md-6  col-sm-12 col-lg-6">
                             <div class="formbold-mb-5">
-                                <label for="name" class="formbold-form-label"> Case Type </label>
+                                <label for="case" class="formbold-form-label"> Case Type </label>
+                                <select name="case_type" class="formbold-form-input">
 
-                                <select name="case_type" id="case_type" class="">
-                                    <option disabled {{ isset($client->case_type) ? '' : 'selected' }}>Select Case Type
-                                    </option>
-                                    @forelse (caseTypes() as $info)
-                                        <option value="{{ $info->id }}"
-                                            {{ isset($client->case_type) && $client->case_type == $info->id ? 'selected' : '' }}>
-                                            {{ $info->name }}
-                                        </option>
+                                    @forelse ($case_types as $data)
+                                        <option {{ old('case_type') == $data->id ? 'selected' : ''}} value="{{ $data->id }}">{{ $data->name }}</option>
                                     @empty
-                                        <option disabled>No Case Types Available</option>
                                     @endforelse
                                 </select>
                             </div>
@@ -128,15 +124,25 @@
                         <div class="col-md-6  col-sm-12 col-lg-6">
                             <div class="formbold-mb-5">
                                 <label for="name" class="formbold-form-label"> Reference By </label>
-                                <input type="text" name="case_type" id="name" placeholder="Referance Name"
+                                <input type="text" name="ref_by" id="name" placeholder="Referance Name" value="{{ old('ref_by') }}"
                                     class="formbold-form-input" />
                             </div>
                         </div>
 
+
+                        <div class="col-md-6  col-sm-12 col-lg-6">
+                            <div class="formbold-mb-5">
+                                <label for="name" class="formbold-form-label"> Upload Image </label>
+                                <input type="file" name="image" id="name" placeholder=""
+                                    class="formbold-form-input" />
+                            </div>
+                        </div>
+
+
                         <div class="col-md-12  col-sm-12 col-lg-12">
                             <div class="formbold-mb-5">
                                 <label for="name" class="formbold-form-label"> Case Details </label>
-                                <textarea name="case_details" class="" id="" cols="30" rows="5"></textarea>
+                                <textarea name="case_details" class="" id="" cols="30" rows="5">{{ old('case_details') }}</textarea>
 
                             </div>
                         </div>
@@ -148,35 +154,35 @@
 
                         <div class="col-md-12  col-sm-12 col-lg-12">
                             <div class="formbold-mb-5">
-                                <input type="text" name="address" id="address" placeholder="Address"
+                                <input type="text" name="address" id="address" value="{{ old('address') }}" placeholder="Address"
                                     class="formbold-form-input" />
                             </div>
                         </div>
 
                         <div class="col-md-4  col-sm-4 col-lg-4">
                             <div class="formbold-mb-5">
-                                <input type="text" name="city" id="city" placeholder="City Name"
+                                <input type="text" name="city" id="city" value="{{ old('city') }}" placeholder="City Name"
                                     class="formbold-form-input" />
                             </div>
                         </div>
 
                         <div class="col-md-4  col-sm-4 col-lg-4">
                             <div class="formbold-mb-5">
-                                <input type="text" name="state" id="state" placeholder="City State"
+                                <input type="text" name="state" value="{{ old('state') }}" id="state" placeholder="State State"
                                     class="formbold-form-input" />
                             </div>
                         </div>
 
                         <div class="col-md-4  col-sm-4 col-lg-4">
                             <div class="formbold-mb-5">
-                                <input type="text" name="zip_code" id="zip_code" placeholder="Zip Code"
+                                <input type="text" name="zip_code" value="{{ old('zip_code') }}" id="zip_code" placeholder="Zip Code"
                                     class="formbold-form-input" />
                             </div>
                         </div>
                     </div>
 
                     <div class="float-end">
-                        <p><button class="btn btn-primary form-control" disabled>Submit Form</button></p>
+                        <p><button class="btn btn-primary form-control">Submit Form</button></p>
                     </div>
                 </form>
             </div>
@@ -223,7 +229,8 @@
     }
 
 
-    .formbold-form-input ,textarea {
+    .formbold-form-input,
+    textarea {
         width: 100%;
         padding: 10px 24px;
         /* border-radius: 6px; */
@@ -235,7 +242,8 @@
         outline: none;
         resize: none;
     }
-    select{
+
+    select {
         width: 100%;
         padding: 12px 24px;
         /* border-radius: 6px; */
@@ -298,3 +306,36 @@
         }
     }
 </style>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (session('success'))
+    <script>
+        Swal.fire({
+            title: 'Success!',
+            text: '{{ session('success') }}.',
+            icon: 'success',
+            timer: 5000, // Auto-close after 2 seconds
+            showConfirmButton: false,
+            confirmButtonText: 'OK'
+        });
+    </script>
+@endif
+@if ($errors->any())
+    <script>
+        let errorMessages = `
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        `;
+
+        Swal.fire({
+            title: 'Please Try Again',
+            html: errorMessages,
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    </script>
+@endif

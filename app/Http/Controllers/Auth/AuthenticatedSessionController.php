@@ -34,12 +34,8 @@ class AuthenticatedSessionController extends Controller
         // check valid ip address
         if (SecurityService::checkValidIp()) {
             $request->session()->regenerate();
-
-            // custome log when user login
-            SecurityService::LoginUpdate();
-            //custome send mail when user login
             MailService::LoginMail(auth()->user(),'Login');
-
+            SecurityService::LoginUpdate();
             return redirect()->intended(RouteServiceProvider::HOME);
         } else {
             Auth::guard('web')->logout();
@@ -56,7 +52,6 @@ class AuthenticatedSessionController extends Controller
     {
         // custome mail when user logout
         MailService::LoginMail(auth()->user(),'Logout');
-
         // custom log when user logout
         SecurityService::LogoutUpdate();
 

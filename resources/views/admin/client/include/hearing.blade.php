@@ -1,5 +1,5 @@
 <div class="card mb-3">
-    <div class="card-header bg-body-tertiary d-flex justify-content-between bg-light-success" style="background: #adadad !important;">
+    <div class="card-header bg-body-tertiary d-flex justify-content-between" style="background: #adadad !important;">
         <h5 class="mb-0">Court hearing history</h5>
         <div id="table-customers-replace-element">
             <button data-bs-toggle="collapse" data-bs-target="#hearing-collapse" aria-expanded="true"
@@ -64,13 +64,13 @@
                                         <label class="form-lable" for="title">Description</label>
                                         <textarea name="description" class="form-control" id="" rows="3" placeholder="Enter Short Description">{{ isset($hearing) ? $hearing->description : '' }}</textarea>
                                     </div>
-                                    <div class="col-md-12 mt-2">
-                                        <button class="btn btn-primary form control"> <i class="fas fa-plus"> </i>
+                                    <div class="col-md-12 mt-2 ">
+                                        <button class="btn btn-primary form control float-end"> <i class="fas fa-plus"> </i>
                                             {{ isset($hearing) ? 'Update' : 'Save' }}
                                         </button>
                                         @isset($hearing)
                                             <a href="{{ route('clients.show', $hearing->client_id) }}"
-                                                class="btn btn-danger">Cancel</a>
+                                                class="btn btn-danger float-end">Cancel</a>
                                         @endisset
                                     </div>
 

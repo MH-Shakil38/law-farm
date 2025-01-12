@@ -6,8 +6,10 @@ use App\Http\Controllers\CaseController;
 use App\Http\Controllers\CaseTypeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EmailSetupController;
+use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SmsSetupController;
+use App\Http\Controllers\TmpClientController;
 use App\Http\Controllers\UserController;
 use App\Models\EmailSetup;
 use App\Models\NotificationSetup;
@@ -29,6 +31,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BasicController::class, 'website'])->name('website');
 Route::get('/client/registration', [BasicController::class, 'clientRegistration'])->name('client.registration');
+Route::post('tmp/client/store', [BasicController::class, 'clientStore'])->name('tmp.client.store');
 Route::middleware(['auth', 'web'])->group(function () {
 
     Route::get('dashboard', [BasicController::class, 'dashboard'])->name('dashboard');
@@ -37,6 +40,7 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::resource('users', UserController::class);
         Route::resource('lawyer', UserController::class);
+        Route::resource('lawyers',LawyerController::class);
         Route::get('user-list',[UserController::class,'activeUser'])->name('active.user');
     });
 
@@ -54,6 +58,8 @@ Route::middleware(['auth', 'web'])->group(function () {
         Route::get('hearing/edit/{id}', [CaseController::class, 'hearingEdit'])->name('clients.hearing.edit');
         Route::post('hearing/update/{id}', [CaseController::class, 'hearingUpdate'])->name('clients.hearing.update');
         Route::post('clients/import',[ClientController::class,'import'])->name('clients.import');
+        Route::get('client/entry',[TmpClientController::class, 'index'])->name('clients.entry');
+        Route::get('client/aprove/{id}',[TmpClientController::class, 'aprove'])->name('clients.aprove');
     });
 
     // configuration route

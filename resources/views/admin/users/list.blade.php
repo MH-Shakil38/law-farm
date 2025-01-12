@@ -22,7 +22,7 @@
                                     </select><button class="btn btn-falcon-default btn-sm ms-2"
                                         type="button">Apply</button></div>
                             </div> --}}
-                            <div id="table-customers-replace-element"><a href="{{$type == 'Lawyer' ? route('lawyer.create') : route('users.create') }}"
+                            <div id="table-customers-replace-element"><a href="{{ route('users.create') }}"
                                     class="btn btn-falcon-default btn-sm" type="button"><svg
                                         class="svg-inline--fa fa-plus fa-w-14" data-fa-transform="shrink-3 down-2"
                                         aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
@@ -95,7 +95,7 @@
                                         <td class="phone align-middle white-space-nowrap py-2"><a
                                                 href="tel:2012001851">{{ $info->phone }}</a></td>
                                         <td class="joined align-middle py-2"> <span
-                                                class="badge bg-{{ $info->user_type == 1 ? 'success' : 'primary' }}">{{isset($type) && $type == 'Lawyer' ? 'lawyer' :( $info->user_type == 1 ? 'Super Admin' : 'Admin') }}</span>
+                                                class="badge bg-{{ $info->user_type == 1 ? 'success' : 'primary' }}">{{$info->user_type == 1 ? 'Super Admin' : 'Admin'}}</span>
                                         </td>
 
                                         <td class="joined align-middle py-2"> <span

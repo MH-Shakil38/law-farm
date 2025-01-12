@@ -10,6 +10,11 @@
             </tr>
 
             <tr>
+                <th> <b>Alien Number</b> </th>
+                <td>{{ $client->alien_number }} </td>
+            </tr>
+
+            <tr>
                 <th> <b>Marrital status</b> </th>
                 <td>{{ $client->marrital_status }} </td>
             </tr>

@@ -47,6 +47,51 @@
             </div>
         </li>
     </ul>
+    <ul class="navbar-nav navbar-nav-icons flex-row ">
+
+        @forelse (activeuser() as $info)
+            <li class="nav-item dropdown">
+                <a class="nav-link pe-0 ps-2" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <div class="avatar avatar-xl {{ check_activities($info) }}" title="{{ $info->name }}">
+                        <img class="rounded-circle" src="{{ asset($info->image ?? '') }}"
+                            onerror="this.src='{{ asset('thumbnail.png') }}';" alt="" />
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end py-0"
+                    aria-labelledby="navbarDropdownUser">
+                    <div class="bg-white dark__bg-1000 rounded-2 py-2 p-2" style="width: 250px">
+                        <a class="dropdown-item fw-bold text-warning" href="#!"><span
+                                class="fas fa-crown me-1"></span><span>{{ $info->name }}</span> </a>
+                                <table class="table table-borderless fs-10 fw-medium mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <th class="p-1" style="width: 50%;">Last Online:</th>
+                                            <td class="p-1 text-600" style="float: right;">{{ \Carbon\Carbon::parse($info->last_activity)->format('d M, h:m A') }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1" style="width: 35%;">Login:</td>
+                                            <td class="p-1 text-600" style="float: right;">{{ \Carbon\Carbon::parse($info->last_logedin)->format('d M, h:m A') }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="p-1" style="width: 35%;" >Mobile No:</td>
+                                            <td class="p-1" style="float: right;"><a class="text-600 text-decoration-none"
+                                                    href="tel:+01234567890 ">{{ $info->phone }} </a><span
+                                                    class="badge rounded-pill badge-subtle-primary d-none d-md-inline-block ms-2">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                    </div>
+                </div>
+            </li>
+        @empty
+        @endforelse
+
+    </ul>
+
+
     <ul class="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
         <li class="nav-item ps-2 pe-0">
             <div class="dropdown theme-control-dropdown"><a
@@ -64,15 +109,20 @@
                             data-theme-control="theme"><span class="fas fa-sun"></span>Light<span
                                 class="fas fa-check dropdown-check-icon ms-auto text-600"></span></button><button
                             class="dropdown-item d-flex align-items-center gap-2" type="button" value="dark"
-                            data-theme-control="theme"><span class="fas fa-moon" data-fa-transform=""></span>Dark<span
+                            data-theme-control="theme"><span class="fas fa-moon"
+                                data-fa-transform=""></span>Dark<span
                                 class="fas fa-check dropdown-check-icon ms-auto text-600"></span></button><button
                             class="dropdown-item d-flex align-items-center gap-2" type="button" value="auto"
-                            data-theme-control="theme"><span class="fas fa-adjust" data-fa-transform=""></span>Auto<span
+                            data-theme-control="theme"><span class="fas fa-adjust"
+                                data-fa-transform=""></span>Auto<span
                                 class="fas fa-check dropdown-check-icon ms-auto text-600"></span></button>
                     </div>
                 </div>
             </div>
         </li>
+
+
+
         <li class="nav-item d-none d-sm-block">
             <a class="nav-link px-0 notification-indicator notification-indicator-warning notification-indicator-fill fa-icon-wait "
                 href="#settings-offcanvas" data-bs-toggle="offcanvas" href="#settings-offcanvas">
@@ -90,9 +140,12 @@
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a href="{{ route('notify') }}" class="nav-link notification-indicator notification-indicator-primary px-0 fa-icon-wait"
+            <a href="{{ route('notify') }}"
+                class="nav-link notification-indicator notification-indicator-primary px-0 fa-icon-wait"
                 id="navbarDropdownNotification" role="button"><span class="fas fa-bell "
-                    data-fa-transform="shrink-6" style="font-size: 33px;"></span> <span class="notification-indicator-number  bg-danger rounded-circle">{{ notifications()->count() }}</span> </a>
+                    data-fa-transform="shrink-6" style="font-size: 33px;"></span> <span
+                    class="notification-indicator-number  bg-danger rounded-circle">{{ notifications()->count() }}</span>
+            </a>
             {{-- <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end dropdown-menu-card dropdown-menu-notification dropdown-caret-bg"
                 aria-labelledby="navbarDropdownNotification">
                 <div class="card card-notification shadow-none">
@@ -222,23 +275,19 @@
                         <div class="card-body px-3">
                             <div class="row text-center gx-0 gy-0">
                                 @forelse (activeuser() as $info)
-                                <div class="col-4">
-                                    <a
-                                        class="d-block hover-bg-200 px-2 py-3 rounded-3 text-center text-decoration-none"
-                                        href="pages/user/profile.html" target="_blank">
-                                        <div
-                                        class="avatar avatar-2xl {{ check_activities($info) }}">
-                                        <img class="rounded-circle"
-                                            src="{{ asset($info->image) }}"
-                                            onerror="this.src='{{ asset('thumbnail.png') }}';"
-                                            alt="">
+                                    <div class="col-4">
+                                        <a class="d-block hover-bg-200 px-2 py-3 rounded-3 text-center text-decoration-none"
+                                            href="pages/user/profile.html" target="_blank">
+                                            <div class="avatar avatar-2xl {{ check_activities($info) }}">
+                                                <img class="rounded-circle" src="{{ asset($info->image) }}"
+                                                    onerror="this.src='{{ asset('thumbnail.png') }}';"
+                                                    alt="">
+                                            </div>
+                                            <p class="mb-0 fw-medium text-800 text-truncate fs-11">{{ $info->name }}
+                                            </p>
+                                        </a>
                                     </div>
-                                        <p class="mb-0 fw-medium text-800 text-truncate fs-11">{{ $info->name }}
-                                        </p>
-                                    </a>
-                                </div>
                                 @empty
-
                                 @endforelse
 
 
@@ -914,8 +963,8 @@
         <li class="nav-item dropdown">
             <a class="nav-link notification-indicator notification-indicator-primary px-0 fa-icon-wait"
                 id="navbarDropdownNotification" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" data-hide-on-body-scroll="data-hide-on-body-scroll"><span
-                    class="fas fa-bell" data-fa-transform="shrink-6" style="font-size: 33px;"></span></a>
+                aria-expanded="false" data-hide-on-body-scroll="data-hide-on-body-scroll"><span class="fas fa-bell"
+                    data-fa-transform="shrink-6" style="font-size: 33px;"></span></a>
             <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end dropdown-menu-card dropdown-menu-notification dropdown-caret-bg"
                 aria-labelledby="navbarDropdownNotification">
                 <div class="card card-notification shadow-none">

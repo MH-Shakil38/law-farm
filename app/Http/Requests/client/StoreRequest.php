@@ -48,6 +48,8 @@ class StoreRequest extends FormRequest
             'hearing_date' => 'nullable',
             'hearing_time' => 'nullable',
             'last_update' => 'nullable',
+            'alien_number' => 'nullable',
+            'is_secrate' => 'nullable',
         ];
     }
 }

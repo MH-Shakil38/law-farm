@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('lawyers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email')->unique(); // Unique email
+            $table->string('phone')->nullable();
+            $table->text('address')->nullable(); // Nullable text column
+            $table->text('description')->nullable(); // Nullable description
+            $table->json('other')->nullable(); // Nullable description
+            $table->string('image')->nullable(); // Image path
+            $table->boolean('status')->default(1); // Active/inactive status
+            $table->unsignedBigInteger('created_by')->nullable(); // User ID for creator
+            $table->unsignedBigInteger('updated_by')->nullable(); // User ID for last updater
             $table->timestamps();
         });
     }

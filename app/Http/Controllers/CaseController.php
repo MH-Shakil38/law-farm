@@ -22,7 +22,9 @@ class CaseController extends Controller
         try{
             DB::beginTransaction();
             $hearing = Hearing::query()->create($data);
-            $this->clientService->fileStore();
+            if($request->hasFile('file')){
+                $this->clientService->fileStore();
+            }
             DB::commit();
             return redirect()->back()->with('success','Next Hearing Date Added');
         }catch(\Throwable $e){

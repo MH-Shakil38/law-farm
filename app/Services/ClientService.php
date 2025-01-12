@@ -6,18 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Models\CaseType;
 use App\Models\Client;
 use App\Models\ClientFile;
+use App\Models\TmpClient;
 use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Route;
 
 class ClientService
 {
     protected $controller;
-    public function __construct()
+    protected $uploadService;
+    public function __construct(UploadService $uploadService)
     {
-        return $this->controller = new Controller();
+        $this->controller = new Controller();
+        $this->uploadService = $uploadService;
     }
 
     public function getAll($paginate = null)
     {
+       $current_route = Route::currentRouteName();
         $request = request();
         $user_id = auth()->user()->id;
         $query = Client::query()->orderBy('id','DESC');
@@ -40,6 +46,12 @@ class ClientService
             }
 
         }
+        // else{
+        //     if($current_route == 'dashboard'){
+        //         $date = Carbon::parse(now())->format('Y-m-d');
+        //         $query = $query->whereDate('hearing_date',Carbon::parse(now())->format('Y-m-d'));
+        //     }
+        // }
         if ($request->created_at) {
             $data = dateSeperate($request->created_at);
             if($data['from'] == $data['to']){
@@ -56,32 +68,30 @@ class ClientService
 
     public function storeClient($data)
     {
-        $request = request();
-        if ($request->hasFile('image')) {
-            $data['image'] = $this->controller->uploadImage($request->file('image'), 'client/image/');
-        }
+        $data['image'] = $this->uploadService->client_image();
         $data['first_name'] = $data['name'];
         $store = Client::query()->create($data);
-        ActivityLogService::LogInfo('Client', ['action' => 'create', 'new' => $store, 'description' => 'Create ' . 'Client , ' . $store->name . ' Information']);
-        MailService::newClientMail($store);
-        NotificationService::client_notification(null,$store,'Added A New Client');
+        if(isset($store->lawyer->name)){
+            $store->lawyer = $store->lawyer->name;
+        }
+        NotificationService::client_notification(null,$store,'Added');
         return $store;
     }
 
     public function updateClient($client)
     {
         $request = request();
-        $old_data = Client::query()->findOrFail($client->id);
-        $old_data->lawyer = $old_data->lawyer->name;
-        $old_data = json_encode($old_data);
         $data = $request->all();
         if ($request->hasFile('image')) {
             $data['image'] = $this->controller->uploadImage($request->file('image'), 'client/image/');
         }
         $client->update($data);
-        $client->lawyer = $client->lawyer->name;
-        ActivityLogService::LogInfo('Client', ['action' => 'Update', 'new' => $client, 'old' => $old_data, 'description' => 'Update ' . 'Client , ' . $client->name . ' Information']);
-        NotificationService::client_notification($old_data,$client,'Update');
+        if(isset($client->lawyer->name)){
+            $client->lawyer = $client->lawyer->name;
+        }
+        NotificationService::client_notification(null,$client,'Updated');
+        // ActivityLogService::LogInfo('Client', ['action' => 'Update', 'new' => $client, 'old' => $old_data, 'description' => 'Update ' . 'Client , ' . $client->name . ' Information']);
+        // NotificationService::client_store_notification($old_data,$client,'Update');
         return $client;
     }
 
@@ -139,7 +149,17 @@ class ClientService
         $data['caseTypes'] = CaseType::getAll();
         $data['client'] = $client;
         $data['lawyers'] = User::query()->where('user_type', 3)->get();
-        ActivityLogService::LogInfo('Client', ['action' => 'Show', 'description' => 'Show ' . 'Client , ' . $client->name . ' Information']);
+        // ActivityLogService::LogInfo('Client', ['action' => 'Show', 'description' => 'Show ' . 'Client , ' . $client->name . ' Information']);
         return $data;
+    }
+
+
+    public static function tmp_client_store(){
+        $request = request();
+        $data = $request->all();
+        $data['image'] = UploadService::client_image();
+        $data['name'] = $request->first_name.' '.$request->last_name;
+        return TmpClient::query()->create($data);
+
     }
 }

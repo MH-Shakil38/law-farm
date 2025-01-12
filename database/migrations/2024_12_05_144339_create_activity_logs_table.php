@@ -14,12 +14,7 @@ return new class extends Migration
         Schema::create('activity_logs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('user_name');
-            $table->string('url');
-            $table->longText('description')->nullable();
-            $table->json('old_properties')->nullable();
-            $table->json('new_properties')->nullable();
-            $table->string('action')->nullable()->comment('update,create,view,delete,access');
+            $table->json('data')->nullable();
             $table->timestamps();
         });
     }

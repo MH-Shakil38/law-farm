@@ -16,24 +16,15 @@ class ActivityLogService
         return $this->controller = new Controller();
     }
 
-
-    static function LogInfo($model = null, $payload = null)
+    /**
+     * $data store in json formate
+     * @param $data
+     * $data = []
+     */
+    static function LogInfo($data = null)
     {
-        $data       = [];
-        $data       = self::defoult();
-        $user       = auth()->user()->name;
-        $action     = $payload['action'] ?? 'access';
-        if (isset($payload['description'])) {
-            $data['description']     = $payload['description'];
-        } else {
-            $data['description']     = $action . ' ' . $model . ' Info';
-        }
-
-        $data['old_properties'] = $payload['old']  ?? null;
-        $data['new_properties'] = $payload['new']  ?? null;
-        $data['action']         = $payload['action'] ?? 'access';
-        ActivityLog::query()->create($data);
-        return true;
+        // $store = ActivityLog::query()->create(['user_id'=>Auth::user()->id,'data'=>$data]);
+        // return $store;
     }
 
 
@@ -61,17 +52,6 @@ class ActivityLogService
         return [
             'logs' => $view,
             'pagination' => $pagination
-        ];
-    }
-
-
-
-    static function defoult()
-    {
-        return [
-            'user_name' => auth()->user()->name,
-            'user_id'   => auth()->user()->id,
-            'url'       => request()->fullUrl(),
         ];
     }
 

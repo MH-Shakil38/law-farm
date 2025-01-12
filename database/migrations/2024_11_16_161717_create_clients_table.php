@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->nullable(); // Email Address
             $table->string('phone')->nullable(); // Phone Number
             $table->string('phone2')->nullable(); // Phone Number
+            $table->string('alien_number')->nullable(); // Phone Number
             $table->string('address')->nullable(); // Address
             $table->string('city')->nullable(); // City
             $table->string('state')->nullable(); // State

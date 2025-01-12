@@ -17,44 +17,44 @@ class NotificationService
         return $this->controller = new Controller();
     }
 
-    public static function client_notification($old, $new,$action)
+    public static function client_notification($old = null, $new = null,$action = 'Access')
     {
-      // Decode the new and old properties JSON
-      $newProperties = json_decode($new, true);
-      $oldProperties = json_decode($old, true); // Assuming old_properties exist
 
-      $changedProperties = [];
+        $changedProperties  = change_value($old,$new,$action);
+        $user               = auth()->user();
+        $title              = ' A New Client Information';
+        $url                = route('clients.show',$new->id);
+        $data               = activity_data($title,$changedProperties,$url,'Added');
 
-      if ($newProperties) {
-          foreach ($newProperties as $key => $newValue) {
-              $oldValue = $oldProperties[$key] ?? null; // Get the old value for comparison
-              $hasChanged = $oldValue != $newValue; // Check if the value has changed
-
-              // Add only the changed properties
-              if ($hasChanged) {
-                  if (is_array($newValue) || is_object($newValue)) {
-                      $changedProperties[$key] = json_encode($newValue, JSON_PRETTY_PRINT);
-                  } elseif ($key == 'updated_at' || $key == 'created_at') {
-                      $changedProperties[$key] = \Carbon\Carbon::parse($newValue)->format('Y-m-d H:i:s');
-                  } else {
-                      $changedProperties[$key] = $newValue ?? 'N/A';
-                  }
-              }
-          }
-      }
-      $users = User::query()->where('role_id',1)->get();
-    //   Notification::send($users,new UpdateClientNotification($changedProperties));
-    // //   new UpdateClientNotification($changedProperties);
-    $changedProperties['id'] = $new->id;
-    $user =  Auth::user();
-    if(isset($changedProperties['hearing_date'])){
-        $title = $action.' "'.$new->name .'" Hearing Date And Some Information';
-    }else{
-        $title = $action.' "'.$new->name.'" Information';
+        ActivityLogService::LogInfo($data);
+        MailService::newClientMail($title,$changedProperties);
+        //   Notification::send($users,new UpdateClientNotification($changedProperties));
+        //   new UpdateClientNotification($changedProperties);
+        auth()->user()->notify(new UpdateClientNotification($title,$changedProperties,$action));
+        return $changedProperties; // Only return the changed items
     }
-      auth()->user()->notify(new UpdateClientNotification($title,$changedProperties));
 
-      return $changedProperties; // Only return the changed items
+    public static function client_update_notification($old = null, $new = null,$action = 'Access')
+    {
+      $changedProperties =  change_value($old,$new,$action);
+        if(isset($changedProperties['hearing_date'])){
+            $title = $new->name .'" Hearing Date And Some Information';
+        }else{
+            $title = $new->name.'" Information';
+        }
+        $data = [
+            'url' =>'',
+            'title' =>$title,
+            'data' =>$changedProperties,
+            'action' => isset($action),
+        ];
+        ActivityLogService::LogInfo('Client', ['action' => 'create', 'new' => $store, 'description' => 'Create ' . 'Client , ' . $store->name . ' Information']);
+        MailService::newClientMail($title,$changedProperties);
+        //   Notification::send($users,new UpdateClientNotification($changedProperties));
+        //   new UpdateClientNotification($changedProperties);
+        auth()->user()->notify(new UpdateClientNotification($title,$changedProperties));
+        return $changedProperties; // Only return the changed items
     }
+
 
 }

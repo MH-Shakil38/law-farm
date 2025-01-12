@@ -35,7 +35,8 @@ class ClientController extends Controller
     {
         $data['caseTypes'] = $this->caseService->getCaseType();
         $data['clients'] = $this->clientService->getAll(true);
-        ActivityLogService::LogInfo('Client');
+        // $log_data = activity_data('Access Client Info',)
+        // ActivityLogService::LogInfo('Client');
         if ($request->ajax()) {
             $data = $this->clientService->ajaxClientInfo($data);
             return response()->json($data);
@@ -43,9 +44,7 @@ class ClientController extends Controller
         return view('admin.client.list')->with($data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         $data['caseTypes'] = $this->caseService->getCaseType();
@@ -60,7 +59,7 @@ class ClientController extends Controller
         try{
             DB::beginTransaction();
             $data = $request->validated();
-            $this->clientService->storeClient($data);
+            $store = $this->clientService->storeClient($data);
             DB::commit();
             return redirect()->back()->with('success','Successfully Client Created');
         }catch(\Throwable $e){
@@ -96,9 +95,9 @@ class ClientController extends Controller
         try{
             DB::beginTransaction();
 
-            $this->clientService->updateClient($client);
+            $info = $this->clientService->updateClient($client);
             DB::commit();
-            return redirect()->back()->with('success','Successfully Client Updated');
+            return redirect()->route('clients.show',$info->id)->with('success','Successfully Client Updated');
         }catch(\Throwable $e){
             DB::rollBack();
             $this->errorDD($e);

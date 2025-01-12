@@ -6,7 +6,7 @@
             href="../../app/social/activity-log.html">All logs</a>
     </div>
     <div class="card-body fs-10 p-0">
-        
+
         @forelse (auth()->user()->logs as $info)
             <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300"
                 href="{{ $info->url }}">

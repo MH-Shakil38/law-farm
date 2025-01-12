@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    @include('admin.client.include.clients')
+    @include('admin.client.include.clients',['today'=>false])
 @endsection

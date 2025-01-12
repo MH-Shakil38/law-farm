@@ -1,13 +1,16 @@
 @extends('admin.layouts.app')
 @section('content')
-    <div class="row notification-container" style="margin: 0 auto">
+    <div class="row custom-row notification-container" style="margin: 0 auto">
         <h2 class="text-center" style="">My Notifications</h2>
         <p class="dismiss text-right"><a id="dismiss-all" href="#">Dimiss All</a></p>
         @forelse ($notifications as $info)
+
             @php
+
                 $data = $info['data']['data'];
                 $user = $info['data']['user'];
                 $title = $info['data']['title'];
+                $action = $info['data']['action'] ?? '...';
             @endphp
             <div class="card notification-card notification-invitation">
                 <div class="card-body">
@@ -15,7 +18,7 @@
                         <tr>
                             <td style="width:85%">
                                 <div class="card-title" style="font-size: 14px"> <b
-                                        class="text-primary">{{ $user['name'] }}</b> {{ $title }}</div>
+                                        class="text-primary">{{ $user['name'] }}</b> <i><b>{{ $action ?? '...' }}</b></i> {{ $title }}</div>
                             </td>
                             <td style="width:15%">
                                 <a href="#" class="btn btn-primary" data-bs-toggle="modal"
@@ -114,7 +117,7 @@
         background-color: #fcfcfc;
     }
 
-    .row {
+    .custom-row {
         margin: auto;
         padding: 30px;
         width: 80%;

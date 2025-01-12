@@ -9,6 +9,7 @@
             <div class="content ">
 
                 {{-- personal details --}}
+                
                 @include('admin.client.include.personal-details')
 
 

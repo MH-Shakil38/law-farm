@@ -1,9 +1,10 @@
 <div class="card mb-3">
     <div class="card-header position-relative min-vh-25 mb-7">
-        <div class="bg-holder rounded-3 rounded-bottom-0"
-            style="background-image:url(../../assets/img/generic/4.jpg);"></div><!--/.bg-holder-->
+        <div class="bg-holder rounded-3 rounded-bottom-0" style="background-image:url(../../assets/img/generic/4.jpg);">
+        </div><!--/.bg-holder-->
         <div class="avatar avatar-5xl avatar-profile"><img class="rounded-circle img-thumbnail shadow-sm"
-                src="{{ asset($client->image) }}" onerror="this.src='{{ asset('thumbnail.png') }}';" width="200" alt=""></div>
+                src="{{ asset($client->image) }}" onerror="this.src='{{ asset('thumbnail.png') }}';" width="200"
+                alt=""></div>
     </div>
     <div class="card-body">
         <div class="row">
@@ -27,7 +28,8 @@
                                 <table class="table table-responsive bordered">
                                     <tr>
                                         <th> <b>Hearing Date</b> </th>
-                                        <td> {{ $client->hearing_date?\Carbon\Carbon::parse($client->hearing_date)->format('d M Y') : 'N/A' }}</td>
+                                        <td> {{ $client->hearing_date ? \Carbon\Carbon::parse($client->hearing_date)->format('d M Y') : 'N/A' }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th> <b>Hearing Time</b> </th>
@@ -44,7 +46,7 @@
                                         <td>
 
                                             <span class="text-danger">
-                                               {{$client->last_update ?? '---'}}
+                                                {{ $client->last_update ?? '---' }}
                                             </span>
                                         </td>
                                     </tr>
@@ -87,6 +89,7 @@
                 </div>
                 <hr>
                 {{-- case details --}}
+
                 @include('admin.client.include.case-details')
                 @include('admin.client.include.hearing')
                 @include('admin.client.include.files')

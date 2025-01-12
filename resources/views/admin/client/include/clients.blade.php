@@ -96,7 +96,7 @@
                                         data-options='{"mode":"range","dateFormat":"d/m/y","disableMobile":true}' />
                                 </th> --}}
                                 <th class="text-900 pe-1 align-middle" data-sort="case_type">
-                                    @include('admin.component.date-picker')
+                                    @include('admin.component.date-picker',['today'=>$today])
                                 </th>
                                 <th class="align-middle"></th>
                             </tr>
