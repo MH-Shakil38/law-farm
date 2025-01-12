@@ -3,6 +3,7 @@
 use App\Models\CaseType;
 use App\Models\Client;
 use App\Models\Lawyer;
+use App\Models\TmpClient;
 use Illuminate\Support\Facades\Cache;
 use App\Models\User;
 use Carbon\Carbon;
@@ -20,6 +21,14 @@ if (!function_exists("lawyers")) {
     function lawyers()
     {
         return Lawyer::query()->get();
+    }
+}
+
+
+if (!function_exists("entry_list")) {
+    function entry_list()
+    {
+        return TmpClient::query()->get();
     }
 }
 
