@@ -83,7 +83,11 @@ Route::middleware(['auth', 'web'])->group(function () {
 
 
 Route::get('migrate-fresh', function () {
-    Artisan::call('migrate:fresh --seed');
+    // Artisan::call('migrate:fresh --seed');
+});
+
+Route::get('migrate', function () {
+    Artisan::call('migrate');
 });
 
 
