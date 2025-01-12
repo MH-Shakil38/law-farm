@@ -7,6 +7,7 @@ use App\Http\Requests\client\UpdateRequest;
 use App\Models\CaseType;
 use App\Models\Client;
 use App\Models\ClientFile;
+use App\Models\Lawyer;
 use App\Models\User;
 use App\Services\ActivityLogService;
 use App\Services\CaseService;
@@ -196,16 +197,14 @@ class ClientController extends Controller
 
     public function checkLawyer($lawyer){
         if($lawyer){
-            $exists = User::query()->where('name',$lawyer)->where('user_type',3)->exists();
+            $exists = Lawyer::query()->where('name',$lawyer)->exists();
             if($exists == true){
-                $user = User::query()->where('name',$lawyer)->first();
+                $user = Lawyer::query()->where('name',$lawyer)->first();
                 return $user->id;
             }else{
-                $user = User::query()->create([
+                $user = Lawyer::query()->create([
                         'name'=>$lawyer,
-                        'user_type'=>3,
                         'email'=>$lawyer.'@gmail.com',
-                        'password'=>bcrypt($lawyer),
                         ]);
                 return $user->id;
             }
