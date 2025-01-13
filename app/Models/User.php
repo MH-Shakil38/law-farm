@@ -32,6 +32,7 @@ class User extends Authenticatable
         'isActive',
         'role_id',
         'ip',
+        'ip1',
         'email_verified_at',
         'password',
         'created_by',
@@ -65,16 +66,16 @@ class User extends Authenticatable
     }
 
 
-    protected static function boot()
-    {
-        parent::boot();
-        static::creating(function ($query) {
-            $query->created_by = auth()->user()->id;
-        });
-        static::updating(function ($query) {
-            $query->updated_by = auth()->user()->id;
-        });
-    }
+    // protected static function boot()
+    // {
+    //     parent::boot();
+    //     static::creating(function ($query) {
+    //         $query->created_by = auth()->user()->id;
+    //     });
+    //     static::updating(function ($query) {
+    //         $query->updated_by = auth()->user()->id;
+    //     });
+    // }
 
     public function routeNotificationForSlack()
     {

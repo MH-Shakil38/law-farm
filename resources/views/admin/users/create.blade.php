@@ -124,10 +124,22 @@
 
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
-                        <label class="form-label" for="exampleFormControlInput1">Computer Ip
+                        <label class="form-label" for="exampleFormControlInput1">Primary Ip
                             <span class="text-danger">*</span></label> <br>
-                        <input name="ip" type="text" class="form-control-lg" required
+                        <input name="ip" type="text" class="form-control-lg"
                             value="{{ isset($user) ? $user->ip : old('ip') }}" id="exampleFormControlInput1" />
+                        @error('ip')
+                            <span class="text-warning">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label class="form-label" for="exampleFormControlInput1">Secondary Ip
+                            <span class="text-danger">*</span></label> <br>
+                        <input name="ip1" type="text" class="form-control-lg"
+                            value="{{ isset($user) ? $user->ip1 : old('ip1') }}" id="exampleFormControlInput1" />
                         @error('ip')
                             <span class="text-warning">{{ $message }}</span>
                         @enderror
