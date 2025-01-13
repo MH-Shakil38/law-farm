@@ -20,7 +20,7 @@ class EmailSetupController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'email' => 'required|email|unique:email_setups,email',
+            'email'=>'required|email|unique:email_setups,email,except,id',
             'status'=>'nullable'
         ]);
         EmailSetup::query()->create($data);

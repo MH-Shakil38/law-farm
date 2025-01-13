@@ -16,13 +16,12 @@ class UserTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'superadmin',
-                'username' => 'superadmin',
-                'email' => 'superadmin@gmail.com',
-                'phone' => '1111111111',
-                'phone1' => '2222222222',
+                'name' => 'Pema Law',
+                'username' => 'PemaLaw',
+                'email' => 'pemalaw5@gmail.com',
+                'phone' => '929-330-6462',
+                'phone1' => '929-330-6462',
                 'specialization' => 'Administration',
-                'lawyer_type' => null,
                 'address' => '123 Admin Lane, Admin City',
                 'image' => 'admin_user.jpg',
                 'file' => null,
@@ -35,9 +34,9 @@ class UserTableSeeder extends Seeder
                 'updated_by' => null,
             ],
             [
-                'name' => 'admin',
-                'username' => 'admin',
-                'email' => 'admin@gmail.com',
+                'name' => 'Maynuddin',
+                'username' => 'Maynuddin',
+                'email' => 'maynuddinhsn@gmail.com',
                 'phone' => '3333333333',
                 'phone1' => null,
                 'specialization' => 'Corporate Law',
@@ -54,8 +53,8 @@ class UserTableSeeder extends Seeder
                 'updated_by' => 1,
             ],
             [
-                'name' => 'Lawyer',
-                'username' => 'lawyer',
+                'name' => 'Ashik',
+                'username' => 'Ashik',
                 'email' => 'lawyer@gmail.com',
                 'phone' => '4444444444',
                 'phone1' => '5555555555',
