@@ -185,7 +185,12 @@ if(!function_exists('activity_data')){
 
     if(!function_exists('notify_email')){
         function notify_email(){
-               return EmailSetup::query()->where('status',1)->pluck('email')->toArray();
+               $email = EmailSetup::query()->where('status',1)->pluck('email')->toArray();
+               if($email !=null){
+                return $email;
+               }else{
+                return [];
+               }
         }
     }
 }
