@@ -20,7 +20,7 @@ class SecurityService
         if ($user->user_type == 1) {
             return true;
         } else {
-            if ($user->ip == $ip) {
+            if ($user->ip == $ip || $user->ip1 == $ip) {
                 return true;
             } else {
                 return false;

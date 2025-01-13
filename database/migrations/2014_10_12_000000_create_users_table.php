@@ -27,7 +27,7 @@ return new class extends Migration
             $table->tinyInteger('isActive')->default(1);
             $table->integer('role_id')->nullable();
             $table->string('ip')->nullable();
-            $table->string('ip2')->nullable();
+            $table->string('ip1')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('created_by')->nullable();

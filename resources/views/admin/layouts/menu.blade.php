@@ -29,13 +29,7 @@
                 @include('admin.layouts.menu.menu1')
 
                 {{-- main menu --}}
-                @if (auth()->user()->user_type == 1)
                     @include('admin.layouts.menu.super-admin')
-                @elseif (auth()->user()->user_type == 2)
-                    @include('admin.layouts.menu.admin')
-                @elseif (auth()->user()->user_type == 3)
-                    @include('admin.layouts.menu.lawyer')
-                @endif
 
                 <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand-lg" style="display: none;">
                     @include('admin.layouts.menu.menu2')
