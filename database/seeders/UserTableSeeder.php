@@ -30,8 +30,6 @@ class UserTableSeeder extends Seeder
                 'role_id' => 1,
                 'ip' => '127.0.0.1',
                 'password' => Hash::make('admin123'),
-                'created_by' => null,
-                'updated_by' => null,
             ],
             [
                 'name' => 'Maynuddin',
@@ -49,13 +47,11 @@ class UserTableSeeder extends Seeder
                 'user_type' =>2,
                 'ip' => '192.168.1.100',
                 'password' => Hash::make('admin123'),
-                'created_by' => 1,
-                'updated_by' => 1,
             ],
             [
                 'name' => 'Ashik',
                 'username' => 'Ashik',
-                'email' => 'lawyer@gmail.com',
+                'email' => 'ashikurrahmanibb@gmail.com',
                 'phone' => '4444444444',
                 'phone1' => '5555555555',
                 'specialization' => 'Family Law',
@@ -68,8 +64,6 @@ class UserTableSeeder extends Seeder
                 'user_type' =>3,
                 'ip' => '192.168.1.101',
                 'password' => Hash::make('admin123'),
-                'created_by' => 1,
-                'updated_by' => 1,
             ]
         ]);
     }
