@@ -7,60 +7,41 @@ use Illuminate\Http\Request;
 
 class EmailSetupController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        $data['notifications'] = auth()->user()->notifications;
+        $data['emails'] = EmailSetup::query()->latest()->get();
         return view('admin.config.email.index')->with($data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
+
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'email'=>'required|email|unique:email_setups,email,except,id',
+            'status'=>'nullable'
+        ]);
+        EmailSetup::query()->create($data);
+        return redirect()->back()->with('success','Notification Email Successfully Added');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(EmailSetup $emailSetup)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(EmailSetup $emailSetup)
     {
-        //
+        $data['emails'] = EmailSetup::query()->latest()->get();
+        $data['email'] = $emailSetup;
+        return view('admin.config.email.index')->with($data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, EmailSetup $emailSetup)
     {
-        //
+        $data = $request->all();
+        $emailSetup->update($data);
+        return redirect()->route('email-setup.index')->with('success','Notification Email Successfully Updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(EmailSetup $emailSetup)
-    {
-        //
-    }
 }

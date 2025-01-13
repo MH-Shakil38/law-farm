@@ -16,10 +16,16 @@ class Lawyer extends Model
         'address',
         'description',
         'image',
+        'case_type',
         'status',
         'created_by',
         'updated_by',
     ];
+
+
+    public function caseType(){
+        return $this->belongsTo(CaseType::class,'case_type','id');
+    }
 
     protected static function boot(){
         parent::boot();

@@ -2,6 +2,7 @@
 
 use App\Models\CaseType;
 use App\Models\Client;
+use App\Models\EmailSetup;
 use App\Models\Lawyer;
 use App\Models\TmpClient;
 use Illuminate\Support\Facades\Cache;
@@ -180,5 +181,11 @@ if(!function_exists('activity_data')){
                 'action' =>$action,
             ];
             return json_encode($data);
+    }
+
+    if(!function_exists('notify_email')){
+        function notify_email(){
+               return EmailSetup::query()->where('status',1)->pluck('email')->toArray();
+        }
     }
 }

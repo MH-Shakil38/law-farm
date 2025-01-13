@@ -6,6 +6,7 @@
         </div>
     </div>
     {{-- user  --}}
+
     <a class="nav-link dropdown-indicator" href="#users" role="button" data-bs-toggle="collapse" aria-expanded="true"
         aria-controls="users">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
@@ -37,12 +38,12 @@
                     class="fas fa-user-graduate"></span></span><span class="nav-link-text ps-1">Lawyer</span>
         </div>
     </a>
-    <ul class="nav collapse {{ Request::routeIs('lawyer.*') ? 'show' : '' }}" id="lawyer">
-        <li class="nav-item"><a class="nav-link" href="{{ route('lawyer.index') }}">
+    <ul class="nav collapse {{ Request::routeIs('lawyers.*') ? 'show' : '' }}" id="lawyer">
+        <li class="nav-item"><a class="nav-link" href="{{ route('lawyers.index') }}">
                 <div class="d-flex align-items-center"><span class="nav-link-text ps-1">List</span>
                 </div>
             </a><!-- more inner pages--></li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('lawyer.create') }}">
+        <li class="nav-item"><a class="nav-link" href="{{ route('lawyers.create') }}">
                 <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Create</span>
                 </div>
             </a><!-- more inner pages--></li>
@@ -159,7 +160,7 @@
                     class="fas fa-mail-bulk"></span></span><span class="nav-link-text ps-1">Email Setup</span></div>
     </a>
 </li>
-<li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('sms-setup.index') }}">
+{{-- <li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('sms-setup.index') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                     class="fas fa-sms"></span></span><span class="nav-link-text ps-1">SMS Setup</span></div>
     </a>
@@ -170,7 +171,7 @@
                     class="fas fa-phone-volume"></span></span><span class="nav-link-text ps-1">IP Phone Setup</span>
         </div>
     </a>
-</li>
+</li> --}}
 
 
 <li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('logs') }}">

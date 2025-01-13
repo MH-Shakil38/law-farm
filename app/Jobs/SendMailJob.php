@@ -13,10 +13,11 @@ class SendMailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $view, $subject, $data, $type;
+    protected $email,$view, $subject, $data, $type;
 
-    public function __construct($view, $subject, $data, $type)
+    public function __construct($email,$view, $subject, $data, $type)
     {
+        $this->email = $email;
         $this->view = $view;
         $this->subject = $subject;
         $this->data = $data;
@@ -25,6 +26,6 @@ class SendMailJob implements ShouldQueue
 
     public function handle()
     {
-        Mail::to(['maynuddinhsn@gmail.com'])->queue(new SendMail($this->view, $this->subject, $this->data, $this->type));
+        Mail::to($this->email)->queue(new SendMail($this->view, $this->subject, $this->data, $this->type));
     }
 }

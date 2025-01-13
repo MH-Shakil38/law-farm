@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('email_setups', function (Blueprint $table) {
             $table->id();
+            $table->string('email');
+            $table->string('status');
+            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
         });
     }

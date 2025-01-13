@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description')->nullable(); // Nullable description
             $table->json('other')->nullable(); // Nullable description
             $table->string('image')->nullable(); // Image path
+            $table->unsignedBigInteger('case_type')->nullable(); // Image path
             $table->boolean('status')->default(1); // Active/inactive status
             $table->unsignedBigInteger('created_by')->nullable(); // User ID for creator
             $table->unsignedBigInteger('updated_by')->nullable(); // User ID for last updater

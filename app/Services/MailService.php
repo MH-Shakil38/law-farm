@@ -13,13 +13,15 @@ class MailService
 {
     public static function LoginMail($data, $type) {
         $subject = $type . ' ' . $data->name;
-        dispatch(new SendMailJob('emails.login-logout', $subject, $data, $type));
+        $email = notify_email();
+        dispatch(new SendMailJob($email,'emails.login-logout', $subject, $data, $type));
         return true;
     }
 
     public static function LogoutMail($data,$type) {
         $subject = $type . ' ' . $data->name;
-        dispatch(new SendMailJob('emails.login-logout', $subject, $data, $type));
+        $email = notify_email();
+        dispatch(new SendMailJob($email,'emails.login-logout', $subject, $data, $type));
         return true;
     }
 
