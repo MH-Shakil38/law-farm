@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [BasicController::class, 'website'])->name('website');
 Route::get('/client/registration', [BasicController::class, 'clientRegistration'])->name('client.registration');
 Route::post('tmp/client/store', [BasicController::class, 'clientStore'])->name('tmp.client.store');
-Route::middleware(['auth', 'web'])->group(function () {
+Route::middleware(['auth', 'web','permission.check'])->group(function () {
 
     Route::get('dashboard', [BasicController::class, 'dashboard'])->name('dashboard');
     Route::get('logs', [BasicController::class, 'Logs'])->name('logs');

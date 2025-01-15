@@ -17,7 +17,6 @@ class PermissionCheck
     public function handle(Request $request, Closure $next): Response
     {
         $route = power_check();
-
         if ( $route== true) {
             return $next($request);
         }
