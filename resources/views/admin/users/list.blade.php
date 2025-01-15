@@ -60,6 +60,8 @@
                                     </th>
                                     <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="phone">Phone
                                     </th>
+                                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="phone">IP
+                                    </th>
                                     <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="joined">Role
                                     </th>
                                     <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="joined">
@@ -94,6 +96,9 @@
                                                 href="mailto:ricky@example.com">{{ $info->email }}</a></td>
                                         <td class="phone align-middle white-space-nowrap py-2"><a
                                                 href="tel:2012001851">{{ $info->phone }}</a></td>
+
+                                                <td class="phone align-middle white-space-nowrap py-2"><a
+                                                    href="tel:2012001851">{{ $info->ip }} , {{ $info->ip1 }}</a></td>
                                         <td class="joined align-middle py-2">
                                             @forelse ($info->roles as $data)
                                                 <span class="badge bg-primary">{{$data->name}}</span>
