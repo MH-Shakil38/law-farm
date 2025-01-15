@@ -33,9 +33,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
         $data = $this->service->allUsers();
-        return view('admin.users.create',compact('roles'))->with($data);
+        $data['ip'] =  file_get_contents('https://api.ipify.org');
+        $data['roles'] = Role::all();
+        return view('admin.users.create')->with($data);
     }
 
     /**
@@ -71,6 +72,7 @@ class UserController extends Controller
         // $data = $this->service->allUsers();
         $data = $this->service->getUser($id);
         $data['roles'] = Role::all();
+        $data['ip'] =  file_get_contents('https://api.ipify.org');
         return view('admin.users.create')->with($data);
     }
 
