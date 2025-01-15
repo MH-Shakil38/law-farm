@@ -35,6 +35,7 @@ class UserService
     public function store($data){
             $request = request();
             $data = $request->except('role_id');
+            $data['password'] = bcrypt($request->input('password'));
             $data['file'] = $this->controller->uploadImage($request->file('file'), 'user/file/');
             $data['image'] = $this->controller->uploadImage($request->file('image'), 'user/image/');
             $store = User::query()->create($data);
