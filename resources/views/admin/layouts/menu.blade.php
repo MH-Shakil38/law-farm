@@ -31,7 +31,7 @@
                 {{-- main menu --}}
                 @if (auth()->user()->hasRole('Super Admin'))
                     @include('admin.layouts.menu.super-admin')
-                @elseif (auth()->user()->hasRole('Admin'))
+                @elseif (auth()->user()->hasRole('Executive'))
                     @include('admin.layouts.menu.admin')
                 @elseif (auth()->user()->hasRole('Employee'))
                     @include('admin.layouts.menu.lawyer')
