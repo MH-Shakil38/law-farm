@@ -8,6 +8,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EmailSetupController;
 use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SmsSetupController;
 use App\Http\Controllers\TmpClientController;
 use App\Http\Controllers\UserController;
@@ -41,6 +42,7 @@ Route::middleware(['auth', 'web'])->group(function () {
         Route::resource('users', UserController::class);
         Route::resource('lawyer', UserController::class);
         Route::resource('lawyers',LawyerController::class);
+        Route::resource('roles',RoleController::class);
         Route::get('user-list',[UserController::class,'activeUser'])->name('active.user');
     });
 
@@ -60,6 +62,9 @@ Route::middleware(['auth', 'web'])->group(function () {
         Route::post('clients/import',[ClientController::class,'import'])->name('clients.import');
         Route::get('client/entry',[TmpClientController::class, 'index'])->name('clients.entry');
         Route::get('client/aprove/{id}',[TmpClientController::class, 'aprove'])->name('clients.aprove');
+        Route::get('client/pending',[ClientController::class, 'pending'])->name('clients.pending');
+        Route::get('client/secrate',[ClientController::class, 'secrate'])->name('clients.secrate');
+
     });
 
     // configuration route

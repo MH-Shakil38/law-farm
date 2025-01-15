@@ -10,6 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Route;
 
 if (!function_exists("clients")) {
     function clients()
@@ -191,6 +192,19 @@ if(!function_exists('activity_data')){
                }else{
                 return [];
                }
+        }
+    }
+
+    if(!function_exists('power_check')){
+        function power_check(){
+               $power = auth()->user()->hasPermission();
+               return $power;
+        }
+    }
+
+    if(!function_exists('dateFormat')){
+        function dateFormat($date){
+              return Carbon::parse($date)->format('d M y');
         }
     }
 }

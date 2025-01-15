@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Route;
 
 class BasicController extends Controller
 {
@@ -23,23 +25,7 @@ class BasicController extends Controller
     }
     public function dashboard(ClientService $clientService)
     {
-        // $response = Http::post('https://api.verizon.com/login', [
-        //     'email' => 'pemalaw5@gmail.com',
-        //     'password' => 'BTenzingL2024@',
-        // ]);
-        // if ($response->successful()) {
-        //     $data = $response->json();
-        //     $token = $data['access_token'] ?? null;
-        //     dd($token);
-        //     if ($token) {
-        //         dd($token);
-        //         echo "Token retrieved: $token";
-        //     } else {
-        //         echo "Failed to get a token.";
-        //     }
-        // } else {
-        //     echo "Authentication failed. Check credentials.";
-        // }
+        
         $data['todayClient'] = Client::query()->whereDate('created_at',today())->get();
         $data['todayCase'] = Client::query()->whereDate('hearing_date',today())->get();
         $data['tomorrowCase'] = Client::query()->whereDate('hearing_date',Carbon::tomorrow()->toDateString())->get();

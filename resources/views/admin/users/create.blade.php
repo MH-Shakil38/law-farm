@@ -1,16 +1,23 @@
 @extends('admin.layouts.app')
 @section('content')
-<style>
-    .create-card{
-        max-width: 800px;
-        margin: 0 auto;
-        height: 100%;
-    }
-    input,select{
-        width: 100%;
+    {{-- style and js for select 2 --}}
+    <link href="{{ asset('/') }}vendors/choices/choices.min.css" rel="stylesheet" />
+    <script src="{{ asset('/') }}vendors/choices/choices.min.js"></script>
 
-    }
-</style>
+    <style>
+        .create-card {
+            max-width: 800px;
+            margin: 0 auto;
+            height: 100%;
+        }
+
+        input,
+        select {
+            width: 100%;
+
+        }
+    </style>
+
     <div class="card mb-3 create-card">
         <div class="bg-holder d-none d-lg-block bg-card"
             style="background-image:url(../../assets/img/icons/spot-illustrations/corner-4.png);"></div><!--/.bg-holder-->
@@ -28,7 +35,7 @@
             <div class="row">
 
                 <div class="mb-3 col-md-6">
-                    <label class="form-label" for="exampleFormControlInput1">  Name <span class="text-danger">*</span>
+                    <label class="form-label" for="exampleFormControlInput1"> Name <span class="text-danger">*</span>
                     </label> <br>
                     <input name="name" type="text" value="{{ isset($user) ? $user->name : old('name') }}"
                         class="form-control-lg" id="exampleFormControlInput1" placeholder="John Doe" />
@@ -140,6 +147,28 @@
                             <span class="text-danger">*</span></label> <br>
                         <input name="ip1" type="text" class="form-control-lg"
                             value="{{ isset($user) ? $user->ip1 : old('ip1') }}" id="exampleFormControlInput1" />
+                        @error('ip')
+                            <span class="text-warning">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+
+                        <label class="form-label" for="exampleFormControlInput1">Assign Role
+                            <span class="text-danger">*</span></label> <br>
+                        <select name="role_id[]" id="organizerMultiple" class="form-control-lg js-choice"
+                            multiple="multiple" data-options='{"removeItemButton":true,"placeholder":true}'>
+                            @forelse ($roles as $role)
+                                <option value="{{ $role->id }}"
+                                    {{ isset($user) && $user->roles->pluck('id')->contains($role->id) ? 'selected' : '' }}>
+                                    {{ $role->name }}
+                                </option>
+                            @empty
+                                <option value="">No Roles</option>
+                            @endforelse
+                        </select>
                         @error('ip')
                             <span class="text-warning">{{ $message }}</span>
                         @enderror

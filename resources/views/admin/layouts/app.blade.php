@@ -72,6 +72,13 @@
             window.location.href = url; // Redirect to the delete route if confirmed
         }
     }
+
+    function confirmLink(event, url) {
+        event.preventDefault(); // Prevent the default action of the link
+        if (confirm('Are you sure you want to Action this record?')) {
+            window.location.href = url; // Redirect to the delete route if confirmed
+        }
+    }
 </script>
 </body>
 </html>

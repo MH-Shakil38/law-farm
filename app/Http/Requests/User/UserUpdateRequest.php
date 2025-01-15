@@ -25,7 +25,7 @@ class UserUpdateRequest extends FormRequest
         $user = $this->route('user');
         return [
             'name' => 'required',
-            'ip' => 'required',
+            'ip' => 'nullable',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'phone' => 'unique:users,phone,' . $user->id,
         ];

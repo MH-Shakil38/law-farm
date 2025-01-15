@@ -43,11 +43,12 @@ class TmpClientController extends Controller
                 'direction' => $client->direction,
                 'gender' => $client->gender,
                 'marrital_status' => $client->marrital_status,
+                'status' => 2,
             ]);
 
             $client->delete();
             DB::commit();
-            return redirect()->route('clients.show',$store->id);
+            return redirect()->back()->with('success','Client Aproved');
         }catch(\Throwable $e){
             DB::rollBack();
             dd($e);
@@ -55,43 +56,5 @@ class TmpClientController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(TmpClient $tmpClient)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(TmpClient $tmpClient)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, TmpClient $tmpClient)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(TmpClient $tmpClient)
-    {
-        //
-    }
+   
 }

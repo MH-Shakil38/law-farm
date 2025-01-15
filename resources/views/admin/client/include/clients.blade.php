@@ -224,10 +224,12 @@
 
         function fetchPage(page = null, perPage = null, search = null, endDate = null) {
             $('.spinner-border').css('display', 'inline-block');
-
+            const urlParams = new URLSearchParams(window.location.search);
+            const isSecrate = urlParams.get('is_secrate')?? null; // Retrieve the value
+            const pending = urlParams.get('pending') ?? null; // Retrieve the value
             $.ajax({
                 url: "{{ route('clients.index') }}?page=" + page + "&perPage=" + perPage +
-                    "&search=" + search,
+                    "&search=" + search +"&pending="+pending+"&is_secrate="+isSecrate,
                 method: 'GET',
                 success: function(response) {
                     $('.search-table').html(response.clients); // Update the table body

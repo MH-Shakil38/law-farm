@@ -34,6 +34,7 @@ class ClientController extends Controller
     }
     public function index(Request $request)
     {
+
         $data['caseTypes'] = $this->caseService->getCaseType();
         $data['clients'] = $this->clientService->getAll(true);
         // $log_data = activity_data('Access Client Info',)
@@ -213,4 +214,15 @@ class ClientController extends Controller
         }
 
     }
+
+    public function pending(){
+        $data['clients'] = Client::query()->where('status',2)->get();
+        return view('admin.client.pending')->with($data);
+    }
+
+    public function secrate(){
+        $data['clients'] = Client::query()->where('is_secrate',1)->get();
+        return view('admin.client.secrate')->with($data);
+    }
+
 }

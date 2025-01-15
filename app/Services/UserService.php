@@ -34,10 +34,11 @@ class UserService
 
     public function store($data){
             $request = request();
-            $data = $request->all();
+            $data = $request->except('role_id');
             $data['file'] = $this->controller->uploadImage($request->file('file'), 'user/file/');
             $data['image'] = $this->controller->uploadImage($request->file('image'), 'user/image/');
             $store = User::query()->create($data);
+            $store->roles()->attach($request->role_id);
             ActivityLogService::LogInfo('User',['action' => 'create','new' => $store,'description'=>'Create '.$store->name.' Information']);
             return $store;
     }
@@ -49,7 +50,7 @@ class UserService
         $old = User::query()->findOrFail($user->id);
         $old = json_encode($old);
         // $new = json_encode($request->except('_token'));
-        $data = $request->all();
+        $data = $request->except('role_id');
         if ($request->password && $request->password != null) {
             $data['password'] = bcrypt($request->input('password'));
         }else{
@@ -63,6 +64,8 @@ class UserService
             $data['image'] = $this->controller->uploadImage($request->file('image'), 'user/image/');
         }
         $user->update($data);
+
+        $user->roles()->sync($request->role_id);
         ActivityLogService::LogInfo('User',['action' => 'create','new' => $user, 'old'=> $old,'description'=>'Update '.$this->type().', '.$user->name.' Information']);
         return $this->type();
     }

@@ -35,13 +35,14 @@ return new class extends Migration
             $table->date('date_of_birth')->nullable(); // Date of Birth
             $table->string('nationality')->nullable(); // Nationality
             $table->string('passport_number')->nullable(); // Passport Number (if applicable)
-            $table->string('status')->default(1); // Status (e.g., 1 = Active, 0 = Inactive)
+            $table->string('status')->default(1)->comment('0:off - 1:active,2:pending'); // Status (e.g., 1 = Active, 0 = Inactive)
             $table->string('image')->nullable();
             $table->string('ref_by')->nullable();
             $table->string('direction')->nullable();
             $table->string('gender')->nullable();
             $table->string('marrital_status')->nullable();
             $table->string('last_update')->nullable();
+            $table->integer('is_secrate')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->timestamps(); // Created at and Updated at timestamps

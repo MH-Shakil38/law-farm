@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -65,6 +66,27 @@ class User extends Authenticatable
         return $this->hasMany(ActivityLog::class,'user_id')->orderBy('created_at','DESC');
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class,'user_role');
+    }
+
+    public function hasRole($role)
+    {
+        return $this->roles->contains('name', $role);
+    }
+
+    public function hasPermission()
+    {
+        foreach ($this->roles as $role) {
+            $route = Route::currentRouteName();
+            if ($role->permissions->contains('route', $route)) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
 
     // protected static function boot()
     // {

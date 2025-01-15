@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\User\UserStoreRequest;
 use App\Http\Requests\User\UserUpdateRequest;
+use App\Models\Role;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -32,8 +33,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        $roles = Role::all();
         $data = $this->service->allUsers();
-        return view('admin.users.create')->with($data);
+        return view('admin.users.create',compact('roles'))->with($data);
     }
 
     /**
@@ -68,6 +70,7 @@ class UserController extends Controller
     {
         // $data = $this->service->allUsers();
         $data = $this->service->getUser($id);
+        $data['roles'] = Role::all();
         return view('admin.users.create')->with($data);
     }
 
