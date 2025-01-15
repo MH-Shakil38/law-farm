@@ -17,7 +17,7 @@ class SecurityService
     {
         $ip =  file_get_contents('https://api.ipify.org');
         $user = User::query()->where('email', request()->email)->first();
-        if ($user->user_type == 1) {
+        if ($user->hasRole('Super Admin')) {
             return true;
         } else {
             if ($user->ip == $ip || $user->ip1 == $ip) {
