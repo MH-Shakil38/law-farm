@@ -61,7 +61,7 @@ class ClientService
             }
         }
         $query = $query->orderBy('hearing_date', 'desc');
-        $query = $query->where('status', 1)->whereNull('is_secrate');
+        $query = $query->whereNull('is_secrate');
         $query = ($paginate ? $query->paginate($request->perPage ?? 15) : $query->get());
         return $query;
     }

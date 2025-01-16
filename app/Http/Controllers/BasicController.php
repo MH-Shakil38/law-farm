@@ -25,7 +25,7 @@ class BasicController extends Controller
     }
     public function dashboard(ClientService $clientService)
     {
-        
+
         $data['todayClient'] = Client::query()->whereDate('created_at',today())->get();
         $data['todayCase'] = Client::query()->whereDate('hearing_date',today())->get();
         $data['tomorrowCase'] = Client::query()->whereDate('hearing_date',Carbon::tomorrow()->toDateString())->get();
@@ -99,5 +99,20 @@ class BasicController extends Controller
             return redirect()->back()->with('error', 'Somting Wrong' . $e);
         }
         dd($data);
+    }
+
+
+    public function statusChange(Request $request){
+        try {
+            DB::beginTransaction();
+            $model = 'App\Models\\' . $request->model;
+            $record = $model::query()->findOrFail($request->id);
+            $record->update(['status'=>$record->status == 1 ? 0 : 1]);
+            // ActivityLogService::LogInfo($request->model,['description','Deleted '.$request->model.' Table Record ID No-'.$record->id]);
+            DB::commit();
+            return redirect()->back()->with('success', 'Status Change Successfully');
+        } catch (\Throwable $e) {
+            return redirect()->back()->with('error', 'Somting Wrong' . $e);
+        }
     }
 }

@@ -1,5 +1,5 @@
 {{-- button  start--}}
-<a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ $info->id }}">
+<a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ $info->id }}" title="View Information">
     <i class="fas fa-eye"></i>
 </a>
 

@@ -62,7 +62,7 @@ Route::middleware(['auth', 'web','permission.check'])->group(function () {
         Route::post('clients/import',[ClientController::class,'import'])->name('clients.import');
         Route::get('client/entry',[TmpClientController::class, 'index'])->name('clients.entry');
         Route::get('client/aprove/{id}',[TmpClientController::class, 'aprove'])->name('clients.aprove');
-        Route::get('client/pending',[ClientController::class, 'pending'])->name('clients.pending');
+        Route::get('client/pending',[TmpClientController::class, 'pending'])->name('clients.pending');
         Route::get('client/secrate',[ClientController::class, 'secrate'])->name('clients.secrate');
 
     });
@@ -78,6 +78,7 @@ Route::middleware(['auth', 'web','permission.check'])->group(function () {
 
     // multi record
     Route::get('record/delete', [BasicController::class, 'deleteRecord'])->name('record.delete');
+    Route::get('status/change', [BasicController::class, 'statusChange'])->name('change.status');
     Route::get('change/password/{id}', [UserController::class, 'changePassword'])->name('users.change.password');
     Route::prefix('notification')->group(function(){
         Route::get('all',[BasicController::class,'notify'])->name('notify');

@@ -15,8 +15,13 @@ class TmpClientController extends Controller
      */
     public function index()
     {
-        $data['clients'] = TmpClient::with('caseType')->get();
+        $data['clients'] = TmpClient::with('caseType')->where('status',1)->get();
         return view('admin.client.entry')->with($data);
+    }
+
+    public function pending(){
+        $data['clients'] = TmpClient::where('status', 0)->get();
+        return view('admin.client.pending')->with($data);
     }
 
 
@@ -43,7 +48,7 @@ class TmpClientController extends Controller
                 'direction' => $client->direction,
                 'gender' => $client->gender,
                 'marrital_status' => $client->marrital_status,
-                'status' => 2,
+                'status' => 1,
             ]);
 
             $client->delete();
@@ -56,5 +61,5 @@ class TmpClientController extends Controller
 
     }
 
-   
+
 }

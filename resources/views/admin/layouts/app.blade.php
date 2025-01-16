@@ -75,7 +75,14 @@
 
     function confirmLink(event, url) {
         event.preventDefault(); // Prevent the default action of the link
-        if (confirm('Are you sure you want to Action this record?')) {
+        if (confirm('Are you sure you want to Agree this record?')) {
+            window.location.href = url; // Redirect to the delete route if confirmed
+        }
+    }
+
+    function change_status(event, url,message) {
+        event.preventDefault(); // Prevent the default action of the link
+        if (confirm('Are you sure?  ' + message +' This record?')) {
             window.location.href = url; // Redirect to the delete route if confirmed
         }
     }

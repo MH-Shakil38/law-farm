@@ -8,68 +8,11 @@
                     <div class="row flex-between-center gy-2 px-x1">
 
                         <div class="col-auto">
-                            <form>
-                                <div class="input-group">
-                                    <input class="form-control form-control-sm shadow-none search-client" type="search"
-                                        placeholder="Search  by name" aria-label="search">
-
-                                </div>
-
-
-                            </form>
+                            <h4>Client's Request</h4>
                         </div>
                     </div>
                     <div class="border-bottom border-200 my-3"></div>
-                    <div class="d-flex align-items-center justify-content-between justify-content-lg-end px-x1">
-                        <div class="bg-300 mx-3 d-none d-lg-block d-xl-none" style="width:1px; height:auto"></div>
 
-                        <div class="d-flex align-items-center" id="table-ticket-replace-element">
-                            <div class="dropdown">
-                                <select name="perPage" id="PerPage" class="form-select form-select-sm perPage">
-                                    <option value="15">15</option>
-                                    <option value="30">30</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                    <option value="200">200</option>
-                                    <option value="500">500</option>
-                                </select>
-                            </div><a href="{{ route('clients.create') }}"
-                                class="btn btn-falcon-default btn-sm mx-2  text-success" type="button"><svg
-                                    class="svg-inline--fa fa-plus fa-w-14" data-fa-transform="shrink-3" aria-hidden="true"
-                                    focusable="false" data-prefix="fas" data-icon="plus" role="img"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""
-                                    style="transform-origin: 0.4375em 0.5em;">
-                                    <g transform="translate(224 256)">
-                                        <g transform="translate(0, 0)  scale(0.8125, 0.8125)  rotate(0 0 0)">
-                                            <path fill="currentColor"
-                                                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
-                                                transform="translate(-224 -256)"></path>
-                                        </g>
-                                    </g>
-                                </svg><!-- <span class="fas fa-plus" data-fa-transform="shrink-3"></span> Font Awesome fontawesome.com --><span
-                                    class="d-none d-sm-inline-block d-xl-none d-xxl-inline-block ms-1">New</span></a>
-                            <div class="dropdown font-sans-serif ms-2"><button
-                                    class="btn btn-falcon-default text-600 btn-sm dropdown-toggle dropdown-caret-none"
-                                    type="button" id="preview-dropdown" data-bs-toggle="dropdown" data-boundary="viewport"
-                                    aria-haspopup="true" aria-expanded="false"><svg
-                                        class="svg-inline--fa fa-ellipsis-h fa-w-16 fs-11" aria-hidden="true"
-                                        focusable="false" data-prefix="fas" data-icon="ellipsis-h" role="img"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
-                                        <path fill="currentColor"
-                                            d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z">
-                                        </path>
-                                    </svg><!-- <span class="fas fa-ellipsis-h fs-11"></span> Font Awesome fontawesome.com --></button>
-                                <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="preview-dropdown">
-                                    {{-- <a class="dropdown-item" href="#!">View</a> --}}
-                                    {{-- <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#error-modal">Launch demo modal</button> --}}
-                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#import-modal">Import
-                                        CSV</a>
-                                    <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
-                                        href="#!">Remove</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="">
@@ -113,15 +56,15 @@
                                         <td>
                                             <div class="dropdown">
                                                 @include('admin.client.include.quice-view-modal')
-                                            
-                                                <a class="btn btn-primary"
+
+                                                <a class="btn btn-primary" title="Agree/Accept"
                                                 onclick="confirmLink(event, '{{ route('clients.aprove', $info->id) }}')"
                                                 href="{{ route('clients.aprove', $info->id) }}">
                                                     <i class="fas fa-check"></i>
                                                 </a>
-                                                <a href="#"
-                                                onclick="confirmLnk(event, '{{ route('record.delete', ['model' => 'TmpClient', 'id' => $info->id]) }}')"
-                                                class="btn btn-danger"> <i class="far fa-times-circle"></i> </a>
+                                                <a href="#" title="Move To pending List"
+                                                onclick="change_status(event, '{{ route('change.status', ['model' => 'TmpClient', 'id' => $info->id]) }}','Remove to Pending list')"
+                                                class="btn btn-danger"> <i class="far fa-arrow-alt-circle-right"></i> </a>
                                             </div>
                                         </td>
                                     </tr>

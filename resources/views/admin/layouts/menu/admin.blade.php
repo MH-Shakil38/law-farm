@@ -7,15 +7,29 @@
     </div>
     {{-- user  --}}
 
-        
 
 
-    <a class="nav-link" href="{{ route('clients.entry') }}" role="button">
+
+
+    <a class="nav-link dropdown-indicator" href="#request" role="button" data-bs-toggle="collapse" aria-expanded="true"
+        aria-controls="lawyer">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                    class="fas fa-user-tie"></span></span><span class="nav-link-text ps-1">Entry Client
-                List({{ entry_list()->count() }})</span>
+                    class="fas fa-user-graduate"></span></span><span class="nav-link-text ps-1">Client
+                Request({{ entry_list()->count() }})</span>
         </div>
     </a>
+    <ul class="nav collapse {{ Request::routeIs('clients.*') ? 'show' : '' }}" id="request">
+        <li class="nav-item"><a class="nav-link" href="{{ route('clients.entry') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Request List</span>
+                </div>
+            </a><!-- more inner pages--></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('clients.pending') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Pending List</span>
+                </div>
+            </a><!-- more inner pages--></li>
+
+
+    </ul>
 
     <a class="nav-link dropdown-indicator" href="#lawyer" role="button" data-bs-toggle="collapse" aria-expanded="true"
         aria-controls="lawyer">
