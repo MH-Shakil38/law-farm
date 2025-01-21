@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Client\Entry\ClientEntryRequest;
 use App\Models\ActivityLog;
 use App\Models\CaseType;
 use App\Models\Client;
 use App\Models\User;
 use App\Services\ActivityLogService;
+use App\Services\AppService;
 use App\Services\ClientService;
 use App\Services\MailService;
 use Carbon\Carbon;
@@ -19,31 +21,34 @@ use Illuminate\Support\Facades\Route;
 
 class BasicController extends Controller
 {
+
+    /**
+     * method for frontend
+     */
     public function website()
     {
         return view('website.website');
     }
+
+
+    /**
+     * method for Admin Dashboard
+     */
     public function dashboard(ClientService $clientService)
     {
-
-        $data['todayClient'] = Client::query()->whereDate('created_at',today())->get();
-        $data['todayCase'] = Client::query()->whereDate('hearing_date',today())->get();
-        $data['tomorrowCase'] = Client::query()->whereDate('hearing_date',Carbon::tomorrow()->toDateString())->get();
-        $data['caseTypes'] = CaseType::getAll();
-        $data['clients'] = $clientService->getAll(true);
-        $data['onlineUsers'] = User::query()->get();
-        // $log_data = activity_data(auth()->user()->name.' Dashboard Inforamtion');
-        // ActivityLogService::LogInfo($log_data);
+        $data = AppService::dashboardData();
         return view('admin.dashboard')->with($data);
     }
+
+    /**
+     * request pass Model and record id
+     * Delete for All Model Record
+     */
     public function deleteRecord(Request $request)
     {
         try {
             DB::beginTransaction();
-            $model = 'App\Models\\' . $request->model;
-            $record = $model::query()->findOrFail($request->id);
-            ActivityLogService::LogInfo($request->model,['description','Deleted '.$request->model.' Table Record ID No-'.$record->id]);
-            $record->delete();
+            AppService::delete();
             DB::commit();
             return redirect()->back()->with('success', 'Record Delete Successfully');
         } catch (\Throwable $e) {
@@ -51,21 +56,27 @@ class BasicController extends Controller
         }
     }
 
+      /**
+     * All Activities log information
+     */
     public function logs(ActivityLogService $logService){
-        $request = request();
-        $data['logs'] = $logService->getLog(false);
-        if ($request->ajax()) {
-            $data = $logService->ajaxClientInfo($data);
-            return response()->json($data);
-        }
+        $data = AppService::logs();
         return view('admin.log.list')->with($data);
     }
 
+
+      /**
+     * show all notification for admin
+     */
     public function notify(){
         $data['notifications'] = auth()->user()->notifications;
         return view('admin.notification.notify')->with($data);
     }
 
+
+      /**
+     * Notification MarkasRead
+     */
     public function markAsRead($id){
         if($id){
             // auth()->user()->notifications()->where('id',$id)->markAsRead();
@@ -74,20 +85,15 @@ class BasicController extends Controller
         }
     }
 
+      /**
+     * client entry form
+     */
     public function clientRegistration(){
         $data['case_types'] = CaseType::query()->get();
         return view('website.client.registration')->with($data);
     }
 
-    public function clientStore(Request $request){
-        $request->validate([
-            'first_name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'alien_number' => 'required',
-            'case_type' => 'required',
-            'address' => 'required',
-        ]);
+    public function clientStore(ClientEntryRequest $request){
         try{
             DB::beginTransaction();
             $store = ClientService::tmp_client_store();
@@ -98,17 +104,13 @@ class BasicController extends Controller
             dd($e);
             return redirect()->back()->with('error', 'Somting Wrong' . $e);
         }
-        dd($data);
     }
 
 
     public function statusChange(Request $request){
         try {
             DB::beginTransaction();
-            $model = 'App\Models\\' . $request->model;
-            $record = $model::query()->findOrFail($request->id);
-            $record->update(['status'=>$record->status == 1 ? 0 : 1]);
-            // ActivityLogService::LogInfo($request->model,['description','Deleted '.$request->model.' Table Record ID No-'.$record->id]);
+            AppService::changeStatus();
             DB::commit();
             return redirect()->back()->with('success', 'Status Change Successfully');
         } catch (\Throwable $e) {

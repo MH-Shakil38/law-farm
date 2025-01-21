@@ -57,4 +57,21 @@ class NotificationService
     }
 
 
+    public static function tmp_client_notification($old = null, $new = null,$action = 'Access')
+    {
+
+        $changedProperties  = change_value($old,$new,$action);
+        $title              = 'Entry New Client Information';
+        $url                = route('clients.entry');
+        $data               = activity_data($title,$changedProperties,$url,$action);
+
+        ActivityLogService::LogInfo($data);
+        MailService::newClientMail($title,$changedProperties);
+        //   Notification::send($users,new UpdateClientNotification($changedProperties));
+        //   new UpdateClientNotification($changedProperties);
+        auth()->user()->notify(new UpdateClientNotification($title,$changedProperties,$action));
+        return $changedProperties; // Only return the changed items
+    }
+
+
 }

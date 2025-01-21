@@ -15,10 +15,10 @@ class ClientService
 {
     protected $controller;
     protected $uploadService;
-    public function __construct(UploadService $uploadService)
+    public function __construct()
     {
         $this->controller = new Controller();
-        $this->uploadService = $uploadService;
+        $this->uploadService = new UploadService();
     }
 
     public function getAll($paginate = null)
@@ -160,7 +160,8 @@ class ClientService
         $data = $request->all();
         $data['image'] = UploadService::client_image();
         $data['name'] = $request->first_name.' '.$request->last_name;
-        return TmpClient::query()->create($data);
+        $store =  TmpClient::query()->create($data);
+        NotificationService::tmp_client_notification( null, $store,'Entry');
 
     }
 }
