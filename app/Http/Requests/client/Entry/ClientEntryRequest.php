@@ -23,9 +23,7 @@ class ClientEntryRequest extends FormRequest
     {
         return [
             'first_name' => 'required',
-            'email' => 'required',
             'phone' => 'required',
-            'alien_number' => 'required',
             'case_type' => 'required',
             'address' => 'required',
         ];

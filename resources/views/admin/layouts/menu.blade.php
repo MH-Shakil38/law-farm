@@ -24,6 +24,16 @@
                     </a>
 
                 </li>
+                <li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ url('/') }}" target="_blank">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                class="fab fa-firefox"></span></span><span
+                            class="nav-link-text ps-1">Website</span>
+                    </div>
+
+
+                </a>
+
+            </li>
 
                 {{-- extra menu --}}
                 @include('admin.layouts.menu.menu1')

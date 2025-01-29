@@ -135,7 +135,9 @@ class ClientController extends Controller
                 $header = $data[0]; // Assuming the first row is the header
                 unset($data[0]); // Remove the header from data
                 foreach ($data as $row) {
+
                     $rowData = array_combine($header, $row);
+
                     $data = [
                         'name' => $row[0].' '. $rowData['CLIENT\'S LAST NAME'],
                         'first_name' => $row[0],
@@ -152,7 +154,9 @@ class ClientController extends Controller
                         'case_number' => $rowData['CASE NUMBER'] ?? null, // Case Number
                         'case_details' => $rowData['CASE DETAILS'] ?? null, // Case Details
                         'short_details' => $rowData['SHORT DESCRIPTION'] ?? null, // Short Details
-                        'date_of_birth' => Carbon::createFromFormat('m/d/Y', $rowData['CLIENT\'S DATE OF BIRTH'])->format('Y-m-d'), // Date of Birth
+                        'date_of_birth' => isset($rowData["CLIENT'S DATE OF BIRTH"]) && Carbon::hasFormat($rowData["CLIENT'S DATE OF BIRTH"], 'm/d/Y')
+                        ? Carbon::createFromFormat('m/d/Y', $rowData["CLIENT'S DATE OF BIRTH"])->format('Y-m-d')
+                        : null,
                         'nationality' => $rowData['NATIONALITY'] ?? null, // Nationality
                         'passport_number' => $rowData['PASSPORT NUMBER'] ?? null, // Passport Number
                         'status' => $rowData['OFFICE STATUS'] == 'ACTIVE' ? 1 : 0, // Status
@@ -176,7 +180,13 @@ class ClientController extends Controller
             DB::commit();
             return redirect()->back()->with('success', 'CSV file uploaded successfully.');
         } catch (\Throwable $e) {
-            dd($e);
+            DB::rollBack();
+            dd(
+                $e->getCode(),
+                $e->getFile(),
+                $e->getLine(),
+                $e->getMessage(),
+            );
         }
     }
 
