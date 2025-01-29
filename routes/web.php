@@ -97,5 +97,15 @@ Route::get('migrate', function () {
 });
 
 
+Route::get('route-clear', function () {
+    Artisan::call('route:clear');
+});
 
+Route::get('clear-cache', function () {
+    Artisan::call('clear:cache');
+});
+
+Route::get('optimize', function () {
+    Artisan::call('optimize');
+});
 require __DIR__ . '/auth.php';

@@ -161,7 +161,7 @@ class ClientService
         $data['image'] = UploadService::client_image();
         $data['name'] = $request->first_name.' '.$request->last_name;
         $store =  TmpClient::query()->create($data);
-        NotificationService::tmp_client_notification( null, $store,'Entry');
+        // NotificationService::tmp_client_notification( null, $store,'Entry');
 
     }
 }

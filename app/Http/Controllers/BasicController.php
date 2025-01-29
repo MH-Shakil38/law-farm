@@ -97,6 +97,7 @@ class BasicController extends Controller
         try{
             DB::beginTransaction();
             $store = ClientService::tmp_client_store();
+            // dd($store);
             DB::commit();
             return redirect()->back()->with('success','Thank you for submitting the client information! We appreciate your cooperation.');
         }catch(\Throwable $e){
