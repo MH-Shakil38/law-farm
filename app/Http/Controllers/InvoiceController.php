@@ -38,4 +38,12 @@ class InvoiceController extends Controller
         }
 
     }
+
+    public function printClientInfo($id){
+         $client = Client::with(['caseType'])->findOrFail($id);
+        //  return view('admin.invoice.client-info', compact('client'));
+         $pdf = Pdf::loadView('admin.invoice.client-info', compact('client'));
+         return $pdf->download('invoice_' . $client->name . '.pdf');
+
+    }
 }

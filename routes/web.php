@@ -37,6 +37,7 @@ Route::get('/client/registration', [BasicController::class, 'clientRegistration'
 Route::post('tmp/client/store', [BasicController::class, 'clientStore'])->name('tmp.client.store');
 Route::get('/invoice/{id}', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate');
 Route::get('/print/agreement/{id}', [InvoiceController::class, 'printAgreement'])->name('print.agreement');
+Route::get('/print/client/info/{id}', [InvoiceController::class, 'printClientInfo'])->name('print.client-info');
 Route::get('/agreement/{id}', [AgreementController::class, 'agreement'])->name('client.agreement');
 Route::post('/agreement/Store', [AgreementController::class, 'agreementStore'])->name('client.agreement.store');
 Route::get('lang/{lang}', [BasicController::class, 'switchLang'])->name('lang.switch')->middleware('switch.language');
