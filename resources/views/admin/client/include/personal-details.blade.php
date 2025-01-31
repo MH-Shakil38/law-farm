@@ -14,10 +14,14 @@
                 </h4>
                 <h5 class="text-500">{{ $client->short_details }}</h5>
                 <div class="p-2">
-                    <button class="btn btn-falcon-primary btn-sm px-3" type="button">Email</button>
-                    <a class="btn btn-falcon-default btn-sm px-3 ms-2" type="button" href="#">Call</a>
-                    <a class="btn btn-falcon-default btn-sm px-3 ms-2" type="button"
+                    <button class="btn btn-primary btn-sm px-3" type="button">Email</button>
+                    <a class="btn btn-success btn-sm px-3 ms-2" type="button" href="#">Call</a>
+                    <a class="btn btn-info btn-sm px-3 ms-2" type="button"
                         href="{{ route('clients.edit', $client->id) }}">Edit</a>
+                        <a class="btn btn-danger btn-sm px-3 ms-2" type="button"
+                        href="{{ route('print.agreement', $client->id) }}">Print Agreement</a>
+                        <a class="btn btn-warning btn-sm px-3 ms-2" type="button"
+                        href="{{ route('invoice.generate', $client->id) }}">Print Invoice</a>
                     <div class="border-bottom border-dashed my-4 d-lg-none"></div>
                 </div>
                 <div class="row">

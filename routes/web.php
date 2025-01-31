@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\AgreementController;
 use App\Http\Controllers\BasicController;
 use App\Http\Controllers\CallSetupController;
 use App\Http\Controllers\CaseController;
 use App\Http\Controllers\CaseTypeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EmailSetupController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -31,8 +33,14 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [BasicController::class, 'website'])->name('website');
-Route::get('/client/registration', [BasicController::class, 'clientRegistration'])->name('client.registration');
+Route::get('/client/registration', [BasicController::class, 'clientRegistration'])->name('client.registration')->middleware('switch.language');;
 Route::post('tmp/client/store', [BasicController::class, 'clientStore'])->name('tmp.client.store');
+Route::get('/invoice/{id}', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate');
+Route::get('/print/agreement/{id}', [InvoiceController::class, 'printAgreement'])->name('print.agreement');
+Route::get('/agreement/{id}', [AgreementController::class, 'agreement'])->name('client.agreement');
+Route::post('/agreement/Store', [AgreementController::class, 'agreementStore'])->name('client.agreement.store');
+Route::get('lang/{lang}', [BasicController::class, 'switchLang'])->name('lang.switch')->middleware('switch.language');
+
 Route::middleware(['auth', 'web','permission.check'])->group(function () {
 
     Route::get('dashboard', [BasicController::class, 'dashboard'])->name('dashboard');

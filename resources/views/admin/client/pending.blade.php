@@ -57,11 +57,11 @@
                                             <div class="dropdown">
                                                 @include('admin.client.include.quice-view-modal')
 
-                                                <a class="btn btn-primary"
+                                                {{-- <a class="btn btn-primary"
                                                 onclick="confirmLink(event, '{{ route('clients.aprove', $info->id) }}')"
                                                 href="{{ route('clients.aprove', $info->id) }}">
                                                     <i class="fas fa-check"></i>
-                                                </a>
+                                                </a> --}}
                                                 {{-- <a href="#"
                                                 onclick="confirmLnk(event, '{{ route('record.delete', ['model' => 'TmpClient', 'id' => $info->id]) }}')"
                                                 class="btn btn-danger"> <i class="far fa-times-circle"></i> </a> --}}

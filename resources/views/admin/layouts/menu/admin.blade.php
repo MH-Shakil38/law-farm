@@ -31,7 +31,7 @@
 
     </ul>
 
-    <a class="nav-link dropdown-indicator" href="#lawyer" role="button" data-bs-toggle="collapse" aria-expanded="true"
+    {{-- <a class="nav-link dropdown-indicator" href="#lawyer" role="button" data-bs-toggle="collapse" aria-expanded="true"
         aria-controls="lawyer">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                     class="fas fa-user-graduate"></span></span><span class="nav-link-text ps-1">Lawyer</span>
@@ -48,7 +48,7 @@
             </a><!-- more inner pages--></li>
 
 
-    </ul>
+    </ul> --}}
 
 
     <a class="nav-link dropdown-indicator" href="#client" role="button" data-bs-toggle="collapse" aria-expanded="true"

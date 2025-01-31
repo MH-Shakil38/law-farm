@@ -14,10 +14,12 @@ use App\Services\MailService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 class BasicController extends Controller
 {
@@ -93,7 +95,7 @@ class BasicController extends Controller
         return view('website.client.registration')->with($data);
     }
 
-    public function clientStore(ClientEntryRequest $request){
+    public function clientStore(Request $request){
         try{
             DB::beginTransaction();
             $store = ClientService::tmp_client_store();
@@ -117,5 +119,14 @@ class BasicController extends Controller
         } catch (\Throwable $e) {
             return redirect()->back()->with('error', 'Somting Wrong' . $e);
         }
+    }
+
+    public function switchLang($lang)
+    {
+        if (in_array($lang, ['en', 'es'])) {
+            Session::put('locale', $lang);
+            App::setLocale($lang);
+        }
+        return redirect()->back();
     }
 }

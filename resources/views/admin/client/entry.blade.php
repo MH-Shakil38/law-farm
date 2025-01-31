@@ -56,15 +56,14 @@
                                         <td>
                                             <div class="dropdown">
                                                 @include('admin.client.include.quice-view-modal')
-
-                                                <a class="btn btn-primary" title="Agree/Accept"
+                                                {{-- <a class="btn btn-primary" title="Agree/Accept"
                                                 onclick="confirmLink(event, '{{ route('clients.aprove', $info->id) }}')"
                                                 href="{{ route('clients.aprove', $info->id) }}">
                                                     <i class="fas fa-check"></i>
-                                                </a>
-                                                <a href="#" title="Move To pending List"
+                                                </a> --}}
+                                                {{-- <a href="#" title="Move To pending List"
                                                 onclick="change_status(event, '{{ route('change.status', ['model' => 'TmpClient', 'id' => $info->id]) }}','Remove to Pending list')"
-                                                class="btn btn-danger"> <i class="far fa-arrow-alt-circle-right"></i> </a>
+                                                class="btn btn-danger"> <i class="far fa-arrow-alt-circle-right"></i> </a> --}}
                                             </div>
                                         </td>
                                     </tr>
