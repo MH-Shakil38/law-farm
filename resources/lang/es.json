@@ -19,6 +19,7 @@
     "Date Of Birth": "Fecha de Nacimiento",
     "Case Type": "Tipo de Caso",
     "Reference By": "Referido Por",
+    "Reference Name": "Nombre de referencia",
     "Upload Image": "Subir Imagen",
     "Case Details": "Detalles del Caso",
     "Address Details": "Detalles de Dirección",
@@ -26,5 +27,7 @@
     "City": "Ciudad",
     "State": "Estado",
     "Zip Code": "Código Postal",
-    "Submit Form": "Enviar Formulario"
+    "Submit Form": "Enviar Formulario",
+    "City Name": "Nombre de la ciudad"w
+
 }

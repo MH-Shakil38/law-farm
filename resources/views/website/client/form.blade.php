@@ -43,7 +43,7 @@
                             <div class="formbold-mb-5">
                                 <label for="name" class="formbold-form-label text-uppercase"> {{ __('First Name') }}
                                 </label>
-                                <input type="text" name="first_name" id="first_name" placeholder="First Name"
+                                <input type="text" name="first_name" id="first_name" placeholder=" {{ __('First Name') }}"
                                     class="formbold-form-input" />
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                             <div class="formbold-mb-5">
                                 <label for="name" class="formbold-form-label text-uppercase">{{ __('Last Name') }}
                                 </label>
-                                <input type="text" name="last_name" id="name" placeholder="Last Name"
+                                <input type="text" name="last_name" id="name" placeholder="{{ __('Last Name') }}"
                                     class="formbold-form-input" />
                             </div>
                         </div>
@@ -66,14 +66,14 @@
                             <div class="formbold-mb-5">
                                 <label for="name" class="formbold-form-label text-uppercase"> {{ __('Phone') }}
                                 </label>
-                                <input type="text" name="phone" id="name" placeholder="phone number"
+                                <input type="text" name="phone" id="name" placeholder=" {{ __('Phone') }}"
                                     class="formbold-form-input" />
                             </div>
                         </div>
                         <div class="col-md-6  col-sm-12 col-lg-6">
                             <div class="formbold-mb-5">
                                 <label for="name" class="formbold-form-label"> {{ __('Alien Number') }} </label>
-                                <input type="text" name="alien_number" id="name" placeholder="Alien Number"
+                                <input type="text" name="alien_number" id="name" placeholder="{{ __('Alien Number') }}"
                                     class="formbold-form-input" />
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                         <div class="col-md-6  col-sm-12 col-lg-6">
                             <div class="formbold-mb-5">
                                 <label for="name" class="formbold-form-label">{{ __('Reference By') }} </label>
-                                <input type="text" name="ref_by" id="name" placeholder="Referance Name"
+                                <input type="text" name="ref_by" id="name" placeholder="{{ __('Reference Name') }}"
                                     value="{{ old('ref_by') }}" class="formbold-form-input" />
                             </div>
                         </div>
@@ -169,28 +169,28 @@
                         <div class="col-md-12  col-sm-12 col-lg-12">
                             <div class="formbold-mb-5">
                                 <input type="text" name="address" id="address" value="{{ old('address') }}"
-                                    placeholder="Address" class="formbold-form-input" />
+                                    placeholder="{{ __('Address') }}" class="formbold-form-input" />
                             </div>
                         </div>
 
                         <div class="col-md-4  col-sm-4 col-lg-4">
                             <div class="formbold-mb-5">
                                 <input type="text" name="city" id="city" value="{{ old('city') }}"
-                                    placeholder="City Name" class="formbold-form-input" />
+                                    placeholder="{{ __('City Name') }}" class="formbold-form-input" />
                             </div>
                         </div>
 
                         <div class="col-md-4  col-sm-4 col-lg-4">
                             <div class="formbold-mb-5">
                                 <input type="text" name="state" value="{{ old('state') }}" id="state"
-                                    placeholder="State State" class="formbold-form-input" />
+                                    placeholder="{{ __('State') }}" class="formbold-form-input" />
                             </div>
                         </div>
 
                         <div class="col-md-4  col-sm-4 col-lg-4">
                             <div class="formbold-mb-5">
                                 <input type="text" name="zip_code" value="{{ old('zip_code') }}" id="zip_code"
-                                    placeholder="Zip Code" class="formbold-form-input" />
+                                    placeholder="{{ __('Zip Code') }}" class="formbold-form-input" />
                             </div>
                         </div>
                     </div>
