@@ -28,8 +28,8 @@
                                         <td class="col-1">{{ $loop->iteration }}</td>
                                         <td scope="col" class="col-8">{{ Carbon\Carbon::parse($invoice->created_at)->format('d M y, h:m:s') }}</td>
                                         <td scope="col" class="col-3">
-                                            <a href="{{ route('print.client.invoice', $invoice->id) }}" class="btn btn-sm btn-danger"> <i class="fas fa-print"></i> </a>
-                                            <a href="{{ route('edit.client.invoice',$invoice->id) }}" class="btn btn-sm btn-info"> <i class="far fa-edit"></i> </a>
+                                            <a title="Print Invoice" href="{{ route('print.client.invoice', $invoice->id) }}" class="btn btn-sm btn-danger"> <i class="fas fa-print"></i> </a>
+                                            <a title="edit invoice" href="{{ route('edit.client.invoice',$invoice->id) }}" class="btn btn-sm btn-info"> <i class="far fa-edit"></i> </a>
                                         </td>
                                     </tr>
                                 @empty
