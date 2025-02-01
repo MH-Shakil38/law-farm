@@ -35,8 +35,12 @@ class InvoiceController extends Controller
 
     }
 
-    public function printClientInfo($id){
-         $client = Client::with(['caseType'])->findOrFail($id);
+    public function printClientInfo(Request $request){
+        if($request->type === "tmp"){
+            $client = TmpClient::with(['caseType'])->findOrFail($request->id);
+        }else{
+            $client = Client::with(['caseType'])->findOrFail($request->id);
+        }
         //  return view('admin.invoice.client-info', compact('client'));
          $pdf = Pdf::loadView('admin.invoice.client-info', compact('client'));
          return $pdf->download('invoice_' . $client->name . '.pdf');
