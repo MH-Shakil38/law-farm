@@ -186,7 +186,7 @@
                 <tr style="height: 10px; background: {{ $i % 2 == 0 ? '' : '#fdf6e7' }} !important;">
                     <td colspan="2" class="col-2" style="padding: 0px;border:none">&nbsp;</td>
                     <td class="col-2" style="padding: 0px;border:none;">&nbsp;</td>
-                    <td class="col-2" style="padding: 0px;border:none;text-align:right"> <b>Advanch</b></td>
+                    <td class="col-2" style="padding: 0px;border:none;text-align:right"> <b>Advance</b></td>
                     <td class="col-2" style="padding: 0px;border:none;">&nbsp;</td>
                     <td class="col-2" style="padding: 0px;border:1px solid #4e4d4d;background:#e9e7e799;">
                         <span style="float:left;margin-left:10px">$</span> <span

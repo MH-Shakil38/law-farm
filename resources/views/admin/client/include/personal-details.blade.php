@@ -14,7 +14,6 @@
                 </h4>
                 <h5 class="text-500">{{ $client->short_details }}</h5>
                 <div class="p-2">
-                    <button class="btn btn-primary btn-sm px-3" type="button">Email</button>
                     <a class="btn btn-success btn-sm px-3 ms-2" type="button" href="#">Call</a>
                     <a class="btn btn-info btn-sm px-3 ms-2" type="button"
                         href="{{ route('clients.edit', $client->id) }}">Edit</a>
@@ -95,11 +94,12 @@
                 {{-- case details --}}
 
                 @include('admin.client.include.case-details')
+                @include('admin.client.include.invoice-list')
                 @include('admin.client.include.hearing')
                 @include('admin.client.include.files')
 
             </div>
-            <div class="col ps-2 ps-lg-3">
+            <div class="col-md-4 col-sm-12 ps-2 ps-lg-4">
                 @include('admin.client.include.client-info')
 
             </div>

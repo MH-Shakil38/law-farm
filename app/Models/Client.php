@@ -68,6 +68,10 @@ class Client extends Model
         return $this->hasMany(Hearing::class,'client_id');
     }
 
+    public function invoices(){
+        return $this->hasMany(Invoice::class,'client_id');
+    }
+
     protected static function boot(){
         parent::boot();
         static::creating(function ($query){
