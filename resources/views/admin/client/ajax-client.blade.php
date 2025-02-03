@@ -30,7 +30,7 @@
                     <td>
                         <div class="dropdown">
 
-                            @include('admin.client.include.quice-view-modal')
+                            @include('admin.client.include.quice-view-modal',['type'=>'client'])
 
                             <button class="btn btn-link bg-info dropdown-toggle float-right mt-1" data-bs-toggle="dropdown">
                                 <i class="fas fa-ellipsis-h"></i>

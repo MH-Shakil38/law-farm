@@ -50,6 +50,7 @@
                     <li class="nav-item"><a href="#" class="nav-link">Attorneys</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
                 </ul>
             </div>
         </div>

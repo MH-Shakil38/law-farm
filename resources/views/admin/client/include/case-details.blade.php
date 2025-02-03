@@ -28,16 +28,16 @@
                                         value="{{ isset($client) ? $client->case_number : '' }}" class="form-control">
                                 </div>
 
-                                <div class="col-md-4">
-                                    <label class="form-lable" for="case_number">Assing Lawyer</label>
+                                <div class="col-md-6">
+                                    <label class="form-lable" for="case_number">Handle By</label>
                                     <select name="lawyer_id" id="lawyer_option" class="form-select">
                                         @include('admin.lawyer.option',['lawyer'=>$client->lawyer])
                                     </select>
                                 </div>
-                                <div class="col-md-1 mt-4">
+                                {{-- <div class="col-md-1 mt-4">
                                     <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#lawyerModal">
                                         New</a>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-md-6 mt-2">
                                     <label class="form-lable" for="case_number">Case</label>

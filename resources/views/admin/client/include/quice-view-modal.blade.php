@@ -6,8 +6,8 @@
 
 
 {{-- modal start --}}
-<div class="modal fade details-modal" id="staticBackdrop{{ $info->id }}" data-bs-keyboard="false" data-bs-backdrop="static"
-    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade details-modal" id="staticBackdrop{{ $info->id }}" data-bs-keyboard="false"
+    data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg mt-6" role="document">
         <div class="modal-content border-0">
 
@@ -99,14 +99,32 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a class="btn btn-info" target="_blank" href="{{ route('client.agreement',$info->id) }}">Agreement</a>
-                        {{-- <a  onclick="confirmLink(event, '{{ route('clients.aprove', $info->id) }}')"
+                        @if ($type === 'tmp')
+                            <a class="btn btn-info" target="_blank"
+                                href="{{ route('client.agreement', $info->id) }}">Agreement</a>
+                            {{-- <a  onclick="confirmLink(event, '{{ route('clients.aprove', $info->id) }}')"
                             href="{{ route('clients.aprove', $info->id) }}" class="btn btn-primary">Recived</a> --}}
                             @php
                                 $route = Route::currentRouteName();
                             @endphp
-                        <a href="{{ route('print.client-info',['type'=> $route == "clients.index"? '' : 'tmp','id'=>$info->id]) }}" class="btn btn-warning">Print</a>
-                        <a onclick="change_status(event, '{{ route('change.status', ['model' => 'TmpClient', 'id' => $info->id]) }}','Remove to Pending list')" type="button" class="btn btn-danger" data-bs-dismiss="modal">Move Pending List</a>
+                            <a href="{{ route('print.client-info', ['type' => $route == 'clients.index' ? '' : 'tmp', 'id' => $info->id]) }}"
+                                class="btn btn-warning">Print Client Info</a>
+                            <a onclick="change_status(event, '{{ route('change.status', ['model' => 'TmpClient', 'id' => $info->id]) }}','Remove to Pending list')"
+                                type="button" class="btn btn-danger" data-bs-dismiss="modal">Move Pending List</a>
+                        @else
+                            @if (power())
+                                <a class="btn btn-danger btn-sm px-3 ms-2" type="button"
+                                    href="{{ route('print.agreement', $info->id) }}">Print Agreement</a>
+                            @endif
+                            <a class="btn btn-warning btn-sm px-3 ms-2" type="button"
+                                href="{{ route('invoice.generate', $info->id) }}">Print Invoice</a>
+                            @php
+                                $route = Route::currentRouteName();
+                            @endphp
+                            <a href="{{ route('print.client-info', ['type' => $route == 'clients.index' ? '' : 'tmp', 'id' => $info->id]) }}"
+                                class="btn btn-warning">Print Client Info</a>
+                        @endif
+
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>

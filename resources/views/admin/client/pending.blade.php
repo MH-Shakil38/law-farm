@@ -55,7 +55,7 @@
                                         <td>{{ $info->caseType->name ?? '' }}</td>
                                         <td>
                                             <div class="dropdown">
-                                                @include('admin.client.include.quice-view-modal')
+                                                @include('admin.client.include.quice-view-modal',['type'=>'tmp'])
 
                                                 {{-- <a class="btn btn-primary"
                                                 onclick="confirmLink(event, '{{ route('clients.aprove', $info->id) }}')"

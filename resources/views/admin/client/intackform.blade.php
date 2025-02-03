@@ -232,6 +232,7 @@
 
 
         <div class="col-md-2 mt-4">
+            @if (power())
             <div class="form-check form-check-inline">
                 <label class="form-check-label" for="is_secrate">Is Secrate</label>
                 <input
@@ -244,6 +245,8 @@
                 />
 
             </div>
+            @endif
+
         </div>
 
 

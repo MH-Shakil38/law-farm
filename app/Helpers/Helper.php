@@ -207,4 +207,20 @@ if(!function_exists('activity_data')){
               return Carbon::parse($date)->format('d M y');
         }
     }
+
+    if(!function_exists('power')){
+        function power(){
+            if(auth()->user()->hasRole('Super Admin')){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+
+    if(!function_exists('users')){
+        function users(){
+            return User::query()->get();
+        }
+    }
 }

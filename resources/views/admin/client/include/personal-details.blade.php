@@ -71,7 +71,7 @@
                                 <table class="table table-responsive bordered text-left">
                                     <tr>
                                         <th> <b>Case Handle By</b> </th>
-                                        <th> <b></b>{{ $client->lawyer->name ?? '' }} </th>
+                                        <th> <b></b>{{ $client->user->name ?? '' }} </th>
                                     </tr>
 
                                     <tr>
