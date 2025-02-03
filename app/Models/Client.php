@@ -56,6 +56,10 @@ class Client extends Model
         return $this->belongsTo(CaseType::class,'case_type');
     }
 
+    public function user(){
+        return $this->belongsTo(User::class,'lawyer_id');
+    }
+
     public function createdBy(){
         return $this->belongsTo(User::class,'created_by');
     }
