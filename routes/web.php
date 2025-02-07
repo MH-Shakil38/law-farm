@@ -18,6 +18,7 @@ use App\Models\EmailSetup;
 use App\Models\NotificationSetup;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 
 /*
@@ -30,7 +31,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/users-list', function () {
+    return response()->json(User::all());
+});
+Route::get('/tabulator', function () {
+    return view('users');
+});
 
 Route::get('/', [BasicController::class, 'website'])->name('website');
 Route::get('/client/registration', [BasicController::class, 'clientRegistration'])->name('client.registration')->middleware('switch.language');;

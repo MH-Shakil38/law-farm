@@ -7,6 +7,7 @@ use App\Models\Lawyer;
 use App\Models\TmpClient;
 use Illuminate\Support\Facades\Cache;
 use App\Models\User;
+use App\Services\AppService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
@@ -223,4 +224,17 @@ if(!function_exists('activity_data')){
             return User::query()->get();
         }
     }
+
+    if(!function_exists('get_super_admin')){
+        function get_super_admin(){
+            $users = User::query()
+            ->select('users.*')
+            ->rightJoin('user_role','users.id','=','user_role.user_id')
+            ->join('roles','user_role.role_id','=','roles.id')
+            ->where('roles.id',AppService::SUPER_ADMIN)
+            ->get();
+            return $users;
+        }
+    }
+
 }

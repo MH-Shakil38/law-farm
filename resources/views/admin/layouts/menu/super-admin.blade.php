@@ -14,7 +14,7 @@
         aria-controls="lawyer">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                     class="fas fa-user-graduate"></span></span><span class="nav-link-text ps-1">Client
-                Request({{ entry_list()->count() }})</span>
+                Request <span class="badge rounded-pill ms-2 badge-subtle-success">{{ entry_list()->count() }}</span></span>
         </div>
     </a>
     <ul class="nav collapse {{ Request::routeIs('clients.*') ? 'show' : '' }}" id="request">
@@ -187,8 +187,8 @@
 
 <li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('notify') }}">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                    class="far fa-bell"></span></span><span class="nav-link-text ps-1">Notification(<span
-                    class="   ">{{ notifications()->count() }}</span>)</span></div>
+                    class="far fa-bell"></span></span><span class="nav-link-text ps-1">Notification<span
+                    class="badge rounded-pill ms-2 badge-subtle-success">{{ notifications()->count() }}</span></span></div>
     </a>
 </li>
 <li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('email-setup.index') }}">

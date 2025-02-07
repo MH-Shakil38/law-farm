@@ -71,7 +71,13 @@ class BasicController extends Controller
      * show all notification for admin
      */
     public function notify(){
-        $data['notifications'] = auth()->user()->notifications;
+        $admin = power_check();
+        if($admin){
+            $data['notifications'] = auth()->user()->notifications;
+        }else{
+            $data['notifications'] = [];
+        }
+
         return view('admin.notification.notify')->with($data);
     }
 

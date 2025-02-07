@@ -27,12 +27,12 @@ class ClientService
         $request = request();
         $user_id = auth()->user()->id;
         $query = Client::query()->orderBy('id','DESC');
-
-        if (auth()->user()->user_type == 1 || auth()->user()->user_type == 2) {
+        if (power()) {
             $query = $query;
         } else {
             $query = $query->where('lawyer_id', $user_id);
         }
+
         if ($request->has('search')) {
             $query = $this->search($query, $request->search);
         }
@@ -98,26 +98,29 @@ class ClientService
 
     public function search($query, $search)
     {
-        return  $query->where('name', 'like', '%' . $search . '%')
-            ->orWhere('email', 'like', '%' . $search . '%')
-            ->orWhere('phone', 'like', '%' . $search . '%')
-            ->orWhere('address', 'like', '%' . $search . '%')
-            ->orWhere('city', 'like', '%' . $search . '%')
-            ->orWhere('state', 'like', '%' . $search . '%')
-            ->orWhere('zip_code', 'like', '%' . $search . '%')
-            ->orWhere('country', 'like', '%' . $search . '%')
-            ->orWhere('case_type', 'like', '%' . $search . '%')
-            ->orWhere('case_number', 'like', '%' . $search . '%')
-            ->orWhere('case_details', 'like', '%' . $search . '%')
-            ->orWhere('short_details', 'like', '%' . $search . '%')
-            ->orWhere('date_of_birth', 'like', '%' . $search . '%')
-            ->orWhere('nationality', 'like', '%' . $search . '%')
-            ->orWhere('passport_number', 'like', '%' . $search . '%')
-            ->orWhere('status', 'like', '%' . $search . '%')
-            ->orWhere('created_by', 'like', '%' . $search . '%')
-            ->orWhere('updated_by', 'like', '%' . $search . '%')
-            ->orWhere('image', 'like', '%' . $search . '%')
-            ->orWhere('last_update', 'like', '%' . $search . '%');
+        return $query->where(function ($query) use ($search) {
+            $query->where('name', 'like', '%' . $search . '%')
+                ->orWhere('email', 'like', '%' . $search . '%')
+                ->orWhere('phone', 'like', '%' . $search . '%')
+                ->orWhere('address', 'like', '%' . $search . '%')
+                ->orWhere('city', 'like', '%' . $search . '%')
+                ->orWhere('state', 'like', '%' . $search . '%')
+                ->orWhere('zip_code', 'like', '%' . $search . '%')
+                ->orWhere('country', 'like', '%' . $search . '%')
+                ->orWhere('case_type', 'like', '%' . $search . '%')
+                ->orWhere('case_number', 'like', '%' . $search . '%')
+                ->orWhere('case_details', 'like', '%' . $search . '%')
+                ->orWhere('short_details', 'like', '%' . $search . '%')
+                ->orWhere('date_of_birth', 'like', '%' . $search . '%')
+                ->orWhere('nationality', 'like', '%' . $search . '%')
+                ->orWhere('passport_number', 'like', '%' . $search . '%')
+                ->orWhere('status', 'like', '%' . $search . '%')
+                ->orWhere('created_by', 'like', '%' . $search . '%')
+                ->orWhere('updated_by', 'like', '%' . $search . '%')
+                ->orWhere('image', 'like', '%' . $search . '%')
+                ->orWhere('last_update', 'like', '%' . $search . '%');
+        });
+
     }
 
 
@@ -161,7 +164,8 @@ class ClientService
         $data['image'] = UploadService::client_image();
         $data['name'] = $request->first_name.' '.$request->last_name;
         $store =  TmpClient::query()->create($data);
-        // NotificationService::tmp_client_notification( null, $store,'Entry');
+        NotificationService::tmp_client_notification( null, $store,'Entry');
+        return true;
 
     }
 }

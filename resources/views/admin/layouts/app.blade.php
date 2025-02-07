@@ -16,10 +16,8 @@
 
     <!-- ===============================================--><!--    Favicons--><!-- ===============================================-->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/') }}website/logo.webp">
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="{{ asset('/') }}website/logo.webp">
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="{{ asset('/') }}website/logo.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/') }}website/logo.webp">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/') }}website/logo.webp">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/') }}website/logo.webp">
     <link rel="manifest" href="{{ asset('/') }}assets/img/favicons/manifest.json">
     <meta name="msapplication-TileImage" content="{{ asset('/') }}website/logo.webp">
@@ -28,14 +26,16 @@
     <script src="{{ asset('/') }}vendors/simplebar/simplebar.min.js"></script>
     @include('admin.layouts.header-script')
     <link href="{{ asset('/') }}vendors/flatpickr/flatpickr.min.css" rel="stylesheet" />
-
+    <style>
+       
+    </style>
 </head>
 
 <body>
     <main class="main" id="top">
         <div class="container" data-layout="container">
 
-           @include('admin.layouts.menu')
+            @include('admin.layouts.menu')
             <div class="content">
                 @include('admin.layouts.top-menu')
                 @include('admin.layouts.menu-load')
@@ -50,7 +50,7 @@
         </div>
     </main>
     @include('admin.theem.setting')
-<script src="{{ asset('/') }}vendors/flatpickr/flatpickr.min.js"></script>
+    <script src="{{ asset('/') }}vendors/flatpickr/flatpickr.min.js"></script>
     <script src="{{ asset('/') }}vendors/popper/popper.min.js"></script>
     <script src="{{ asset('/') }}vendors/bootstrap/bootstrap.min.js"></script>
     <script src="{{ asset('/') }}vendors/anchorjs/anchor.min.js"></script>
@@ -62,30 +62,31 @@
     <script src="{{ asset('/') }}vendors/list.js/list.min.js"></script>
     <script src="{{ asset('/') }}assets/js/theme.js"></script>
 
-   @include('alert.toster')
+    @include('alert.toster')
 
-   {{-- confimation button --}}
-   <script>
-    function confirmAction(event, url) {
-        event.preventDefault(); // Prevent the default action of the link
-        if (confirm('Are you sure you want to delete this record?')) {
-            window.location.href = url; // Redirect to the delete route if confirmed
+    {{-- confimation button --}}
+    <script>
+        function confirmAction(event, url) {
+            event.preventDefault(); // Prevent the default action of the link
+            if (confirm('Are you sure you want to delete this record?')) {
+                window.location.href = url; // Redirect to the delete route if confirmed
+            }
         }
-    }
 
-    function confirmLink(event, url) {
-        event.preventDefault(); // Prevent the default action of the link
-        if (confirm('Are you sure you want to Agree this record?')) {
-            window.location.href = url; // Redirect to the delete route if confirmed
+        function confirmLink(event, url) {
+            event.preventDefault(); // Prevent the default action of the link
+            if (confirm('Are you sure you want to Agree this record?')) {
+                window.location.href = url; // Redirect to the delete route if confirmed
+            }
         }
-    }
 
-    function change_status(event, url,message) {
-        event.preventDefault(); // Prevent the default action of the link
-        if (confirm('Are you sure?  ' + message +' This record?')) {
-            window.location.href = url; // Redirect to the delete route if confirmed
+        function change_status(event, url, message) {
+            event.preventDefault(); // Prevent the default action of the link
+            if (confirm('Are you sure?  ' + message + ' This record?')) {
+                window.location.href = url; // Redirect to the delete route if confirmed
+            }
         }
-    }
-</script>
+    </script>
 </body>
+
 </html>

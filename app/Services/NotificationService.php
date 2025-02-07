@@ -67,9 +67,13 @@ class NotificationService
 
         ActivityLogService::LogInfo($data);
         MailService::newClientMail($title,$changedProperties);
-        //   Notification::send($users,new UpdateClientNotification($changedProperties));
-        //   new UpdateClientNotification($changedProperties);
-        auth()->user()->notify(new UpdateClientNotification($title,$changedProperties,$action));
+
+        $superAdmins = get_super_admin();
+
+        foreach ($superAdmins as $admin) {
+            $admin->notify(new UpdateClientNotification($title, $changedProperties, $action));
+            info('Notification ID '.$admin->id);
+        }
         return $changedProperties; // Only return the changed items
     }
 

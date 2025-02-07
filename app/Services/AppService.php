@@ -10,6 +10,10 @@ use Carbon\Carbon;
 
 class AppService
 {
+
+    //user role id
+    CONST SUPER_ADMIN = 1;
+
     protected $controller;
     protected $clientService;
     public function __construct(ClientService $clientService)
