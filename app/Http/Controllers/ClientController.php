@@ -179,7 +179,7 @@ class ClientController extends Controller
                     //     'last_update' => $rowData['LAST UPDATES'] ?? NULL,
                     // ];
                     if(Client::query()->where('name',$data['name'])->where('email',$data['email'])->where('phone',$data['phone'])->exists()){
-                        
+
                     }else{
                        $client = Client::create($data);
                     }
@@ -189,6 +189,7 @@ class ClientController extends Controller
             return redirect()->back()->with('success', 'CSV file uploaded successfully.');
         } catch (\Throwable $e) {
             DB::rollBack();
+            return redirect()->back()->with('error', 'Data Import Faild Please Contact Developer');
             dd(
                 $e->getCode(),
                 $e->getFile(),
