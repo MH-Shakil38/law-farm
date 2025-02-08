@@ -15,12 +15,10 @@ class SecurityService
      */
     static function checkValidIp()
     {
-        // $ip =  file_get_contents('https://api.ipify.org');
-        $ip = request()->header('X-Forwarded-For');
+        $ip =  file_get_contents('https://api.ipify.org');
         if (!$ip) {
             $ip = request()->ip();
         }
-        dd($ip);
         $user = User::query()->where('email', request()->email)->first();
         if ($user->hasRole('Super Admin')) {
             return true;
