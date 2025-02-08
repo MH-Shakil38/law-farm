@@ -29,6 +29,7 @@ class BasicController extends Controller
      */
     public function website()
     {
+
         return view('website.website');
     }
 

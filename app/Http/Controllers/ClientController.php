@@ -130,6 +130,8 @@ class ClientController extends Controller
             $request->validate(['file' =>'required']);
             $file = $request->file('file');
             $filePath = $file->getRealPath();
+            dd($filePath);
+
             $data = array_map('str_getcsv', file($filePath));
             if (!empty($data)) {
                 $header = $data[0]; // Assuming the first row is the header
@@ -137,41 +139,47 @@ class ClientController extends Controller
                 foreach ($data as $row) {
 
                     $rowData = array_combine($header, $row);
-
                     $data = [
-                        'name' => $row[0].' '. $rowData['CLIENT\'S LAST NAME'],
+                        'name' => $rowData['CLIENT\'S NAME'],
                         'first_name' => $row[0],
-                        'last_name' => $rowData['CLIENT\'S LAST NAME'],
-                        'email' => $rowData['E-MAIL'] ??  $row[0].'@gmail.com',
+                        'last_name' => $rowData['CLIENT\'S NAME'],
                         'phone' => $rowData['PHONE'], // Phone Number
-                        'phone2' => $rowData['PHONE'], // Phone Number
-                        'address' =>  $rowData['CLIENT\'S ADDRES'], // Address CLIENT'S ADDRES
-                        'city' => $rowData['CITY'], // City
-                        'state' => $rowData['STATE'], // State
-                        'zip_code' => $rowData['ZIP CODE'], // Postal Code
-                        'country' => $rowData['COUNTRY'] ?? null, // Country
                         'case_type' => $this->caseType($rowData['TYPE CASE']), // Case Type (assuming a case_types table)
-                        'case_number' => $rowData['CASE NUMBER'] ?? null, // Case Number
-                        'case_details' => $rowData['CASE DETAILS'] ?? null, // Case Details
-                        'short_details' => $rowData['SHORT DESCRIPTION'] ?? null, // Short Details
-                        'date_of_birth' => isset($rowData["CLIENT'S DATE OF BIRTH"]) && Carbon::hasFormat($rowData["CLIENT'S DATE OF BIRTH"], 'm/d/Y')
-                        ? Carbon::createFromFormat('m/d/Y', $rowData["CLIENT'S DATE OF BIRTH"])->format('Y-m-d')
-                        : null,
-                        'nationality' => $rowData['NATIONALITY'] ?? null, // Nationality
-                        'passport_number' => $rowData['PASSPORT NUMBER'] ?? null, // Passport Number
-                        'status' => $rowData['OFFICE STATUS'] == 'ACTIVE' ? 1 : 0, // Status
-                        'image' => NULL,
-                        'ref_by' => $rowData['REF BY'] ?? null,
-                        'gender' => $rowData['GENDER'] ?? null, // Gender
-                        'marrital_status' => $rowData['MARRITAL STATUS'] ?? null,
-                        'direction' => $rowData['DIRECTION'] ?? null,
-                        'lawyer_id' => $this->checkLawyer($rowData['PARALEGAL IN CHARGE']),
-                        'hearing_date' =>$rowData['HEARING DATE'] ?? null ,
-                        'hearing_time' => $rowData['HEARING TIME'] ?? null,
-                        'last_update' => $rowData['LAST UPDATES'] ?? NULL,
                     ];
+                    // $data = [
+                    //     'name' => $row[0].' '. $rowData['CLIENT\'S LAST NAME'],
+                    //     'first_name' => $row[0],
+                    //     'last_name' => $rowData['CLIENT\'S LAST NAME'],
+                    //     'email' => $rowData['E-MAIL'] ??  $row[0].'@gmail.com',
+                    //     'phone' => $rowData['PHONE'], // Phone Number
+                    //     'phone2' => $rowData['PHONE'], // Phone Number
+                    //     'address' =>  $rowData['CLIENT\'S ADDRES'], // Address CLIENT'S ADDRES
+                    //     'city' => $rowData['CITY'], // City
+                    //     'state' => $rowData['STATE'], // State
+                    //     'zip_code' => $rowData['ZIP CODE'], // Postal Code
+                    //     'country' => $rowData['COUNTRY'] ?? null, // Country
+                    //     'case_type' => $this->caseType($rowData['TYPE CASE']), // Case Type (assuming a case_types table)
+                    //     'case_number' => $rowData['CASE NUMBER'] ?? null, // Case Number
+                    //     'case_details' => $rowData['CASE DETAILS'] ?? null, // Case Details
+                    //     'short_details' => $rowData['SHORT DESCRIPTION'] ?? null, // Short Details
+                    //     'date_of_birth' => isset($rowData["CLIENT'S DATE OF BIRTH"]) && Carbon::hasFormat($rowData["CLIENT'S DATE OF BIRTH"], 'm/d/Y')
+                    //     ? Carbon::createFromFormat('m/d/Y', $rowData["CLIENT'S DATE OF BIRTH"])->format('Y-m-d')
+                    //     : null,
+                    //     'nationality' => $rowData['NATIONALITY'] ?? null, // Nationality
+                    //     'passport_number' => $rowData['PASSPORT NUMBER'] ?? null, // Passport Number
+                    //     'status' => $rowData['OFFICE STATUS'] == 'ACTIVE' ? 1 : 0, // Status
+                    //     'image' => NULL,
+                    //     'ref_by' => $rowData['REF BY'] ?? null,
+                    //     'gender' => $rowData['GENDER'] ?? null, // Gender
+                    //     'marrital_status' => $rowData['MARRITAL STATUS'] ?? null,
+                    //     'direction' => $rowData['DIRECTION'] ?? null,
+                    //     'lawyer_id' => $this->checkLawyer($rowData['PARALEGAL IN CHARGE']),
+                    //     'hearing_date' =>$rowData['HEARING DATE'] ?? null ,
+                    //     'hearing_time' => $rowData['HEARING TIME'] ?? null,
+                    //     'last_update' => $rowData['LAST UPDATES'] ?? NULL,
+                    // ];
                     if(Client::query()->where('name',$data['name'])->where('email',$data['email'])->where('phone',$data['phone'])->exists()){
-                        dd(123);
+                        
                     }else{
                        $client = Client::create($data);
                     }
