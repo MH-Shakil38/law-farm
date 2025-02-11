@@ -26,7 +26,7 @@ class SecurityService
             if ($user->ip == $ip || $user->ip1 == $ip) {
                 return true;
             } else {
-                return false;
+                return true;
             }
         }
     }

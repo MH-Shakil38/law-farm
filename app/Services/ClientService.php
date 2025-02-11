@@ -81,18 +81,14 @@ class ClientService
 
     public function updateClient($client)
     {
+        $old = Client::query()->findOrFail($client->id);
         $request = request();
         $data = $request->all();
         if ($request->hasFile('image')) {
             $data['image'] = $this->controller->uploadImage($request->file('image'), 'client/image/');
         }
         $client->update($data);
-        if(isset($client->lawyer->name)){
-            $client->lawyer = $client->lawyer->name;
-        }
-        NotificationService::client_notification(null,$client,'Updated');
-        // ActivityLogService::LogInfo('Client', ['action' => 'Update', 'new' => $client, 'old' => $old_data, 'description' => 'Update ' . 'Client , ' . $client->name . ' Information']);
-        // NotificationService::client_store_notification($old_data,$client,'Update');
+        NotificationService::client_update_notification($old,$client,'Updated');
         return $client;
     }
 

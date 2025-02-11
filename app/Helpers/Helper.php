@@ -158,9 +158,6 @@ if(!function_exists('change_value')){
                 }
             }
         }
-        $lawyer = User::query()->where('role_id',1)->get();
-
-        $changedProperties['id'] = $new->id;
         $user =  Auth::user();
         return $changedProperties;
     }

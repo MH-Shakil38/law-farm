@@ -14,7 +14,7 @@ data-stellar-background-ratio="0.5">
             <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
                 <span>Law Office of Pema Lhamu Bhutia</span>
             </h1>
-            <p><a href="{{ route('client.registration') }}" class="btn btn-primary py-3 px-4"> <b>Entry Your Case</b> </a></p>
+            {{-- <p><a href="{{ route('client.agreement') }}" class="btn btn-primary py-3 px-4"> <b>Entry Your Case</b> </a></p> --}}
         </div>
     </div>
 </div>

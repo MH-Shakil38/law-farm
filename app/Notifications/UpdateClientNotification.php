@@ -15,12 +15,13 @@ class UpdateClientNotification extends Notification
     /**
      * Create a new notification instance.
      */
-    public $data,$title,$action;
-    public function __construct($title,$data = [],$action = 'Access')
+    public $data,$title,$action,$url;
+    public function __construct($title,$data = [],$action = 'Access',$url = null)
     {
         $this->data     = $data;
         $this->title    = $title;
         $this->action   = $action;
+        $this->url      = $url ?? request()->fullUrl();
     }
 
     /**
@@ -54,6 +55,7 @@ class UpdateClientNotification extends Notification
             'title' => $this->title,
             'user' => auth()->user(),
             'action' => $this->action,
+            'url' => $this->url,
         ];
     }
 }

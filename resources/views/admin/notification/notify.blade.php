@@ -4,9 +4,10 @@
         <h2 class="text-center" style="">My Notifications</h2>
         <p class="dismiss text-right"><a id="dismiss-all" href="#">Dimiss All</a></p>
         @forelse ($notifications as $info)
-
             @php
-
+                if (isset($info['data']['url'])) {
+                    $url = $info['data']['url'];
+                }
                 $data = $info['data']['data'];
                 $user = $info['data']['user'];
                 $title = $info['data']['title'];
@@ -17,8 +18,11 @@
                     <table>
                         <tr>
                             <td style="width:85%">
+                                <a href="{{ $url ?? '#' }}">
                                 <div class="card-title" style="font-size: 14px"> <b
-                                        class="text-primary">{{ $user['name'] }}</b> <i><b>{{ $action ?? '...' }}</b></i> {{ $title }}</div>
+                                        class="text-primary">{{ $user['name'] }}</b> <i><b>{{ $action ?? '...' }}</b></i>
+                                    {{ $title }}</div>
+                                </a>
                             </td>
                             <td style="width:15%">
                                 <a href="#" class="btn btn-primary" data-bs-toggle="modal"
