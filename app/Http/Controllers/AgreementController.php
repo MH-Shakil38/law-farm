@@ -23,19 +23,40 @@ class AgreementController extends Controller
     public function agreementStore(Request $request){
         try{
             DB::beginTransaction();
-            $client = TmpClient::query()->findOrFail($request->id);
+            $client = TmpClient::query()->findOrFail($request->client_id);
             $new_client = AppService::aproveTmpToClientModel($client); //client store form tmp to client model
             $data = $request->all();
             $data['client_id'] = $new_client->id;
             if ($request->hasFile('client_signature')) {
                 $data['client_signature'] = $this->controller->uploadImage($request->file('client_signature'), 'client/signature/');
             }
-            Agreement::query()->create($data);
-            // $client->delete();
+
+            $store =  Agreement::query()->create($data);
+            $client->delete();
             DB::commit();
             return redirect()->route('clients.show',$new_client->id)->with('successpully client Agreemented and Assign Client List');
         }catch(\Throwable $e){
             DB::rollBack();
+            dd($e);
+            return redirect()->back()->with('error','Error Agreementing Client'.$e);
+        }
+    }
+
+    public function agreementUpdate(Request $request){
+        try{
+            DB::beginTransaction();
+            $agrement = Agreement::query()->where('client_id',$request->client_id)->first();
+            
+            $data = $request->all();
+            if ($request->hasFile('client_signature')) {
+                $data['client_signature'] = $this->controller->uploadImage($request->file('client_signature'), 'client/signature/');
+            }
+            $update =  $agrement->update($data);
+            DB::commit();
+            return redirect()->back()->with('successpully client Agreemented Updated');
+        }catch(\Throwable $e){
+            DB::rollBack();
+            dd($e);
             return redirect()->back()->with('error','Error Agreementing Client'.$e);
         }
     }

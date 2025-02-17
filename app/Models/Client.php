@@ -73,7 +73,11 @@ class Client extends Model
     }
 
     public function invoices(){
-        return $this->hasMany(Invoice::class,'client_id');
+        return $this->hasMany(Income::class,'client_id');
+    }
+
+    public function agreement(){
+        return $this->hasOne(Agreement::class,'client_id');
     }
 
     protected static function boot(){

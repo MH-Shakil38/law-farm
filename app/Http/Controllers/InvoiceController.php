@@ -7,6 +7,7 @@ use App\Models\Client;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\ClientInfo;
+use App\Models\Income;
 use App\Models\Invoice;
 use App\Models\TmpClient;
 
@@ -52,11 +53,10 @@ class InvoiceController extends Controller
         return view('admin.client.invoice',compact('client'));
     }
 
-    public function storeInvoice(Request $request,$id){
+    public function storeInvoice(Request $request){
         $data = $request->all();
-        $data['client_id'] = $id;
-        Invoice::query()->create($data);
-        return redirect()->route('clients.show',$id)->with('success','Successfully Invoice Created');
+        Income::query()->create($data);
+        return redirect()->back()->with('success','Successfully Invoice Created');
     }
 
 

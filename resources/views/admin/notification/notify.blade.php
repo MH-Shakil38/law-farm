@@ -20,7 +20,7 @@
                             <td style="width:85%">
                                 <a href="{{ $url ?? '#' }}">
                                 <div class="card-title" style="font-size: 14px"> <b
-                                        class="text-primary">{{ $user['name'] }}</b> <i><b>{{ $action ?? '...' }}</b></i>
+                                        class="text-primary">{{ @$user['name'] ?? '' }}</b> <i><b>{{ $action ?? '...' }}</b></i>
                                     {{ $title }}</div>
                                 </a>
                             </td>
@@ -50,7 +50,7 @@
                             <div class="rounded-top-3 bg-body-tertiary py-3 ps-4 pe-6">
                                 <h4 class="mb-1" id="staticBackdropLabel">{{ $title }}</h4>
                                 <p class="fs-11 mb-0">Added by <a class="link-600 fw-semi-bold"
-                                        href="#!">{{ $user['name'] }}</a></p>
+                                        href="#!">{{ @$user['name'] }}</a></p>
                             </div>
                             <div class="p-4">
                                 <div class="">

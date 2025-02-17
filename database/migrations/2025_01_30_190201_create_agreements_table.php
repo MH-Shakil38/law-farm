@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('agreements', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->double('total_amount')->nullable();
+            $table->longText('details')->nullable();
+            $table->longText('sijs')->nullable();
+            $table->json('data')->nullable();
             $table->unsignedBigInteger('client_id');
             $table->longText('description')->nullable();
             $table->string('client_signature')->nullable();

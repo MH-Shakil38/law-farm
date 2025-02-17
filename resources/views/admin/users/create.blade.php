@@ -23,7 +23,7 @@
             style="background-image:url(../../assets/img/icons/spot-illustrations/corner-4.png);"></div><!--/.bg-holder-->
 
         <div class="card-body position-relative">
-            <h5><a href="#">{{ $type ?? 'Users' }}</a></h5>
+            <h5><a href="#">{{ $type ?? 'Users' }}</a> IP : {{ get_ip() }} </h5>
             <hr>
             @if (isset($user))
                 <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
@@ -128,6 +128,7 @@
                         <span class="text-warning">{{ $message }}</span>
                     @enderror
                 </div>
+
 
                 <div class="col-md-6 mb-3">
                     <div class="form-group">

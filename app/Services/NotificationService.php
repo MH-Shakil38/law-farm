@@ -85,7 +85,7 @@ class NotificationService
     {
 
         $changedProperties  = change_value($old,$new,$action);
-        $title              = 'Entry New Client Information';
+        $title              = 'a New Client "'.$new->name.'" Information';
         $url                = route('clients.entry');
         $data               = activity_data($title,$changedProperties,$url,$action);
 
@@ -93,10 +93,8 @@ class NotificationService
         MailService::newClientMail($title,$changedProperties);
 
         $superAdmins = get_super_admin();
-        $url = route('clients.show',$new->id);
         foreach ($superAdmins as $admin) {
-            $admin->notify(new UpdateClientNotification($title, $changedProperties, $action,$url));
-            info('Notification ID '.$admin->id);
+            $admin->notify(new UpdateClientNotification($title, $changedProperties, 'Agreement',$url));
         }
         return $changedProperties; // Only return the changed items
     }

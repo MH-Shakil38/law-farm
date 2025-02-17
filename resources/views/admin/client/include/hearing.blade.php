@@ -4,19 +4,9 @@
         <div id="table-customers-replace-element">
             <button data-bs-toggle="collapse" data-bs-target="#hearing-collapse" aria-expanded="true"
                 aria-controls="hearing-collapse" class="btn btn-falcon-default btn-sm text-success collapsed"
-                type="button"><svg class="svg-inline--fa fa-plus fa-w-14" data-fa-transform="shrink-3 down-2"
-                    aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""
-                    style="transform-origin: 0.4375em 0.625em;">
-                    <g transform="translate(224 256)">
-                        <g transform="translate(0, 64)  scale(0.8125, 0.8125)  rotate(0 0 0)">
-                            <path fill="currentColor"
-                                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
-                                transform="translate(-224 -256)"></path>
-                        </g>
-                    </g>
-                </svg><!-- <span class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span> Font Awesome fontawesome.com --><span
-                    class="d-none d-sm-inline-block ms-1">History</span></button>
+                type="button">
+                 {{-- <i class="fas fa-plus"></i> --}}
+                  <span  class="d-none d-sm-inline-block"><i class="fas fa-angle-down"></i></span></button>
 
         </div>
     </div>

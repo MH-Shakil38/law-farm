@@ -100,7 +100,7 @@
                     </div>
                     <div class="modal-footer">
                         @if ($type === 'tmp')
-                            <a class="btn btn-info" target="_blank"
+                            <a class="btn btn-info btn-sm"
                                 href="{{ route('client.agreement', $info->id) }}">Agreement</a>
                             {{-- <a  onclick="confirmLink(event, '{{ route('clients.aprove', $info->id) }}')"
                             href="{{ route('clients.aprove', $info->id) }}" class="btn btn-primary">Recived</a> --}}
@@ -108,9 +108,9 @@
                                 $route = Route::currentRouteName();
                             @endphp
                             <a href="{{ route('print.client-info', ['type' => $route == 'clients.index' ? '' : 'tmp', 'id' => $info->id]) }}"
-                                class="btn btn-warning">Print Client Info</a>
+                                class="btn btn-warning btn-sm">Print Client Info</a>
                             <a onclick="change_status(event, '{{ route('change.status', ['model' => 'TmpClient', 'id' => $info->id]) }}','Remove to Pending list')"
-                                type="button" class="btn btn-danger" data-bs-dismiss="modal">Move Pending List</a>
+                                type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Move Pending List</a>
                         @else
                             @if (power())
                                 <a class="btn btn-danger btn-sm px-3 ms-2" type="button"
@@ -122,10 +122,10 @@
                                 $route = Route::currentRouteName();
                             @endphp
                             <a href="{{ route('print.client-info', ['type' => $route == 'clients.index' ? '' : 'tmp', 'id' => $info->id]) }}"
-                                class="btn btn-warning">Print Client Info</a>
+                                class="btn btn-warning btn-sm">Print Client Info</a>
                         @endif
 
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

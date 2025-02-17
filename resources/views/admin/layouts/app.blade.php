@@ -26,9 +26,9 @@
     <script src="{{ asset('/') }}vendors/simplebar/simplebar.min.js"></script>
     @include('admin.layouts.header-script')
     <link href="{{ asset('/') }}vendors/flatpickr/flatpickr.min.css" rel="stylesheet" />
-    <style>
-       
-    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
 </head>
 
 <body>
@@ -61,6 +61,7 @@
     <script src="{{ asset('/') }}vendors/lodash/lodash.min.js"></script>
     <script src="{{ asset('/') }}vendors/list.js/list.min.js"></script>
     <script src="{{ asset('/') }}assets/js/theme.js"></script>
+    <script src="{{ asset('/') }}vendors/choices/choices.min.js"></script>
 
     @include('alert.toster')
 

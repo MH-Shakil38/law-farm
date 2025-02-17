@@ -2,10 +2,11 @@
     <div class="card-header bg-body-tertiary d-flex justify-content-between" style="background: #adadad !important;">
         <h5 class="mb-0">Invoice List</h5>
         <div id="table-customers-replace-element">
-            <a class="btn btn-falcon-default btn-sm text-primary collapsed" href="{{ route('create.invoice', $client->id) }}">New</a>
+            @include('admin.client.include.invoice-generate-modal')
+            {{-- <a class="btn btn-falcon-default btn-sm text-primary collapsed" href="{{ route('create.invoice', $client->id) }}">New</a> --}}
                 <button data-bs-toggle="collapse" data-bs-target="#invoic-collapse" aria-expanded="true"
                 aria-controls="invoic-collapse" class="btn btn-falcon-default btn-sm text-success collapsed"
-                type="button"><span class="d-none d-sm-inline-block ms-1">List</span></button>
+                type="button"><span class="d-none d-sm-inline-block"><i class="fas fa-angle-down"></i></span></button>
 
         </div>
     </div>

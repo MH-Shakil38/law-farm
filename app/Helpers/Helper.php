@@ -8,6 +8,7 @@ use App\Models\TmpClient;
 use Illuminate\Support\Facades\Cache;
 use App\Models\User;
 use App\Services\AppService;
+use App\Services\ClientService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
@@ -233,5 +234,24 @@ if(!function_exists('activity_data')){
             return $users;
         }
     }
+
+    if (!function_exists('clients')) {
+        function clients()
+        {
+            $clientService = new ClientService();
+            return $clientService->getAll(false);
+        }
+    }
+
+    if(!function_exists('get_ip')){
+        function get_ip(){
+            $ip =  file_get_contents('https://api.ipify.org');
+            if (!$ip) {
+                $ip = request()->ip();
+            }
+            return $ip;
+        }
+    }
+
 
 }

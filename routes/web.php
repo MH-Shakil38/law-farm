@@ -7,6 +7,8 @@ use App\Http\Controllers\CaseController;
 use App\Http\Controllers\CaseTypeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EmailSetupController;
+use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\ProfileController;
@@ -39,11 +41,11 @@ Route::get('/tabulator', function () {
 });
 
 Route::get('/', [BasicController::class, 'website'])->name('website');
-Route::get('/agreement', [BasicController::class, 'clientRegistration'])->name('agreement')->middleware('switch.language');
+Route::get('/intake', [BasicController::class, 'clientRegistration'])->name('agreement')->middleware('switch.language');
 Route::post('tmp/client/store', [BasicController::class, 'clientStore'])->name('tmp.client.store');
 Route::get('/invoice/{id}', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate');
 Route::get('/create/invoice/{id}', [InvoiceController::class, 'createInvoice'])->name('create.invoice');
-Route::post('/store/invoice/{id}', [InvoiceController::class, 'storeInvoice'])->name('store.invoice');
+Route::post('/store/invoice', [InvoiceController::class, 'storeInvoice'])->name('store.invoice');
 Route::get('/print/agreement/{id}', [InvoiceController::class, 'printAgreement'])->name('print.agreement');
 Route::get('/print/client/info', [InvoiceController::class, 'printClientInfo'])->name('print.client-info');
 Route::get('/print/client/invoice/{id}', [InvoiceController::class, 'printClientInvoice'])->name('print.client.invoice');
@@ -51,7 +53,10 @@ Route::get('/edit/client/invoice/{id}', [InvoiceController::class, 'editClientIn
 Route::post('/update/invoice/{id}', [InvoiceController::class, 'updateInvoice'])->name('update.invoice');
 Route::get('client/agreement/{id}', [AgreementController::class, 'agreement'])->name('client.agreement');
 Route::post('client/agreement/Store', [AgreementController::class, 'agreementStore'])->name('client.agreement.store');
+Route::post('client/agreement/update', [AgreementController::class, 'agreementUpdate'])->name('client.agreement.update');
 Route::get('lang/{lang}', [BasicController::class, 'switchLang'])->name('lang.switch')->middleware('switch.language');
+Route::resource('expenses',ExpenseController::class);
+Route::resource('incomes',IncomeController::class);
 
 Route::middleware(['auth', 'web','permission.check'])->group(function () {
 
