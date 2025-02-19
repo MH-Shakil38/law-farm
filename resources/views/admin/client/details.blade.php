@@ -21,7 +21,6 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-8">
-
                                 <h4 class="mb-1"> {{ $client->name }}
                                 </h4>
                                 <h5 class="text-500">{{ $client->short_details }}</h5>
@@ -32,7 +31,6 @@
                                 @include('admin.client.include.invoice-list')
                                 @include('admin.client.include.hearing')
                                 @include('admin.client.include.files')
-
                             </div>
                             <div class="col-md-4 col-sm-12 ps-2 ps-lg-4">
                                 @include('admin.client.include.client-info')
