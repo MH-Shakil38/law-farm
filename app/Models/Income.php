@@ -22,4 +22,8 @@ class Income extends Model
         'updated_by',
     ];
 
+    public function client(){
+        return $this->belongsTo(Client::class,'client_id');
+    }
+
 }

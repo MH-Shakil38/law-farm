@@ -12,7 +12,7 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        $data['records'] = Income::all();
+        $data['accounts'] = Income::query()->orderByDesc('id')->get();
         return view('admin.acc.income')->with($data);
     }
 

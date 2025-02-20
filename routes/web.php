@@ -56,7 +56,7 @@ Route::post('client/agreement/Store', [AgreementController::class, 'agreementSto
 Route::post('client/agreement/update', [AgreementController::class, 'agreementUpdate'])->name('client.agreement.update');
 Route::get('lang/{lang}', [BasicController::class, 'switchLang'])->name('lang.switch')->middleware('switch.language');
 Route::resource('expenses',ExpenseController::class);
-Route::resource('incomes',IncomeController::class);
+Route::resource('accounts',IncomeController::class);
 
 Route::middleware(['auth', 'web','permission.check'])->group(function () {
 

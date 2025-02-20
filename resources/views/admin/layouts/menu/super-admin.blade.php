@@ -185,7 +185,7 @@
     </ul>
 </li>
 
-<li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('incomes.index') }}">
+<li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('accounts.index') }}">
     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                 class="fas fa-dollar-sign"></span></span><span class="nav-link-text ps-1">Accounts<span
                 class="badge rounded-pill ms-2 badge-subtle-success"></span></span></div>

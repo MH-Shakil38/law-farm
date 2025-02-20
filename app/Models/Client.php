@@ -80,6 +80,10 @@ class Client extends Model
         return $this->hasOne(Agreement::class,'client_id');
     }
 
+    public function accounts(){
+        return $this->hasOne(Income::class,'client_id');
+    }
+
     protected static function boot(){
         parent::boot();
         static::creating(function ($query){
