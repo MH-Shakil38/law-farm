@@ -183,14 +183,43 @@
 
 
     </ul>
+
+    <a class="nav-link dropdown-indicator" href="#accounts" role="button" data-bs-toggle="collapse"
+        aria-expanded="true" aria-controls="role">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                    class="fas fa-dollar-sign"></span></span><span class="nav-link-text ps-1">Accounts</span>
+        </div>
+    </a>
+    <ul class="nav collapse {{ Request::segment(1) === 'accounts' ? 'show' : '' }}" id="accounts">
+        <li class="nav-item"><a class="nav-link" href="{{ route('incomes.index') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Income</span>
+                </div>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('expenses.index') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Expense</span> </div>
+            </a>
+        </li>
+    </ul>
 </li>
 
+
+{{--
 <li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('accounts.index') }}">
     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                 class="fas fa-dollar-sign"></span></span><span class="nav-link-text ps-1">Accounts<span
                 class="badge rounded-pill ms-2 badge-subtle-success"></span></span></div>
 </a>
 </li>
+
+<li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('accounts.index') }}">
+    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                class="fas fa-dollar-sign"></span></span><span class="nav-link-text ps-1">Expense<span
+                class="badge rounded-pill ms-2 badge-subtle-success"></span></span></div>
+</a>
+</li> --}}
 
 {{-- <li class="nav-item"><!-- parent pages--><a class="nav-link" href="{{ route('notify') }}">
     <div class="d-flex align-items-center"><span class="nav-link-icon"><span

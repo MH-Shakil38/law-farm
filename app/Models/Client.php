@@ -60,9 +60,7 @@ class Client extends Model
         return $this->belongsTo(User::class,'lawyer_id');
     }
 
-    public function createdBy(){
-        return $this->belongsTo(User::class,'created_by');
-    }
+
 
     public function files(){
         return $this->hasMany(ClientFile::class,'client_id')->orderBy('created_at','DESC');
@@ -82,6 +80,14 @@ class Client extends Model
 
     public function accounts(){
         return $this->hasOne(Income::class,'client_id');
+    }
+
+    public function createdBy(){
+        return $this->belongsTo(User::class,'created_by');
+    }
+
+    public function updatedBy(){
+        return $this->belongsTo(User::class,'updated_by');
     }
 
     protected static function boot(){

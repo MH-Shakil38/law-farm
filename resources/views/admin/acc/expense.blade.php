@@ -18,7 +18,7 @@
                         <option value="bank deposit">Bank Deposit</option>
                     </select></div> --}}
                 <div class="col-sm-auto mb-2">
-                    @include('admin.acc.income-create-modal')
+                    @include('admin.acc.expense-create-modal')
                 </div>
             </div>
             <div class="table-responsive scrollbar">
@@ -27,9 +27,9 @@
                         <tr>
                             <th class="text-900 sort pe-1 align-middle white-space-nowrap">#</th>
                             <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="date">Date</th>
-                            <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="date">Reffer By/Client</th>
                             <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="note">Note</th>
-                            <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="type">Type</th>
+                            <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="type">Expense Type</th>
+                            <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="type">Payment Type</th>
                             <th class="text-900 sort align-middle white-space-nowrap text-end pe-4" data-sort="amount">
                                 Amount
                             </th>
@@ -37,20 +37,19 @@
                         </tr>
                     </thead>
                     <tbody class="list" id="table-purchase-body">
-                        @forelse ($accounts as $info)
+                        @forelse ($expenses as $info)
                             <tr class="btn-reveal-trigger">
                                 <th class="align-middle white-space-nowrap date">{{ $info->id }}</th>
-                                <th class="align-middle white-space-nowrap date"><a href="#">{{ $info->date }}</a>
-                                </th>
-                                <th class="align-middle white-space-nowrap date"><a href="#">{{ $info->client->name }}</a>
-                                </th>
-                                <td class="align-middle white-space-nowrap note">{!! $info->note !!}</td>
-                                <td class="align-middle white-space-nowrap reffer">{{ $info->type }}</td>
+                                <th class="align-middle white-space-nowrap date">{{ Carbon\Carbon::parse($info->created_at)->format('d M y')  }}</th>
+
+                                <td class="align-middle white-space-nowrap note reffer pt-2" >{!! $info->note !!}</td>
+                                <td class="align-middle white-space-nowrap reffer">{{ $info->expense_type }}</td>
+                                <td class="align-middle white-space-nowrap reffer">{{ $info->payment_type }}</td>
                                 <td class="align-middle text-end fs-9 white-space-nowrap payment"><span
                                         class="badge badge rounded-pill badge-subtle-success">{{ $info->amount }}<span
                                             class="ms-1 fas fa-dollar-sign" data-fa-transform="shrink-2"></span></span></td>
                                 <td>
-                                    @include('admin.acc.income-edit-modal')
+                                    @include('admin.acc.edit-expense-modal')
                                 </td>
                             </tr>
 
@@ -68,7 +67,7 @@
     <script>
         $(document).ready(function() {
             $('#summernote').summernote({
-                placeholder: 'Enter Payment Note',
+                placeholder: 'Enter Expense Note',
                 tabsize: 2,
                 height: 120,
                 toolbar: [
