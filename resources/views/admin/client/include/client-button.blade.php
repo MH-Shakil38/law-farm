@@ -8,6 +8,6 @@
         @include('admin.client.include.update-agreement-modal')
     @endif
     <a class="btn btn-warning btn-sm px-3 ms-2" type="button"
-        href="{{ route('invoice.generate', $client->id) }}">Print Invoice</a>
+        href="{{ route('invoice.generate', $client->id) }}">Blank Invoice</a>
     <div class="border-bottom border-dashed my-4 d-lg-none"></div>
 </div>

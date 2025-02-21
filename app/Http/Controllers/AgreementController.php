@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Agreement;
 use App\Models\TmpClient;
 use App\Services\AppService;
+use App\Services\ClientService;
+use App\Services\InvoiceService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,6 +16,7 @@ class AgreementController extends Controller
     public function __construct(Controller $controller)
     {
         $this->controller = $controller;
+
     }
     public function agreement($id){
         $client = TmpClient::query()->findOrFail($id);
@@ -30,8 +33,15 @@ class AgreementController extends Controller
             if ($request->hasFile('client_signature')) {
                 $data['client_signature'] = $this->controller->uploadImage($request->file('client_signature'), 'client/signature/');
             }
-
             $store =  Agreement::query()->create($data);
+            $invoiceData = [];
+            $invoiceData['client_id'] = $new_client->id;
+            $invoiceData['amount'] = $request->advance_paid;
+            $invoiceData['note'] = $request->payment_note;
+            $invoiceData['date'] = now()->format('d-m-y');
+            $invoiceData['type'] = $request->type;
+            $invoice = InvoiceService::storeInvoice($invoiceData);
+            session()->flash('invoice', $invoice->file);
             $client->delete();
             DB::commit();
             return redirect()->route('clients.show',$new_client->id)->with('successpully client Agreemented and Assign Client List');

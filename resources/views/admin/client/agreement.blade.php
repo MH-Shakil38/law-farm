@@ -47,16 +47,42 @@
                     <input type="hidden" value="{{ $client->id }}" name="client_id">
 
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">SIJS</label> <br>
                                 <div class="input-group mb-3"><span class="input-group-text">SISJ: </span><input class="form-control" type="text" aria-label="Amount (to the nearest dollar)" name="sijs" /></div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group">
                                 <label for="">TOTAL AMOUNT</label>
                                 <div class="input-group mb-3"><span class="input-group-text">$</span><input class="form-control" type="text" aria-label="Amount (to the nearest dollar)" name="total_amount" /></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="">Advance Payment</label>
+                                <div class="input-group mb-3"><span class="input-group-text">$</span><input class="form-control" type="text" aria-label="Amount (to the nearest dollar)" name="advance_paid" /></div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group">
+                                <label for="reffer_by">Payment Type</label>
+                                <select name="type" id="" class="form-select">
+                                    <option value="cash">Cash</option>
+                                    <option value="zelle">Zelle</option>
+                                    <option value="cradit card">Cradit Card</option>
+                                    <option value="bank deposit">Bank Deposit</option>
+                                </select>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Payment Note</label>
+                                <div class="input-group mb-3"><span class="input-group-text"> <i class="far fa-sticky-note"></i> </span><input class="form-control" type="text" aria-label="Amount (to the nearest dollar)" name="payment_note" /></div>
                             </div>
                         </div>
 

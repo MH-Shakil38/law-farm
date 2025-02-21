@@ -10,6 +10,7 @@ use App\Models\ClientInfo;
 use App\Models\Income;
 use App\Models\Invoice;
 use App\Models\TmpClient;
+use App\Services\InvoiceService;
 use Illuminate\Support\Facades\File;
 
 class InvoiceController extends Controller
@@ -55,28 +56,7 @@ class InvoiceController extends Controller
     }
 
     public function storeInvoice(Request $request){
-        $data = $request->all();
-
-        $invoice = Income::query()->create($data);
-        $client = Client::query()->findOrFail($request->client_id);
-        // return view('admin.invoice.payment-invoice', compact('client', 'invoice'));
-        $pdf = Pdf::loadView('admin.invoice.payment-invoice', compact('client', 'invoice'));
-
-        $fileName = 'invoice_' . str_replace(' ', '_', $client->name) . '_' . time() . '.pdf';
-        $directory = public_path('invoices');
-
-        if (!File::exists($directory)) {
-            File::makeDirectory($directory, 0777, true, true);
-        }
-
-        $filePath = $directory . '/' . $fileName;
-        $pdf->save($filePath);
-        $fileUrl = url('invoices/' . $fileName);
-        $invoice->update([
-            'file' => $fileUrl,
-        ]);
-
-        // সেশন সেট করুন এবং রিডাইরেক্ট করুন
+        $invoice = InvoiceService::storeInvoice($request->all());
         session()->flash('invoice', $invoice->file);
         return redirect()->back()->with('success', 'Successfully Invoice Created');
     }
