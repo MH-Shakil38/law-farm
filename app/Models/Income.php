@@ -11,6 +11,7 @@ class Income extends Model
     protected $fillable = [
         'date',
         'note',
+        'details',
         'file',
         'amount',
         'reffer',

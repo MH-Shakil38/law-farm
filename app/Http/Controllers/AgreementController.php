@@ -46,12 +46,16 @@ class AgreementController extends Controller
         try{
             DB::beginTransaction();
             $agrement = Agreement::query()->where('client_id',$request->client_id)->first();
-            
             $data = $request->all();
             if ($request->hasFile('client_signature')) {
                 $data['client_signature'] = $this->controller->uploadImage($request->file('client_signature'), 'client/signature/');
             }
-            $update =  $agrement->update($data);
+            if($agrement == null){
+                Agreement::query()->create($data);
+            }else{
+                $agrement->update($data);
+            }
+
             DB::commit();
             return redirect()->back()->with('successpully client Agreemented Updated');
         }catch(\Throwable $e){

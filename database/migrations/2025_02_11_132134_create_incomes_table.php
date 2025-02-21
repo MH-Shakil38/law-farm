@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
             $table->date('date');
+            $table->longText('details')->nullable();
             $table->string('note')->nullable();
             $table->double('amount');
             $table->string('reffer')->nullable();

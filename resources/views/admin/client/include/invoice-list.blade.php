@@ -33,7 +33,7 @@
                                         <td scope="col-2" class="col-3">{{ $invoice->type }}</td>
                                         <td scope="col-2" class="col-2" style="text-align:center;background: #fff3bd"> <i class="fas fa-dollar-sign"></i>{{ $invoice->amount }}</td>
                                         <td scope="col-4" class="col-3">
-                                            <a title="Print Invoice" href="{{ route('print.client.invoice', $invoice->id) }}" class="btn btn-sm btn-danger"> <i class="fas fa-print"></i> </a>
+                                            <a title="Print Invoice" href="{{ $invoice->file }}" target="_blank" class="btn btn-sm btn-danger"> <i class="fas fa-print"></i> </a>
                                             <a title="edit invoice" href="{{ route('edit.client.invoice',$invoice->id) }}" class="btn btn-sm btn-info"> <i class="far fa-edit"></i> </a>
                                         </td>
                                     </tr>
@@ -47,12 +47,12 @@
                                 <tr class="align-center">
                                     <td colspan="2"></td>
                                     <td style="background: #cdcdcd;text-align:right"><strong>Agrement Total : </strong></td>
-                                    <td style="background: #fff3bd;text-align:center"> <i class="fas fa-dollar-sign"></i>{{ $client->agreement->total_amount }}</td>
+                                    <td style="background: #fff3bd;text-align:center"> <i class="fas fa-dollar-sign"></i>{{ @$client->agreement->total_amount }}</td>
                                 </tr>
                                 <tr class="align-center">
                                     <td colspan="2"></td>
                                     <td style="background: #cdcdcd;text-align:right"><strong>Total Due : </strong></td>
-                                    <td  style="background: #fff3bd;text-align:center"> <i class="fas fa-dollar-sign"></i> <strong> {{$client->agreement->total_amount - $client->invoices->sum('amount') }}</strong></td>
+                                    <td  style="background: #fff3bd;text-align:center"> <i class="fas fa-dollar-sign"></i> <strong> {{@$client->agreement->total_amount - $client->invoices->sum('amount') }}</strong></td>
                                 </tr>
 
                             </thead>

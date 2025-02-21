@@ -39,30 +39,6 @@
                     </div>
                 </div>
                 {{-- end --}}
-
-
-
-                {{-- <div class="row g-0">
-                    <div class="col-lg-8 pe-lg-2">
-                        @include('admin.client.include.case-details')
-
-                        @include('admin.client.include.hearing')
-
-                        @include('admin.client.include.files')
-
-                    </div>
-                    <div class="col-lg-4 ps-lg-2">
-                        <div class="sticky-sidebar">
-                            @include('admin.client.include.case-info')
-
-                            @include('admin.client.include.client-info')
-
-
-                        </div>
-                    </div>
-                </div> --}}
-
-
             </div>
         </div>
         <script>
@@ -100,6 +76,12 @@
                 });
             });
         </script>
+
+        @if (session('invoice'))
+            <script>
+                window.open("{{ Session::get('invoice') }}", "_blank"); // নতুন ট্যাবে ওপেন হবে
+            </script>
+        @endif
 
         <link href="{{ asset('/') }}vendors/flatpickr/flatpickr.min.css" rel="stylesheet" />
         <script src="{{ asset('/') }}vendors/flatpickr/flatpickr.min.js"></script>

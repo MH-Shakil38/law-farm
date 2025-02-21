@@ -39,7 +39,7 @@
                                     <div class="col-md-4 col-sm-12">
                                         <div class="form-group">
                                             <label for="date">Date</label>
-                                            <input type="date" value="{{ Carbon\Carbon::now() }}" name="date"
+                                            <input type="date" value="{{ now()->format('Y-m-d') }}" name="date"
                                                 id="date" class="form-control" placeholder="Enter date">
                                         </div>
                                     </div>
@@ -65,7 +65,13 @@
                                     <div class="col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="reffer_by">Note</label>
-                                            <textarea name="note" id="invoice-summernote" ></textarea>
+                                            <input name="note" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="reffer_by">Details</label>
+                                            <textarea name="details" id="invoice-summernote" ></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group text-end">
