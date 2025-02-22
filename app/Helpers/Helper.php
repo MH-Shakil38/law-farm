@@ -245,7 +245,7 @@ if(!function_exists('activity_data')){
 
     if(!function_exists('get_ip')){
         function get_ip(){
-            $ip =  file_get_contents('https://api.ipify.org');
+            $ip =  request()->ip();
             if (!$ip) {
                 $ip = request()->ip();
             }

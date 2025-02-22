@@ -42,7 +42,7 @@
                                 <th class="align-middle white-space-nowrap date">{{ $info->id }}</th>
                                 <th class="align-middle white-space-nowrap date"><a href="#">{{ $info->date }}</a>
                                 </th>
-                                <th class="align-middle white-space-nowrap date"><a href="#">{{ $info->client->name }}</a>
+                                <th class="align-middle white-space-nowrap date"><a href="#">{{ @$info->client->name }}</a>
                                 </th>
                                 <td class="align-middle white-space-nowrap note">{!! $info->note !!}</td>
                                 <td class="align-middle white-space-nowrap reffer">{{ $info->type }}</td>

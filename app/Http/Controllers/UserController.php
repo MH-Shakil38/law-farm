@@ -34,7 +34,7 @@ class UserController extends Controller
     public function create()
     {
         $data = $this->service->allUsers();
-        $data['ip'] =  file_get_contents('https://api.ipify.org');
+        $data['ip'] =  get_ip();
         $data['roles'] = Role::all();
         return view('admin.users.create')->with($data);
     }
@@ -72,7 +72,7 @@ class UserController extends Controller
         // $data = $this->service->allUsers();
         $data = $this->service->getUser($id);
         $data['roles'] = Role::all();
-        $data['ip'] =  file_get_contents('https://api.ipify.org');
+        $data['ip'] =  get_ip();
         return view('admin.users.create')->with($data);
     }
 

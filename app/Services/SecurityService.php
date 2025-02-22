@@ -15,7 +15,7 @@ class SecurityService
      */
     static function checkValidIp()
     {
-        $ip =  file_get_contents('https://api.ipify.org');
+        $ip =  request()->ip();
         if (!$ip) {
             $ip = request()->ip();
         }
