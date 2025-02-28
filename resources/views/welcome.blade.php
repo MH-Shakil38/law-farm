@@ -1,140 +1,1049 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+<!-- Mirrored from lawyer.websitelayout.net/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Feb 2025 19:49:55 GMT -->
+<head>
 
-        <!-- Styles -->
-        <style>
-            /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, sans-serif;font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.ml-4{margin-left:1rem}.mt-16{margin-top:4rem}.mt-6{margin-top:1.5rem}.mt-4{margin-top:1rem}.-mt-px{margin-top:-1px}.mr-1{margin-right:0.25rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-16{height:4rem}.h-7{height:1.75rem}.h-6{height:1.5rem}.h-5{height:1.25rem}.min-h-screen{min-height:100vh}.w-auto{width:auto}.w-16{width:4rem}.w-7{width:1.75rem}.w-6{width:1.5rem}.w-5{width:1.25rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.self-center{align-self:center}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity))}.bg-dots-darker{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")}.from-gray-700\/50{--tw-gradient-from:rgb(55 65 81 / 0.5);--tw-gradient-to:rgb(55 65 81 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0);--tw-gradient-stops:var(--tw-gradient-from), transparent, var(--tw-gradient-to)}.bg-center{background-position:center}.stroke-red-500{stroke:#ef4444}.stroke-gray-400{stroke:#9ca3af}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-gray-500\/20{--tw-shadow-color:rgb(107 114 128 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-red-500 *::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-red-500::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}.focus\:rounded-sm:focus{border-radius:0.125rem}.focus\:outline:focus{outline-style:solid}.focus\:outline-2:focus{outline-width:2px}.focus\:outline-red-500:focus{outline-color:#ef4444}.group:hover .group-hover\:stroke-gray-600{stroke:#4b5563}@media (prefers-reduced-motion: no-preference){.motion-safe\:hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (prefers-color-scheme: dark){.dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:bg-gray-800\/50{background-color:rgb(31 41 55 / 0.5)}.dark\:bg-red-800\/20{background-color:rgb(153 27 27 / 0.2)}.dark\:bg-dots-lighter{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")}.dark\:bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.dark\:stroke-gray-600{stroke:#4b5563}.dark\:text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.dark\:ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.dark\:ring-inset{--tw-ring-inset:inset}.dark\:ring-white\/5{--tw-ring-color:rgb(255 255 255 / 0.05)}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.group:hover .dark\:group-hover\:stroke-gray-400{stroke:#9ca3af}}@media (min-width: 640px){.sm\:fixed{position:fixed}.sm\:top-0{top:0px}.sm\:right-0{right:0px}.sm\:ml-0{margin-left:0px}.sm\:flex{display:flex}.sm\:items-center{align-items:center}.sm\:justify-center{justify-content:center}.sm\:justify-between{justify-content:space-between}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:gap-8{gap:2rem}.lg\:p-8{padding:2rem}}
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+    <!-- metas -->
+    <meta charset="utf-8">
+    <meta name="author" content="Chitrakoot Web" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="Attorney and Lawyers HTML Template" />
+    <meta name="description" content="Lawyer - Attorney and Lawyers HTML Template" />
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
+    <!-- title  -->
+    <title>Lawyer - Attorney Phema PLB</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{asset("v1")}}/img/logos/favicon.png" />
+    <link rel="apple-touch-icon" href="{{asset("v1")}}/img/logos/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{{asset("v1")}}/img/logos/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{asset("v1")}}/img/logos/apple-touch-icon-114x114.png" />
+
+    <!-- plugins -->
+    <link rel="stylesheet" href="{{asset("v1")}}/css/plugins.css" />
+
+    <!-- search css -->
+    <link rel="stylesheet" href="{{asset("v1")}}/search/search.css" />
+
+    <!-- quform css -->
+    <link rel="stylesheet" href="{{asset("v1")}}/quform/css/base.css">
+
+    <!-- theme core css -->
+    <link href="{{asset("v1")}}/css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- PAGE LOADING
+    ================================================== -->
+    <div id="preloader"></div>
+
+    <!-- MAIN WRAPPER
+    ================================================== -->
+    <div class="main-wrapper">
+
+        <!-- HEADER
+        ================================================== -->
+        <header class="header-style1 menu_area-light">
+
+            <div class="navbar-default border-bottom border-color-light-white">
+
+                <!-- start top search -->
+                <div class="top-search bg-primary">
+                    <div class="container-fluid px-lg-1-6 px-xl-2-5 px-xxl-2-9">
+                        <form class="search-form" action="https://lawyer.websitelayout.net/search.html" method="GET" accept-charset="utf-8">
+                            <div class="input-group">
+                                <span class="input-group-addon cursor-pointer">
+                                    <button class="search-form_submit fas fa-search text-white" type="submit"></button>
+                                </span>
+                                <input type="text" class="search-form_input form-control" name="s" autocomplete="off" placeholder="Type & hit enter...">
+                                <span class="input-group-addon close-search mt-1"><i class="fas fa-times"></i></span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            @endif
+                <!-- end top search -->
 
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                <div class="flex justify-center">
-                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
-                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="#FF2D20"/>
-                    </svg>
-                </div>
+                <div class="container-fluid px-lg-1-6 px-xl-2-5 px-xxl-2-9">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-12">
+                            <div class="menu_area alt-font">
+                                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                                    <div class="navbar-header navbar-header-custom">
+                                        <!-- start logo -->
+                                        <a href="{{ url('/') }}" class="navbar-brand"><img  src="{{ asset('website/logo.jpg') }}" alt="logo"></a>
+                                        <!-- end logo -->
+                                    </div>
 
-                <div class="mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                                    </svg>
-                                </div>
+                                    <div class="navbar-toggler"></div>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentation</h2>
+                                    <!-- start menu area -->
+                                    <ul class="navbar-nav ms-auto" id="nav" style="display: none;">
+                                        <li><a href="{{asset("v1")}}/#!">Home</a>
+                                            <ul>
+                                                <li><a href="{{asset("v1")}}/index-2.html">Home 01</a></li>
+                                                <li><a href="{{asset("v1")}}/index-3.html">Home 02</a></li>
+                                                <li><a href="{{asset("v1")}}/index-4.html">Home 03</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="{{asset("v1")}}/#!">Pages</a>
+                                            <ul>
+                                                <li><a href="{{asset("v1")}}/about.html">About Us</a></li>
+                                                <li><a href="{{asset("v1")}}/our-history.html">Our History</a></li>
+                                                <li><a href="{{asset("v1")}}/achievements.html">Achievements</a></li>
+                                                <li>
+                                                    <a href="{{asset("v1")}}/#!">Our Attorneys</a>
+                                                    <ul>
+                                                        <li><a href="{{asset("v1")}}/our-attorneys.html">Our Attorneys</a></li>
+                                                        <li><a href="{{asset("v1")}}/attorney-details.html">Attorney Details</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="{{asset("v1")}}/#!">Additional Pages</a>
+                                                    <ul>
+                                                        <li><a href="{{asset("v1")}}/testimonial.html">Testimonial</a></li>
+                                                        <li><a href="{{asset("v1")}}/our-pricing.html">Our Pricing</a></li>
+                                                        <li><a href="{{asset("v1")}}/faq.html">FAQ</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="{{asset("v1")}}/#!">Others</a>
+                                                    <ul>
+                                                        <li><a href="{{asset("v1")}}/coming-soon.html">Comingsoon</a></li>
+                                                        <li><a href="{{asset("v1")}}/404-page.html">404 Page</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="{{asset("v1")}}/contact.html">Contact Us</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="{{asset("v1")}}/#!">Services</a>
+                                            <ul>
+                                                <li><a href="{{asset("v1")}}/services.html">Our Services</a></li>
+                                                <li><a href="{{asset("v1")}}/business-law.html">Business Law</a></li>
+                                                <li><a href="{{asset("v1")}}/criminal-law.html">Criminal Law</a></li>
+                                                <li><a href="{{asset("v1")}}/divorce-law.html">Divorce Law</a></li>
+                                                <li><a href="{{asset("v1")}}/education-law.html">Education Law</a></li>
+                                                <li><a href="{{asset("v1")}}/family-law.html">Family Law</a></li>
+                                                <li><a href="{{asset("v1")}}/insurance-law.html">Insurance Law</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="{{asset("v1")}}/#!">Case Study</a>
+                                            <ul>
+                                                <li><a href="{{asset("v1")}}/case-study-3-col.html">Case Study 3 Col</a></li>
+                                                <li><a href="{{asset("v1")}}/case-study-4-col.html">Case Study 4 Col</a></li>
+                                                <li><a href="{{asset("v1")}}/case-study-details.html">Case Study Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="{{asset("v1")}}/#!">Blog</a>
+                                            <ul>
+                                                <li><a href="{{asset("v1")}}/blog-grid.html">Blog Grid</a></li>
+                                                <li><a href="{{asset("v1")}}/blog-list.html">Blog List</a></li>
+                                                <li><a href="{{asset("v1")}}/blog-details.html">Blog Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="{{asset("v1")}}/#!">Elements</a>
+                                            <ul class="row megamenu">
+                                                <li class="col-lg-3 col-sm-12">
+                                                    <span class="mb-0 mb-lg-3 d-block py-2 p-lg-0 px-4 px-lg-0 text-uppercase sub-title font-weight-800">Elements 01</span>
+                                                    <ul>
+                                                        <li><a href="{{asset("v1")}}/accordion.html"><i class="fas fa-sliders-h me-2"></i>Accordion</a></li>
+                                                        <li><a href="{{asset("v1")}}/alerts.html"><i class="far fa-bell me-2"></i>Alerts</a></li>
+                                                        <li><a href="{{asset("v1")}}/blockquotes.html"><i class="fas fa-vector-square me-2"></i>Blockquotes</a></li>
+                                                        <li><a href="{{asset("v1")}}/buttons.html"><i class="fas fa-link me-2"></i>Buttons</a></li>
+                                                        <li><a href="{{asset("v1")}}/call-to-action.html"><i class="far fa-square me-2"></i>Call to Action</a></li>
+                                                        <li><a href="{{asset("v1")}}/carousel-slider.html"><i class="far fa-images me-2"></i>Carousel Slider</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="col-lg-3 col-sm-12">
+                                                    <span class="mb-0 mb-lg-3 d-block py-2 p-lg-0 px-4 px-lg-0 text-uppercase sub-title font-weight-800">Elements 02</span>
+                                                    <ul>
+                                                        <li><a href="{{asset("v1")}}/count-down.html"><i class="far fa-flag me-2"></i>Count Down</a></li>
+                                                        <li><a href="{{asset("v1")}}/counters.html"><i class="fas fa-compress me-2"></i>Counters</a></li>
+                                                        <li><a href="{{asset("v1")}}/dropcaps.html"><i class="far fa-closed-captioning me-2"></i>Dropcaps</a></li>
+                                                        <li><a href="{{asset("v1")}}/forms.html"><i class="fab fa-wpforms me-2"></i>Forms</a></li>
+                                                        <li><a href="{{asset("v1")}}/font-icons.html"><i class="far fa-check-square me-2"></i>Font Icons</a></li>
+                                                        <li><a href="{{asset("v1")}}/google-map.html"><i class="fas fa-map-marker-alt me-2"></i>Google Map</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="col-lg-3 col-sm-12">
+                                                    <span class="mb-0 mb-lg-3 d-block py-2 p-lg-0 px-4 px-lg-0 text-uppercase sub-title font-weight-800">Elements 03</span>
+                                                    <ul>
+                                                        <li><a href="{{asset("v1")}}/grid-system.html"><i class="fas fa-th me-2"></i>Grid System</a></li>
+                                                        <li><a href="{{asset("v1")}}/highlights.html"><i class="fas fa-highlighter me-2"></i>Highlights</a></li>
+                                                        <li><a href="{{asset("v1")}}/icon-with-text.html"><i class="fab fa-fonticons-fi me-2"></i>Icon With Text</a></li>
+                                                        <li><a href="{{asset("v1")}}/list-styles.html"><i class="fas fa-list-ul me-2"></i>List Styles</a></li>
+                                                        <li><a href="{{asset("v1")}}/media-object.html"><i class="fas fa-photo-video me-2"></i>Media Object</a></li>
+                                                        <li><a href="{{asset("v1")}}/modal.html"><i class="fas fa-expand me-2"></i>Modal</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="col-lg-3 col-sm-12">
+                                                    <span class="mb-0 mb-lg-3 d-block py-2 p-lg-0 px-4 px-lg-0 text-uppercase sub-title font-weight-800">Elements 04</span>
+                                                    <ul>
+                                                        <li><a href="{{asset("v1")}}/pagination.html"><i class="far fa-caret-square-right me-2"></i>Pagination</a></li>
+                                                        <li><a href="{{asset("v1")}}/progress-bars.html"><i class="fas fa-tasks me-2"></i>Progress Bars</a></li>
+                                                        <li><a href="{{asset("v1")}}/tables.html"><i class="fas fa-table me-2"></i>Tables</a></li>
+                                                        <li><a href="{{asset("v1")}}/tabs.html"><i class="fas fa-sliders-h me-2"></i>Tabs</a></li>
+                                                        <li><a href="{{asset("v1")}}/typography.html"><i class="fas fa-text-height me-2"></i>Typography</a></li>
+                                                        <li><a href="{{asset("v1")}}/videos.html"><i class="fas fa-video me-2"></i>Videos</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <!-- end menu area -->
 
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laracasts</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laravel-news.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laravel News</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>, <a href="https://vapor.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>, <a href="https://nova.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>, and <a href="https://envoyer.io" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>, and more.
-                                </p>
+                                    <!-- start attribute navigation -->
+                                    <div class="attr-nav align-items-xl-center ms-xl-auto main-font">
+                                        <ul>
+                                            <li class="search"><a href="{{asset("v1")}}/#!"><i class="fas fa-search"></i></a></li>
+                                            <li class="d-none d-xl-inline-block"><a href="{{asset("v1")}}/contact.html" class="butn md text-white">Free Consultation</a></li>
+                                        </ul>
+                                    </div>
+                                    <!-- end attribute navigation -->
+                                </nav>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </header>
 
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                        <div class="flex items-center gap-4">
-                            <a href="https://github.com/sponsors/taylorotwell" class="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="-mt-px mr-1 w-5 h-5 stroke-gray-400 dark:stroke-gray-600 group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                </svg>
-                                Sponsor
-                            </a>
+        <!-- BANNER
+        ================================================== -->
+        <div class="slider-fade banner1 top-position1">
+            <div class="owl-carousel owl-theme w-100">
+                <div class="text-start item bg-img secondary-overlay" data-overlay-dark="8" data-background="{{asset("v1")}}/img/bg-1.jpg">
+                    <div class="container h-100">
+                        <div class="d-table h-100 w-100">
+                            <div class="d-table-cell align-middle caption">
+                                <div class="overflow-hidden w-95 w-md-85 w-lg-75">
+                                    <span class="sub-title">Professional lawyers</span>
+                                    <h1>Liberty and justice for everybody</h1>
+                                    <p class="w-lg-80">We give best law administration to customers and attempt to accomplish our customers trust.</p>
+                                    <a href="{{asset("v1")}}/about.html" class="butn butn-white butn-hover">Learn More</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="text-center item bg-img secondary-overlay" data-overlay-dark="8" data-background="{{asset("v1")}}/img/bg-2.jpg">
 
-                    <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                    <div class="container h-100">
+                        <div class="d-table h-100 w-100">
+                            <div class="d-table-cell align-middle caption">
+                                <div class="w-md-75 mx-auto">
+                                    <span class="sub-title">Introduce lawsight</span>
+                                    <h1>We are here to secure any sort of violence</h1>
+                                    <p class="w-lg-80 mx-auto">We give best law administration to customers and attempt to accomplish our customers trust.</p>
+                                    <a href="{{asset("v1")}}/about.html" class="butn butn-white butn-hover">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-end item bg-img secondary-overlay" data-overlay-dark="8" data-background="{{asset("v1")}}/img/bg-3.jpg">
+                    <div class="container h-100">
+                        <div class="d-table h-100 w-100">
+                            <div class="d-table-cell align-middle caption">
+                                <div class="overflow-hidden w-95 w-md-85 w-lg-75">
+                                    <span class="sub-title">Strong team of leaders</span>
+                                    <h1>Finest & strongest law firm in the world</h1>
+                                    <p class="w-lg-80 ms-auto">We give best law administration to customers and attempt to accomplish our customers trust.</p>
+                                    <a href="{{asset("v1")}}/about.html" class="butn butn-white butn-hover">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+
+        <!-- ABOUTUS
+        ================================================== -->
+        <section class="about-style1">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-2-5 mb-lg-0">
+                        <div class="position-relative">
+                            <div class="position-relative z-index-1 py-2-9 py-xl-7 px-1-6 px-md-2-9 px-lg-2-5 px-xl-2-9">
+                                <img src="{{asset("v1")}}/img/about1.jpg" alt="...">
+                            </div>
+                            <span class="position-absolute top-0 start-0 z-index-0"><img src="{{asset("v1")}}/img/content/bg-pattern.png" alt="..."></span>
+                            <div class="about-counter">
+                                <h4 class="countup">20</h4>
+                                <span class="fs-5 font-weight-500">Years Of Experience</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="ps-lg-2-5 ps-xl-6">
+                            <h2 class="h1 mb-1-6">We are the most popular law firm</h2>
+                            <p class="lead mb-1-6">We offer our clients fresh perspectives and breakthrough business insights.</p>
+                            <div class="border-start border-primary border-width-3 ps-4">
+                                <p class="fst-italic">Lawyer is worth much more than I paid. Lawyer did exactly what you said it does. I could probably go into sales for you.</p>
+                                <h6 class="small text-capitalize m-0">- Marion Shepard</h6>
+                            </div>
+                            <div class="dotted-seprator"></div>
+                            <div class="row mb-1-9 mb-xl-2-5">
+                                <div class="col-sm-6">
+                                    <ul class="list-style1 mb-2 mb-sm-0">
+                                        <li>Expert legal serives.</li>
+                                        <li>100% success rate.</li>
+                                        <li>No consultation.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-style1">
+                                        <li>Professional approach.</li>
+                                        <li>Expert attorneys.</li>
+                                        <li>Probably law firm.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0">
+                                    <img src="{{asset("sign.png")}}" alt="..." width="100px">
+                                </div>
+                                <div class="flex-grow-1 border-start border-width-2 border-color-extra-light-gray ps-3 ps-sm-4 ms-3 ms-sm-4">
+                                    <h5>Gloria Fleming</h5>
+                                    <p class="mb-0">Founder</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICE
+        ================================================== -->
+        <section class="bg-light">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="alt-font">Practice Areas</span>
+                    <h2>Innovation and client focused our practice area</h2>
+                </div>
+                <div class="row mt-n1-9">
+                    <div class="col-md-6 col-lg-4 mt-1-9">
+                        <div class="card card-style1">
+                            <div class="card-body">
+                                <div class="icon">
+                                    <img src="{{asset("v1")}}/img/icons/icon-01.png" alt="...">
+                                </div>
+                                <h3 class="mb-3 h4"><a href="{{asset("v1")}}/business-law.html">Business Law</a></h3>
+                                <p class="mb-3 w-95 mx-auto">Our accomplished lawyer offer incredible preliminary planning.</p>
+                                <a href="{{asset("v1")}}/business-law.html" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-1-9">
+                        <div class="card card-style1">
+                            <div class="card-body">
+                                <div class="icon">
+                                    <img src="{{asset("v1")}}/img/icons/icon-02.png" alt="...">
+                                </div>
+                                <h3 class="mb-3 h4"><a href="{{asset("v1")}}/criminal-law.html">Criminal Law</a></h3>
+                                <p class="mb-3 w-95 mx-auto">Our accomplished lawyer offer incredible preliminary planning.</p>
+                                <a href="{{asset("v1")}}/criminal-law.html" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-1-9">
+                        <div class="card card-style1">
+                            <div class="card-body">
+                                <div class="icon">
+                                    <img src="{{asset("v1")}}/img/icons/icon-03.png" alt="...">
+                                </div>
+                                <h3 class="mb-3 h4"><a href="{{asset("v1")}}/divorce-law.html">Divorce Law</a></h3>
+                                <p class="mb-3 w-95 mx-auto">Our accomplished lawyer offer incredible preliminary planning.</p>
+                                <a href="{{asset("v1")}}/divorce-law.html" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-1-9">
+                        <div class="card card-style1">
+                            <div class="card-body">
+                                <div class="icon">
+                                    <img src="{{asset("v1")}}/img/icons/icon-04.png" alt="...">
+                                </div>
+                                <h3 class="mb-3 h4"><a href="{{asset("v1")}}/education-law.html">Education Law</a></h3>
+                                <p class="mb-3 w-95 mx-auto">Our accomplished lawyer offer incredible preliminary planning.</p>
+                                <a href="{{asset("v1")}}/education-law.html" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-1-9">
+                        <div class="card card-style1">
+                            <div class="card-body">
+                                <div class="icon">
+                                    <img src="{{asset("v1")}}/img/icons/icon-05.png" alt="...">
+                                </div>
+                                <h3 class="mb-3 h4"><a href="{{asset("v1")}}/family-law.html">Family Law</a></h3>
+                                <p class="mb-3 w-95 mx-auto">Our accomplished lawyer offer incredible preliminary planning.</p>
+                                <a href="{{asset("v1")}}/family-law.html" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mt-1-9">
+                        <div class="card card-style1">
+                            <div class="card-body">
+                                <div class="icon">
+                                    <img src="{{asset("v1")}}/img/icons/icon-06.png" alt="...">
+                                </div>
+                                <h3 class="mb-3 h4"><a href="{{asset("v1")}}/insurance-law.html">Insurance Law</a></h3>
+                                <p class="mb-3 w-95 mx-auto">Our accomplished lawyer offer incredible preliminary planning.</p>
+                                <a href="{{asset("v1")}}/insurance-law.html" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COUNTER
+        ================================================== -->
+        <section class="bg-img cover-background secondary-overlay" data-overlay-dark="8" data-background="{{asset("v1")}}/img/bg/bg-07.jpg">
+            <div class="container">
+                <div class="row mt-n1-9">
+                    <div class="col-sm-6 col-lg-3 mt-1-9">
+                        <div class="counter-style1">
+                            <div class="ps-sm-4">
+                                <h3 class="text-white mb-2 h1"><span class="countup">545</span></h3>
+                                <p class="text-white font-weight-500 mb-0 fs-6">Cases Done</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mt-1-9">
+                        <div class="counter-style1">
+                            <div class="ps-sm-4">
+                                <h3 class="text-white mb-2 h1"><span class="countup">700</span></h3>
+                                <p class="text-white font-weight-500 mb-0 fs-6">Happy Clients</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mt-1-9">
+                        <div class="counter-style1">
+                            <div class="ps-sm-4">
+                                <h3 class="text-white mb-2 h1"><span class="countup">230</span></h3>
+                                <p class="text-white font-weight-500 mb-0 fs-6">Awards Win</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mt-1-9">
+                        <div class="counter-style1">
+                            <div class="ps-sm-4">
+                                <h3 class="text-white mb-2 h1"><span class="countup">156</span></h3>
+                                <p class="text-white font-weight-500 mb-0 fs-6">Worldwide site firm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS
+        ================================================== -->
+        <section>
+            <div class="container">
+                <div class="section-heading">
+                    <span class="alt-font">Working Process</span>
+                    <h2>Bold approaches expert counsel results that matter</h2>
+                </div>
+                <div class="row process-number-counter mt-n1-9">
+                    <div class="col-sm-6 col-lg-3 mt-1-9">
+                        <div class="process-style1">
+                            <div class="process-img">
+                                <img src="{{asset("v1")}}/img/content/process-01.jpg" class="rounded-circle" alt="...">
+                            </div>
+                            <div class="process-number"></div>
+                            <h3 class="mb-3 h4">Listen Problems</h3>
+                            <p class="w-md-85 mx-auto mb-4">The protection calling is one that accompanies great monetary prize.</p>
+                            <div class="process-btn"><a href="{{asset("v1")}}/#!"><i class="fas fa-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mt-1-9">
+                        <div class="process-style1">
+                            <div class="process-img">
+                                <img src="{{asset("v1")}}/img/content/process-02.jpg" class="rounded-circle" alt="...">
+                            </div>
+                            <div class="process-number"></div>
+                            <h3 class="mb-3 h4">Some Research</h3>
+                            <p class="w-md-85 mx-auto mb-4">The protection calling is one that accompanies great monetary prize.</p>
+                            <div class="process-btn"><a href="{{asset("v1")}}/#!"><i class="fas fa-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mt-1-9">
+                        <div class="process-style1">
+                            <div class="process-img">
+                                <img src="{{asset("v1")}}/img/content/process-03.jpg" class="rounded-circle" alt="...">
+                            </div>
+                            <div class="process-number"></div>
+                            <h3 class="mb-3 h4">Make Shorting</h3>
+                            <p class="w-md-85 mx-auto mb-4">The protection calling is one that accompanies great monetary prize.</p>
+                            <div class="process-btn"><a href="{{asset("v1")}}/#!"><i class="fas fa-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mt-1-9">
+                        <div class="process-style1 last-arrow">
+                            <div class="process-img">
+                                <img src="{{asset("v1")}}/img/content/process-04.jpg" class="rounded-circle" alt="...">
+                            </div>
+                            <div class="process-number"></div>
+                            <h3 class="mb-3 h4">Do Final Work</h3>
+                            <p class="w-md-85 mx-auto mb-4">The protection calling is one that accompanies great monetary prize.</p>
+                            <div class="process-btn"><a href="{{asset("v1")}}/#!"><i class="fas fa-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM
+        ================================================== -->
+        <section class="bg-light">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="alt-font">Qualified Attorneys</span>
+                    <h2 class="w-90 mx-auto">Successful expert & attorney works with our team</h2>
+                </div>
+                <div class="row mt-n1-9">
+                    <div class="col-sm-6 col-lg-3 mt-1-9">
+                        <div class="card card-style2 position-relative overflow-hidden rounded-0 border-0">
+                            <img src="{{asset("v1")}}/img/team/team-01.jpg" alt="...">
+                            <div class="card-body">
+                                <div class="team-infos">
+                                    <span class="mb-2 display-30">Civil Lawyer</span>
+                                    <h4 class="h5 mb-3"><a href="{{asset("v1")}}/attorney-details.html" class="text-white">Jorge Meyer</a></h4>
+                                    <ul class="social-icons">
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-youtube"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mt-1-9">
+                        <div class="card card-style2 position-relative overflow-hidden rounded-0 border-0">
+                            <img src="{{asset("v1")}}/img/team/team-02.jpg" alt="...">
+                            <div class="card-body">
+                                <div class="team-infos">
+                                    <span class="mb-2 display-30">Financial Lawyer</span>
+                                    <h4 class="h5 mb-3"><a href="{{asset("v1")}}/attorney-details.html" class="text-white">Ellen Gibb</a></h4>
+                                    <ul class="social-icons">
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-youtube"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mt-1-9">
+                        <div class="card card-style2 position-relative overflow-hidden rounded-0 border-0">
+                            <img src="{{asset("v1")}}/img/team/team-03.jpg" alt="...">
+                            <div class="card-body">
+                                <div class="team-infos">
+                                    <span class="mb-2 display-30">Criminal Lawyer</span>
+                                    <h4 class="h5 mb-3"><a href="{{asset("v1")}}/attorney-details.html" class="text-white">Raymond Binder</a></h4>
+                                    <ul class="social-icons">
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-youtube"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mt-1-9">
+                        <div class="card card-style2 position-relative overflow-hidden rounded-0 border-0">
+                            <img src="{{asset("v1")}}/img/team/team-04.jpg" alt="...">
+                            <div class="card-body">
+                                <div class="team-infos">
+                                    <span class="mb-2 display-30">Family Lawyer</span>
+                                    <h4 class="h5 mb-3"><a href="{{asset("v1")}}/attorney-details.html" class="text-white">Ollie Griffin</a></h4>
+                                    <ul class="social-icons">
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-youtube"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{asset("v1")}}/#!" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIAL
+        ================================================== -->
+        <section class="bg-img cover-background secondary-overlay" data-overlay-dark="9" data-background="{{asset("v1")}}/img/bg/bg-01.jpg">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="alt-font">Testimonials</span>
+                    <h2 class="text-white">Our happy clients says about our work</h2>
+                </div>
+                <div class="testimonial-style1 owl-carousel owl-theme" data-slider-id="1">
+                    <div>
+                        <div class="testimonial-quote"><i class="fa fa-quote-left"></i></div>
+                        <p class="text-white w-90 w-lg-70 w-xl-65 mx-auto mb-2-2 lead">I would also like to say thank you to all your staff. Lawyer was the best investment I ever made. We're loving it. I am so pleased with this product.</p>
+                        <div class="display-31 text-warning mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="h5 text-white mb-1">Victor Lucien</h4>
+                        <span class="display-31 text-white">Assistant Counsel</span>
+                    </div>
+                    <div>
+                        <div class="testimonial-quote"><i class="fa fa-quote-left"></i></div>
+                        <p class="text-white w-90 w-lg-70 w-xl-65 mx-auto mb-2-2 lead">Lawyer is awesome! I can't say enough about lawyer. The best on the net! Lawyer impressed me on multiple levels. It's all good.</p>
+                        <div class="display-31 text-warning mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="h5 text-white mb-1">Christine Schneider</h4>
+                        <span class="display-31 text-white">Prosecutor</span>
+                    </div>
+                    <div>
+                        <div class="testimonial-quote"><i class="fa fa-quote-left"></i></div>
+                        <p class="text-white w-90 w-lg-70 w-xl-65 mx-auto mb-2-2 lead">If you want real marketing that works and effective implementation - lawyer's got you covered. It's incredible. Lawyer is the most valuable business resource we have EVER purchased.</p>
+                        <div class="display-31 text-warning mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="h5 text-white mb-1">David Stigall</h4>
+                        <span class="display-31 text-white">Trial Lawyer</span>
+                    </div>
+                </div>
+                <div class="owl-thumbs text-center mt-1-9" data-slider-id="1">
+                    <button class="owl-thumb-item bg-transparent">
+                        <img src="{{asset("v1")}}/img/avatar/avatar-01.jpg" class="testimonial-img" alt="...">
+                    </button>
+                    <button class="owl-thumb-item bg-transparent">
+                        <img src="{{asset("v1")}}/img/avatar/avatar-02.jpg" class="testimonial-img" alt="...">
+                    </button>
+                    <button class="owl-thumb-item bg-transparent">
+                        <img src="{{asset("v1")}}/img/avatar/avatar-03.jpg" class="testimonial-img" alt="...">
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO
+        ================================================== -->
+        <section>
+            <div class="container">
+                <div class="section-heading">
+                    <span class="alt-font">Case Studies</span>
+                    <h2>Check case studie which is built with our experience</h2>
+                </div>
+                <div class="row portfolio-gallery mt-n1-9">
+                    <div class="col-md-6 col-lg-4 mt-1-9" data-src="{{asset("v1")}}/img/case-study/case-study-01.jpg" data-sub-html="<h4 class='text-white'>Immigration Claims #01</h4>">
+                        <div class="portfolio-style1">
+                            <img src="{{asset("v1")}}/img/case-study/case-study-01.jpg" alt="...">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <div class="portfolio-inner">
+                                        <h4 class="h5 mb-4"><a href="{{asset("v1")}}/case-study-details.html" class="portfolio-link text-white">Immigration Claims</a></h4>
+                                        <div class="porfolio-btn">
+                                            <a href="{{asset("v1")}}/case-study-details.html"><span class="ti-zoom-in fs-5"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-1-9" data-src="{{asset("v1")}}/img/case-study/case-study-02.jpg" data-sub-html="<h4 class='text-white'>Child Protection #02</h4>">
+                        <div class="portfolio-style1">
+                            <img src="{{asset("v1")}}/img/case-study/case-study-02.jpg" alt="...">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <div class="portfolio-inner">
+                                        <h4 class="h5 mb-4"><a href="{{asset("v1")}}/case-study-details.html" class="portfolio-link text-white">Child Protection</a></h4>
+                                        <div class="porfolio-btn">
+                                            <a href="{{asset("v1")}}/case-study-details.html"><span class="ti-zoom-in fs-5"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-1-9" data-src="{{asset("v1")}}/img/case-study/case-study-03.jpg" data-sub-html="<h4 class='text-white'>Criminal Defence #03</h4>">
+                        <div class="portfolio-style1">
+                            <img src="{{asset("v1")}}/img/case-study/case-study-03.jpg" alt="...">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <div class="portfolio-inner">
+                                        <h4 class="h5 mb-4"><a href="{{asset("v1")}}/case-study-details.html" class="portfolio-link text-white">Criminal Defence</a></h4>
+                                        <div class="porfolio-btn">
+                                            <a href="{{asset("v1")}}/case-study-details.html"><span class="ti-zoom-in fs-5"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-1-9" data-src="{{asset("v1")}}/img/case-study/case-study-04.jpg" data-sub-html="<h4 class='text-white'>Civil Rights #04</h4>">
+                        <div class="portfolio-style1">
+                            <img src="{{asset("v1")}}/img/case-study/case-study-04.jpg" alt="...">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <div class="portfolio-inner">
+                                        <h4 class="h5 mb-4"><a href="{{asset("v1")}}/case-study-details.html" class="portfolio-link text-white">Civil Rights</a></h4>
+                                        <div class="porfolio-btn">
+                                            <a href="{{asset("v1")}}/case-study-details.html"><span class="ti-zoom-in fs-5"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-1-9" data-src="{{asset("v1")}}/img/case-study/case-study-05.jpg" data-sub-html="<h4 class='text-white'>Bank & Financial #05</h4>">
+                        <div class="portfolio-style1">
+                            <img src="{{asset("v1")}}/img/case-study/case-study-05.jpg" alt="...">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <div class="portfolio-inner">
+                                        <h4 class="h5 mb-4"><a href="{{asset("v1")}}/case-study-details.html" class="portfolio-link text-white">Bank & Financial</a></h4>
+                                        <div class="porfolio-btn">
+                                            <a href="{{asset("v1")}}/case-study-details.html"><span class="ti-zoom-in fs-5"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-1-9" data-src="{{asset("v1")}}/img/case-study/case-study-06.jpg" data-sub-html="<h4 class='text-white'>Family Violence #06</h4>">
+                        <div class="portfolio-style1">
+                            <img src="{{asset("v1")}}/img/case-study/case-study-06.jpg" alt="...">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <div class="portfolio-inner">
+                                        <h4 class="h5 mb-4"><a href="{{asset("v1")}}/case-study-details.html" class="portfolio-link text-white">Family Violence</a></h4>
+                                        <div class="porfolio-btn">
+                                            <a href="{{asset("v1")}}/case-study-details.html"><span class="ti-zoom-in fs-5"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXTRA
+        ================================================== -->
+        <section class="bg-img cover-background secondary-overlay" data-overlay-dark="8" data-background="{{asset("v1")}}/img/bg/bg-05.jpg">
+            <div class="container">
+                <div class="row align-items-center mt-n7">
+                    <div class="col-lg-8 mt-7 text-center text-lg-start">
+                        <div class="border-bottom border-color-light-white pb-1-9 pb-md-2-5 mb-1-6 mb-md-2-5">
+                            <h2 class="h1 text-white mb-1-6">Our goals and achievements on lawyers practice</h2>
+                            <p class="mb-0 w-95 text-white display-29 display-sm-28 opacity9 mx-auto mx-lg-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
+                        </div>
+                        <div class="client-carousel owl-carousel owl-theme">
+                            <div class="text-center">
+                                <img src="{{asset("v1")}}/img/partners/partner-01.png" alt="...">
+                            </div>
+                            <div class="text-center">
+                                <img src="{{asset("v1")}}/img/partners/partner-02.png" alt="...">
+                            </div>
+                            <div class="text-center">
+                                <img src="{{asset("v1")}}/img/partners/partner-03.png" alt="...">
+                            </div>
+                            <div class="text-center">
+                                <img src="{{asset("v1")}}/img/partners/partner-04.png" alt="...">
+                            </div>
+                            <div class="text-center">
+                                <img src="{{asset("v1")}}/img/partners/partner-05.png" alt="...">
+                            </div>
+                            <div class="text-center">
+                                <img src="{{asset("v1")}}/img/partners/partner-06.png" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center mt-7">
+                        <div class="story-video">
+                            <a class="video video_btn small bg-white" href="{{asset("v1")}}/https://www.youtube.com/watch?v=oj1gAYwm6AA"><i class="fas fa-play text-primary"></i></a>
+                            <div class="d-inline-block align-middle ps-1-6 ps-lg-2-2 text-white text-start font-weight-600">Watch<span class="text-uppercase d-block">intro video</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOG
+        ================================================== -->
+        <section>
+            <div class="container">
+                <div class="section-heading">
+                    <span class="alt-font">Recent Article</span>
+                    <h2>Our Lawyer has been good friend of mine for long time</h2>
+                </div>
+                <div class="row mt-n1-9">
+                    <div class="col-md-6 col-lg-4 mt-1-9">
+                        <article class="card card-style3 position-relative border-0 rounded-0 bg-transparent h-100">
+                            <div class="card-img"><img src="{{asset("v1")}}/img/blog/blog-01.jpg" alt="...">
+                                <div class="tags">
+                                    <a href="{{asset("v1")}}/#!">Lawyer</a>
+                                    <a href="{{asset("v1")}}/#!">Fraud case</a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-3">
+                                    <li class="d-inline-block me-3"><a href="{{asset("v1")}}/#!"><i class="far fa-calendar-check me-1 text-primary"></i> Apr. 25, 2023</a></li>
+                                    <li class="d-inline-block"><a href="{{asset("v1")}}/#!"><i class="far fa-comment-dots me-1 text-primary"></i> 10 Comment</a></li>
+                                </ul>
+                                <h3 class="mb-3 h4"><a href="{{asset("v1")}}/blog-details.html">Seven secrets you will not want to know about lawyer.</a></h3>
+                                <p>It is critical to recruit a safeguard legal advisor. The general set of laws is planned and...</p>
+                                <a href="{{asset("v1")}}/blog-details.html" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-1-9">
+                        <article class="card card-style3 position-relative border-0 rounded-0 bg-transparent h-100">
+                            <div class="card-img"><img src="{{asset("v1")}}/img/blog/blog-02.jpg" alt="...">
+                                <div class="tags">
+                                    <a href="{{asset("v1")}}/#!">Lawyer</a>
+                                    <a href="{{asset("v1")}}/#!">Learning</a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-3">
+                                    <li class="d-inline-block me-3"><a href="{{asset("v1")}}/#!"><i class="far fa-calendar-check me-1 text-primary"></i> Apr. 21, 2023</a></li>
+                                    <li class="d-inline-block"><a href="{{asset("v1")}}/#!"><i class="far fa-comment-dots me-1 text-primary"></i> 20 Comment</a></li>
+                                </ul>
+                                <h3 class="mb-3 h4"><a href="{{asset("v1")}}/blog-details.html">5 advices that you listen before studying lawyer.</a></h3>
+                                <p>It is critical to recruit a safeguard legal advisor. The general set of laws is planned and...</p>
+                                <a href="{{asset("v1")}}/blog-details.html" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-1-9">
+                        <article class="card card-style3 position-relative border-0 rounded-0 bg-transparent h-100">
+                            <div class="card-img"><img src="{{asset("v1")}}/img/blog/blog-03.jpg" alt="...">
+                                <div class="tags">
+                                    <a href="{{asset("v1")}}/#!">Lawyer</a>
+                                    <a href="{{asset("v1")}}/#!">Legal Advise</a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-3">
+                                    <li class="d-inline-block me-3"><a href="{{asset("v1")}}/#!"><i class="far fa-calendar-check me-1 text-primary"></i> Apr. 18, 2023</a></li>
+                                    <li class="d-inline-block"><a href="{{asset("v1")}}/#!"><i class="far fa-comment-dots me-1 text-primary"></i> 08 Comment</a></li>
+                                </ul>
+                                <h3 class="mb-3 h4"><a href="{{asset("v1")}}/blog-details.html">The millionaire guide on lawyer to help you get rich.</a></h3>
+                                <p>It is critical to recruit a safeguard legal advisor. The general set of laws is planned and...</p>
+                                <a href="{{asset("v1")}}/blog-details.html" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER
+        ================================================== -->
+        <footer class="bg-secondary pt-0">
+            <div class="container border-bottom border-color-light-white py-2-5 py-md-6 mb-6 mb-md-8 mb-lg-10">
+                <div class="row justify-content-center mt-n1-9">
+                    <div class="col-sm-6 col-lg-4 mt-1-9">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <img src="{{asset("v1")}}/img/icons/icon-07.png" alt="...">
+                            </div>
+                            <div class="flex-grow-1 borders-start border-color-light-white ps-4 ms-3">
+                                <h5 class="text-white">Request quote</h5>
+                                <p class="text-white mb-0 display-31 opacity9">Send us your request</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 mt-1-9">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <img src="{{asset("v1")}}/img/icons/icon-08.png" alt="...">
+                            </div>
+                            <div class="flex-grow-1 borders-start border-color-light-white ps-4 ms-3">
+                                <h5 class="text-white">Investigation</h5>
+                                <p class="text-white mb-0 display-31 opacity9">We will investigate about your case</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-1-9">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <img src="{{asset("v1")}}/img/icons/icon-09.png" alt="...">
+                            </div>
+                            <div class="flex-grow-1 borders-start border-color-light-white ps-4 ms-3">
+                                <h5 class="text-white">Case fight</h5>
+                                <p class="text-white mb-0 display-31 opacity9">We will fight your case in court</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-n2-6">
+                    <div class="col-sm-6 col-xl-3 mt-2-6">
+                        <div class="mb-1-6 mb-lg-1-9">
+                            <a href="{{asset("v1")}}/index-2.html" class="footer-logo"><img src="{{asset("v1")}}/img/logos/footer-light-logo.png" alt="..."></a>
+                        </div>
+                        <p class="text-white mb-1-6 mb-lg-1-9 opacity9 display-30 display-lg-29">Lawyer is a group of highly experienced value-based and case lawyers from a portion of the country's greatest and most first class law offices.</p>
+                        <ul class="footer-social-style1">
+                            <li><a href="{{asset("v1")}}/#!"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{asset("v1")}}/#!"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{asset("v1")}}/#!"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="{{asset("v1")}}/#!"><i class="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-xl-3 mt-2-6">
+                        <div class="ps-sm-1-6 ps-md-1-9">
+                            <h3 class="footer-title">Contact us</h3>
+                            <ul class="contact-list">
+                                <li><span class="fas fa-map-marker-alt pe-3 text-white"></span>66 Guild Street 512B, Great NT.</li>
+                                <li><span class="fa fa-phone-alt pe-3 text-white"></span><a href="{{asset("v1")}}/#!">(+44) 123 456 7892</a></li>
+                                <li><span class="fas fa-globe pe-3 text-white"></span><a href="{{asset("v1")}}/#!">www.yoursite.com</a></li>
+                                <li><span class="fa fa-envelope pe-3 text-white"></span><a href="{{asset("v1")}}/#!">addyour@emailhere</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3 mt-2-6">
+                        <div class="ps-xl-1-9">
+                            <h3 class="footer-title">Our services</h3>
+                            <ul class="footer-list-style1">
+                                <li><a href="{{asset("v1")}}/business-law.html">Business Law</a></li>
+                                <li><a href="{{asset("v1")}}/criminal-law.html">Criminal Law</a></li>
+                                <li><a href="{{asset("v1")}}/divorce-law.html">Divorce Law</a></li>
+                                <li><a href="{{asset("v1")}}/education-law.html">Education Law</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3 mt-2-6">
+                        <div class="ps-sm-1-6 ps-md-1-9">
+                            <h3 class="footer-title">Trending post</h3>
+                            <div class="d-flex align-items-center mb-1-6">
+                                <div class="flex-shrink-0">
+                                    <img src="{{asset("v1")}}/img/instagram/insta-01.jpg" alt="...">
+                                </div>
+                                <div class="flex-grow-1 ms-4">
+                                    <h4 class="display-30 text-white"><a href="{{asset("v1")}}/blog-details.html" class="text-white">Mediation Useful Family Law Cases?</a></h4>
+                                    <span class="display-31 text-white"><i class="far fa-calendar-check me-2 text-white"></i>Apr 27, 2023</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0">
+                                    <img src="{{asset("v1")}}/img/instagram/insta-02.jpg" alt="...">
+                                </div>
+                                <div class="flex-grow-1 ms-4">
+                                    <h4 class="display-30 text-white"><a href="{{asset("v1")}}/blog-details.html" class="text-white">Allow to mile wound be place leave.</a></h4>
+                                    <span class="display-31 text-white"><i class="far fa-calendar-check me-2 text-white"></i>Apr 24, 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <p class="d-inline-block text-white mb-0 display-30 display-lg-29">&copy; <span class="current-year"></span> Lawyer Powered by&nbsp;<a href="{{asset("v1")}}/#!" class="text-primary white-hover">Chitrakoot Web</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- BUY TEMPLATE
+    ================================================== -->
+    <div class="buy-theme alt-font d-none d-lg-inline-block"><a href="{{asset("v1")}}/https://wrapbootstrap.com/theme/lawyer-attorney-and-lawyers-html-template-WB0165D4R" target="_blank"><i class="fas fa-cart-plus"></i><span>Buy Template</span></a></div>
+
+    <div class="all-demo alt-font d-none d-lg-inline-block"><a href="{{asset("v1")}}/https://www.chitrakootweb.com/contact.html" target="_blank"><i class="far fa-envelope"></i><span>Quick Question?</span></a></div>
+
+    <!-- start scroll to top -->
+    <a href="{{asset("v1")}}/#!" class="scroll-to-top"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+    <!-- end scroll to top -->
+
+    <!-- jQuery -->
+    <script src="{{asset("v1")}}/js/jquery.min.js"></script>
+
+    <!-- popper js -->
+    <script src="{{asset("v1")}}/js/popper.min.js"></script>
+
+    <!-- bootstrap -->
+    <script src="{{asset("v1")}}/js/bootstrap.min.js"></script>
+
+    <!-- core.min.js -->
+    <script src="{{asset("v1")}}/js/core.min.js"></script>
+
+    <!-- search -->
+    <script src="{{asset("v1")}}/search/search.js"></script>
+
+    <!-- custom scripts -->
+    <script src="{{asset("v1")}}/js/main.js"></script>
+
+    <!-- form plugins js -->
+    <script src="{{asset("v1")}}/quform/js/plugins.js"></script>
+
+    <!-- form scripts js -->
+    <script src="{{asset("v1")}}/quform/js/scripts.js"></script>
+
+    <!-- all js include end -->
+
+</body>
+
+
+<!-- Mirrored from lawyer.websitelayout.net/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Feb 2025 19:50:50 GMT -->
 </html>
