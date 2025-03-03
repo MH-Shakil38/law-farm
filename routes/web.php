@@ -41,6 +41,7 @@ Route::get('/tabulator', function () {
 });
 
 Route::get('/', [BasicController::class, 'website'])->name('website');
+Route::get('/contact', [BasicController::class, 'contact'])->name('contact');
 Route::get('/intake', [BasicController::class, 'clientRegistration'])->name('agreement')->middleware('switch.language');
 Route::post('tmp/client/store', [BasicController::class, 'clientStore'])->name('tmp.client.store');
 Route::get('/invoice/{id}', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate');

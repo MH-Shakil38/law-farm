@@ -75,7 +75,7 @@
                                 <nav class="navbar navbar-expand-lg navbar-light p-0">
                                     <div class="navbar-header navbar-header-custom">
                                         <!-- start logo -->
-                                        <a href="{{ url('/') }}" class="navbar-brand"><img  src="{{ asset('website/logo.jpg') }}" alt="logo"></a>
+                                        <a href="{{ url('/') }}" class="navbar-brand"><img  src="{{ asset('website/logo.png') }}" alt="logo"></a>
                                         <!-- end logo -->
                                     </div>
 

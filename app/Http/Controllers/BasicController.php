@@ -30,8 +30,11 @@ class BasicController extends Controller
     public function website()
     {
 
-        return view('welcome');
-        return view('website.website');
+        return view('frontend.home.index');
+    }
+
+    public function contact(){
+        return view('frontend.contact.index');
     }
 
 

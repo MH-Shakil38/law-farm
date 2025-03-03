@@ -6,7 +6,7 @@
 <link href="{{ asset('/') }}assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
 <link href="{{ asset('/') }}assets/css/user.min.css" rel="stylesheet" id="user-style-default">
 <script src="{{ asset('/') }}vendors/choices/choices.min.css"></script>
-    
+
 <script>
   var isRTL = JSON.parse(localStorage.getItem('isRTL'));
   if (isRTL) {
