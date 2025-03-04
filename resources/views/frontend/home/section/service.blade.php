@@ -1,4 +1,4 @@
-<section class="bg-light">
+<section class="bg-light" id="service">
     <div class="container">
         <div class="section-heading">
             <span class="alt-font">Practice Areas</span>

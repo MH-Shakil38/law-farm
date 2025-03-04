@@ -25,7 +25,10 @@
                         <nav class="navbar navbar-expand-lg navbar-light p-0">
                             <div class="navbar-header navbar-header-custom">
                                 <!-- start logo -->
-                                <a href="{{ url('/') }}" class="navbar-brand"><img  src="{{ asset('logo.png') }}" alt="logo"></a>
+                                <a href="{{ url('/') }}" class="navbar-brand">
+
+                                    <img  src="{{ asset('logo2.png') }}" alt="logo">
+                                </a>
                                 <!-- end logo -->
                             </div>
 
@@ -68,8 +71,8 @@
                                         <li><a href="{{asset("v1")}}/contact.html">Contact Us</a></li>
                                     </ul>
                                 </li> --}}
-                                <li><a href="#">Services</a>
-                                    <ul>
+                                <li><a href="#service">Services</a>
+                                    {{-- <ul>
                                         <li><a href="#">Our Services</a></li>
                                         <li><a href="#">Business Law</a></li>
                                         <li><a href="#">Criminal Law</a></li>
@@ -77,16 +80,24 @@
                                         <li><a href="#">Education Law</a></li>
                                         <li><a href="#">Family Law</a></li>
                                         <li><a href="#">Insurance Law</a></li>
-                                    </ul>
+                                    </ul> --}}
                                 </li>
-                                <li><a href="#">Case Study</a>
-                                    <ul>
-                                        {{-- <li><a href="{{asset("v1")}}/case-study-3-col.html">Case Study 3 Col</a></li>
+                                <li><a href="#blog">Blog</a>
+                                    {{-- <ul>
+                                        <li><a href="{{asset("v1")}}/case-study-3-col.html">Case Study 3 Col</a></li>
                                         <li><a href="{{asset("v1")}}/case-study-4-col.html">Case Study 4 Col</a></li>
-                                        <li><a href="{{asset("v1")}}/case-study-details.html">Case Study Details</a></li> --}}
-                                    </ul>
+                                        <li><a href="{{asset("v1")}}/case-study-details.html">Case Study Details</a></li>
+                                    </ul> --}}
                                 </li>
-                                <li><a href="#">Blog</a>
+                                <li><a href="#about-us">About Us</a>
+                                    {{-- <ul>
+                                        <li><a href="{{asset("v1")}}/blog-grid.html">Blog Grid</a></li>
+                                        <li><a href="{{asset("v1")}}/blog-list.html">Blog List</a></li>
+                                        <li><a href="{{asset("v1")}}/blog-details.html">Blog Details</a></li>
+                                    </ul> --}}
+                                </li>
+
+                                <li><a href="#oure-team">Our Team</a>
                                     {{-- <ul>
                                         <li><a href="{{asset("v1")}}/blog-grid.html">Blog Grid</a></li>
                                         <li><a href="{{asset("v1")}}/blog-list.html">Blog List</a></li>

@@ -14,7 +14,7 @@
     <meta name="description" content="Lawyer - Attorney and Lawyers HTML Template" />
 
     <!-- title  -->
-    <title>Lawyer - Attorney Phema PLB</title>
+    <title>Lawyer - Attorney Pema PLB</title>
 
     <!-- favicon -->
     <link rel="shortcut icon" href="{{asset("v1")}}/img/logos/favicon.png" />

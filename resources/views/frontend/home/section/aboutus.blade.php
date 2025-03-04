@@ -1,5 +1,5 @@
 <section class="about-style1">
-    <div class="container">
+    <div class="container" id="about-us">
         <div class="row align-items-center">
             <div class="col-lg-6 mb-2-5 mb-lg-0">
                 <div class="position-relative">
@@ -15,11 +15,12 @@
             </div>
             <div class="col-lg-6">
                 <div class="ps-lg-2-5 ps-xl-6">
-                    <h2 class="h1 mb-1-6">We are the most popular law firm</h2>
-                    <p class="lead mb-1-6">We offer our clients fresh perspectives and breakthrough business insights.</p>
+                    <h2 class="h1 mb-1-6">We are the most popular law firm in New York</h2>
+                    <p class="lead mb-1-6" style="font-family: emoji">A founding member of the firm, Mrs. Bhutia who was born in India is an attorney in both India and the United States of America. Mrs. Bhutia, who is fluent in five languages, combines compassion and a deep understanding of the law to achieve success for her clients.  Mrs. Bhutia is a graduate of St. John's University School of Law In New York City.
+                        Mrs. Bhutia does extensive work with our SIJS clients in obtaining green cards for unaccompanied minors in United States and has a reputation as a compassionate and tenacious advocate.</p>
                     <div class="border-start border-primary border-width-3 ps-4">
                         <p class="fst-italic">Lawyer is worth much more than I paid. Lawyer did exactly what you said it does. I could probably go into sales for you.</p>
-                        <h6 class="small text-capitalize m-0">- Phema Lhamu Bhutia</h6>
+                        <h6 class="small text-capitalize m-0">- Pema Lhamu Bhutia</h6>
                     </div>
                     <div class="dotted-seprator"></div>
                     <div class="row mb-1-9 mb-xl-2-5">
@@ -43,7 +44,7 @@
                             {{-- <img src="" alt="..." width="100px"> --}}
                         </div>
                         <div class="flex-grow-1 border-start border-width-2 border-color-extra-light-gray ps-3 ps-sm-4 ms-3 ms-sm-4">
-                            <h5>Phema Lhamu Bhutia</h5>
+                            <h5>Pema Lhamu Bhutia</h5>
                             <p class="mb-0">Founder</p>
                         </div>
                     </div>

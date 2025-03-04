@@ -21,8 +21,8 @@
                     <div class="col-lg-12">
                         <div class="breadcrumb">
                             <ul>
-                                <li><a href="index-2.html">Home</a></li>
-                                <li><a href="#!">Contact Us</a></li>
+                                <li><a href="{{ url('/') }}">Home</a></li>
+                                <li><a href="void:javascript()">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -46,14 +46,14 @@
                                     <div class="position-relative z-index-1">
                                         <i class="ti-direction-alt display-4 text-white d-block mb-4"></i>
                                         <h4 class="text-white">Visit Our Place</h4>
-                                        <p class="mb-2-3 mb-lg-5 text-white">14 Branches Over The World</p>
+                                        {{-- <p class="mb-2-3 mb-lg-5 text-white">1 Branches Over The World</p> --}}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="contact-info">
-                            <span class="d-block mb-1">Phone: (+44) 123 456 7892</span>
-                            <span class="d-block">Email: addyour@emailhere</span>
+                            <span class="d-block mb-1">Phone: (+44) 929-330-6462</span>
+                            <span class="d-block">Email: pemalaw5@gmail.com</span>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 mt-1-9">
@@ -69,8 +69,8 @@
                             </div>
                         </div>
                         <div class="contact-info">
-                            <span class="d-block mb-1">66 Guild Street 512B,</span>
-                            <span class="d-block mb-0">Great NT.</span>
+                            <span class="d-block mb-1">4001 80th Street 2Fl  Elmhurst, </span>
+                            <span class="d-block mb-0">NY 11373.</span>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 mt-1-9">
@@ -86,7 +86,8 @@
                             </div>
                         </div>
                         <div class="contact-info">
-                            <span class="d-block mb-1">Mon - Sat: 9:00 to 6:00</span>
+                            <span class="d-block mb-1">Monday - Friday: 9:00 am to 5:00 pm</span>
+                            <span class="d-block mb-0">Saturday : 9:00 am to 2:00 pm</span>
                             <span class="d-block mb-0">Sun : Holiday</span>
                         </div>
                     </div>
@@ -214,7 +215,7 @@
         <!-- MAP
         ================================================== -->
         <div>
-            <iframe width="100%" height="550" id="gmap_canvas" src="https://maps.google.com/maps?q=london&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"></iframe>
+            <iframe width="100%" height="550" id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188.91700068889975!2d-73.88563426627043!3d40.74724210000042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25f6e0241f78f%3A0x453ed5ba8ce59fc!2sLaw%20Office%20of%20Pema%20Lhamu%20Bhutia%20PC!5e0!3m2!1sen!2sbd!4v1741121402417!5m2!1sen!2sbd"></iframe>
         </div>
 
 @endsection
