@@ -8,7 +8,7 @@
                             <span class="sub-title">Professional lawyers</span>
                             <h1>Liberty and justice for everybody</h1>
                             <p class="w-lg-80">We give best law administration to customers and attempt to accomplish our customers trust.</p>
-                            <a href="{{asset("v1")}}/about.html" class="butn butn-white butn-hover">Learn More</a>
+                            <a href="{{ route('contact') }}" class="butn butn-white butn-hover">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                             <span class="sub-title">Introduce lawsight</span>
                             <h1>We are here to secure any sort of violence</h1>
                             <p class="w-lg-80 mx-auto">We give best law administration to customers and attempt to accomplish our customers trust.</p>
-                            <a href="{{asset("v1")}}/about.html" class="butn butn-white butn-hover">Learn More</a>
+                            <a href="{{ route('contact') }}" class="butn butn-white butn-hover">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                             <span class="sub-title">Strong team of leaders</span>
                             <h1>Finest & strongest law firm in the world</h1>
                             <p class="w-lg-80 ms-auto">We give best law administration to customers and attempt to accomplish our customers trust.</p>
-                            <a href="{{asset("v1")}}/about.html" class="butn butn-white butn-hover">Learn More</a>
+                            <a href="{{route('contact') }}" class="butn butn-white butn-hover">Learn More</a>
                         </div>
                     </div>
                 </div>
