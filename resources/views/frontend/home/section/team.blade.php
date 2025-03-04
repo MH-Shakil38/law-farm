@@ -91,7 +91,7 @@
                     <div class="card-body">
                         <div class="team-infos">
                             <span class="mb-2 display-30">Paralegal</span>
-                            <h4 class="h5 mb-3"><a href="jvoid:avascrip()" class="text-white">Daniella Melo</a></h4>
+                            <h4 class="h5 mb-3"><a href="jvoid:avascrip()" class="text-white">Linda Saltos</a></h4>
                             <ul class="social-icons">
                                 <li>
                                     <a href="jvoid:avascrip()" class="text-white"><i class="fab fa-facebook-f"></i></a>
@@ -116,7 +116,7 @@
                     <div class="card-body">
                         <div class="team-infos">
                             <span class="mb-2 display-30">Paralegal</span>
-                            <h4 class="h5 mb-3"><a href="jvoid:avascrip()" class="text-white">Linda Saltos</a></h4>
+                            <h4 class="h5 mb-3"><a href="jvoid:avascrip()" class="text-white">Daniella Melo</a></h4>
                             <ul class="social-icons">
                                 <li>
                                     <a href="jvoid:avascrip()" class="text-white"><i class="fab fa-facebook-f"></i></a>
