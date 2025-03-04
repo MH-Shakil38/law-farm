@@ -19,7 +19,7 @@
                     <p class="lead mb-1-6">We offer our clients fresh perspectives and breakthrough business insights.</p>
                     <div class="border-start border-primary border-width-3 ps-4">
                         <p class="fst-italic">Lawyer is worth much more than I paid. Lawyer did exactly what you said it does. I could probably go into sales for you.</p>
-                        <h6 class="small text-capitalize m-0">- Marion Shepard</h6>
+                        <h6 class="small text-capitalize m-0">- Phema Lhamu Bhutia</h6>
                     </div>
                     <div class="dotted-seprator"></div>
                     <div class="row mb-1-9 mb-xl-2-5">
@@ -40,10 +40,10 @@
                     </div>
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0">
-                            <img src="{{asset("sign.png")}}" alt="..." width="100px">
+                            {{-- <img src="" alt="..." width="100px"> --}}
                         </div>
                         <div class="flex-grow-1 border-start border-width-2 border-color-extra-light-gray ps-3 ps-sm-4 ms-3 ms-sm-4">
-                            <h5>Gloria Fleming</h5>
+                            <h5>Phema Lhamu Bhutia</h5>
                             <p class="mb-0">Founder</p>
                         </div>
                     </div>

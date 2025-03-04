@@ -7,7 +7,7 @@
         <div class="row mt-n1-9">
             <div class="col-sm-6 col-lg-3 mt-1-9">
                 <div class="card card-style2 position-relative overflow-hidden rounded-0 border-0">
-                    <img src="{{asset("v1/team/img4.jpg")}}" alt="...">
+                    <img src="{{asset("v1/team/img4.png")}}" alt="...">
                     <div class="card-body">
                         <div class="team-infos">
                             <span class="mb-2 display-30">Civil Lawyer</span>
@@ -32,7 +32,7 @@
             </div>
             <div class="col-sm-6 col-lg-3 mt-1-9">
                 <div class="card card-style2 position-relative overflow-hidden rounded-0 border-0">
-                    <img src="{{asset("v1/team/img3.jpg")}}" alt="...">
+                    <img src="{{asset("v1/team/img3.png")}}" alt="...">
                     <div class="card-body">
                         <div class="team-infos">
                             <span class="mb-2 display-30">Financial Lawyer</span>
@@ -57,7 +57,7 @@
             </div>
             <div class="col-sm-6 col-lg-3 mt-1-9">
                 <div class="card card-style2 position-relative overflow-hidden rounded-0 border-0">
-                    <img src="{{asset("v1/team/img2.jpg")}}" alt="...">
+                    <img src="{{asset("v1/team/img2.png")}}" alt="...">
                     <div class="card-body">
                         <div class="team-infos">
                             <span class="mb-2 display-30">Criminal Lawyer</span>
