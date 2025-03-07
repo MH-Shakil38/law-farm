@@ -82,6 +82,16 @@
                                         <li><a href="#">Insurance Law</a></li>
                                     </ul> --}}
                                 </li>
+
+                                <li><a href="{{ route('contact') }}">Contact</a>
+                                    {{-- <ul>
+                                        <li><a href="{{asset("v1")}}/case-study-3-col.html">Case Study 3 Col</a></li>
+                                        <li><a href="{{asset("v1")}}/case-study-4-col.html">Case Study 4 Col</a></li>
+                                        <li><a href="{{asset("v1")}}/case-study-details.html">Case Study Details</a></li>
+                                    </ul> --}}
+                                </li>
+
+
                                 <li><a href="#blog">Blog</a>
                                     {{-- <ul>
                                         <li><a href="{{asset("v1")}}/case-study-3-col.html">Case Study 3 Col</a></li>
