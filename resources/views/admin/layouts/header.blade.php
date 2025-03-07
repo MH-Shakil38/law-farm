@@ -71,7 +71,7 @@
                                         <li><a href="{{asset("v1")}}/contact.html">Contact Us</a></li>
                                     </ul>
                                 </li> --}}
-                                <li><a href="#service">Services</a>
+                                <li><a href="{{ route('service.details') }}">Services</a>
                                     {{-- <ul>
                                         <li><a href="#">Our Services</a></li>
                                         <li><a href="#">Business Law</a></li>

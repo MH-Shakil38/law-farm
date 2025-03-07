@@ -25,7 +25,7 @@
                         <div class="icon">
                             <img src="{{asset("v1")}}/img/icons/icon-05.png" alt="...">
                         </div>
-                        <h3 class="mb-3 h4"><a href="#">Family Law</a></h3>
+                        <h3 class="mb-3 h4"><a href="#">Criminal Law</a></h3>
                         <p class="mb-3 w-95 mx-auto">Our accomplished lawyer offer incredible preliminary planning.</p>
                         <a href="#" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
                     </div>
@@ -37,7 +37,7 @@
                         <div class="icon">
                             <img src="{{asset("v1")}}/img/icons/icon-06.png" alt="...">
                         </div>
-                        <h3 class="mb-3 h4"><a href="#">Insurance Law</a></h3>
+                        <h3 class="mb-3 h4"><a href="#">Accident Law</a></h3>
                         <p class="mb-3 w-95 mx-auto">Our accomplished lawyer offer incredible preliminary planning.</p>
                         <a href="#" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
                     </div>

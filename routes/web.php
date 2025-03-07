@@ -40,6 +40,11 @@ Route::get('/tabulator', function () {
     return view('users');
 });
 
+Route::get('/service-details', function () {
+    return view('frontend.service-details');
+})->name('service.details');
+
+
 Route::get('/', [BasicController::class, 'website'])->name('website');
 Route::get('/contact', [BasicController::class, 'contact'])->name('contact');
 Route::get('/intake', [BasicController::class, 'clientRegistration'])->name('agreement')->middleware('switch.language');

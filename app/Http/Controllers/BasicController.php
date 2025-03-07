@@ -29,7 +29,6 @@ class BasicController extends Controller
      */
     public function website()
     {
-
         return view('frontend.home.index');
     }
 
