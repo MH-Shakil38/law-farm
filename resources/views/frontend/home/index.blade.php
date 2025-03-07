@@ -16,9 +16,7 @@
         ================================================== -->
         @include('frontend.home.section.counter')
 
-        <!-- PROCESS
-        ================================================== -->
-        @include('frontend.home.section.process')
+
         <!-- TEAM
         ================================================== -->
         @include('frontend.home.section.team')
@@ -29,7 +27,11 @@
 
         <!-- PORTFOLIO
         ================================================== -->
-        @include('frontend.home.section.portfolio')
+        {{-- @include('frontend.home.section.portfolio') --}}
+
+         <!-- PROCESS
+        ================================================== -->
+        @include('frontend.home.section.process')
 
         <!-- EXTRA
         ================================================== -->
