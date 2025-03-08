@@ -42,7 +42,7 @@
                 <div class="mb-1-6 mb-lg-1-9">
                     <a href="void:javascript()" class="footer-logo"><img src="{{asset("logo2.png")}}" width="200px" alt="..."></a>
                 </div>
-                <p class="text-white mb-1-6 mb-lg-1-9 opacity9 display-30 display-lg-29">Lawyer is a group of highly experienced value-based and case lawyers from a portion of the country's greatest and most first class law offices.</p>
+                <p class="text-white mb-1-6 mb-lg-1-9 opacity9 display-30 display-lg-29"></p>
                 <ul class="footer-social-style1">
                     <li><a href="void:javascript()"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="void:javascript()"><i class="fab fa-twitter"></i></a></li>
@@ -57,7 +57,7 @@
                         <li><span class="fas fa-map-marker-alt pe-3 text-white"></span>4001 80th Street 2Fl Elmhurst, NY 11373</li>
                         <li><span class="fa fa-phone-alt pe-3 text-white"></span><a href="tel:+9293306462">(+44) 929-330-6462</a></li>
                         <li><span class="fas fa-globe pe-3 text-white"></span><a href="https://attorneypema.com/">www.attorneypema.com</a></li>
-                        <li><span class="fa fa-envelope pe-3 text-white"></span><a href="mailto:pemalaw5@gmail.com">pemalaw5@gmail.com</a></li>
+                        <li><span class="fa fa-envelope pe-3 text-white"></span><a href="mailto:info@attorneypema.com">info@attorneypema.com</a></li>
                     </ul>
                 </div>
             </div>

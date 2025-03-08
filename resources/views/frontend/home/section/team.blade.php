@@ -1,8 +1,8 @@
 <section class="bg-light" id="oure-team">
     <div class="container" >
         <div class="section-heading">
-            <span class="alt-font">Qualified Attorneys</span>
-            <h2 class="w-90 mx-auto">Successful expert & attorney works with our team</h2>
+            <span class="alt-font">Qualified Team</span>
+            <h2 class="w-90 mx-auto">Successful expert works with our team</h2>
         </div>
         <div class="row mt-n1-9">
             <div class="col-sm-6 col-lg-4 mt-1-9">
