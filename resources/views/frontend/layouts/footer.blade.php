@@ -54,8 +54,9 @@
                 <div class="ps-sm-1-6 ps-md-1-9">
                     <h3 class="footer-title">Contact us</h3>
                     <ul class="contact-list">
-                        <li><span class="fas fa-map-marker-alt pe-3 text-white"></span>4001 80th Street 2Fl Elmhurst, NY 11373</li>
-                        <li><span class="fa fa-phone-alt pe-3 text-white"></span><a href="tel:+9293306462">(+44) 929-330-6462</a></li>
+                        <li><span class="fas fa-map-marker-alt pe-3 text-white"></span>40-01 80th Street, 2 Fl. Queens, New York 11373</li>
+                        <li><span class="fa fa-phone-alt pe-3 text-white"></span><a href="tel:+(929) 330-6462">(929) 330-6462</a></li>
+                        <li><span class="fa fa-phone-alt pe-3 text-white"></span><a href="tel:+(718) 651-1577">(718) 651-1577</a></li>
                         <li><span class="fas fa-globe pe-3 text-white"></span><a href="https://attorneypema.com/">www.attorneypema.com</a></li>
                         <li><span class="fa fa-envelope pe-3 text-white"></span><a href="mailto:info@attorneypema.com">info@attorneypema.com</a></li>
                     </ul>
@@ -70,6 +71,10 @@
                         <li><a href="void:javascript()">Criminal Law</a></li>
                         <li><a href="void:javascript()">Divorce Law</a></li>
                         <li><a href="void:javascript()">Education Law</a></li>
+                        <li><a href="void:javascript()">Open: Monday - Friday: 9:00 am to 5:00 pm and
+                            Saturday : 9:00 am to 2:00 pm
+                            Sun : Holiday</a></li>
+
                     </ul>
                 </div>
             </div>

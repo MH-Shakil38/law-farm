@@ -71,17 +71,53 @@
                                         <li><a href="{{asset("v1")}}/contact.html">Contact Us</a></li>
                                     </ul>
                                 </li> --}}
-                                <li><a href="{{ route('service.details') }}">Services</a>
-                                    {{-- <ul>
-                                        <li><a href="#">Our Services</a></li>
-                                        <li><a href="#">Business Law</a></li>
-                                        <li><a href="#">Criminal Law</a></li>
-                                        <li><a href="#">Divorce Law</a></li>
-                                        <li><a href="#">Education Law</a></li>
-                                        <li><a href="#">Family Law</a></li>
-                                        <li><a href="#">Insurance Law</a></li>
-                                    </ul> --}}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Services
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                        <li><a class="dropdown-item" href="#">Our Services</a></li>
+
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Immigration</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Asylum</a></li>
+                                                <li><a class="dropdown-item" href="#">Family Based Petition</a></li>
+                                                <li><a class="dropdown-item" href="#">Citizenship</a></li>
+                                                <li><a class="dropdown-item" href="#">Green Card</a></li>
+                                                <li><a class="dropdown-item" href="#">SIJ Special Immigrant Juvenile</a></li>
+                                                <li><a class="dropdown-item" href="#">Waiver</a></li>
+                                                <li><a class="dropdown-item" href="#">Deportation</a></li>
+                                                <li><a class="dropdown-item" href="#">TPS</a></li>
+                                                <li><a class="dropdown-item" href="#">VAWA</a></li>
+                                                <li><a class="dropdown-item" href="#">U-Visa</a></li>
+                                                <li><a class="dropdown-item" href="#">Daca</a></li>
+                                                <li><a class="dropdown-item" href="#">Appeal</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="#">Divorce</a></li>
+
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Criminal Defence</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">DWI</a></li>
+                                                <li><a class="dropdown-item" href="#">DUI</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Accident Cases</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Construction Accident</a></li>
+                                                <li><a class="dropdown-item" href="#">Car Accident</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="#">Bankruptcy</a></li>
+                                    </ul>
                                 </li>
+
 
 
 
