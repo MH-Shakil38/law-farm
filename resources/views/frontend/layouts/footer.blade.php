@@ -42,7 +42,13 @@
                 <div class="mb-1-6 mb-lg-1-9">
                     <a href="void:javascript()" class="footer-logo"><img src="{{asset("logo2.png")}}" width="200px" alt="..."></a>
                 </div>
-                <p class="text-white mb-1-6 mb-lg-1-9 opacity9 display-30 display-lg-29"></p>
+                <p class="text-white mb-1-6 mb-lg-1-9 opacity9 display-30 display-lg-29">
+                    <strong>Office Hours:</strong><br>
+                    Monday - Friday: 9:00 AM to 5:00 PM <br>
+                    Saturday: 9:00 AM to 2:00 PM <br>
+                    Sunday: Holiday
+                </p>
+
                 <ul class="footer-social-style1">
                     <li><a href="void:javascript()"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="void:javascript()"><i class="fab fa-twitter"></i></a></li>
@@ -65,19 +71,80 @@
 
             <div class="col-sm-6 col-xl-3 mt-2-6">
                 <div class="ps-xl-1-9">
-                    <h3 class="footer-title">Our services</h3>
+                    <h3 class="footer-title">Our Services</h3>
                     <ul class="footer-list-style1">
-                        <li><a href="void:javascript()">Business Law</a></li>
-                        <li><a href="void:javascript()">Criminal Law</a></li>
-                        <li><a href="void:javascript()">Divorce Law</a></li>
-                        <li><a href="void:javascript()">Education Law</a></li>
-                        <li><a href="void:javascript()">Open: Monday - Friday: 9:00 am to 5:00 pm and
-                            Saturday : 9:00 am to 2:00 pm
-                            Sun : Holiday</a></li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="toggleMenu('divorce')">Divorce Law ▼</a>
+                            <ul id="divorce" class="submenu">
+                                <li><a href="#">Child Custody</a></li>
+                                <li><a href="#">Alimony</a></li>
+                                <li><a href="#">Property Division</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="toggleMenu('criminal')">Criminal Law ▼</a>
+                            <ul id="criminal" class="submenu">
+                                <li><a href="#">Fraud Cases</a></li>
+                                <li><a href="#">Drug Offenses</a></li>
+                                <li><a href="#">Domestic Violence</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="toggleMenu('accident')">Accident Law ▼</a>
+                            <ul id="accident" class="submenu">
+                                <li><a href="#">Car Accidents</a></li>
+                                <li><a href="#">Workplace Injury</a></li>
+                                <li><a href="#">Medical Malpractice</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="toggleMenu('immigration')">Immigration ▼</a>
+                            <ul id="immigration" class="submenu">
+                                <li><a href="#">Visa Assistance</a></li>
+                                <li><a href="#">Green Card</a></li>
+                                <li><a href="#">Citizenship</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="toggleMenu('bankruptcy')">Bankruptcy ▼</a>
+                            <ul id="bankruptcy" class="submenu">
+                                <li><a href="#">Debt Relief</a></li>
+                                <li><a href="#">Chapter 7</a></li>
+                                <li><a href="#">Chapter 13</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="toggleMenu('education')">Education Law ▼</a>
+                            <ul id="education" class="submenu">
+                                <li><a href="#">Student Rights</a></li>
+                                <li><a href="#">School Policies</a></li>
+                                <li><a href="#">Teacher Regulations</a></li>
+                            </ul>
+                        </li>
 
                     </ul>
                 </div>
             </div>
+
+            <style>
+                .submenu {
+                    display: none;
+                    padding-left: 15px;
+                    list-style-type: circle;
+                }
+            </style>
+
+            <script>
+                function toggleMenu(id) {
+                    var submenu = document.getElementById(id);
+                    if (submenu.style.display === "none" || submenu.style.display === "") {
+                        submenu.style.display = "block";
+                    } else {
+                        submenu.style.display = "none";
+                    }
+                }
+            </script>
+
             <div class="col-sm-6 col-xl-3 mt-2-6">
                 <div class="ps-sm-1-6 ps-md-1-9">
                     <h3 class="footer-title">Trending post</h3>

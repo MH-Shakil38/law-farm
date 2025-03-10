@@ -15,7 +15,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="ps-lg-2-5 ps-xl-6">
-                    <h2 class="h1 mb-1-6">we are one of the most popular law firm in New York</h2>
+                    <h2 class="h1 mb-1-6">We are one of the most popular law firm in New York</h2>
                     <p class="lead mb-1-6" style="font-family: emoji">A founding member of the firm, Mrs. Bhutia who was born in India is an attorney in both India and the United States of America. Mrs. Bhutia, who is fluent in five languages, combines compassion and a deep understanding of the law to achieve success for her clients.  Mrs. Bhutia is a graduate of St. John's University School of Law In New York City.
                         Mrs. Bhutia does extensive work with our SIJS clients in obtaining green cards for unaccompanied minors in United States and has a reputation as a compassionate and tenacious advocate.</p>
                     {{-- <div class="border-start border-primary border-width-3 ps-4">

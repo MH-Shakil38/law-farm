@@ -31,7 +31,7 @@
 
          <!-- PROCESS
         ================================================== -->
-        @include('frontend.home.section.process')
+        {{-- @include('frontend.home.section.process') --}}
 
         <!-- EXTRA
         ================================================== -->
@@ -39,5 +39,5 @@
 
         <!-- BLOG
         ================================================== -->
-        @include('frontend.home.section.blog')
+        {{-- @include('frontend.home.section.blog') --}}
 @endsection

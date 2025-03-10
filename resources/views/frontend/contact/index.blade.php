@@ -51,9 +51,12 @@
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="contact-info">
-                            <span class="d-block mb-1">Phone: (+44) 929-330-6462</span>
-                            <span class="d-block">Email: pemalaw5@gmail.com</span>
+                            <span class="d-block mb-1">Phone: (929) 330-6462</span>
+                            <span class="d-block mb-1">Phone: (718) 651-1577</span>
+                            <span class="d-block">Email: info@attorneypema.com</span>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 mt-1-9">
