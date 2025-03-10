@@ -23,7 +23,7 @@
                         <h6 class="small text-capitalize m-0">- Pema Lhamu Bhutia</h6>
                     </div> --}}
                     <div class="dotted-seprator"></div>
-                    <div class="row mb-1-9 mb-xl-2-5">
+                    {{-- <div class="row mb-1-9 mb-xl-2-5">
                         <div class="col-sm-6">
                             <ul class="list-style1 mb-2 mb-sm-0">
                                 <li>Expert legal serives.</li>
@@ -38,7 +38,7 @@
                                 <li>Probably law firm.</li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0">
                             {{-- <img src="" alt="..." width="100px"> --}}

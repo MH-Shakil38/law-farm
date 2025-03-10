@@ -40,6 +40,8 @@ Route::get('/tabulator', function () {
     return view('users');
 });
 
+Route::get('agreement',[BasicController::class, 'clientRegistration'])->name('client.registration');
+
 Route::get('/service-details', function () {
     return view('frontend.service-details');
 })->name('service.details');

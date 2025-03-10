@@ -107,7 +107,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p class="d-inline-block text-white mb-0 display-30 display-lg-29">&copy; <span class="current-year"></span> Lawyer Powered by&nbsp;<a href="https://attorneypema.com/" class="text-primary white-hover">Pema Lhuma Bhutia</a>
+                    <p class="d-inline-block text-white mb-0 display-30 display-lg-29">&copy; <span class="current-year"></span> Lawyer Powered by&nbsp;<a href="https://attorneypema.com/" class="text-primary white-hover">Pema Lhamu Bhutia</a>
                     </p>
                 </div>
             </div>
