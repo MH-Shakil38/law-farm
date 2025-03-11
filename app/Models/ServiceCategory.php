@@ -15,4 +15,8 @@ class ServiceCategory extends Model
         'status',
         'image'
     ];
+
+    public function parent(){
+        return $this->belongsTo(ServiceCategory::class, 'parent_id');
+    }
 }

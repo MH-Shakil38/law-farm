@@ -61,7 +61,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $category->name }}</td>
-                                        <td>{{ $category->parent_category }}</td>
+                                        <td>{{ @$category->parent->name }}</td>
                                         <td>
                                             <a href="{{ route('service-categories.edit', $category->id) }}"
                                                 class="btn btn

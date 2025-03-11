@@ -32,6 +32,7 @@ class ServiceCategoryController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'status' => 'nullable',
+            'parent_id' => 'nullable',
             ]);
             if ($request->hasFile('image')) {
                 $image = self::uploadImage($request->file('image'), 'service/category/image/');

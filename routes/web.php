@@ -149,6 +149,11 @@ Route::get('clear-cache', function () {
     Artisan::call('clear:cache');
 });
 
+Route::get('view-clear', function () {
+    Artisan::call('view:clear');
+});
+
+
 Route::get('optimize', function () {
     Artisan::call('optimize');
 });
