@@ -33,6 +33,7 @@ class ServiceCategoryController extends Controller
             'name' => 'required',
             'status' => 'nullable',
             'parent_id' => 'nullable',
+            'details' => 'nullable',
             ]);
             if ($request->hasFile('image')) {
                 $image = self::uploadImage($request->file('image'), 'service/category/image/');
@@ -43,20 +44,12 @@ class ServiceCategoryController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(ServiceCategory $serviceCategory)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(ServiceCategory $serviceCategory)
     {
-        //
+        $data['category'] = $serviceCategory;
+        $data['categories'] = ServiceCategory::query()->latest()->get();
+        return view('admin.service.index')->with($data);
     }
 
     /**
@@ -64,7 +57,13 @@ class ServiceCategoryController extends Controller
      */
     public function update(Request $request, ServiceCategory $serviceCategory)
     {
-        //
+        $data = $request->except('image','_token');
+            if ($request->hasFile('image')) {
+                $image = self::uploadImage($request->file('image'), 'service/category/image/');
+                $data['image'] =  url($image);
+            }
+            $serviceCategory->update($data);
+            return redirect()->route('service-categories.index')->with('success', 'Service Update successfully');
     }
 
     /**

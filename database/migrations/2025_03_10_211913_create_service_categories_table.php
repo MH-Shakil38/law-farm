@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->integer('status')->default(1);
             $table->string('image')->nullable();
+            $table->longText('details')->nullable();
             $table->foreign('parent_id')->references('id')->on('service_categories')->onDelete('cascade');
             $table->timestamps();
         });

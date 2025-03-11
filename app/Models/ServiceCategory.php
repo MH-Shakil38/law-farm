@@ -13,7 +13,8 @@ class ServiceCategory extends Model
         'name',
         'parent_id',
         'status',
-        'image'
+        'image',
+        'details'
     ];
 
     public function parent(){

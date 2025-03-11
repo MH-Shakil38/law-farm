@@ -132,14 +132,17 @@ Route::middleware(['auth', 'web','permission.check'])->group(function () {
 });
 
 
-Route::get('migrate-fresh', function () {
-    Artisan::call('migrate:fresh --seed');
-});
+// Route::get('migrate-fresh', function () {
+//     Artisan::call('migrate:fresh --seed');
+// });
 
 Route::get('migrate', function () {
     Artisan::call('migrate');
 });
 
+Route::get('migrate-rollback', function () {
+    Artisan::call('migrate:rollback');
+});
 
 Route::get('route-clear', function () {
     Artisan::call('route:clear');
