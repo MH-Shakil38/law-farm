@@ -73,77 +73,36 @@
                 <div class="ps-xl-1-9">
                     <h3 class="footer-title">Our Services</h3>
                     <ul class="footer-list-style1">
+                        @forelse (service_menu() as $service)
                         <li>
-                            <a href="javascript:void(0)" onclick="toggleMenu('divorce')">Divorce Law ▼</a>
-                            <ul id="divorce" class="submenu">
-                                <li><a href="#">Child Custody</a></li>
-                                <li><a href="#">Alimony</a></li>
-                                <li><a href="#">Property Division</a></li>
+                            <a href="{{ route('service.details',$service->id) }}" data-bs-toggle="collapse" data-bs-target="#{{ $service->name }}" aria-expanded="false" aria-controls="{{ $service->name }}">
+                                {{ $service->name }} <span class="toggle-icon">▼</span>
+                            </a>
+                            <ul id="{{ $service->name }}" class="submenu collapse">
+                                @forelse ($service->child as $info)
+                                <li><a href="{{ route('service.details',$info->id) }}">{{ $info->name }}</a></li>
+                                @empty
+                                @endforelse
                             </ul>
                         </li>
-                        <li>
-                            <a href="javascript:void(0)" onclick="toggleMenu('criminal')">Criminal Law ▼</a>
-                            <ul id="criminal" class="submenu">
-                                <li><a href="#">Fraud Cases</a></li>
-                                <li><a href="#">Drug Offenses</a></li>
-                                <li><a href="#">Domestic Violence</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" onclick="toggleMenu('accident')">Accident Law ▼</a>
-                            <ul id="accident" class="submenu">
-                                <li><a href="#">Car Accidents</a></li>
-                                <li><a href="#">Workplace Injury</a></li>
-                                <li><a href="#">Medical Malpractice</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" onclick="toggleMenu('immigration')">Immigration ▼</a>
-                            <ul id="immigration" class="submenu">
-                                <li><a href="#">Visa Assistance</a></li>
-                                <li><a href="#">Green Card</a></li>
-                                <li><a href="#">Citizenship</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" onclick="toggleMenu('bankruptcy')">Bankruptcy ▼</a>
-                            <ul id="bankruptcy" class="submenu">
-                                <li><a href="#">Debt Relief</a></li>
-                                <li><a href="#">Chapter 7</a></li>
-                                <li><a href="#">Chapter 13</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" onclick="toggleMenu('education')">Education Law ▼</a>
-                            <ul id="education" class="submenu">
-                                <li><a href="#">Student Rights</a></li>
-                                <li><a href="#">School Policies</a></li>
-                                <li><a href="#">Teacher Regulations</a></li>
-                            </ul>
-                        </li>
-
+                        @empty
+                        @endforelse
                     </ul>
                 </div>
             </div>
 
-            <style>
-                .submenu {
-                    display: none;
-                    padding-left: 15px;
-                    list-style-type: circle;
-                }
-            </style>
-
             <script>
-                function toggleMenu(id) {
-                    var submenu = document.getElementById(id);
-                    if (submenu.style.display === "none" || submenu.style.display === "") {
-                        submenu.style.display = "block";
-                    } else {
-                        submenu.style.display = "none";
-                    }
-                }
+                // Optional: You can use JS to change the icon (▼ to ▲) based on the collapse state.
+                document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function (toggle) {
+                    toggle.addEventListener('click', function () {
+                        const icon = toggle.querySelector('.toggle-icon');
+                        icon.textContent = icon.textContent === '▼' ? '▲' : '▼';
+                    });
+                });
             </script>
+
+
+
 
             <div class="col-sm-6 col-xl-3 mt-2-6">
                 <div class="ps-sm-1-6 ps-md-1-9">
