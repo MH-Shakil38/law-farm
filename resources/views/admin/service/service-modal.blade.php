@@ -14,13 +14,13 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add/Update Service</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="float-start">Category</h3>
+                        <h3 class="float-start">Service</h3>
                     </div>
                     <div class="card-body">
                         <form action="{{ isset($category) ? route('service-categories.update', $category->id) : route('service-categories.store') }}" method="POST">

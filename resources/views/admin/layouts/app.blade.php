@@ -15,12 +15,12 @@
     <title>Dashboard | Law Office of Pema Lhamu Bhutia</title>
 
     <!-- ===============================================--><!--    Favicons--><!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/') }}website/logo.webp">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/') }}website/logo.webp">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/') }}website/logo.webp">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/') }}website/logo.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/') }}website/logo.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/') }}website/logo.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/') }}website/logo.jpg">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/') }}website/logo.jpg">
     <link rel="manifest" href="{{ asset('/') }}assets/img/favicons/manifest.json">
-    <meta name="msapplication-TileImage" content="{{ asset('/') }}website/logo.webp">
+    <meta name="msapplication-TileImage" content="{{ asset('/') }}website/logo.jpg">
     <meta name="theme-color" content="#ffffff">
     <script src="{{ asset('/') }}assets/js/config.js"></script>
     <script src="{{ asset('/') }}vendors/simplebar/simplebar.min.js"></script>

@@ -11,7 +11,7 @@
                         <div class="page-title">
                             <h1>{{ $service->name }}</h1>
                             <div class="heading-seprator"></div>
-                            <p class="text-white fs-4 mb-0 letter-spacing-2">Receive legal guidance from our trusted &
+                            <p class="text-white fs-4 mb-0 letter-spacing-2">"Receive legal guidance from our trusted &
                                 experienced business attorneys.”</p>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb">
                         <ul>
-                            <li><a href="{{ url('/') }}">{{ $service->parent->name }}</a></li>
+                            <li><a href="{{  url('/') }}">{{ @$service->parent->name }}</a></li>
                             <li><a href="#!">{{ $service->name }}</a></li>
                         </ul>
                     </div>
