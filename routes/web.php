@@ -13,6 +13,8 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ServiceCategoryController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SmsSetupController;
 use App\Http\Controllers\TmpClientController;
 use App\Http\Controllers\UserController;
@@ -68,6 +70,11 @@ Route::get('lang/{lang}', [BasicController::class, 'switchLang'])->name('lang.sw
 Route::prefix('accounts')->group(function(){
     Route::resource('expenses',ExpenseController::class);
     Route::resource('incomes',IncomeController::class);
+});
+
+Route::prefix('service')->group(function(){
+    Route::resource('service-categories',ServiceCategoryController::class);
+    Route::resource('services',ServiceController::class);
 });
 
 Route::middleware(['auth', 'web','permission.check'])->group(function () {

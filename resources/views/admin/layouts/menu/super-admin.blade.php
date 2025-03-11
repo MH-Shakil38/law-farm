@@ -187,22 +187,42 @@
     <a class="nav-link dropdown-indicator" href="#accounts" role="button" data-bs-toggle="collapse"
         aria-expanded="true" aria-controls="role">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                    class="fas fa-dollar-sign"></span></span><span class="nav-link-text ps-1">Accounts</span>
+            class="fab fa-firefox"></span></span><span class="nav-link-text ps-1">Site Setting's</span>
         </div>
     </a>
     <ul class="nav collapse {{ Request::segment(1) === 'accounts' ? 'show' : '' }}" id="accounts">
-        <li class="nav-item"><a class="nav-link" href="{{ route('incomes.index') }}">
-                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Income</span>
+        <li class="nav-item"><a class="nav-link" href="{{ route('service-categories.index') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Service</span>
                 </div>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('expenses.index') }}">
-                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Expense</span> </div>
+        {{-- <li class="nav-item">
+            <a class="nav-link" href="{{ route('service-categories.index') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Service</span> </div>
             </a>
-        </li>
+        </li> --}}
     </ul>
+
+    <a class="nav-link dropdown-indicator" href="#accounts" role="button" data-bs-toggle="collapse"
+    aria-expanded="true" aria-controls="role">
+    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                class="fas fa-dollar-sign"></span></span><span class="nav-link-text ps-1">Accounts</span>
+    </div>
+</a>
+<ul class="nav collapse {{ Request::segment(1) === 'accounts' ? 'show' : '' }}" id="accounts">
+    <li class="nav-item"><a class="nav-link" href="{{ route('incomes.index') }}">
+            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Income</span>
+            </div>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('expenses.index') }}">
+            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Expense</span> </div>
+        </a>
+    </li>
+</ul>
 </li>
 
 
