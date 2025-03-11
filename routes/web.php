@@ -140,9 +140,9 @@ Route::get('migrate', function () {
     Artisan::call('migrate');
 });
 
-Route::get('migrate-rollback', function () {
-    Artisan::call('migrate:rollback');
-});
+// Route::get('migrate-rollback', function () {
+//     Artisan::call('migrate:rollback');
+// });
 
 Route::get('route-clear', function () {
     Artisan::call('route:clear');
