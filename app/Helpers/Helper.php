@@ -4,6 +4,7 @@ use App\Models\CaseType;
 use App\Models\Client;
 use App\Models\EmailSetup;
 use App\Models\Lawyer;
+use App\Models\ServiceCategory;
 use App\Models\TmpClient;
 use Illuminate\Support\Facades\Cache;
 use App\Models\User;
@@ -250,6 +251,12 @@ if(!function_exists('activity_data')){
                 $ip = request()->ip();
             }
             return $ip;
+        }
+    }
+
+    if(!function_exists('service_menu')){
+        function service_menu(){
+            return ServiceCategory::query()->with('child')->whereNull('parent_id')->get();
         }
     }
 

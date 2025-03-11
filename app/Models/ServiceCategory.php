@@ -20,4 +20,8 @@ class ServiceCategory extends Model
     public function parent(){
         return $this->belongsTo(ServiceCategory::class, 'parent_id');
     }
+
+    public function child(){
+        return $this->hasMany(ServiceCategory::class,'parent_id');
+    }
 }

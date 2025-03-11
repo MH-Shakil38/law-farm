@@ -17,7 +17,6 @@
             </div>
         </div>
         <!-- end top search -->
-
         <div class="container-fluid px-lg-1-6 px-xl-2-5 px-xxl-2-9">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-12">
@@ -76,10 +75,21 @@
                                         Services
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                                        <li><a class="dropdown-item" href="#">Our Services</a></li>
-
+                                        <li><a class="dropdown-item" href="{{ route('service.details') }}">Our Services</a></li>
+                                        @forelse (service_menu() as $service)
                                         <li class="dropdown-submenu">
-                                            <a class="dropdown-item dropdown-toggle" href="#">Immigration</a>
+                                            <a class="dropdown-item dropdown-toggle" href="{{ route('service.details',$service->id) }}">{{ $service->name }}</a>
+                                            @if ($service->child->count() > 0)
+                                            <ul class="dropdown-menu">
+                                                @forelse ($service->child as $info)
+                                                <li><a class="dropdown-item" href="{{ route('service.details',$info->id) }}">{{ $info->name }}</a></li>
+                                                @empty
+                                                @endforelse
+                                            </ul>
+                                            @endif
+
+
+                                            {{-- <a class="dropdown-item dropdown-toggle" href="#">Immigration</a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="#">Asylum</a></li>
                                                 <li><a class="dropdown-item" href="#">Family Based Petition</a></li>
@@ -93,10 +103,12 @@
                                                 <li><a class="dropdown-item" href="#">U-Visa</a></li>
                                                 <li><a class="dropdown-item" href="#">Daca</a></li>
                                                 <li><a class="dropdown-item" href="#">Appeal</a></li>
-                                            </ul>
+                                            </ul> --}}
                                         </li>
+                                        @empty
 
-                                        <li><a class="dropdown-item" href="#">Divorce</a></li>
+                                        @endforelse
+                                        {{-- <li><a class="dropdown-item" href="#">Divorce</a></li>
 
                                         <li class="dropdown-submenu">
                                             <a class="dropdown-item dropdown-toggle" href="#">Criminal Defence</a>
@@ -114,7 +126,7 @@
                                             </ul>
                                         </li>
 
-                                        <li><a class="dropdown-item" href="#">Bankruptcy</a></li>
+                                        <li><a class="dropdown-item" href="#">Bankruptcy</a></li> --}}
                                     </ul>
                                 </li>
 

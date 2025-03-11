@@ -20,6 +20,7 @@ use App\Http\Controllers\TmpClientController;
 use App\Http\Controllers\UserController;
 use App\Models\EmailSetup;
 use App\Models\NotificationSetup;
+use App\Models\ServiceCategory;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -44,8 +45,13 @@ Route::get('/tabulator', function () {
 
 Route::get('agreement',[BasicController::class, 'clientRegistration'])->name('client.registration');
 
-Route::get('/service-details', function () {
-    return view('frontend.service-details');
+Route::get('/service-details/{id?}', function ($id = null) {
+    if(isset($id) && $id !=null){
+        $data['service'] = ServiceCategory::query()->findOrFail($id);
+        return view('frontend.service.details')->with($data);
+    }else{
+        return view('frontend.service-details');
+    }
 })->name('service.details');
 
 
