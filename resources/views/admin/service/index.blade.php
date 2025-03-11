@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="float-start">Category List</h3>
+                        <h3 class="float-start">Service List</h3>
                         @include('admin.service.service-modal')
                     </div>
                     <div class="card-body">
