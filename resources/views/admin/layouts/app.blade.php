@@ -45,23 +45,22 @@
                 {{-- @include('admin.backup.other-dashboard-content') --}}
                 @include('admin.layouts.footer')
             </div>
-            @include('admin.component.modal.authentication-modal')
             @include('components.client-import')
         </div>
     </main>
     @include('admin.theem.setting')
-    <script src="{{ asset('/') }}vendors/flatpickr/flatpickr.min.js"></script>
+    {{-- <script src="{{ asset('/') }}vendors/flatpickr/flatpickr.min.js"></script> --}}
     <script src="{{ asset('/') }}vendors/popper/popper.min.js"></script>
     <script src="{{ asset('/') }}vendors/bootstrap/bootstrap.min.js"></script>
     <script src="{{ asset('/') }}vendors/anchorjs/anchor.min.js"></script>
-    <script src="{{ asset('/') }}vendors/is/is.min.js"></script>
-    <script src="{{ asset('/') }}vendors/prism/prism.js"></script>
-    <script src="{{ asset('/') }}vendors/echarts/echarts.min.js"></script>
+    {{-- <script src="{{ asset('/') }}vendors/is/is.min.js"></script> --}}
+    {{-- <script src="{{ asset('/') }}vendors/prism/prism.js"></script> --}}
+    {{-- <script src="{{ asset('/') }}vendors/echarts/echarts.min.js"></script> --}}
     <script src="{{ asset('/') }}vendors/fontawesome/all.min.js"></script>
     <script src="{{ asset('/') }}vendors/lodash/lodash.min.js"></script>
-    <script src="{{ asset('/') }}vendors/list.js/list.min.js"></script>
+    {{-- <script src="{{ asset('/') }}vendors/list.js/list.min.js"></script> --}}
     <script src="{{ asset('/') }}assets/js/theme.js"></script>
-    <script src="{{ asset('/') }}vendors/choices/choices.min.js"></script>
+    {{-- <script src="{{ asset('/') }}vendors/choices/choices.min.js"></script> --}}
 
     @include('alert.toster')
 

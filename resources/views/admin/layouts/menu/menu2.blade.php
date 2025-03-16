@@ -4,7 +4,7 @@
             class="toggle-line"></span></span></button>
 <a class="navbar-brand me-1 me-sm-3" href="index.html">
     <div class="d-flex align-items-center"><img class="me-2"
-            src="assets/img/icons/spot-illustrations/falcon.png" alt=""
+            src="{{ asset('logo.png') }}" alt=""
             width="40" /><span class="font-sans-serif text-primary">falcon</span></div>
 </a>
 <div class="collapse navbar-collapse scrollbar" id="navbarStandard">
