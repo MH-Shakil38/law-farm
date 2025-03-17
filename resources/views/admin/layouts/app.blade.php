@@ -48,8 +48,8 @@
             @include('components.client-import')
         </div>
     </main>
-    @include('admin.theem.setting')
-    {{-- <script src="{{ asset('/') }}vendors/flatpickr/flatpickr.min.js"></script> --}}
+    {{-- @include('admin.theem.setting') --}}
+    <script src="{{ asset('/') }}vendors/flatpickr/flatpickr.min.js"></script>
     <script src="{{ asset('/') }}vendors/popper/popper.min.js"></script>
     <script src="{{ asset('/') }}vendors/bootstrap/bootstrap.min.js"></script>
     <script src="{{ asset('/') }}vendors/anchorjs/anchor.min.js"></script>
