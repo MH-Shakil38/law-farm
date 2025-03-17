@@ -244,4 +244,16 @@ class ClientController extends Controller
         return view('admin.client.secrate')->with($data);
     }
 
+    public function getClients(Request $request)
+    {
+        $query = $request->input('search');
+        $clients = Client::where('name', 'like', "%{$query}%")
+                        ->orWhere('case_number', 'like', "%{$query}%")
+                        ->orWhere('phone', 'like', "%{$query}%")
+                        ->get();
+
+        return response()->json($clients);
+    }
+
+
 }

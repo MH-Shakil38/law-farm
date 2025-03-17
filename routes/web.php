@@ -44,6 +44,8 @@ Route::get('/tabulator', function () {
 });
 
 Route::get('agreement',[BasicController::class, 'clientRegistration'])->name('client.registration');
+// routes/web.php
+Route::get('/clients/list', [ClientController::class,'getClients'])->name('clients.list');
 
 Route::get('/service-details/{id?}', function ($id = null) {
     if(isset($id) && $id !=null){
