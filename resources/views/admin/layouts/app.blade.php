@@ -58,7 +58,7 @@
     {{-- <script src="{{ asset('/') }}vendors/echarts/echarts.min.js"></script> --}}
     <script src="{{ asset('/') }}vendors/fontawesome/all.min.js"></script>
     <script src="{{ asset('/') }}vendors/lodash/lodash.min.js"></script>
-    {{-- <script src="{{ asset('/') }}vendors/list.js/list.min.js"></script> --}}
+    <script src="{{ asset('/') }}vendors/list.js/list.min.js"></script>
     <script src="{{ asset('/') }}assets/js/theme.js"></script>
     {{-- <script src="{{ asset('/') }}vendors/choices/choices.min.js"></script> --}}
 
