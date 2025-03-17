@@ -9,11 +9,14 @@
     <ul class="navbar-nav align-items-center d-none d-lg-block">
         <li class="nav-item">
             <div class="search-box" data-list='{"valueNames":["title"]}'>
-                <form class="position-relative search" data-bs-toggle="search" data-bs-display="static">
+                {{-- <form class="position-relative search" data-bs-toggle="search" data-bs-display="static">
                     <input class="form-control search-input" type="search" placeholder="Search..."
                         aria-label="Search" />
                     <span class="fas fa-search search-box-icon"></span>
-                </form>
+                </form> --}}
+                <input type="text" id="clientSearch" class="form-control" placeholder="Search Clients...">
+<div id="clientDropdown" class="dropdown-menu border font-base start-0 mt-2 py-0 overflow-hidden w-100"></div>
+
                 <div class="btn-close-falcon-container position-absolute end-0 top-50 translate-middle shadow-none"
                     data-bs-dismiss="search"><button class="btn btn-link btn-close-falcon p-0"
                         aria-label="Close"></button></div>
@@ -93,7 +96,7 @@
 
 
     <ul class="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
-        <li class="nav-item ps-2 pe-0">
+        {{-- <li class="nav-item ps-2 pe-0">
             <div class="dropdown theme-control-dropdown"><a
                     class="nav-link d-flex align-items-center dropdown-toggle fa-icon-wait fs-9 pe-1 py-0"
                     href="#" role="button" id="themeSwitchDropdown" data-bs-toggle="dropdown"
@@ -119,11 +122,11 @@
                     </div>
                 </div>
             </div>
-        </li>
+        </li> --}}
 
 
 
-        <li class="nav-item d-none d-sm-block">
+        {{-- <li class="nav-item d-none d-sm-block">
             <a class="nav-link px-0 notification-indicator notification-indicator-warning notification-indicator-fill fa-icon-wait "
                 href="#settings-offcanvas" data-bs-toggle="offcanvas" href="#settings-offcanvas">
                 <div class="bg-primary-subtle position-relative rounded-start" style="height:34px;width:28px">
@@ -138,7 +141,7 @@
                                     </svg></span></span></span></div>
                 </div>
             </a>
-        </li>
+        </li> --}}
         <li class="nav-item dropdown">
             <a href="{{ route('notify') }}"
                 class="nav-link notification-indicator notification-indicator-primary px-0 fa-icon-wait"
@@ -927,7 +930,7 @@
         </ul>
     </div>
     <ul class="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
-        <li class="nav-item ps-2 pe-0">
+        {{-- <li class="nav-item ps-2 pe-0">
             <div class="dropdown theme-control-dropdown"><a
                     class="nav-link d-flex align-items-center dropdown-toggle fa-icon-wait fs-9 pe-1 py-0"
                     href="#" role="button" id="themeSwitchDropdown" data-bs-toggle="dropdown"
@@ -953,7 +956,7 @@
                     </div>
                 </div>
             </div>
-        </li>
+        </li> --}}
         <li class="nav-item d-none d-sm-block">
             <a class="nav-link px-0 notification-indicator notification-indicator-warning notification-indicator-fill fa-icon-wait"
                 href="app/e-commerce/shopping-cart.html"><span class="fas fa-shopping-cart"
@@ -1286,3 +1289,74 @@
         </li>
     </ul>
 </nav>
+<script>
+   $(document).ready(function () {
+    let dropdown = $('#clientDropdown');
+    let searchBox = $('#clientSearch');
+
+    searchBox.on('keyup', function () {
+        let query = $(this).val();
+
+        if (query.length > 0) {
+            $.ajax({
+                url: "{{ route('clients.list') }}",
+                type: "GET",
+                data: { search: query },
+                success: function (response) {
+                    dropdown.empty();
+                    if (response.length > 0) {
+                        response.forEach(client => {
+                            dropdown.append(`
+                                <a class="dropdown-item fs-10 px-x1 py-1 hover-primary" href="/clients/clients/${client.id}">
+                                    <div class="d-flex align-items-center">
+                                        <span class="fas fa-circle me-2 text-300 fs-11"></span>
+                                        <div class="fw-normal title">${client.name}
+                                            <span class="fas fa-chevron-right mx-1 text-500 fs-11"></span> ${client.case_number}
+                                            <span class="fas fa-chevron-right mx-1 text-500 fs-11"></span> ${client.phone}
+                                        </div>
+                                    </div>
+                                </a>
+                            `);
+                        });
+                        dropdown.show();
+                    } else {
+                        dropdown.append('<p class="fallback fw-bold fs-8 text-center">No Result Found.</p>');
+                        dropdown.show();
+                    }
+                }
+            });
+        } else {
+            dropdown.hide();
+        }
+    });
+
+    // **Dropdown Hide when clicking outside**
+    $(document).on('click', function (e) {
+        if (!searchBox.is(e.target) && !dropdown.is(e.target) && dropdown.has(e.target).length === 0) {
+            dropdown.hide();
+        }
+    });
+
+    // **Show Dropdown Again When Clicking Search Box**
+    searchBox.on('focus', function () {
+        if (dropdown.children().length > 0) {
+            dropdown.show();
+        }
+    });
+
+    // **Prevent dropdown from hiding when clicking inside it**
+    dropdown.on('click', function (e) {
+        e.stopPropagation();
+    });
+});
+
+</script>
+<style>
+    #clientDropdown {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+}
+
+</style>
