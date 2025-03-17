@@ -1289,6 +1289,7 @@
         </li>
     </ul>
 </nav>
+
 <script>
    $(document).ready(function () {
     let dropdown = $('#clientDropdown');
