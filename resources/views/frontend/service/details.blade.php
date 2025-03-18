@@ -43,16 +43,22 @@
                             <h3 class="footer-title p-2">Our Services</h3>
                             <ul class="footer-list-style1">
                                 @forelse (service_menu() as $service)
+                                @php
+                                    $child = $service->child->count() > 0 ? true : false;
+                                @endphp
                                 <li>
-                                    <a href="{{ route('service.details',$service->id) }}" data-bs-toggle="collapse" data-bs-target="#{{ $service->name }}" aria-expanded="false" aria-controls="{{ $service->name }}">
-                                        {{ $service->name }} <span class="toggle-icon"></span>
+                                    <a href="{{ route('service.details',$service->id) }}">
+                                        {{ $service->name }} {{ $child ? `<span class="toggle-icon"></span>` : '' }}
                                     </a>
-                                    <ul id="{{ $service->name }}" class="submenu collapse">
+                                    @if ($child)
+                                    <ul id="{{ $service->name }}" class="submenu collapse show">
                                         @forelse ($service->child as $info)
                                         <li><a href="{{ route('service.details',$info->id) }}">{{ $info->name }}</a></li>
                                         @empty
                                         @endforelse
                                     </ul>
+                                    @endif
+
                                 </li>
                                 @empty
                                 @endforelse
