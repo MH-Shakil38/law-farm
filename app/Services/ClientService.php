@@ -27,11 +27,11 @@ class ClientService
         $request = request();
         $user_id = auth()->user()->id;
         $query = Client::query()->orderBy('id','DESC');
-        if (power()) {
-            $query = $query;
-        } else {
-            $query = $query->where('lawyer_id', $user_id);
-        }
+        // if (power()) {
+        //     $query = $query;
+        // } else {
+        //     $query = $query->where('lawyer_id', $user_id);
+        // }
 
         if ($request->has('search')) {
             $query = $this->search($query, $request->search);
