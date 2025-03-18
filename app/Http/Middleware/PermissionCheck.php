@@ -17,9 +17,14 @@ class PermissionCheck
     public function handle(Request $request, Closure $next): Response
     {
         $route = power_check();
-        if ( $route== true) {
+        if(power() == true){
             return $next($request);
+        }else{
+            if ( $route== true) {
+                return $next($request);
+            }
         }
+
         return redirect()->back()->with('error','You Are Not Allow for this route');
 
     }

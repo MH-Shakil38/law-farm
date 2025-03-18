@@ -28,12 +28,11 @@
                                             <a href="{{ route('service-categories.edit', $category->id) }}"
                                                 class="btn btn
                                             btn-primary">Edit/View</a>
-                                            <form action="{{ route('service-categories.destroy', $category->id) }}" method="post"
-                                                style="display: inline-block">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
+                                            <a class="btn btn-danger"
+                                                        href="#"
+                                                        onclick="confirmAction(event, '{{ route('record.delete', ['model' => 'ServiceCategory', 'id' => $category->id]) }}')">
+                                                        Delete
+                                                     </a>
                                         </td>
                                     </tr>
                                 @empty
@@ -48,5 +47,4 @@
             </div>
         </div>
     </div>
-
 @endsection

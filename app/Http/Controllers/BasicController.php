@@ -58,6 +58,7 @@ class BasicController extends Controller
             DB::commit();
             return redirect()->back()->with('success', 'Record Delete Successfully');
         } catch (\Throwable $e) {
+            dd($e);
             return redirect()->back()->with('error', 'Somting Wrong' . $e);
         }
     }

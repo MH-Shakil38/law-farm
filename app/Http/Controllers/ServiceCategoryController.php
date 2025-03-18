@@ -71,6 +71,7 @@ class ServiceCategoryController extends Controller
      */
     public function destroy(ServiceCategory $serviceCategory)
     {
-        //
+        $serviceCategory->delete();
+        return redirect()->back()->with('success','Service category Deleted successfully');
     }
 }
