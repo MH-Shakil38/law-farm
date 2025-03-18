@@ -42,18 +42,18 @@
                         <div class="ps-xl-1-9 p-2" >
                             <h3 class="footer-title p-2">Our Services</h3>
                             <ul class="footer-list-style1">
-                                @forelse (service_menu() as $service)
+                                @forelse (service_menu() as $data)
                                 @php
-                                    $child = $service->child->count() > 0 ? true : false;
+                                    $child = $data->child->count() > 0 ? true : false;
                                 @endphp
                                 <li>
-                                    <a href="{{ route('service.details',$service->id) }}">
-                                        {{ $service->name }} {{ $child ? `<span class="toggle-icon"></span>` : '' }}
+                                    <a href="{{ route('service.details',$data->id) }}" class="{{ $data->id == $service->id ? 'active-color' :'' }}">
+                                        {{ $data->name }} {{ $child ? `<span class="toggle-icon"></span>` : '' }}
                                     </a>
                                     @if ($child)
-                                    <ul id="{{ $service->name }}" class="submenu collapse show">
-                                        @forelse ($service->child as $info)
-                                        <li><a href="{{ route('service.details',$info->id) }}">{{ $info->name }}</a></li>
+                                    <ul id="{{ $data->name }}" class="submenu collapse show">
+                                        @forelse ($data->child as $info)
+                                        <li><a class="{{ $info->id == $service->id ?'active-color' : '' }}" href="{{ route('service.details',$info->id) }}">{{ $info->name }}</a></li>
                                         @empty
                                         @endforelse
                                     </ul>
@@ -73,5 +73,11 @@
         </div>
 
     </section>
+
+    <style>
+        .active-color{
+            color: #eac213 !important;
+        }
+    </style>
 
 @endsection
