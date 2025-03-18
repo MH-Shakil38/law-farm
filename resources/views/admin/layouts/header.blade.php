@@ -36,40 +36,9 @@
                             <!-- start menu area -->
                             <ul class="navbar-nav ms-auto" id="nav" style="display: none;">
                                 <li><a href="{{ url('/') }}">Home</a>
-                                    {{-- <ul>
-                                        <li><a href="{{asset("v1")}}/index-2.html">Home 01</a></li>
-                                        <li><a href="{{asset("v1")}}/index-3.html">Home 02</a></li>
-                                        <li><a href="{{asset("v1")}}/index-4.html">Home 03</a></li>
-                                    </ul> --}}
+
                                 </li>
-                                {{-- <li><a href="{{asset("v1")}}/#!">Pages</a>
-                                    <ul>
-                                        <li><a href="{{asset("v1")}}/about.html">About Us</a></li>
-                                        <li><a href="{{asset("v1")}}/our-history.html">Our History</a></li>
-                                        <li><a href="{{asset("v1")}}/achievements.html">Achievements</a></li>
-                                        <li>
-                                            <a href="{{asset("v1")}}/#!">Our Attorneys</a>
-                                            <ul>
-                                                <li><a href="{{asset("v1")}}/our-attorneys.html">Our Attorneys</a></li>
-                                                <li><a href="{{asset("v1")}}/attorney-details.html">Attorney Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="{{asset("v1")}}/#!">Additional Pages</a>
-                                            <ul>
-                                                <li><a href="{{asset("v1")}}/testimonial.html">Testimonial</a></li>
-                                                <li><a href="{{asset("v1")}}/our-pricing.html">Our Pricing</a></li>
-                                                <li><a href="{{asset("v1")}}/faq.html">FAQ</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="{{asset("v1")}}/#!">Others</a>
-                                            <ul>
-                                                <li><a href="{{asset("v1")}}/coming-soon.html">Comingsoon</a></li>
-                                                <li><a href="{{asset("v1")}}/404-page.html">404 Page</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="{{asset("v1")}}/contact.html">Contact Us</a></li>
-                                    </ul>
-                                </li> --}}
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Services
@@ -81,52 +50,21 @@
                                             <a class="dropdown-item dropdown-toggle" href="{{ route('service.details',$service->id) }}">{{ $service->name }}</a>
                                             @if ($service->child->count() > 0)
                                             <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="{{ route('service.details',$service->id) }}">{{ $service->name }}</a></li>
+
                                                 @forelse ($service->child as $info)
+
                                                 <li><a class="dropdown-item" href="{{ route('service.details',$info->id) }}">{{ $info->name }}</a></li>
                                                 @empty
                                                 @endforelse
                                             </ul>
                                             @endif
 
-
-                                            {{-- <a class="dropdown-item dropdown-toggle" href="#">Immigration</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Asylum</a></li>
-                                                <li><a class="dropdown-item" href="#">Family Based Petition</a></li>
-                                                <li><a class="dropdown-item" href="#">Citizenship</a></li>
-                                                <li><a class="dropdown-item" href="#">Green Card</a></li>
-                                                <li><a class="dropdown-item" href="#">SIJ Special Immigrant Juvenile</a></li>
-                                                <li><a class="dropdown-item" href="#">Waiver</a></li>
-                                                <li><a class="dropdown-item" href="#">Deportation</a></li>
-                                                <li><a class="dropdown-item" href="#">TPS</a></li>
-                                                <li><a class="dropdown-item" href="#">VAWA</a></li>
-                                                <li><a class="dropdown-item" href="#">U-Visa</a></li>
-                                                <li><a class="dropdown-item" href="#">Daca</a></li>
-                                                <li><a class="dropdown-item" href="#">Appeal</a></li>
-                                            </ul> --}}
                                         </li>
                                         @empty
 
                                         @endforelse
-                                        {{-- <li><a class="dropdown-item" href="#">Divorce</a></li>
 
-                                        <li class="dropdown-submenu">
-                                            <a class="dropdown-item dropdown-toggle" href="#">Criminal Defence</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">DWI</a></li>
-                                                <li><a class="dropdown-item" href="#">DUI</a></li>
-                                            </ul>
-                                        </li>
-
-                                        <li class="dropdown-submenu">
-                                            <a class="dropdown-item dropdown-toggle" href="#">Accident Cases</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Construction Accident</a></li>
-                                                <li><a class="dropdown-item" href="#">Car Accident</a></li>
-                                            </ul>
-                                        </li>
-
-                                        <li><a class="dropdown-item" href="#">Bankruptcy</a></li> --}}
                                     </ul>
                                 </li>
 
@@ -134,35 +72,15 @@
 
 
 
-                                {{-- <li><a href="#blog">Blog</a>
-                                    <ul>
-                                        <li><a href="{{asset("v1")}}/case-study-3-col.html">Case Study 3 Col</a></li>
-                                        <li><a href="{{asset("v1")}}/case-study-4-col.html">Case Study 4 Col</a></li>
-                                        <li><a href="{{asset("v1")}}/case-study-details.html">Case Study Details</a></li>
-                                    </ul>
-                                </li> --}}
-                                <li><a href="#about-us">About Us</a>
-                                    {{-- <ul>
-                                        <li><a href="{{asset("v1")}}/blog-grid.html">Blog Grid</a></li>
-                                        <li><a href="{{asset("v1")}}/blog-list.html">Blog List</a></li>
-                                        <li><a href="{{asset("v1")}}/blog-details.html">Blog Details</a></li>
-                                    </ul> --}}
-                                </li>
+
+                                <li><a href="#about-us">About Us</a> </li>
 
                                 <li><a href="#oure-team">Our Team</a>
-                                    {{-- <ul>
-                                        <li><a href="{{asset("v1")}}/blog-grid.html">Blog Grid</a></li>
-                                        <li><a href="{{asset("v1")}}/blog-list.html">Blog List</a></li>
-                                        <li><a href="{{asset("v1")}}/blog-details.html">Blog Details</a></li>
-                                    </ul> --}}
+
                                 </li>
 
                                 <li><a href="{{ route('contact') }}">Contact</a>
-                                    {{-- <ul>
-                                        <li><a href="{{asset("v1")}}/case-study-3-col.html">Case Study 3 Col</a></li>
-                                        <li><a href="{{asset("v1")}}/case-study-4-col.html">Case Study 4 Col</a></li>
-                                        <li><a href="{{asset("v1")}}/case-study-details.html">Case Study Details</a></li>
-                                    </ul> --}}
+
                                 </li>
 
                             </ul>
