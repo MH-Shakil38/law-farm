@@ -25,7 +25,6 @@
                             <div class="navbar-header navbar-header-custom">
                                 <!-- start logo -->
                                 <a href="{{ url('/') }}" class="navbar-brand">
-
                                     <img  src="{{ asset('logo2.png') }}" alt="logo">
                                 </a>
                                 <!-- end logo -->
@@ -50,7 +49,7 @@
                                             <a class="dropdown-item dropdown-toggle" href="{{ route('service.details',$service->id) }}">{{ $service->name }}</a>
                                             @if ($service->child->count() > 0)
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="{{ route('service.details',$service->id) }}">{{ $service->name }}</a></li>
+                                                {{-- <li><a class="dropdown-item" href="{{ route('service.details',$service->id) }}">{{ $service->name }}</a></li> --}}
 
                                                 @forelse ($service->child as $info)
 

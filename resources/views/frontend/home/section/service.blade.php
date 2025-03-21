@@ -13,9 +13,9 @@
                         <div class="icon">
                             <img src="{{ asset('v1/img/icons/icon-04.png') }}" alt="...">
                         </div>
-                        <h3 class="mb-3 h4"><a href="#">Immigration</a></h3>
+                        <h3 class="mb-3 h4"><a href="{{ route('service.details',1) }}">Immigration</a></h3>
                         <p class="mb-3 w-95 mx-auto">We provide professional assistance in immigration matters.</p>
-                        <a href="#" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                        <a href="{{ route('service.details',1) }}" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
                     </div>
                 </div>
             </div>
@@ -27,9 +27,9 @@
                         <div class="icon">
                             <img src="{{ asset('v1/img/icons/icon-05.png') }}" alt="...">
                         </div>
-                        <h3 class="mb-3 h4"><a href="#">Criminal Defense</a></h3>
+                        <h3 class="mb-3 h4"><a href="{{ route('service.details',15) }}">Criminal Defense</a></h3>
                         <p class="mb-3 w-95 mx-auto">Expert legal representation for criminal defense cases.</p>
-                        <a href="#" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                        <a href="{{ route('service.details',15) }}" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
                     </div>
                 </div>
             </div>
@@ -41,9 +41,9 @@
                         <div class="icon">
                             <img src="{{ asset('v1/img/icons/icon-06.png') }}" alt="...">
                         </div>
-                        <h3 class="mb-3 h4"><a href="#">Personal Injury/Accident Cases</a></h3>
+                        <h3 class="mb-3 h4"><a href="{{ route('service.details',18) }}">Personal Injury/Accident Cases</a></h3>
                         <p class="mb-3 w-95 mx-auto">Legal support for accident-related claims and compensation.</p>
-                        <a href="#" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                        <a href="{{ route('service.details',18) }}" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
                     </div>
                 </div>
             </div>
@@ -55,9 +55,9 @@
                         <div class="icon">
                             <img src="{{ asset('v1/img/icons/icon-03.png') }}" alt="...">
                         </div>
-                        <h3 class="mb-3 h4"><a href="#">Uncontested Divorce</a></h3>
+                        <h3 class="mb-3 h4"><a href="{{ route('service.details',5) }}">Uncontested Divorce</a></h3>
                         <p class="mb-3 w-95 mx-auto">Guidance and assistance for uncontested divorce cases.</p>
-                        <a href="#" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                        <a href="{{ route('service.details',5) }}" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
                     </div>
                 </div>
             </div>
@@ -69,9 +69,9 @@
                         <div class="icon">
                             <img src="{{ asset('v1/img/icons/icon-07.png') }}" alt="...">
                         </div>
-                        <h3 class="mb-3 h4"><a href="#">Bankruptcy Cases</a></h3>
+                        <h3 class="mb-3 h4"><a href="{{ route('service.details',21) }}">Bankruptcy Cases</a></h3>
                         <p class="mb-3 w-95 mx-auto">Guidance through financial crisis and bankruptcy procedures.</p>
-                        <a href="#" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
+                        <a href="{{ route('service.details',21) }}" class="font-weight-500">Read more<i class="fas fa-long-arrow-alt-right align-middle ms-2 display-30"></i></a>
                     </div>
                 </div>
             </div>

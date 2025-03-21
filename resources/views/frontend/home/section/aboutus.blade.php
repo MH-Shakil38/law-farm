@@ -44,8 +44,8 @@
                             {{-- <img src="" alt="..." width="100px"> --}}
                         </div>
                         <div class="flex-grow-1 border-start border-width-2 border-color-extra-light-gray ps-3 ps-sm-4 ms-3 ms-sm-4">
-                            <h5>Pema Lhamu Bhutia</h5>
-                            <p class="mb-0">Founder</p>
+                            <h5>Pema Lhamu Bhutia, Esq</h5>
+                            <p class="mb-0"> Founder/ Attorney at Law</p>
                         </div>
                     </div>
                 </div>
