@@ -3,13 +3,7 @@
 @section('content')
     <div class="slider-fade banner1 top-position1">
         <div class="owl-carousel owl-theme w-100">
-
             <!-- Our Expertise -->
-
-
-            <!-- Personalized Legal Solutions -->
-
-            <!-- Multi-Language Support -->
             <div class=" item bg-img secondary-overlay" data-overlay-dark="8"
                 data-background="{{ asset('v1') }}/img/bg-3.jpg">
                 <br>
