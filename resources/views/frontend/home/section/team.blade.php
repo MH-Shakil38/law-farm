@@ -7,7 +7,7 @@
         <div class="row mt-n1-9">
             <div class="col-sm-6 col-lg-4 mt-1-9">
                 <div class="card card-style2 position-relative overflow-hidden rounded-0 border-0">
-                    <img src="{{asset("v1/team/img1.jpg")}}" alt="...">
+                    <img src="{{asset("v1/team/img-5.png")}}" alt="...">
                     <div class="card-body">
                         <div class="team-infos">
                             <span class="mb-2 display-30">Manager</span>

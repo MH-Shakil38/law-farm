@@ -1,4 +1,4 @@
-<section class="bg-img cover-background secondary-overlay" data-overlay-dark="8" data-background="{{asset("v1")}}/img/bg/bg-05.jpg">
+<section class="bg-img cover-background secondary-overlay" data-overlay-dark="8" data-background="{{asset('v1')}}/img/bg-2.jpg">
     <div class="container">
         <div class="row align-items-center mt-n7">
             <div class="col-lg-8 mt-7 text-center text-lg-start">
@@ -29,7 +29,8 @@
             </div>
             <div class="col-lg-4 text-center mt-7">
                 <div class="story-video">
-                    <a class="video video_btn small bg-white" href="{{asset("v1")}}/https://www.youtube.com/watch?v=oj1gAYwm6AA"><i class="fas fa-play text-primary"></i></a>
+                    <a class="video video_btn small bg-white" href="#"><i class="fas fa-play text-primary"></i></a>
+                    {{-- <a class="video video_btn small bg-white" href="{{asset("v1")}}/https://www.youtube.com/watch?v=oj1gAYwm6AA"><i class="fas fa-play text-primary"></i></a> --}}
                     <div class="d-inline-block align-middle ps-1-6 ps-lg-2-2 text-white text-start font-weight-600">Watch<span class="text-uppercase d-block">intro video</span></div>
                 </div>
             </div>

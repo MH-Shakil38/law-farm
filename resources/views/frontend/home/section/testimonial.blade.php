@@ -1,4 +1,4 @@
-<section class="bg-img cover-background secondary-overlay" data-overlay-dark="9" data-background="{{asset("v1")}}/img/bg/bg-01.jpg">
+<section class="bg-img cover-background secondary-overlay" data-overlay-dark="9" data-background="{{asset('v1')}}/img/bg-1.jpg">
     <div class="container">
         <div class="section-heading">
             <span class="alt-font">Testimonials</span>
@@ -45,7 +45,7 @@
                 <span class="display-31 text-white">Trial Lawyer</span>
             </div>
         </div>
-        <div class="owl-thumbs text-center mt-1-9" data-slider-id="1">
+        {{-- <div class="owl-thumbs text-center mt-1-9" data-slider-id="1">
             <button class="owl-thumb-item bg-transparent">
                 <img src="{{asset("v1")}}/img/avatar/avatar-01.jpg" class="testimonial-img" alt="...">
             </button>
@@ -55,6 +55,6 @@
             <button class="owl-thumb-item bg-transparent">
                 <img src="{{asset("v1")}}/img/avatar/avatar-03.jpg" class="testimonial-img" alt="...">
             </button>
-        </div>
+        </div> --}}
     </div>
 </section>
