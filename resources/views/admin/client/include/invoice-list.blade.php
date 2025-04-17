@@ -34,7 +34,8 @@
                                         <td scope="col-2" class="col-2" style="text-align:center;background: #fff3bd"> <i class="fas fa-dollar-sign"></i>{{ $invoice->amount }}</td>
                                         <td scope="col-4" class="col-3">
                                             <a title="Print Invoice" href="{{ $invoice->file }}" target="_blank" class="btn btn-sm btn-danger"> <i class="fas fa-print"></i> </a>
-                                            <a title="edit invoice" href="{{ route('edit.client.invoice',$invoice->id) }}" class="btn btn-sm btn-info"> <i class="far fa-edit"></i> </a>
+                                            @include('admin.client.include.update-invoice-modal',['invoice'=>$invoice])
+                                            {{-- <a title="edit invoice" href="{{ route('edit.client.invoice',$invoice->id) }}" class="btn btn-sm btn-info"> <i class="far fa-edit"></i> </a> --}}
                                         </td>
                                     </tr>
                                 @empty

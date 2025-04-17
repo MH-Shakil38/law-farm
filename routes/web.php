@@ -64,6 +64,7 @@ Route::post('tmp/client/store', [BasicController::class, 'clientStore'])->name('
 Route::get('/invoice/{id}', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate');
 Route::get('/create/invoice/{id}', [InvoiceController::class, 'createInvoice'])->name('create.invoice');
 Route::post('/store/invoice', [InvoiceController::class, 'storeInvoice'])->name('store.invoice');
+Route::post('/update/invoice/{id}', [InvoiceController::class, 'updateInvoice'])->name('update.invoice');
 Route::get('/print/agreement/{id}', [InvoiceController::class, 'printAgreement'])->name('print.agreement');
 Route::get('/print/client/info', [InvoiceController::class, 'printClientInfo'])->name('print.client-info');
 Route::get('/load/client/invoice/{id}', [InvoiceController::class, 'loadClientInvoice'])->name('load.client.invoice');

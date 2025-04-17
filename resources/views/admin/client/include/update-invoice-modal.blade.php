@@ -1,5 +1,5 @@
-<button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#invoice-generate-modal"> <i class="far fa-edit"></i></button>
-<div class="modal fade" id="invoice-generate-modal" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1"
+<button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#invoice-generate-modal{{ $invoice->id }}"> <i class="far fa-edit"></i></button>
+<div class="modal fade" id="invoice-generate-modal{{ $invoice->id }}" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1"
     aria-labelledby="invoice-generate-modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg mt-6" role="document">
         <div class="modal-content border-0">
@@ -16,63 +16,95 @@
 
                         </div>
                         <div class="">
-                            <form action="{{ route('store.invoice') }}" method="post" enctype="multipart/form-data">
-                                @method('post')
+                            <form action="{{ route('update.invoice', $invoice->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
+                                @method('post') {{-- For updating --}}
+
                                 <div class="row">
                                     <input type="hidden" name="client_id" value="{{ $client->id }}">
+
+                                    {{-- Amount --}}
                                     <div class="col-md-4 col-sm-12">
                                         <div class="form-group">
-                                            <div class="form-group">
-                                                <label for="">AMOUNT/MONTO</label>
-                                                <div class="input-group mb-3"><span class="input-group-text">$</span><input placeholder="EX:100" class="form-control" type="text" aria-label="Amount (to the nearest dollar)" name="amount" /></div>
+                                            <label for="">AMOUNT/MONTO</label>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">$</span>
+                                                <input placeholder="EX:100" class="form-control" type="text" name="amount" value="{{ $invoice->amount ?? 0 }}" />
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                            <label for="reffer_by">Reffer By</label>
-                                            <input type="text" name="reffer_by" id="reffer_by" class="form-control"
-                                                placeholder="Enter Amount">
-                                        </div>
-                                    </div> --}}
+
+                                    {{-- Date --}}
                                     <div class="col-md-4 col-sm-12">
                                         <div class="form-group">
                                             <label for="date">Date</label>
-                                            <input type="date" value="{{ Carbon\Carbon::now() }}" name="date"
-                                                id="date" class="form-control" placeholder="Enter date">
+                                            <input type="date" name="date" class="form-control" value="{{ \Carbon\Carbon::parse($invoice->date)->format('Y-m-d') }}">
                                         </div>
                                     </div>
+
+                                    {{-- Type --}}
                                     <div class="col-md-4 col-sm-12">
                                         <div class="form-group">
-                                            <label for="reffer_by">Type</label>
-                                            <select name="type" id="" class="form-select">
-                                                <option value="cash">Cash</option>
-                                                <option value="zelle">Zelle</option>
-                                                <option value="cradit card">Cradit Card</option>
-                                                <option value="bank deposit">Bank Deposit</option>
-                                            </select>
+                                            <label for="type">Type</label>
+                                            <select name="type" class="form-select">
+                                                <option value="cash" {{ $invoice->type == 'cash' ? 'selected' : '' }}>Cash</option>
+                                                <option value="zelle" {{ $invoice->type == 'zelle' ? 'selected' : '' }}>Zelle</option>
+                                                <option value="cradit card" {{ $invoice->type == 'cradit card' ? 'selected' : '' }}>Cradit Card</option>
+                                                <option value="bank deposit" {{ $invoice->type == 'bank deposit' ? 'selected' : '' }}>Bank Deposit</option>
                                             </select>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-md-4 col-sm-12">
+
+                                    {{-- Optional: File Upload --}}
+                                    <div class="col-md-4 col-sm-12">
                                         <div class="form-group">
-                                            <label for="reffer_by">File/Document</label>
-                                            <input type="file" name="file" id="file" class="form-control"
-                                                rows="3" />
+                                            <label for="file">File/Document</label>
+                                            <input type="file" name="file" id="file" class="form-control" />
+                                            @if ($invoice->file)
+                                                <small>Current File: <a href="{{ asset('storage/' . $invoice->file) }}" target="_blank">View</a></small>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    {{-- Reffer By (optional) --}}
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="reffer">Reffer By</label>
+                                            <input type="text" name="reffer" id="reffer" class="form-control" value="{{ $invoice->reffer }}">
+                                        </div>
+                                    </div>
+
+                                    {{-- Income Type (optional) --}}
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="income_type">Income Type</label>
+                                            <input type="text" name="income_type" id="income_type" class="form-control" value="{{ $invoice->income_type }}">
+                                        </div>
+                                    </div>
+
+
+                                    {{-- <div class="col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="reffer_by">Details</label>
+                                            <textarea name="details" id="invoice-summernote" ></textarea>
                                         </div>
                                     </div> --}}
+
+                                    {{-- Note --}}
                                     <div class="col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="reffer_by">Note</label>
-                                            <textarea name="note" id="invoice-summernote" ></textarea>
+                                            <label for="details">Note</label>
+                                            <textarea name="details" id="invoice-summernote" class="form-control">{{ $invoice->note }}</textarea>
                                         </div>
                                     </div>
+
+                                    {{-- Submit --}}
                                     <div class="form-group text-end">
-                                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                                        <button type="submit" class="btn btn-primary mt-3">Update</button>
                                     </div>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>

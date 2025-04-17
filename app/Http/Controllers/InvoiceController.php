@@ -61,6 +61,9 @@ class InvoiceController extends Controller
         return redirect()->back()->with('success', 'Successfully Invoice Created');
     }
 
+
+
+
     public function loadClientInvoice($id){
         $invoice = Income::query()->findOrFail($id);
         return redirect($invoice->file);
@@ -75,13 +78,13 @@ class InvoiceController extends Controller
     }
 
     public function editClientInvoice($id){
-        $invoice = Invoice::query()->findOrFail($id);
+        $invoice = Income::query()->findOrFail($id);
         return view('admin.client.invoice-edit',compact('invoice'));
     }
 
     public function updateInvoice(Request $request,$id){
         $data = $request->all();
-        $invoice = Invoice::query()->findOrFail($id);
+        $invoice = Income::query()->findOrFail($id);
         $invoice->update($data);
         return redirect()->route('clients.show',$invoice->client_id)->with('success','Successfully Invoice Updated');
     }
