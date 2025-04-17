@@ -56,7 +56,7 @@
                                     </div>
 
                                     {{-- Optional: File Upload --}}
-                                    <div class="col-md-4 col-sm-12">
+                                    {{-- <div class="col-md-4 col-sm-12">
                                         <div class="form-group">
                                             <label for="file">File/Document</label>
                                             <input type="file" name="file" id="file" class="form-control" />
@@ -64,39 +64,37 @@
                                                 <small>Current File: <a href="{{ asset('storage/' . $invoice->file) }}" target="_blank">View</a></small>
                                             @endif
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     {{-- Reffer By (optional) --}}
-                                    <div class="col-md-4 col-sm-12">
+                                    {{-- <div class="col-md-4 col-sm-12">
                                         <div class="form-group">
                                             <label for="reffer">Reffer By</label>
                                             <input type="text" name="reffer" id="reffer" class="form-control" value="{{ $invoice->reffer }}">
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     {{-- Income Type (optional) --}}
-                                    <div class="col-md-4 col-sm-12">
+                                    {{-- <div class="col-md-4 col-sm-12">
                                         <div class="form-group">
                                             <label for="income_type">Income Type</label>
                                             <input type="text" name="income_type" id="income_type" class="form-control" value="{{ $invoice->income_type }}">
                                         </div>
+                                    </div> --}}
+
+
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="reffer_by">Note</label>
+                                            <input name="note" class="form-control" />
+                                        </div>
                                     </div>
-
-
                                     {{-- <div class="col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="reffer_by">Details</label>
                                             <textarea name="details" id="invoice-summernote" ></textarea>
                                         </div>
                                     </div> --}}
-
-                                    {{-- Note --}}
-                                    <div class="col-md-12 col-sm-12">
-                                        <div class="form-group">
-                                            <label for="details">Note</label>
-                                            <textarea name="details" id="invoice-summernote" class="form-control">{{ $invoice->note }}</textarea>
-                                        </div>
-                                    </div>
 
                                     {{-- Submit --}}
                                     <div class="form-group text-end">
