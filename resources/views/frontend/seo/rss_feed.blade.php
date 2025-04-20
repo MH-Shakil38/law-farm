@@ -18,7 +18,7 @@
 <body>
     <h1>Our Services</h1>
 
-    @foreach(service_menu() as $service)
+    @foreach(services() as $service)
         <div class="service">
             <h2>{{ $service->title }}</h2>
 

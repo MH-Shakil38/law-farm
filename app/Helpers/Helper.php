@@ -260,5 +260,11 @@ if(!function_exists('activity_data')){
         }
     }
 
+    if(!function_exists('services')){
+        function services(){
+            return ServiceCategory::query()->get();
+        }
+    }
+
 
 }
