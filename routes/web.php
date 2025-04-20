@@ -13,6 +13,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SeoController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SmsSetupController;
@@ -42,6 +43,20 @@ Route::get('/users-list', function () {
 Route::get('/tabulator', function () {
     return view('users');
 });
+
+// for seo route
+Route::get('terms-and-conditions',[SeoController::class,'terms'])->name('terms.conditions');
+Route::get('privacy-policy',[SeoController::class,'privacy'])->name('privacy.policy');
+Route::get('feed',[SeoController::class,'feed'])->name('feed');
+Route::get('/cookies-policy', [SeoController::class, 'cookies'])->name('cookies.policy');
+Route::get('/disclaimer', [SeoController::class, 'disclaimer'])->name('disclaimer');
+Route::get('/feed', [SeoController::class, 'feed'])->name('rss.feed');
+
+
+
+
+
+
 
 Route::get('agreement',[BasicController::class, 'clientRegistration'])->name('client.registration');
 // routes/web.php

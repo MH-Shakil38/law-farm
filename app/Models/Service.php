@@ -16,4 +16,10 @@ class Service extends Model
         'image',
         'category_id'
     ];
+
+    public function category()
+{
+    return $this->belongsTo(Service::class);
+}
+
 }

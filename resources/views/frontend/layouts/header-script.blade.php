@@ -1,9 +1,9 @@
 
     <!-- favicon -->
     <link rel="shortcut icon" href="{{asset('website/logo.jpg')}}" />
-    <link rel="apple-touch-icon" href="{{asset("v1")}}/img/logos/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="{{asset("v1")}}/img/logos/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="{{asset("v1")}}/img/logos/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" href="https://attorneypema.com/website/logo.jpg" />
+    <link rel="apple-touch-icon" sizes="72x72" href="https://attorneypema.com/website/logo.jpg" />
+    <link rel="apple-touch-icon" sizes="114x114" href="https://attorneypema.com/website/logo.jpg" />
 
     <!-- plugins -->
     <link rel="stylesheet" href="{{asset("v1")}}/css/plugins.css" />

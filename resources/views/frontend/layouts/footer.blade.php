@@ -127,33 +127,39 @@
 
 
 
-            <div class="col-sm-6 col-xl-3 mt-2-6">
-                <div class="ps-sm-1-6 ps-md-1-9">
-                    <h3 class="footer-title">Trending post</h3>
-                    <div class="d-flex align-items-center mb-1-6">
-                        <div class="flex-shrink-0">
-                            <img src="{{ asset('v1') }}/img/instagram/insta-01.jpg" alt="...">
-                        </div>
-                        <div class="flex-grow-1 ms-4">
-                            <h4 class="display-30 text-white"><a href="void:javascript()" class="text-white">Mediation
-                                    Useful Family Law Cases?</a></h4>
-                            <span class="display-31 text-white"><i class="far fa-calendar-check me-2 text-white"></i>Apr
-                                27, 2023</span>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0">
-                            <img src="{{ asset('v1') }}/img/instagram/insta-02.jpg" alt="...">
-                        </div>
-                        <div class="flex-grow-1 ms-4">
-                            <h4 class="display-30 text-white"><a href="void:javascript()" class="text-white">Allow to
-                                    mile wound be place leave.</a></h4>
-                            <span class="display-31 text-white"><i class="far fa-calendar-check me-2 text-white"></i>Apr
-                                24, 2023</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="col-sm-6 col-xl-3 mt-2-6">
+    <div class="ps-sm-1-6 ps-md-1-9">
+        <h3 class="footer-title">Important Legal Links</h3>
+        <ul class="contact-list">
+            <!-- Privacy Policy Link -->
+            <li>
+                <span class="fas fa-shield-alt pe-3 text-white"></span>
+                <a href="{{ route('privacy.policy') }}" class="text-white">Privacy Policy</a>
+            </li>
+            <!-- Terms and Conditions Link -->
+            <li>
+                <span class="fas fa-gavel pe-3 text-white"></span>
+                <a href="{{ route('terms.conditions') }}" class="text-white">Terms and Conditions</a>
+            </li>
+            <!-- Disclaimer Link (Optional) -->
+            <li>
+                <span class="fas fa-exclamation-circle pe-3 text-white"></span>
+                <a href="disclaimer" class="text-white">Disclaimer</a>
+            </li>
+            <!-- Cookies Policy Link (Optional) -->
+            <li>
+                <span class="fas fa-cookie pe-3 text-white"></span>
+                <a href="{{ route('cookies.policy') }}" class="text-white">Cookies Policy</a>
+            </li>
+            <!-- Contact Us Link -->
+            <li>
+                <span class="fa fa-envelope pe-3 text-white"></span>
+                <a href="/contact" class="text-white">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
         </div>
     </div>
     <div class="footer-bar">
