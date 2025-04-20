@@ -11,7 +11,7 @@
 
     @foreach(services() as $service)
         <url>
-            <loc>{{ url('/services-details/' . $service->id) }}</loc>
+            <loc>{{ url('/service-details/' . $service->id) }}</loc>
             <lastmod>{{ $service->updated_at->toDateString() }}</lastmod>
             <changefreq>monthly</changefreq>
             <priority>0.8</priority>
