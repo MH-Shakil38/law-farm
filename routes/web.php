@@ -25,6 +25,7 @@ use App\Models\ServiceCategory;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use Illuminate\Support\Facades\Response;
 
 
 /*
@@ -51,8 +52,11 @@ Route::get('feed',[SeoController::class,'feed'])->name('feed');
 Route::get('/cookies-policy', [SeoController::class, 'cookies'])->name('cookies.policy');
 Route::get('/disclaimer', [SeoController::class, 'disclaimer'])->name('disclaimer');
 Route::get('/feed', [SeoController::class, 'feed'])->name('rss.feed');
-
-
+Route::get('/sitemap.xml', function () {
+    return response()
+        ->view('frontend.seo.sitemap')
+        ->header('Content-Type', 'application/xml');
+});
 
 
 

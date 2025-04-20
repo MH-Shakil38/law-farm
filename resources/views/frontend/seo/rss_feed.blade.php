@@ -24,7 +24,7 @@
 
                 <img src="https://attorneypema.com/v1/img/bg-1.jpg" alt="{{ $service->title }}">
 
-            <p> {!! $service->details !!}   </p>
+            <p> {!! $service->details !!}</p>
 
             @if($service->category)
                 <p><strong>Category:</strong> {{ $service->category->name }}</p>
