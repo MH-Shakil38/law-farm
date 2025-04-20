@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="author" content="Chitrakoot Web" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="google-site-verification" content="Wkz-G52S8YGvQw2xb-ZRsR9knEaqBoapX1MnaDY8ZnU" />
     <title>Law Office of Pema Lhamu Bhutia PC | Elmhurst, NY Immigration & Family Lawyer</title>
     <meta name="description"
         content="The Law Office of Pema Lhamu Bhutia PC provides expert legal services in immigration, family law, and more. Serving Elmhurst, Queens, and the NYC area with trusted legal guidance.">
