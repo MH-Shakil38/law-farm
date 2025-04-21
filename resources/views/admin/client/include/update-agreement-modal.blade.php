@@ -23,7 +23,7 @@
                                     <div class="col-md-9">
                                         <div class="form-group">
                                             <label for="">SIJS</label> <br>
-                                            <div class="input-group mb-3"><span class="input-group-text">SISJ: </span><input value="{{ @$client->agreement->sijs }}" class="form-control" type="text" aria-label="Amount (to the nearest dollar)" name="sijs" /></div>
+                                            <div class="input-group mb-3"><span class="input-group-text">SIJS: </span><input value="{{ @$client->agreement->sijs }}" class="form-control" type="text" aria-label="Amount (to the nearest dollar)" name="sijs" /></div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
