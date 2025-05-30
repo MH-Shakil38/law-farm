@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Client\Entry\ClientEntryRequest;
 use App\Models\ActivityLog;
+use App\Models\Blog;
 use App\Models\CaseType;
 use App\Models\Client;
 use App\Models\User;
@@ -139,5 +140,10 @@ class BasicController extends Controller
             App::setLocale($lang);
         }
         return redirect()->back();
+    }
+
+    public function blogDetails($slug){
+        $data['blog'] = Blog::where('slug',$slug)->first();
+        return view('frontend.blog-details')->with($data);
     }
 }

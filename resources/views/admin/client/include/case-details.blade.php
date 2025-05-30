@@ -66,10 +66,10 @@
                                         data-options='{"enableTime":true,"noCalendar":true,"dateFormat":"H:i","disableMobile":true}' />
                                 </div>
 
-                                <div class="col-md-12 mt-2">
+                                {{-- <div class="col-md-12 mt-2">
                                     <label class="form-lable" for="title">Last Update</label>
                                     <textarea name="last_update" class="form-control" id="" rows="2" placeholder="Enter Short Description">{{ isset($client) ? $client->last_update : '' }}</textarea>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-md-12 mt-2">
                                     <label class="form-lable" for="title">Description</label>

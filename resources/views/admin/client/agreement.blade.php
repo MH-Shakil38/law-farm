@@ -49,8 +49,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="">SIJS</label> <br>
-                                <div class="input-group mb-3"><span class="input-group-text">SISJ: </span><input class="form-control" type="text" aria-label="Amount (to the nearest dollar)" name="sijs" /></div>
+                                {{-- <label for="">Case</label> <br> --}}
+                                <div class="input-group mb-3"><span class="input-group-text">Case: </span><input class="form-control" type="text" aria-label="Amount (to the nearest dollar)" name="sijs" /></div>
                             </div>
                         </div>
                         <div class="col-md-2">

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('file');
             $table->string('title')->nullable();
+            $table->string('hearing_id')->nullable();
             $table->string('description')->nullable();
             $table->date('date')->nullable();
             $table->foreignId('client_id')->constrained()->onDelete('cascade');

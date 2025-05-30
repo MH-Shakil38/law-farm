@@ -6,7 +6,7 @@
                 aria-controls="hearing-collapse" class="btn btn-falcon-default btn-sm text-success collapsed"
                 type="button">
                  {{-- <i class="fas fa-plus"></i> --}}
-                  <span  class="d-none d-sm-inline-block"><i class="fas fa-angle-down"></i></span></button>
+                  <span  class="d-none d-sm-inline-block"><i class="fas fa-angle-down"></i></span> Add New</button>
 
         </div>
     </div>
@@ -46,9 +46,14 @@
                                     </div> --}}
 
                                     <div class="col-md-6 mt-2">
-                                        <label class="form-label" for="file">File's</label>
+                                        <label class="form-label" for="file">Document</label>
                                         <input type="file" name="file" placeholder="Enter file title"
                                             class="form-control">
+                                    </div>
+                                    
+                                    <div class="col-md-12 mt-2">
+                                        <label class="form-lable" for="title">Last Case Update</label>
+                                        <textarea name="last_update" class="form-control" id="" rows="2" placeholder="Enter short case update">{{ isset($hearing) ? $hearing->Last_update : '' }}</textarea>
                                     </div>
                                     <div class="col-md-12 mt-2">
                                         <label class="form-lable" for="title">Description</label>
@@ -76,6 +81,8 @@
     </div>
 
     @forelse ($client->hearing->reverse() as $info)
+   
+
         <div class="accordion" id="accordionExample{{ $info->id }}">
 
             <div class="accordion-item">
@@ -123,9 +130,21 @@
                     aria-labelledby="headingOne{{ $info->id }}"
                     data-bs-parent="#accordionExample{{ $info->id }}">
                     <div class="accordion-body">
-                        <p>
-                            {{ $info->description }}
-                        </p>
+                        <table class="table table-responsive">
+                            <tr>
+                                <th>Description: </th>
+                                <td>{{ $info->description }}</td>
+                            </tr>
+                            <tr>
+                                <th>Last Update: </th>
+                                <td>{{ $info->Last_update ?? '' }}</td>
+                            </tr>
+                            {{-- <tr>
+                                <th>Documents: </th>
+                                <td>{{ $info->file->file ?? '' }}</td>
+                            </tr> --}}
+                        </table>
+
                         <div class="p-2">
                             <a class="btn btn-falcon-default btn-sm px-3 ms-2" type="button" href="{{ route('clients.hearing.edit',$info->id) }}">Edit</a>
                             <a class="btn btn-falcon-default btn-sm px-3 ms-2" type="button" href="#" onclick="confirmAction(event, '{{ route('record.delete', ['model' => 'Hearing', 'id' => $info->id]) }}')">Delete</a>

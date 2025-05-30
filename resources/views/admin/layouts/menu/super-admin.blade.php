@@ -14,16 +14,16 @@
         aria-controls="lawyer">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                     class="fas fa-user-graduate"></span></span><span class="nav-link-text ps-1">Client
-                Request <span class="badge rounded-pill ms-2 badge-subtle-success">{{ entry_list()->count() }}</span></span>
+                Request <span class="badge rounded-pill ms-2 badge-subtle-success">{{ entry_list(1)->count() + entry_list(0)->count() }}</span></span>
         </div>
     </a>
     <ul class="nav collapse {{ Request::routeIs('clients.*') ? 'show' : '' }}" id="request">
         <li class="nav-item"><a class="nav-link" href="{{ route('clients.entry') }}">
-                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Request List</span>
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Request List<span class="badge rounded-pill ms-2 badge-subtle-success">{{ entry_list(1)->count() }}</span></span>
                 </div>
             </a><!-- more inner pages--></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('clients.pending') }}">
-                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Pending List</span>
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Pending List<span class="badge rounded-pill ms-2 badge-subtle-success">{{ entry_list(0)->count() }}</span></span>
                 </div>
             </a><!-- more inner pages--></li>
 
@@ -184,24 +184,24 @@
 
     </ul>
 
-    <a class="nav-link dropdown-indicator" href="#accounts" role="button" data-bs-toggle="collapse"
+    <a class="nav-link dropdown-indicator" href="#service" role="button" data-bs-toggle="collapse"
         aria-expanded="true" aria-controls="role">
         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-            class="fab fa-firefox"></span></span><span class="nav-link-text ps-1">Site Setting's</span>
+            class="fab fa-firefox"></span></span><span class="nav-link-text ps-1">Website</span>
         </div>
     </a>
-    <ul class="nav collapse {{ Request::segment(1) === 'accounts' ? 'show' : '' }}" id="accounts">
+    <ul class="nav collapse {{ Request::segment(1) === 'service' ? 'show' : '' }}" id="service">
         <li class="nav-item"><a class="nav-link" href="{{ route('service-categories.index') }}">
                 <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Service</span>
                 </div>
             </a>
         </li>
 
-        {{-- <li class="nav-item">
-            <a class="nav-link" href="{{ route('service-categories.index') }}">
-                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Service</span> </div>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('blogs.index') }}">
+                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Blog</span> </div>
             </a>
-        </li> --}}
+        </li>
     </ul>
 
     <a class="nav-link dropdown-indicator" href="#accounts" role="button" data-bs-toggle="collapse"

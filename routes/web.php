@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AgreementController;
 use App\Http\Controllers\BasicController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CallSetupController;
 use App\Http\Controllers\CaseController;
 use App\Http\Controllers\CaseTypeController;
@@ -59,7 +60,9 @@ Route::get('/sitemap.xml', function () {
 });
 
 
-
+Route::get('optimize', function () {
+    Artisan::call('optimize');
+});
 
 
 Route::get('agreement',[BasicController::class, 'clientRegistration'])->name('client.registration');
@@ -94,6 +97,7 @@ Route::get('client/agreement/{id}', [AgreementController::class, 'agreement'])->
 Route::post('client/agreement/Store', [AgreementController::class, 'agreementStore'])->name('client.agreement.store');
 Route::post('client/agreement/update', [AgreementController::class, 'agreementUpdate'])->name('client.agreement.update');
 Route::get('lang/{lang}', [BasicController::class, 'switchLang'])->name('lang.switch')->middleware('switch.language');
+Route::get('blog/details/{slug}', [BasicController::class, 'blogDetails'])->name('blog.details');
 
 Route::prefix('accounts')->group(function(){
     Route::resource('expenses',ExpenseController::class);
@@ -103,6 +107,7 @@ Route::prefix('accounts')->group(function(){
 Route::prefix('service')->group(function(){
     Route::resource('service-categories',ServiceCategoryController::class);
     Route::resource('services',ServiceController::class);
+    Route::resource('blogs',BlogController::class);
 });
 
 Route::middleware(['auth', 'web','permission.check'])->group(function () {

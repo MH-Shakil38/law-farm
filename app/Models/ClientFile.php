@@ -11,6 +11,7 @@ class ClientFile extends Model
     protected $table = 'client_files';
     protected $fillable = [
         'file',
+        'hearing_id',
         'title',
         'description',
         'client_id',

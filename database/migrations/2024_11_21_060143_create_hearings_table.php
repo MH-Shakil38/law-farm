@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
+            $table->longText('last_update')->nullable();
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();

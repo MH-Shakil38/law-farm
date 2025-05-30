@@ -21,9 +21,14 @@ class CaseController extends Controller
         $data = $request->validated();
         try{
             DB::beginTransaction();
+            if($request->last_update){
+                $client = Client::query()->findOrFail($request->client_id);
+                $client->update(['last_update'=>$request->last_update]);
+            }
+
             $hearing = Hearing::query()->create($data);
             if($request->hasFile('file')){
-                $this->clientService->fileStore();
+                $this->clientService->fileStore($hearing);
             }
             DB::commit();
             return redirect()->back()->with('success','Next Hearing Date Added');
@@ -46,8 +51,12 @@ class CaseController extends Controller
         try{
             DB::beginTransaction();
             $hearing = Hearing::query()->findOrFail($id);
+            if($request->last_update){
+                $client = Client::query()->findOrFail($request->client_id);
+                $client->update(['last_update'=>$request->last_update]);
+            }
             $hearing->update($data);
-            $this->clientService->fileStore();
+            $this->clientService->fileStore($hearing);
             DB::commit();
             return redirect()->route('clients.show',$hearing->client_id)->with('success','Hearing History Update');
         }catch(\Throwable $e){

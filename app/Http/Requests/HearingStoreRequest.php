@@ -27,6 +27,7 @@ class HearingStoreRequest extends FormRequest
             'client_id'    => 'required|exists:clients,id',
             'date'         => 'required|date',
             'time'         => 'nullable',
+            'last_update'  => 'nullable',
             'status'       => 'nullable|integer|in:0,1',
         ];
     }

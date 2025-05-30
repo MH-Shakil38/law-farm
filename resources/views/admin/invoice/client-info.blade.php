@@ -141,6 +141,28 @@
             </table>
         </div>
         <div class="table-container">
+            <table class="text-primary border-bottom pb-2 mb-3">
+                <tr>
+                    <td>Total Payment</td>
+                    <td>Initial Payment</td>
+                    <td>Monthly Payment</td>
+                    <td>Payment Date</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="color:#666666">.</td>
+                </tr>
+            </table>
+
+            <table >
+                <tr>
+                    <td class="col-6">Date: <span style="color: #666666"></span></td>
+                    <td class="col-6"> Referred By: <strong> <i>{{ $client->ref_by ?? '' }}</i> </strong></td>
+                </tr>
+            </table>
 
             <!-- Personal Information Section -->
             <h6 class="text-primary border-bottom pb-2 mb-3">Personal Information</h6>

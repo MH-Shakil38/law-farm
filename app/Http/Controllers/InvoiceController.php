@@ -44,6 +44,7 @@ class InvoiceController extends Controller
         }else{
             $client = Client::with(['caseType'])->findOrFail($request->id);
         }
+        // dd($client);
         //  return view('admin.invoice.client-info', compact('client'));
          $pdf = Pdf::loadView('admin.invoice.client-info', compact('client'));
          return $pdf->download('invoice_' . $client->name . '.pdf');

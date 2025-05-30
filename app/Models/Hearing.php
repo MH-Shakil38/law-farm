@@ -15,6 +15,7 @@ class Hearing extends Model
         'date',
         'time',
         'status',
+        'last_update',
         'client_id',
         'created_by',
         'updated_by',
@@ -22,6 +23,10 @@ class Hearing extends Model
 
     public function client(){
         return $this->belongsTo(Client::class, 'client_id');
+    }
+
+     public function file(){
+        return $this->hasOne(Hearing::class, 'id','hearing_id');
     }
 
     public function createdBy(){

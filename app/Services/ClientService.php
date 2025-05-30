@@ -131,16 +131,20 @@ class ClientService
     }
 
 
-    public function fileStore()
+    public function fileStore($hearing = null)
     {
         $request = request();
         $data = $request->only('date', 'file', 'title', 'client_id');
         if ($request->hasFile('file')) {
             $data['file'] = $this->controller->uploadImage($request->file('file'), 'client/file/');
-        }
-        $data['title'] = $request->title;
-        $data['client_id'] = $request->client_id;
+            $data['title'] = $request->title;
+            $data['client_id'] = $request->client_id;
+            if($hearing->id != null){
+                $data['hearing_id'] = $hearing->id;
+            }
         ClientFile::query()->create($data);
+        }
+
     }
 
 

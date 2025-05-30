@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Blog;
 use App\Models\CaseType;
 use App\Models\Client;
 use App\Models\EmailSetup;
@@ -31,9 +32,17 @@ if (!function_exists("lawyers")) {
 
 
 if (!function_exists("entry_list")) {
-    function entry_list()
+    function entry_list($type = null)
     {
-        return TmpClient::query()->get();
+        $query = TmpClient::query();
+        if ($type == 0) {
+            $query = $query->where('status',0);
+            } elseif ($type == 1) {
+                $query = $query->where('status',1);
+            }else{
+                $query = $query;
+            }
+        return $query->get();
     }
 }
 
@@ -266,5 +275,10 @@ if(!function_exists('activity_data')){
         }
     }
 
+    if(!function_exists('blogs')){
+        function blogs(){
+            return Blog::with('service')->latest()->get();
+        }
+    }
 
 }

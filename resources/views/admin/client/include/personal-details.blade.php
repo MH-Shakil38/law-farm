@@ -24,7 +24,8 @@
                         <td>
 
                             <span class="text-danger">
-                                {{ $client->last_update ?? '---' }}
+                                {{ $client->last_update ?? $client->hearing()->latest()->first()->last_update ?? '-----' }}
+
                             </span>
                         </td>
                     </tr>
